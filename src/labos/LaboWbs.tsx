@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react';
+import { useReducer, useRef, useState } from 'react';
 import { LaboFrame } from '../components/LaboFrame';
 import { useProgress } from '../lib/progress';
 
@@ -61,8 +61,18 @@ export default function LaboWbs(props: Props) {
   const [tiree, setTiree] = useState<string | null>(null);
   const [messages, setMessages] = useState<string[]>([]);
   const [etape, setEtape] = useState(1);
+  const [focusIdx, setFocusIdx] = useState(0);
+  const refs = useRef<Array<HTMLButtonElement | null>>([]);
   const cartes = [...CARDS_INITIALES, ...(state.noticeTrouvee ? [NOTICE_CACHEE] : [])];
+  const nb = cartes.length;
+  const focus = Math.min(focusIdx, nb - 1);
   const lotIds = ['contenu', 'realisation', 'mise-en-ligne'] as const;
+
+  const deplacerFocus = (delta: number) => {
+    const suivant = (focus + delta + nb) % nb;
+    setFocusIdx(suivant);
+    refs.current[suivant]?.focus();
+  };
 
   const verifier = () => {
     const r = verifierWBS(state);
@@ -100,15 +110,26 @@ export default function LaboWbs(props: Props) {
       <div className="wbs-grid">
         <div>
           <h4>Cartes a placer</h4>
-          <div className="wbs-cards" role="listbox" aria-label="Cartes du WBS">
-            {cartes.map((c) => (
+          <div
+            className="wbs-cards"
+            role="listbox"
+            aria-label="Cartes du WBS"
+            onKeyDown={(e) => {
+              if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); deplacerFocus(1); }
+              else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); deplacerFocus(-1); }
+            }}
+          >
+            {cartes.map((c, i) => (
               <button
                 key={c}
                 type="button"
                 role="option"
                 aria-selected={tiree === c}
                 className={`wbs-card${tiree === c ? ' tiree' : ''}`}
-                onClick={() => setTiree(tiree === c ? null : c)}
+                ref={(el) => { refs.current[i] = el; }}
+                tabIndex={i === focusIdx ? 0 : -1}
+                onFocus={() => setFocusIdx(i)}
+                onClick={() => { setTiree(tiree === c ? null : c); setFocusIdx(i); }}
               >
                 {LIBELLE[c]}{state.place[c] ? ` (${lotLisible(state.place[c] as Lot)})` : ''}
               </button>

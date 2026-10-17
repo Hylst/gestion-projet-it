@@ -17,6 +17,7 @@ export function LaboFrame(props: {
   const id = `labo-${slug(props.titre)}`;
   return (
     <div className="labo card" aria-labelledby={id}>
+      <h2 className="sr-only">Labo</h2>
       <div className="labo-head">
         <h3 id={id}>{props.titre}</h3>
         <p className="consigne">{props.consigne}</p>

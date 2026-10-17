@@ -1,1 +1,50 @@
-/* Placeholder minimal : la charte complete arrive en Task 2. */
+:root {
+  --c-bg: #fafaf7;
+  --c-surface: #ffffff;
+  --c-ink: #14161f;
+  --c-muted: #4b5563;
+  --c-main: #1d4ed8;
+  --c-main-ink: #172554;
+  --c-soft: #fef3c7;
+  --c-calm: #a7c4b5;
+  --c-line: #e5e7eb;
+  --c-error: #b91c1c;
+  --c-ok: #15803d;
+  --radius: 10px;
+  --shadow: 0 6px 24px rgba(20, 22, 31, 0.08);
+  --maxw: 70rem;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--c-bg);
+  color: var(--c-ink);
+  line-height: 1.6;
+}
+main, footer { max-width: var(--maxw); margin: 0 auto; padding: 0 1.25rem 4rem; }
+h1, h2, h3 { line-height: 1.25; }
+a { color: var(--c-main); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--c-main);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.card { background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--c-main); color: #fff; border: none; cursor: pointer;
+  border-radius: var(--radius); padding: 0.6rem 1.1rem; font-size: 1rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn.secondary { background: var(--c-surface); color: var(--c-main-ink); border: 1px solid var(--c-line); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip-link { position: absolute; left: -9999px; top: 0; background: var(--c-main); color: #fff; padding: 0.5rem 1rem; z-index: 100; }
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover { transform: none; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

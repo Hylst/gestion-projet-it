@@ -1,0 +1,7 @@
+@media print {
+  header, footer, nav, .no-print, button { display: none !important; }
+  main { padding: 0; max-width: none; }
+  .fiche-reflexe { border: 1px solid #000; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  body { background: #fff; color: #000; }
+}

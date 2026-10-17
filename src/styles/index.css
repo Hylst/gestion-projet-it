@@ -51,6 +51,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .search ul button { width: 100%; text-align: left; background: none; border: none; padding: 0.4rem 0.5rem; border-radius: 6px; cursor: pointer; }
 .search ul button:hover { background: var(--c-bg); }
 .search ul span { color: var(--c-muted); font-size: 0.8rem; }
+.progress-header { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.xp-chip, .niveau-chip, .badge-chip { border: 1px solid var(--c-line); background: var(--c-surface); border-radius: 999px; padding: 0.15rem 0.7rem; font-size: 0.85rem; }
+.btn.mini { padding: 0.25rem 0.6rem; font-size: 0.8rem; }
 @media (prefers-reduced-motion: reduce) {
   .btn:hover { transform: none; }
   * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }

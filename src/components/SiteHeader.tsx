@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar';
+import ProgressHeader from './ProgressHeader';
 
 export default function SiteHeader() {
   return (
@@ -14,7 +15,7 @@ export default function SiteHeader() {
         <NavLink to="/">Accueil</NavLink>
         <NavLink to="/a-propos">A propos</NavLink>
       </nav>
-      <div id="header-tools"><SearchBar /></div>
+      <div id="header-tools"><SearchBar /> <ProgressHeader /></div>
     </header>
   );
 }

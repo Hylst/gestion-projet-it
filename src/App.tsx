@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
 import SiteHeader from './components/SiteHeader';
 import Footer from './components/Footer';
 import NotFound from './routes/NotFound';
+import Accueil from './routes/accueil';
 import { moduleMetaByNum } from './modules/index';
 import './styles/reveal.css';
 
@@ -18,7 +19,7 @@ export default function App() {
       <SiteHeader />
       <main id="contenu">
         <Routes>
-          <Route path="/" element={<p>accueil (jalon 1)</p>} />
+          <Route path="/" element={<Accueil />} />
           <Route path="/module-:num" element={<ModulePlaceholder />} />
           <Route path="/a-propos" element={<p>prochainement</p>} />
           <Route path="*" element={<NotFound />} />

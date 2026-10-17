@@ -58,3 +58,28 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .btn:hover { transform: none; }
   * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
+.labo { padding: 1.2rem; margin: 1rem 0; }
+.labo .consigne { color: var(--c-muted); }
+.labo .etapes { font-size: 0.9rem; color: var(--c-muted); padding-left: 1.2rem; }
+.labo .etapes .courante { color: var(--c-ink); font-weight: 600; }
+.labo-actions { display: flex; gap: 0.6rem; align-items: center; margin-top: 0.8rem; flex-wrap: wrap; }
+.ok { color: var(--c-ok); }
+.err { color: var(--c-error); }
+.wbs-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 0.8rem; align-items: start; }
+@media (max-width: 50rem) { .wbs-grid { grid-template-columns: 1fr; } }
+.wbs-cards { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.wbs-card { border: 1px solid var(--c-line); background: var(--c-soft); border-radius: 8px; padding: 0.35rem 0.6rem; cursor: pointer; font-size: 0.95rem; }
+.wbs-card.tiree { outline: 2px solid var(--c-main); }
+.wbs-lots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+@media (max-width: 50rem) { .wbs-lots { grid-template-columns: 1fr; } }
+.wbs-lot { border: 1px dashed var(--c-line); border-radius: var(--radius); padding: 0.5rem; min-height: 6rem; }
+.wbs-lot.cible { border-color: var(--c-main); }
+.wbs-lot h4 { margin: 0.2rem 0; }
+.wbs-lot ul { list-style: none; margin: 0.3rem 0; padding: 0.2rem; min-height: 4rem; }
+.wbs-lot li { padding: 0.2rem 0.4rem; border-radius: 6px; }
+.wbs-lot li .wbs-card { width: 100%; text-align: left; }
+.compteur { font-size: 0.9rem; color: var(--c-muted); margin: 0.2rem 0; }
+.compteur:empty + .wbs-decor { display: none; }
+.wbs-decor { display: block; color: var(--c-calm); margin: 0.2rem 0; }
+.hors-zone { margin-top: 0.5rem; border: 1px solid var(--c-line); border-radius: var(--radius); padding: 0.5rem; }
+.messages { margin: 0.6rem 0 0; padding-left: 1.2rem; }

@@ -1,21 +1,26 @@
-import { beforeAll, afterAll } from 'vitest';
+import { beforeAll, afterEach } from 'vitest';
 
-let io: MockIntersectionObserver | undefined;
+interface Obs { cb: (entries: Array<IntersectionObserverEntry>) => void; els: Set<Element> }
+const map = new Map<Element, Obs>();
 
-class MockIntersectionObserver {
-  callback: (entries: Array<{ isIntersecting: boolean; target: Element }>) => void;
-  elements = new Set<Element>();
-  constructor(cb: MockIntersectionObserver['callback']) { this.callback = cb; }
-  observe(el: Element) { io?.elements.add(el); }
-  unobserve(el: Element) { io?.elements.delete(el); }
-  disconnect() { io?.elements.clear(); }
+class MockIntersectionObserver implements IntersectionObserver {
+  root = null; rootMargin = ''; scrollMargin = '';
+  thresholds: number[] = [0];
+  private obs: Obs;
+  constructor(cb: (entries: Array<IntersectionObserverEntry>) => void) { this.obs = { cb, els: new Set() }; }
+  observe(el: Element) { map.set(el, this.obs); this.obs.els.add(el); }
+  unobserve(el: Element) { map.delete(el); this.obs.els.delete(el); }
+  disconnect() { for (const key of Array.from(map.keys())) if (map.get(key) === this.obs) map.delete(key); this.obs.els.clear(); }
+  takeRecords() { return []; }
 }
 
 beforeAll(() => {
-  io = new MockIntersectionObserver(() => {}) as never;
   Object.defineProperty(globalThis, 'IntersectionObserver', { value: MockIntersectionObserver, writable: true });
 });
 
-afterAll(() => { io = undefined; });
+afterEach(() => map.clear());
 
-export { io, MockIntersectionObserver };
+export function intersect(el: Element, isIntersecting = true) {
+  const obs = map.get(el);
+  if (obs) obs.cb([{ isIntersecting, target: el, intersectionRatio: 1, boundingClientRect: {} as DOMRect, intersectionRect: {} as DOMRect, rootBounds: null, time: Date.now() } as unknown as IntersectionObserverEntry]);
+}

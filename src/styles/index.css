@@ -44,6 +44,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .skip-link { position: absolute; left: -9999px; top: 0; background: var(--c-main); color: #fff; padding: 0.5rem 1rem; z-index: 100; }
 .skip-link:focus { left: 0.5rem; top: 0.5rem; }
+.search { position: relative; display: flex; flex-direction: column; gap: 0.25rem; }
+.search label { font-size: 0.8rem; color: var(--c-muted); }
+.search input { padding: 0.4rem 0.6rem; border: 1px solid var(--c-line); border-radius: var(--radius); min-width: 16rem; }
+.search ul { position: absolute; top: 100%; z-index: 50; list-style: none; margin: 0.25rem 0 0; padding: 0.25rem; background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--radius); box-shadow: var(--shadow); min-width: 20rem; max-height: 16rem; overflow: auto; }
+.search ul button { width: 100%; text-align: left; background: none; border: none; padding: 0.4rem 0.5rem; border-radius: 6px; cursor: pointer; }
+.search ul button:hover { background: var(--c-bg); }
+.search ul span { color: var(--c-muted); font-size: 0.8rem; }
 @media (prefers-reduced-motion: reduce) {
   .btn:hover { transform: none; }
   * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }

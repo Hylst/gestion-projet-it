@@ -1,0 +1,16 @@
+import React from 'react';
+
+export function ExerciseBlock(props: { id: string; titre: string; enonce: React.ReactNode; corrige: React.ReactNode; methode: string[] }) {
+  return (
+    <section id={props.id} className="exercise" aria-labelledby={`${props.id}-t`}>
+      <h2 id={`${props.id}-t`} className={props.id === 'exercice' ? 'sr-anchor' : undefined}>{props.titre}</h2>
+      {props.enonce}
+      <details className="corrige">
+        <summary>Voir le corrige</summary>
+        <div className="corrige-body">{props.corrige}</div>
+      </details>
+      <h3>Methode reusable</h3>
+      <ol>{props.methode.map((m, i) => <li key={i}>{m}</li>)}</ol>
+    </section>
+  );
+}

@@ -127,7 +127,7 @@ export default function LaboWbs(props: Props) {
                 aria-selected={tiree === c}
                 className={`wbs-card${tiree === c ? ' tiree' : ''}`}
                 ref={(el) => { refs.current[i] = el; }}
-                tabIndex={i === focusIdx ? 0 : -1}
+                tabIndex={i === focus ? 0 : -1}
                 onFocus={() => setFocusIdx(i)}
                 onClick={() => { setTiree(tiree === c ? null : c); setFocusIdx(i); }}
               >

@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import NotFound from './routes/NotFound';
 import Accueil from './routes/accueil';
 import { moduleMetaByNum } from './modules/index';
+import { M1Page } from './modules/m1-wbs';
 import './styles/reveal.css';
 
 function ModulePlaceholder() {
@@ -20,6 +21,7 @@ export default function App() {
       <main id="contenu">
         <Routes>
           <Route path="/" element={<Accueil />} />
+          <Route path="/module-1" element={<M1Page />} />
           <Route path="/module-:num" element={<ModulePlaceholder />} />
           <Route path="/a-propos" element={<p>prochainement</p>} />
           <Route path="*" element={<NotFound />} />

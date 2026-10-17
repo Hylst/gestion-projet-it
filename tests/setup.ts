@@ -4,6 +4,7 @@ let io: MockIntersectionObserver | undefined;
 
 class MockIntersectionObserver {
   callback: (entries: Array<{ isIntersecting: boolean; target: Element }>) => void;
+  elements = new Set<Element>();
   constructor(cb: MockIntersectionObserver['callback']) { this.callback = cb; }
   observe(el: Element) { io?.elements.add(el); }
   unobserve(el: Element) { io?.elements.delete(el); }

@@ -7,5 +7,6 @@
   body.printing-fiche .module-page > :not(#reflexe) { display: none !important; }
   body.printing-fiche .fiche-reflexe { border: 1.5px solid #000; padding: 1rem; }
   body { background: #fff; }
+  .reveal { opacity: 1 !important; transform: none !important; }
   header, footer, nav, .no-print { display: none !important; }
 }

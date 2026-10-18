@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react';
+import { useEffect, useReducer, useRef, useState } from 'react';
 import { LaboFrame } from '../components/LaboFrame';
 import { useProgress } from '../lib/progress';
 
@@ -22,7 +22,7 @@ export function initialState(): KanbanState {
   return { cartes, blocages: 0 };
 }
 
-export function compteEnCours(s: KanbanState): number {
+function compteEnCours(s: KanbanState): number {
   return CARTES.filter((c) => s.cartes[c] === 'En cours').length;
 }
 
@@ -52,11 +52,25 @@ export function verifierKanban(s: KanbanState): { ok: boolean; messages: string[
 
 type Props = { valide: boolean; onValide: () => void };
 
+const cleRef = (carte: string, sens: -1 | 1): string => `${carte}|${sens}`;
+
 export default function LaboKanban(props: Props) {
   const p = useProgress();
   const [s, dispatch] = useReducer(reducKanban, undefined, initialState);
   const [message, setMessage] = useState('');
+  const [valideLocal, setValideLocal] = useState(false);
+  const [derniere, setDerniere] = useState<{ carte: string; sens: -1 | 1 } | null>(null);
+  const refs = useRef<Record<string, HTMLButtonElement | null>>({});
   const ok = verifierKanban(s).ok;
+
+  useEffect(() => {
+    if (!derniere) return;
+    const el =
+      refs.current[cleRef(derniere.carte, derniere.sens)] ??
+      refs.current[cleRef(derniere.carte, -1)] ??
+      refs.current[cleRef(derniere.carte, 1)];
+    el?.focus();
+  }, [derniere]);
 
   const deplacer = (carte: string, sens: -1 | 1) => {
     const courante = s.cartes[carte];
@@ -72,18 +86,26 @@ export default function LaboKanban(props: Props) {
       return;
     }
     dispatch({ type: 'deplace', carte, sens });
+    setDerniere({ carte, sens });
     setMessage(`${carte} passe en ${cible}.`);
   };
 
   const verifier = () => {
     const r = verifierKanban(s);
-    setMessage(r.ok ? 'Toutes les cartes sont en Fini : le tableau est valide.' : r.messages.join(' '));
-    if (r.ok && !p.laboDone.includes('m4-kanban')) props.onValide();
+    if (r.ok) {
+      setValideLocal(true);
+      setMessage('Toutes les cartes sont en Fini : le tableau est valide.');
+      if (!p.laboDone.includes('m4-kanban')) props.onValide();
+    } else {
+      setMessage(r.messages.join(' '));
+    }
   };
 
   const reinitialiser = () => {
     dispatch({ type: 'reset' });
     setMessage('');
+    setValideLocal(false);
+    setDerniere(null);
   };
 
   const etapes = [
@@ -106,7 +128,7 @@ export default function LaboKanban(props: Props) {
       etat={message}
       onVerifier={verifier}
       onReinitialiser={reinitialiser}
-      valide={props.valide || ok}
+      valide={props.valide || valideLocal}
     >
       <div className="kanban-board" role="group" aria-label="Tableau Kanban a 4 colonnes">
         {COLONNES.map((c) => (
@@ -120,6 +142,7 @@ export default function LaboKanban(props: Props) {
                     type="button"
                     className="btn mini"
                     aria-label={`Reculer ${k}`}
+                    ref={(el) => { if (el) refs.current[cleRef(k, -1)] = el; }}
                     onClick={() => deplacer(k, -1)}
                   >
                     {'<-'}
@@ -128,6 +151,7 @@ export default function LaboKanban(props: Props) {
                     type="button"
                     className="btn mini"
                     aria-label={`Avancer ${k}`}
+                    ref={(el) => { if (el) refs.current[cleRef(k, 1)] = el; }}
                     onClick={() => deplacer(k, 1)}
                   >
                     {'->'}

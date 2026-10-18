@@ -3,6 +3,7 @@ import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
 import Reveal from '../../components/Reveal';
 import LaboPhases from '../../labos/LaboPhases';
+import ComparateurMethodes from '../../labos/ComparateurMethodes';
 import { useProgress } from '../../lib/progress';
 import Fiche from './fiche';
 import FilRouge from './filRouge';
@@ -38,6 +39,11 @@ export const M3Page = () => (
     <Reveal><FilRouge /></Reveal>
     <Reveal><Demarche /></Reveal>
     <Reveal><Labo /></Reveal>
+    <Reveal>
+      <section id="comparateur" aria-labelledby="comparateur-titre">
+        <ComparateurMethodes />
+      </section>
+    </Reveal>
     <Reveal><Exercices /></Reveal>
     <Reveal><QuizBlock data={quiz} /></Reveal>
     <Reveal><FicheReflexe titre="Fiche reflexe : choisir sa methode" items={items} /></Reveal>

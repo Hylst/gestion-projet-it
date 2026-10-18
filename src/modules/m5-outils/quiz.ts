@@ -11,7 +11,7 @@ export const quiz: QuizData = {
         'Garantir le delai seul',
       ],
       bonne: 0,
-      motif: 'Il rend visible le travail partage, il ne remplace ni arbitrage ni travail.',
+      motif: 'Il rend visible le travail partage, il ne remplace ni l arbitrage ni le travail.',
     },
     {
       question: 'A quoi sert une chaine CI ?',

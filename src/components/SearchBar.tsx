@@ -45,6 +45,7 @@ export default function SearchBar() {
           } else if (e.key === 'Enter' && ouverte && visibles.length > 0) {
             e.preventDefault();
             const h = visibles[actif >= 0 ? actif : 0];
+            if (!h) return;
             aller(h.moduleNum, h.ancre);
           }
         }}

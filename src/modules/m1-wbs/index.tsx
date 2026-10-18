@@ -10,6 +10,7 @@ import Demarche from './demarche';
 import Exercices from './exercice';
 import { quiz } from './quiz';
 import { items } from './ficheReflexe';
+import { moduleMetaByNum } from '../../modules/index';
 
 const Labo = () => {
   const p = useProgress();
@@ -23,16 +24,21 @@ const Labo = () => {
   );
 };
 
-export const M1Page = () => (
-  <ModuleLayout meta={{ titre: 'Cadrer et decouper (WBS)', resume: 'Besoin, perimetre dedans dehors, WBS en 3 lots, jalons, definition de fini.', num: 1, id: 'm1-wbs' }}>
-    <Reveal><Fiche /></Reveal>
-    <Reveal><FilRouge /></Reveal>
-    <Reveal><Demarche /></Reveal>
-    <Reveal><Labo /></Reveal>
-    <Reveal><Exercices /></Reveal>
-    <Reveal><QuizBlock data={quiz} /></Reveal>
-    <Reveal><FicheReflexe titre="Fiche reflexe : cadrer et decouper" items={items} /></Reveal>
-  </ModuleLayout>
-);
+const meta = moduleMetaByNum(1);
+
+export const M1Page = () => {
+  if (!meta) return null;
+  return (
+    <ModuleLayout meta={meta}>
+      <Reveal><Fiche /></Reveal>
+      <Reveal><FilRouge /></Reveal>
+      <Reveal><Demarche /></Reveal>
+      <Reveal><Labo /></Reveal>
+      <Reveal><Exercices /></Reveal>
+      <Reveal><QuizBlock data={quiz} /></Reveal>
+      <Reveal><FicheReflexe titre="Fiche reflexe : cadrer et decouper" items={items} /></Reveal>
+    </ModuleLayout>
+  );
+};
 
 export default M1Page;

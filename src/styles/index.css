@@ -129,3 +129,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .pert li { border: 1px solid var(--c-line); border-radius: 8px; padding: 0.3rem 0.6rem; }
 .pert li.tendue { border-color: var(--c-main); }
 .pert-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+.eisenhower-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; margin-top: 0.6rem; }
+@media (max-width: 40rem) { .eisenhower-grid { grid-template-columns: 1fr; } }
+.eisenhower-q { border: 1px dashed var(--c-line); border-radius: var(--radius); padding: 0.6rem; min-height: 8rem; }
+.eisenhower-q.cible { border-color: var(--c-main); }
+.eisenhower-q h4 { margin: 0.2rem 0; }
+.motif-q { color: var(--c-muted); font-size: 0.85rem; margin: 0.1rem 0 0.4rem; }
+.eisenhower-q ul { list-style: none; margin: 0.3rem 0; padding: 0; min-height: 3rem; }
+.eisenhower-q li { margin: 0.3rem 0; }
+.eisenhower-q li .wbs-card { width: 100%; text-align: left; }
+.motif { font-size: 0.8rem; color: var(--c-muted); margin: 0.1rem 0 0; }

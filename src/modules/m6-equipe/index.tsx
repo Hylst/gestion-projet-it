@@ -3,6 +3,7 @@ import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
 import Reveal from '../../components/Reveal';
 import LaboEisenhower from '../../labos/LaboEisenhower';
+import LaboRisques from '../../labos/LaboRisques';
 import { useProgress } from '../../lib/progress';
 import Fiche from './fiche';
 import FilRouge from './filRouge';
@@ -23,6 +24,18 @@ const Labo = () => {
   );
 };
 
+const LaboRisquesBloc = () => {
+  const p = useProgress();
+  return (
+    <section id="labo-risques" aria-label="Labo : matrice des risques et parades">
+      <LaboRisques
+        valide={p.laboDone.includes('m6-risques')}
+        onValide={() => p.dispatch({ type: 'labo', id: 'm6-risques' })}
+      />
+    </section>
+  );
+};
+
 export const M6Page = () => (
   <ModuleLayout
     meta={{
@@ -38,6 +51,7 @@ export const M6Page = () => (
     <Reveal><FilRouge /></Reveal>
     <Reveal><Demarche /></Reveal>
     <Reveal><Labo /></Reveal>
+    <Reveal><LaboRisquesBloc /></Reveal>
     <Reveal><Exercices /></Reveal>
     <Reveal><QuizBlock data={quiz} /></Reveal>
     <Reveal><FicheReflexe titre="Fiche reflexe : equipe, risques et suivi" items={items} /></Reveal>

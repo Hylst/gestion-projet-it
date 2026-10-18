@@ -139,3 +139,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .eisenhower-q li { margin: 0.3rem 0; }
 .eisenhower-q li .wbs-card { width: 100%; text-align: left; }
 .motif { font-size: 0.8rem; color: var(--c-muted); margin: 0.1rem 0 0; }
+.risques-cell-indic { display: block; font-size: 0.75rem; color: var(--c-muted); }
+.risques-matrice-wrap { overflow-x: auto; margin-top: 0.4rem; }
+.risques-matrice { width: 100%; min-width: 34rem; border-collapse: collapse; }
+.risques-matrice th, .risques-matrice td { border: 1px solid var(--c-line); padding: 0.3rem; text-align: center; vertical-align: top; }
+.risques-matrice thead th, .risques-matrice tbody th { background: var(--c-bg); font-size: 0.85rem; }
+.risques-matrice tbody th { text-align: left; white-space: nowrap; }
+.risques-cell { width: 100%; min-height: 4.5rem; display: flex; flex-direction: column; gap: 0.2rem; align-items: stretch; background: var(--c-surface); border: 1px dashed var(--c-line); border-radius: 8px; padding: 0.35rem; cursor: pointer; text-align: left; font: inherit; color: inherit; }
+.risques-cell.cible { border-color: var(--c-main); background: var(--c-bg); }
+.risques-cell-lab { font-size: 0.75rem; color: var(--c-muted); }
+.risques-puce { font-size: 0.8rem; background: var(--c-soft); border-radius: 6px; padding: 0.1rem 0.3rem; overflow-wrap: anywhere; }
+.risques-vide { font-size: 0.75rem; color: var(--c-muted); }
+.risques-priorites { margin: 0.3rem 0 0; padding-left: 1.4rem; }
+.risques-priorites li { margin: 0.15rem 0; }
+.risques-score { color: var(--c-muted); font-size: 0.85rem; margin-left: 0.3rem; }
+.risques-parades { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; margin-top: 0.6rem; }
+@media (max-width: 50rem) { .risques-parades { grid-template-columns: 1fr; } }
+.risques-parade { border: 1px dashed var(--c-line); border-radius: var(--radius); padding: 0.6rem; margin: 0; }
+.risques-parade legend { font-weight: 600; padding: 0 0.2rem; }
+.risques-options { display: flex; flex-direction: column; gap: 0.3rem; }
+.risques-options label { display: flex; gap: 0.4rem; align-items: flex-start; font-size: 0.9rem; }
+.risques-options input { margin-top: 0.35rem; flex-shrink: 0; }

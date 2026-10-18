@@ -3,6 +3,7 @@ import SiteHeader from './components/SiteHeader';
 import Footer from './components/Footer';
 import NotFound from './routes/NotFound';
 import Accueil from './routes/accueil';
+import Apropos from './routes/Apropos';
 import { moduleMetaByNum } from './modules/index';
 import { M1Page } from './modules/m1-wbs';
 import { M2Page } from './modules/m2-planif';
@@ -33,7 +34,7 @@ export default function App() {
           <Route path="/module-5" element={<M5Page />} />
           <Route path="/module-6" element={<M6Page />} />
           <Route path="/module-:num" element={<ModulePlaceholder />} />
-          <Route path="/a-propos" element={<p>prochainement</p>} />
+          <Route path="/a-propos" element={<Apropos />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

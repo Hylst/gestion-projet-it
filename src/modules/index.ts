@@ -6,9 +6,9 @@ export const MODULES: ModuleMeta[] = [
   { id: 'm4-agiles', num: 4, slug: 'module-4', titre: 'Agiles : Scrum, Kanban, Lean, XP', resume: 'Backlog, rituels, limites de WIP, petits lots, qualite du code.', motsCles: ['scrum', 'kanban', 'wip', 'lean', 'xp', 'backlog', 'poker planning', 'user stories'] },
   { id: 'm5-outils', num: 5, slug: 'module-5', titre: 'Outils : suivi, CI/CD et environnements', resume: 'Suivi partage, chaine CI, environnements reproductibles, sans tutoriel operatoire.', motsCles: ['suivi', 'ci', 'cd', 'docker', 'jira', 'github projects', 'environnement'] },
   { id: 'm6-equipe', num: 6, slug: 'module-6', titre: 'Equipe, risques (Eisenhower) et suivi', resume: 'Communication, tri urgent important, registre des risques, retro utile.', motsCles: ['eisenhower', 'risques', 'retro', 'communication', 'indicateurs'] },
+  { id: 'm7-parties', num: 7, slug: 'module-7', titre: 'Parties prenantes et communication', resume: 'Cartographier, choisir les canaux, animer un rituel court et ajuster apres les retours.', motsCles: ['parties prenantes', 'communication', 'cartographie', 'canaux', 'rituels'] },
 ];
 export const FUTURE_MODULES: ModuleMeta[] = [
-  { id: 'futur-A', num: 7, slug: '', titre: 'Parties prenantes et communication', resume: 'Roles fictifs, plan de messages, rituel de point.', motsCles: ['parties prenantes'], avenir: true },
   { id: 'futur-B', num: 8, slug: '', titre: 'Budget et chiffrage', resume: 'Lots valorises, hypotheses, marge d alea fictive.', motsCles: ['budget'], avenir: true },
   { id: 'futur-C', num: 9, slug: '', titre: 'Conduite du changement', resume: 'Freins, messages, formation courte, relais.', motsCles: ['changement'], avenir: true },
 ];

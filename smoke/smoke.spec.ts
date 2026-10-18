@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 const base = 'http://localhost:4173/gestion-projet-it';
-const routes = ['/', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/a-propos'];
+const routes = ['/', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/a-propos'];
 
-test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 8 routes, zero erreur', async ({ page }) => {
+test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 9 routes, zero erreur', async ({ page }) => {
   const externals: string[] = [];
   const failures: string[] = [];
   const badStatus: string[] = [];
@@ -47,4 +47,21 @@ test('labo Eisenhower : depot au clavier et retour du focus', async ({ page }) =
   await placer.focus();
   await page.keyboard.press('Enter');
   await expect(tache).toBeFocused();
+});
+
+test('module 7 : plan de communication complet', async ({ page }) => {
+  await page.goto(`${base}/module-7`);
+  const choix = [
+    ['Bureau de l association', 'Point court mensuel et compte rendu'],
+    ['Benevoles', 'Message court et tableau des taches'],
+    ['Financeur fictif', 'Note d avancement trimestrielle'],
+    ['Usagers du quartier', 'Affiche et page d actualites'],
+    ['Mairie fictive', 'Courriel formel aux etapes cles'],
+    ['Hebergeur fictif', 'Fiche technique et contact incident'],
+  ];
+  for (const [partie, canal] of choix) {
+    await page.getByRole('group', { name: partie as string }).getByLabel(canal as string).check();
+  }
+  await page.getByRole('button', { name: 'Verifier' }).click();
+  await expect(page.getByText('Labo valide : +5 XP (un seul gain).')).toBeVisible();
 });

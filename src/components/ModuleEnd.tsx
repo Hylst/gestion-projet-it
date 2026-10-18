@@ -1,4 +1,5 @@
 import { useProgress } from '../lib/progress';
+import { MODULES } from '../modules/index';
 
 export function ModuleEnd(props: { id: string }) {
   const p = useProgress();
@@ -6,7 +7,7 @@ export function ModuleEnd(props: { id: string }) {
   return (
     <section id="fin" className="module-end">
       {fait
-        ? <p className="ok" role="status">Module termine. Badge ajoute ({p.moduleDone.length}/6).</p>
+        ? <p className="ok" role="status">Module termine. Badge ajoute ({p.moduleDone.length}/{MODULES.length}).</p>
         : <button type="button" className="btn" onClick={() => p.dispatch({ type: 'module', id: props.id })}>Marquer le module comme termine (+20 XP)</button>}
     </section>
   );

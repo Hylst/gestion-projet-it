@@ -162,3 +162,5 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .risques-options { display: flex; flex-direction: column; gap: 0.3rem; }
 .risques-options label { display: flex; gap: 0.4rem; align-items: flex-start; font-size: 0.9rem; }
 .risques-options input { margin-top: 0.35rem; flex-shrink: 0; }
+.communication { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; margin-top: 0.6rem; }
+@media (max-width: 50rem) { .communication { grid-template-columns: 1fr; } }

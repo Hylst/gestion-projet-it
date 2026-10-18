@@ -1,5 +1,5 @@
 const BASE = '/gestion-projet-it/';
-const version = 'gestion-projet-it-v1';
+const version = 'gestion-projet-it-v2';
 const precache = [
   `${BASE}`, `${BASE}offline.html`, `${BASE}manifest.webmanifest`,
 ];
@@ -16,7 +16,13 @@ self.addEventListener('fetch', (e) => {
   const url = new URL(e.request.url);
   if (!url.pathname.startsWith(BASE)) return;
   if (e.request.mode === 'navigate') {
-    e.respondWith(fetch(e.request).catch(() => caches.match(`${BASE}offline.html`)));
+    e.respondWith(fetch(e.request).then((rep) => {
+      if (rep.ok) {
+        const copie = rep.clone();
+        e.waitUntil(caches.open(version).then((c) => c.put(e.request, copie)));
+      }
+      return rep;
+    }).catch(async () => (await caches.match(e.request)) || (await caches.match(`${BASE}offline.html`))));
     return;
   }
   e.respondWith(caches.match(e.request).then((hit) => hit || fetch(e.request).then((rep) => {

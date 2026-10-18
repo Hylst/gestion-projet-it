@@ -27,8 +27,24 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 8 
     await expect(page.locator('#contenu')).toBeVisible();
   }
 
+  for (const a of ['manifest.webmanifest', 'sw.js', 'sitemap.xml', 'robots.txt', 'offline.html', 'icon-192.svg', 'icon-512.svg']) {
+    const res = await page.request.get(`${base}/${a}`);
+    expect(res.status(), a).toBe(200);
+  }
+
   expect(externals).toEqual([]);
-  expect(failures.filter((u) => !/favicon|manifest|sw\.js/.test(u))).toEqual([]);
-  expect(badStatus.filter((u) => !/favicon|manifest|sw\.js/.test(u))).toEqual([]);
+  expect(failures).toEqual([]);
+  expect(badStatus).toEqual([]);
   expect(consoleErrors).toEqual([]);
+});
+
+test('labo Eisenhower : depot au clavier et retour du focus', async ({ page }) => {
+  await page.goto(`${base}/module-6`);
+  const tache = page.getByRole('option', { name: /Corriger le formulaire casse/ });
+  await tache.focus();
+  await page.keyboard.press('Enter');
+  const placer = page.getByRole('button', { name: 'Placer Corriger le formulaire casse en Urgent et important' });
+  await placer.focus();
+  await page.keyboard.press('Enter');
+  await expect(tache).toBeFocused();
 });

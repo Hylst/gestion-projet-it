@@ -1,0 +1,15 @@
+{
+  "id": "/gestion-projet-it/",
+  "name": "Gestion de Projet IT",
+  "short_name": "GPI-IT",
+  "scope": "/gestion-projet-it/",
+  "start_url": "/gestion-projet-it/",
+  "display": "standalone",
+  "background_color": "#fafaf7",
+  "theme_color": "#1d4ed8",
+  "lang": "fr",
+  "icons": [
+    { "src": "/gestion-projet-it/icon-192.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/gestion-projet-it/icon-512.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

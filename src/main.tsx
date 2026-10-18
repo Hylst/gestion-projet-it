@@ -12,3 +12,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     </ProgressProvider>
   </React.StrictMode>,
 );
+
+if ('serviceWorker' in navigator && window.location.pathname.startsWith('/gestion-projet-it/')) {
+  navigator.serviceWorker.register('/gestion-projet-it/sw.js');
+}

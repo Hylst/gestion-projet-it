@@ -119,6 +119,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .selecteur-outils .btn[aria-pressed='true'] { background: var(--c-main); color: #fff; border-color: var(--c-main); }
 .selecteur-detail { margin-top: 0.5rem; border-left: 3px solid var(--c-calm); padding-left: 0.5rem; font-size: 0.95rem; }
 .selecteur-detail p { margin: 0.2rem 0; }
+.chaine-liste { list-style: none; margin: 0.6rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+.chaine-etape { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; border: 1px solid var(--c-line); border-radius: 8px; padding: 0.4rem 0.6rem; background: var(--c-soft); }
+.chaine-etape strong { overflow-wrap: anywhere; }
+.chaine-actions { display: inline-flex; gap: 0.3rem; }
+.chaine-actions .btn:disabled { opacity: 0.55; cursor: not-allowed; }
+@media (max-width: 30rem) { .chaine-etape { flex-wrap: wrap; } }
 .pert ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .pert li { border: 1px solid var(--c-line); border-radius: 8px; padding: 0.3rem 0.6rem; }
 .pert li.tendue { border-color: var(--c-main); }

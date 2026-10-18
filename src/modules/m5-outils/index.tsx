@@ -3,6 +3,7 @@ import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
 import Reveal from '../../components/Reveal';
 import LaboSelecteurOutil from '../../labos/LaboSelecteurOutil';
+import LaboChaineCI from '../../labos/LaboChaineCI';
 import { useProgress } from '../../lib/progress';
 import Fiche from './fiche';
 import FilRouge from './filRouge';
@@ -23,6 +24,18 @@ const Labo = () => {
   );
 };
 
+const LaboChaine = () => {
+  const p = useProgress();
+  return (
+    <section id="labo-chaine" aria-label="Labo : chaine CI a ordonner">
+      <LaboChaineCI
+        valide={p.laboDone.includes('m5-chaine')}
+        onValide={() => p.dispatch({ type: 'labo', id: 'm5-chaine' })}
+      />
+    </section>
+  );
+};
+
 export const M5Page = () => (
   <ModuleLayout
     meta={{
@@ -38,6 +51,7 @@ export const M5Page = () => (
     <Reveal><FilRouge /></Reveal>
     <Reveal><Demarche /></Reveal>
     <Reveal><Labo /></Reveal>
+    <Reveal><LaboChaine /></Reveal>
     <Reveal><Exercices /></Reveal>
     <Reveal><QuizBlock data={quiz} /></Reveal>
     <Reveal><FicheReflexe titre="Fiche reflexe : outiller sans dogme" items={items} /></Reveal>

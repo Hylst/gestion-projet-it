@@ -111,6 +111,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .kanban-actions { display: inline-flex; gap: 0.2rem; flex-shrink: 0; }
 .kanban-actions .btn.mini { min-width: 2rem; }
 @media (prefers-reduced-motion: reduce) { .kanban-card { transition: none; } }
+.selecteur-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+@media (max-width: 50rem) { .selecteur-grid { grid-template-columns: 1fr; } }
+.selecteur-besoin { border: 1px dashed var(--c-line); border-radius: var(--radius); padding: 0.5rem; }
+.selecteur-besoin h4 { margin: 0.2rem 0 0.4rem; }
+.selecteur-outils { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.selecteur-outils .btn[aria-pressed='true'] { background: var(--c-main); color: #fff; border-color: var(--c-main); }
+.selecteur-detail { margin-top: 0.5rem; border-left: 3px solid var(--c-calm); padding-left: 0.5rem; font-size: 0.95rem; }
+.selecteur-detail p { margin: 0.2rem 0; }
 .pert ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .pert li { border: 1px solid var(--c-line); border-radius: 8px; padding: 0.3rem 0.6rem; }
 .pert li.tendue { border-color: var(--c-main); }

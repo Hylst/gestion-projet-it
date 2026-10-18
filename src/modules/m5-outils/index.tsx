@@ -2,6 +2,8 @@ import { ModuleLayout } from '../../components/ModuleLayout';
 import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
 import Reveal from '../../components/Reveal';
+import LaboSelecteurOutil from '../../labos/LaboSelecteurOutil';
+import { useProgress } from '../../lib/progress';
 import Fiche from './fiche';
 import FilRouge from './filRouge';
 import Demarche from './demarche';
@@ -9,11 +11,17 @@ import Exercices from './exercise';
 import { quiz } from './quiz';
 import { items } from './ficheReflexe';
 
-const Labo = () => (
-  <section id="labo" aria-label="Labo : selecteur d outil et chaine CI">
-    <p>Labo en preparation.</p>
-  </section>
-);
+const Labo = () => {
+  const p = useProgress();
+  return (
+    <section id="labo" aria-label="Labo : selecteur d outil">
+      <LaboSelecteurOutil
+        valide={p.laboDone.includes('m5-selecteur')}
+        onValide={() => p.dispatch({ type: 'labo', id: 'm5-selecteur' })}
+      />
+    </section>
+  );
+};
 
 export const M5Page = () => (
   <ModuleLayout

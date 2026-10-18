@@ -3,6 +3,7 @@ import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
 import Reveal from '../../components/Reveal';
 import LaboKanban from '../../labos/LaboKanban';
+import PokerPlanning from '../../labos/PokerPlanning';
 import { useProgress } from '../../lib/progress';
 import Fiche from './fiche';
 import FilRouge from './filRouge';
@@ -14,12 +15,20 @@ import { items } from './ficheReflexe';
 const Labo = () => {
   const p = useProgress();
   return (
-    <section id="labo" aria-label="Labo : tableau Kanban jouable">
-      <LaboKanban
-        valide={p.laboDone.includes('m4-kanban')}
-        onValide={() => p.dispatch({ type: 'labo', id: 'm4-kanban' })}
-      />
-    </section>
+    <>
+      <section id="labo" aria-label="Labo : tableau Kanban jouable">
+        <LaboKanban
+          valide={p.laboDone.includes('m4-kanban')}
+          onValide={() => p.dispatch({ type: 'labo', id: 'm4-kanban' })}
+        />
+      </section>
+      <section id="labo-poker" aria-label="Labo : poker planning">
+        <PokerPlanning
+          valide={p.laboDone.includes('m4-poker')}
+          onValide={() => p.dispatch({ type: 'labo', id: 'm4-poker' })}
+        />
+      </section>
+    </>
   );
 };
 

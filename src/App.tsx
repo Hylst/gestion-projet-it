@@ -12,6 +12,8 @@ import { M4Page } from './modules/m4-agiles';
 import { M5Page } from './modules/m5-outils';
 import { M6Page } from './modules/m6-equipe';
 import { M7Page } from './modules/m7-parties';
+import { M8Page } from './modules/m8-budget';
+import { M9Page } from './modules/m9-changement';
 import './styles/reveal.css';
 
 function ModulePlaceholder() {
@@ -35,6 +37,8 @@ export default function App() {
           <Route path="/module-5" element={<M5Page />} />
           <Route path="/module-6" element={<M6Page />} />
           <Route path="/module-7" element={<M7Page />} />
+          <Route path="/module-8" element={<M8Page />} />
+          <Route path="/module-9" element={<M9Page />} />
           <Route path="/module-:num" element={<ModulePlaceholder />} />
           <Route path="/a-propos" element={<Apropos />} />
           <Route path="*" element={<NotFound />} />

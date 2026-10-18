@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MODULES, FUTURE_MODULES } from '../modules/index';
+import { MODULES } from '../modules/index';
 import { SeoHead } from '../components/SeoHead';
 import Reveal from '../components/Reveal';
 import { useProgress } from '../lib/progress';
@@ -10,7 +10,7 @@ function Hero() {
     <section className="reveal visible">
       <p className="kicker">Cours interactif gratuit, sans compte</p>
       <h1>Gerer un projet informatique, pas a pas</h1>
-      <p className="accroche">Cadrer, decouper, planifier, choisir sa methode, outiller et animer l equipe : 7 modules courts avec labos manipulables, exercices corriges et quiz, sur un fil rouge fictif.</p>
+      <p className="accroche">Cadrer, decouper, planifier, choisir sa methode, outiller et animer l equipe : 9 modules courts avec labos manipulables, exercices corriges et quiz, sur un fil rouge fictif.</p>
       <svg className="hero-svg" viewBox="0 0 720 200" role="img" aria-label="Trois vues du cours : un GANTT qui avance, un Kanban qui se remplit et une courbe en V qui se dessine">
         {/* panneau 1 : GANTT animé */}
         <g aria-hidden="true" transform="translate(10,10)">
@@ -54,14 +54,14 @@ export default function Accueil() {
   const p = useProgress();
   return (
     <div data-testid="page-accueil">
-      <SeoHead title="Gestion de Projet IT : Methodologies et Equipes" description="Cours interactif en 7 modules : cadrage, WBS, PERT, GANTT, methodes, agiles, outils CI, risques, communication. Labos manipulables, quiz corriges, XP." />
+      <SeoHead title="Gestion de Projet IT : Methodologies et Equipes" description="Cours interactif en 9 modules : cadrage, WBS, PERT, GANTT, methodes, agiles, outils CI, risques, communication, budget, changement. Labos manipulables, quiz corriges, XP." />
       <Hero />
       {p.xp > 0 && (
         <div className="progression-accueil card" role="status">
           {p.xp} XP, niveau {p.niveau.nom}, {p.moduleDone.length}/{MODULES.length} modules termines.
         </div>
       )}
-      <h2>Les sept modules</h2>
+      <h2>Les neuf modules</h2>
       <div className="modules-grid">
         {MODULES.map((m, i) => (
           <Reveal key={m.id} delay={i * 60}>
@@ -72,16 +72,9 @@ export default function Accueil() {
             </div>
           </Reveal>
         ))}
-        {FUTURE_MODULES.map((m) => (
-          <div key={m.id} className="module-card avenir" aria-disabled="true">
-            <strong>{m.titre}</strong>
-            <p className="resume">{m.resume}</p>
-            <span className="badge-bientot">Bientot</span>
-          </div>
-        ))}
       </div>
       <h2>Le fil rouge du cours</h2>
-      <p>Un seul cas fictif traverse les 7 modules : la refonte du site de l association fictive <strong>Les Amis du Square</strong> (pages de presentation, agenda des activites, formulaire de contact fictif). Toutes les donnees restent fictives, stockees uniquement dans le navigateur.</p>
+      <p>Un seul cas fictif traverse les 9 modules : la refonte du site de l association fictive <strong>Les Amis du Square</strong> (pages de presentation, agenda des activites, formulaire de contact fictif). Toutes les donnees restent fictives, stockees uniquement dans le navigateur.</p>
     </div>
   );
 }

@@ -3,9 +3,9 @@ import { buildIndex, searchIndex } from '../src/lib/search';
 
 describe('search', () => {
   const index = buildIndex();
-  it('l index couvre les 7 modules et leurs sections', () => {
+  it('l index couvre les 9 modules et leurs sections', () => {
     const modules = new Set(index.map((h) => h.moduleNum));
-    expect([...modules].sort()).toEqual([1, 2, 3, 4, 5, 6, 7]);
+    expect([...modules].sort()).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     expect(index.some((h) => h.ancre === 'labo')).toBe(true);
     expect(index.some((h) => h.ancre === 'quiz')).toBe(true);
   });
@@ -18,7 +18,7 @@ describe('search', () => {
   it('requête vide rend vide', () => {
     expect(searchIndex(index, '')).toEqual([]);
   });
-  it('exclut les modules futurs', () => {
-    expect(buildIndex().every((h) => h.moduleNum < 8)).toBe(true);
+  it('n indexe que les modules en ligne', () => {
+    expect(index.every((h) => h.moduleNum >= 1 && h.moduleNum <= 9)).toBe(true);
   });
 });

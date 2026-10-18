@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 const base = 'http://localhost:4173/gestion-projet-it';
-const routes = ['/', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/a-propos'];
+const routes = ['/', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/module-8', '/module-9', '/a-propos'];
 
-test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 9 routes, zero erreur', async ({ page }) => {
+test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 11 routes, zero erreur', async ({ page }) => {
   const externals: string[] = [];
   const failures: string[] = [];
   const badStatus: string[] = [];
@@ -61,6 +61,38 @@ test('module 7 : plan de communication complet', async ({ page }) => {
   ];
   for (const [partie, canal] of choix) {
     await page.getByRole('group', { name: partie as string }).getByLabel(canal as string).check();
+  }
+  await page.getByRole('button', { name: 'Verifier' }).click();
+  await expect(page.getByText('Labo valide : +5 XP (un seul gain).')).toBeVisible();
+});
+
+test('module 8 : provisions d alea completes', async ({ page }) => {
+  await page.goto(`${base}/module-8`);
+  const choix = [
+    ['Pages de presentation', 'Provision faible'],
+    ['Agenda des activites', 'Provision moyenne'],
+    ['Formulaire de contact', 'Provision forte'],
+    ['Photos et textes', 'Provision moyenne'],
+    ['Mise en ligne', 'Provision forte'],
+  ];
+  for (const [lot, niveau] of choix) {
+    await page.getByRole('group', { name: lot as string }).getByLabel(niveau as string).check();
+  }
+  await page.getByRole('button', { name: 'Verifier' }).click();
+  await expect(page.getByText('Labo valide : +5 XP (un seul gain).')).toBeVisible();
+});
+
+test('module 9 : leviers d adoption complets', async ({ page }) => {
+  await page.goto(`${base}/module-9`);
+  const choix = [
+    ['Benevoles peu a l aise avec le nouvel agenda', 'Formation courte'],
+    ['Deux benevoles motives peuvent accompagner', 'Relais de proximite'],
+    ['Les usagers ignorent la nouvelle page', 'Message repete et simple'],
+    ['Le bureau melange ancien et nouveau processus', 'Message repete et simple'],
+    ['Une equipe teste le formulaire et peut montrer le geste', 'Relais de proximite'],
+  ];
+  for (const [situation, levier] of choix) {
+    await page.getByRole('group', { name: situation as string }).getByLabel(levier as string).check();
   }
   await page.getByRole('button', { name: 'Verifier' }).click();
   await expect(page.getByText('Labo valide : +5 XP (un seul gain).')).toBeVisible();

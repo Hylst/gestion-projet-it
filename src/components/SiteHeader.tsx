@@ -14,6 +14,7 @@ export default function SiteHeader() {
       <nav aria-label="Navigation principale">
         <NavLink to="/">Accueil</NavLink>
         <NavLink to="/a-propos">A propos</NavLink>
+        <NavLink to="/glossaire">Glossaire</NavLink>
       </nav>
       <div id="header-tools"><SearchBar /> <ProgressHeader /></div>
     </header>

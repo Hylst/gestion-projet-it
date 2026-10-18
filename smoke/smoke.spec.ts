@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 const base = 'http://localhost:4173/gestion-projet-it';
-const routes = ['/', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/module-8', '/module-9', '/a-propos'];
+const routes = ['/', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/module-8', '/module-9', '/a-propos', '/glossaire'];
 
-test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 11 routes, zero erreur', async ({ page }) => {
+test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 12 routes, zero erreur', async ({ page }) => {
   const externals: string[] = [];
   const failures: string[] = [];
   const badStatus: string[] = [];
@@ -96,4 +96,10 @@ test('module 9 : leviers d adoption complets', async ({ page }) => {
   }
   await page.getByRole('button', { name: 'Verifier' }).click();
   await expect(page.getByText('Labo valide : +5 XP (un seul gain).')).toBeVisible();
+});
+
+test('glossaire : definitions et navigation', async ({ page }) => {
+  await page.goto(`${base}/glossaire`);
+  await expect(page.getByRole('heading', { level: 1, name: 'Glossaire' })).toBeVisible();
+  expect(await page.locator('dt').count()).toBeGreaterThanOrEqual(25);
 });

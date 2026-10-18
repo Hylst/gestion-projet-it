@@ -25,14 +25,14 @@ export interface OptionParade {
 
 export const OPTIONS_PARADES: Record<string, OptionParade[]> = {
   'Benevole indisponible avant la mise en ligne': [
-    { valeur: 'Benevole de rechange fictif', motif: 'Un remplacant fictif est prevu avant la mise en ligne.' },
     { valeur: 'Attendre le jour J sans plan', motif: 'Aucun remplacant n est identifie : le risque reste entier.' },
+    { valeur: 'Benevole de rechange fictif', motif: 'Un remplacant fictif est prevu avant la mise en ligne.' },
     { valeur: 'Retirer la mise en ligne', motif: 'Le risque disparait avec l objectif : ce n est pas une parade.' },
   ],
   'Photos non recues': [
-    { valeur: 'Jeu de photos locales de rechange', motif: 'Un jeu de secours permet de tenir la date du jalon.' },
     { valeur: 'Publier la page sans photos', motif: 'La page reste vide : l impact n est pas reduit.' },
     { valeur: 'Demander les photos le jour J', motif: 'La demande arrive au plus pres du besoin, sans marge.' },
+    { valeur: 'Jeu de photos locales de rechange', motif: 'Un jeu de secours permet de tenir la date du jalon.' },
   ],
   'Notice des benevoles non ecrite': [
     { valeur: 'Temps dedie en retro prevue', motif: 'Un creneau est reserve pour ecrire la notice.' },

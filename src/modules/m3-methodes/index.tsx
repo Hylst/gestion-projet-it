@@ -2,6 +2,8 @@ import { ModuleLayout } from '../../components/ModuleLayout';
 import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
 import Reveal from '../../components/Reveal';
+import LaboPhases from '../../labos/LaboPhases';
+import { useProgress } from '../../lib/progress';
 import Fiche from './fiche';
 import FilRouge from './filRouge';
 import Demarche from './demarche';
@@ -9,12 +11,17 @@ import Exercices from './exercise';
 import { quiz } from './quiz';
 import { items } from './ficheReflexe';
 
-const Labo = () => (
-  <section id="labo" aria-label="Labo : phases et comparateur de methodes">
-    <h2>Labo</h2>
-    <p>Labo en preparation : association des livrables aux phases et comparateur de methodes.</p>
-  </section>
-);
+const Labo = () => {
+  const p = useProgress();
+  return (
+    <section id="labo" aria-label="Labo : associer livrables et phases">
+      <LaboPhases
+        valide={p.laboDone.includes('m3-phases')}
+        onValide={() => p.dispatch({ type: 'labo', id: 'm3-phases' })}
+      />
+    </section>
+  );
+};
 
 export const M3Page = () => (
   <ModuleLayout

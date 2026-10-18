@@ -1,5 +1,5 @@
 const BASE = '/gestion-projet-it/';
-const version = 'v1';
+const version = 'gestion-projet-it-v1';
 const precache = [
   `${BASE}`, `${BASE}offline.html`, `${BASE}manifest.webmanifest`,
 ];
@@ -9,7 +9,7 @@ self.addEventListener('install', (e) => {
 });
 
 self.addEventListener('activate', (e) => {
-  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== version).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
+  e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k.startsWith('gestion-projet-it-') && k !== version).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
 });
 
 self.addEventListener('fetch', (e) => {
@@ -20,8 +20,10 @@ self.addEventListener('fetch', (e) => {
     return;
   }
   e.respondWith(caches.match(e.request).then((hit) => hit || fetch(e.request).then((rep) => {
-    const copie = rep.clone();
-    caches.open(version).then((c) => c.put(e.request, copie));
+    if (rep.ok) {
+      const copie = rep.clone();
+      e.waitUntil(caches.open(version).then((c) => c.put(e.request, copie)));
+    }
     return rep;
   })));
 });

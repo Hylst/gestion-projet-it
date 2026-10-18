@@ -14,5 +14,5 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 );
 
 if ('serviceWorker' in navigator && window.location.pathname.startsWith('/gestion-projet-it/')) {
-  navigator.serviceWorker.register('/gestion-projet-it/sw.js');
+  navigator.serviceWorker.register('/gestion-projet-it/sw.js').catch(() => undefined);
 }

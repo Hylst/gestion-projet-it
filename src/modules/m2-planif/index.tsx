@@ -2,6 +2,8 @@ import { ModuleLayout } from '../../components/ModuleLayout';
 import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
 import Reveal from '../../components/Reveal';
+import LaboGanttPert from '../../labos/LaboGanttPert';
+import { useProgress } from '../../lib/progress';
 import Fiche from './fiche';
 import FilRouge from './filRouge';
 import Demarche from './demarche';
@@ -9,14 +11,17 @@ import Exercices from './exercise';
 import { quiz } from './quiz';
 import { items } from './ficheReflexe';
 
-const Labo = () => (
-  <section id="labo" aria-label="Labo : planification PERT et GANTT">
-    <div className="labo card">
-      <h2>Labo : planification PERT et GANTT</h2>
-      <p>Le labo interactif est en preparation. Il permettra de deplacer des barres GANTT, de verifier les dependances et de relier les noeuds PERT au clavier.</p>
-    </div>
-  </section>
-);
+const Labo = () => {
+  const p = useProgress();
+  return (
+    <section id="labo" aria-label="Labo : mini GANTT et chaine PERT">
+      <LaboGanttPert
+        valide={p.laboDone.includes('m2-gantt')}
+        onValide={() => p.dispatch({ type: 'labo', id: 'm2-gantt' })}
+      />
+    </section>
+  );
+};
 
 export const M2Page = () => (
   <ModuleLayout

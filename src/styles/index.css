@@ -83,3 +83,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .wbs-decor { display: block; color: var(--c-calm); margin: 0.2rem 0; }
 .hors-zone { margin-top: 0.5rem; border: 1px solid var(--c-line); border-radius: var(--radius); padding: 0.5rem; }
 .messages { margin: 0.6rem 0 0; padding-left: 1.2rem; }
+.gantt-row { display: grid; grid-template-columns: 10rem 1fr; gap: 0.5rem; align-items: center; margin-bottom: 0.4rem; }
+@media (max-width: 30rem) { .gantt-row { grid-template-columns: 1fr; } }
+.gantt-grid { display: grid; grid-template-columns: auto 1fr auto; gap: 0.4rem; align-items: center; }
+.gantt-track { display: grid; height: 1.2rem; background: var(--c-bg); border: 1px solid var(--c-line); border-radius: 6px; overflow: hidden; }
+.gantt .gantt-bar { height: 100%; border-radius: 6px; transition: background 0.2s ease; animation: none; }
+.help { color: var(--c-muted); font-size: 0.9rem; margin: 0.6rem 0 0; }
+.pert ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.pert li { border: 1px solid var(--c-line); border-radius: 8px; padding: 0.3rem 0.6rem; }
+.pert li.tendue { border-color: var(--c-main); }
+.pert-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }

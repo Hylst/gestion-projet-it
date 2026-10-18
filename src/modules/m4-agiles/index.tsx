@@ -2,6 +2,8 @@ import { ModuleLayout } from '../../components/ModuleLayout';
 import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
 import Reveal from '../../components/Reveal';
+import LaboKanban from '../../labos/LaboKanban';
+import { useProgress } from '../../lib/progress';
 import Fiche from './fiche';
 import FilRouge from './filRouge';
 import Demarche from './demarche';
@@ -9,14 +11,17 @@ import Exercices from './exercise';
 import { quiz } from './quiz';
 import { items } from './ficheReflexe';
 
-const Labo = () => (
-  <section id="labo" aria-label="Labo : tableau Kanban et poker planning">
-    <div className="labo card">
-      <h2 className="sr-only">Labo</h2>
-      <p>Labo en preparation.</p>
-    </div>
-  </section>
-);
+const Labo = () => {
+  const p = useProgress();
+  return (
+    <section id="labo" aria-label="Labo : tableau Kanban jouable">
+      <LaboKanban
+        valide={p.laboDone.includes('m4-kanban')}
+        onValide={() => p.dispatch({ type: 'labo', id: 'm4-kanban' })}
+      />
+    </section>
+  );
+};
 
 export const M4Page = () => (
   <ModuleLayout

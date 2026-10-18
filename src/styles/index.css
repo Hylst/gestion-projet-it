@@ -101,6 +101,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 @media (max-width: 50rem) { .comparateur-grid { grid-template-columns: 1fr; } }
 .comparateur-grid h4 { margin: 0.2rem 0; }
 .comparateur-grid ul { margin: 0.3rem 0; padding-left: 1.2rem; }
+.kanban-board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+@media (max-width: 50rem) { .kanban-board { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 30rem) { .kanban-board { grid-template-columns: 1fr; } }
+.kanban-col { border: 1px dashed var(--c-line); border-radius: var(--radius); padding: 0.5rem; min-height: 7rem; }
+.kanban-col h4 { margin: 0.2rem 0; }
+.kanban-card { display: flex; gap: 0.3rem; align-items: center; justify-content: space-between; border: 1px solid var(--c-line); border-radius: 8px; padding: 0.3rem 0.5rem; margin: 0.3rem 0; background: var(--c-soft); }
+.kanban-card > span:first-child { overflow-wrap: anywhere; }
+.kanban-actions { display: inline-flex; gap: 0.2rem; flex-shrink: 0; }
+.kanban-actions .btn.mini { min-width: 2rem; }
+@media (prefers-reduced-motion: reduce) { .kanban-card { transition: none; } }
 .pert ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .pert li { border: 1px solid var(--c-line); border-radius: 8px; padding: 0.3rem 0.6rem; }
 .pert li.tendue { border-color: var(--c-main); }

@@ -7,6 +7,7 @@ import { moduleMetaByNum } from './modules/index';
 import { M1Page } from './modules/m1-wbs';
 import { M2Page } from './modules/m2-planif';
 import { M3Page } from './modules/m3-methodes';
+import { M4Page } from './modules/m4-agiles';
 import './styles/reveal.css';
 
 function ModulePlaceholder() {
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/module-1" element={<M1Page />} />
           <Route path="/module-2" element={<M2Page />} />
           <Route path="/module-3" element={<M3Page />} />
+          <Route path="/module-4" element={<M4Page />} />
           <Route path="/module-:num" element={<ModulePlaceholder />} />
           <Route path="/a-propos" element={<p>prochainement</p>} />
           <Route path="*" element={<NotFound />} />

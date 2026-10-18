@@ -66,21 +66,22 @@ export default function ComparateurMethodes(): JSX.Element {
           hidden={i !== actif}
           tabIndex={0}
         >
+          <h3>{m.nom}</h3>
           <div className="comparateur-grid">
             <section>
-              <h3>Avantages</h3>
+              <h4>Avantages</h4>
               <ul>
                 {m.avantages.map((a) => <li key={a}>{a}</li>)}
               </ul>
             </section>
             <section>
-              <h3>Limites</h3>
+              <h4>Limites</h4>
               <ul>
                 {m.limites.map((l) => <li key={l}>{l}</li>)}
               </ul>
             </section>
             <section>
-              <h3>Cas typiques</h3>
+              <h4>Cas typiques</h4>
               <ul>
                 {m.cas.map((c) => <li key={c}>{c}</li>)}
               </ul>

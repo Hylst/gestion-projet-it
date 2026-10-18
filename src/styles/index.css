@@ -96,9 +96,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .gantt .gantt-bar { height: 100%; border-radius: 6px; transition: background 0.2s ease; animation: none; }
 .help { color: var(--c-muted); font-size: 0.9rem; margin: 0.6rem 0 0; }
 .comparateur-tabs { margin: 0.8rem 0; }
+.comparateur-tabs .btn[aria-selected='true'] { background: var(--c-main); color: #fff; border-color: var(--c-main); }
 .comparateur-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
 @media (max-width: 50rem) { .comparateur-grid { grid-template-columns: 1fr; } }
-.comparateur-grid h3 { margin: 0.2rem 0; }
+.comparateur-grid h4 { margin: 0.2rem 0; }
 .comparateur-grid ul { margin: 0.3rem 0; padding-left: 1.2rem; }
 .pert ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .pert li { border: 1px solid var(--c-line); border-radius: 8px; padding: 0.3rem 0.6rem; }

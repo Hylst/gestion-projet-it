@@ -98,10 +98,12 @@ export default function LaboPhases(props: Props) {
 
   const placer = (cible: string) => {
     if (!selection) return;
+    const idx = LIVRABLES.indexOf(selection);
     dispatch({ type: 'assign', livrable: selection, cible });
     setSelection(null);
     setMessages([]);
     setValideLocal(false);
+    refs.current[idx]?.focus();
   };
 
   const verifier = () => {
@@ -195,7 +197,7 @@ export default function LaboPhases(props: Props) {
           </button>
         ))}
       </div>
-      <p className="help" role="status" aria-live="polite">
+      <p className="help">
         {selection
           ? `« ${selection} » selectionne. Choisissez une phase puis « Placer ici ».`
           : 'Selectionnez un livrable, puis une phase cible.'}
@@ -230,7 +232,7 @@ export default function LaboPhases(props: Props) {
         </ul>
       )}
       {valideLocal && (
-        <p className="ok" role="status">
+        <p className="ok">
           Les six livrables sont aux phases attendues du mode {nomMode(s.mode)}.
         </p>
       )}

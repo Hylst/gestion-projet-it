@@ -99,11 +99,13 @@ export default function LaboEisenhower(props: Props) {
 
   const placer = (q: Quadrant) => {
     if (!selection) return;
+    const idx = TACHES.indexOf(selection);
     dispatch({ type: 'place', tache: selection, q });
     setDerniere({ tache: selection, q });
     setSelection(null);
     setMessages([]);
     setValideLocal(false);
+    refs.current[idx]?.focus();
   };
 
   const verifier = () => {
@@ -180,7 +182,7 @@ export default function LaboEisenhower(props: Props) {
           </button>
         ))}
       </div>
-      <p className="help" role="status" aria-live="polite">
+      <p className="help">
         {selection
           ? `« ${selection} » selectionnee. Choisissez un quadrant puis « Placer ici ».`
           : 'Selectionnez une tache, puis le quadrant qui lui correspond.'}
@@ -226,7 +228,7 @@ export default function LaboEisenhower(props: Props) {
         </ul>
       )}
       {valideLocal && (
-        <p className="ok" role="status">
+        <p className="ok">
           Les six taches sont dans les quadrants attendus. Le tri rend l arbitrage visible.
         </p>
       )}

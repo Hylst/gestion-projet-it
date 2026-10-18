@@ -160,7 +160,7 @@ export default function PokerPlanning(props: Props) {
           );
         })}
       </div>
-      <p className="help" role="status" aria-live="polite">
+      <p className="help">
         {selection
           ? `« ${selection} » selectionnee. Choisis une valeur, puis verifie.`
           : 'Selectionne une story, puis choisis une valeur.'}

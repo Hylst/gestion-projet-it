@@ -131,6 +131,7 @@ export function verifierRisques(s: RisquesState): { ok: boolean; messages: strin
 }
 
 const MAJEURS = RISQUES.filter((r) => r.proba * r.impact >= 6);
+const NOMS_MAJEURS = new Set(MAJEURS.map((r) => r.nom));
 
 type Props = { valide: boolean; onValide: () => void };
 
@@ -167,11 +168,13 @@ export default function LaboRisques(props: Props) {
       return;
     }
     const risque = selection;
+    const idx = RISQUES.findIndex((r) => r.nom === risque);
     dispatch({ type: 'place', risque, cell });
     setSelection(null);
     setMessages([]);
     setValideLocal(false);
     setRetour(`« ${risque} » place en ${decrireCellule(cell)}.`);
+    refs.current[idx]?.focus();
   };
 
   const choisirParade = (risque: string, valeur: string) => {
@@ -186,7 +189,7 @@ export default function LaboRisques(props: Props) {
     if (r.ok) {
       setMessages([]);
       setValideLocal(true);
-      setRetour('Matrice correcte et parades majeures choisies.');
+      setRetour('');
       if (!p.laboDone.includes('m6-risques')) props.onValide();
     } else {
       setMessages(r.messages);
@@ -221,7 +224,7 @@ export default function LaboRisques(props: Props) {
       consigne="Place les six risques fictifs sur la matrice probabilite x impact, choisis une parade pour chaque risque majeur, puis verifie."
       etapes={etapes}
       etape={etape}
-      etat=""
+      etat={retour}
       onVerifier={verifier}
       onReinitialiser={reinitialiser}
       valide={props.valide || valideLocal}
@@ -261,7 +264,7 @@ export default function LaboRisques(props: Props) {
           );
         })}
       </div>
-      <p className="help" role="status" aria-live="polite">
+      <p className="help">
         {retour ||
           (selection
             ? `« ${selection} » selectionne. Choisis une cellule puis clique dessus.`
@@ -316,7 +319,7 @@ export default function LaboRisques(props: Props) {
           {py.map(({ nom, score }) => (
             <li key={nom}>
               {nom} <span className="risques-score">score {score}</span>
-              {score >= 6 ? ' (majeur)' : ''}
+              {NOMS_MAJEURS.has(nom) ? ' (majeur)' : ''}
             </li>
           ))}
         </ol>
@@ -360,7 +363,7 @@ export default function LaboRisques(props: Props) {
         </ul>
       )}
       {valideLocal && (
-        <p className="ok" role="status">
+        <p className="ok">
           Matrice correcte et parades majeures choisies. Les priorites se lisent de la plus haute a la plus basse.
         </p>
       )}

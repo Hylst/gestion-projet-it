@@ -152,7 +152,7 @@ export default function LaboChaineCI(props: Props) {
           </li>
         ))}
       </ol>
-      <p className="help" role="status" aria-live="polite">
+      <p className="help">
         Ordre courant : {s.ordre.join(', ')}.
       </p>
       {messages.length > 0 && (
@@ -161,7 +161,7 @@ export default function LaboChaineCI(props: Props) {
         </ul>
       )}
       {valideLocal && (
-        <p className="ok" role="status">
+        <p className="ok">
           Ordre correct : tests, assemblage, relecture, puis deploiement.
         </p>
       )}

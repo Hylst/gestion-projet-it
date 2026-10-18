@@ -44,6 +44,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .skip-link { position: absolute; left: -9999px; top: 0; background: var(--c-main); color: #fff; padding: 0.5rem 1rem; z-index: 100; }
 .skip-link:focus { left: 0.5rem; top: 0.5rem; }
+.sommaire { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; margin: 0.9rem 0; }
+.sommaire a { display: inline-flex; align-items: center; min-height: 2rem; padding: 0.2rem 0.5rem; border-radius: 6px; }
 .search { position: relative; display: flex; flex-direction: column; gap: 0.25rem; }
 .search label { font-size: 0.8rem; color: var(--c-muted); }
 .search input { padding: 0.4rem 0.6rem; border: 1px solid var(--c-line); border-radius: var(--radius); min-width: 16rem; }

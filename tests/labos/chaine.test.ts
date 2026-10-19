@@ -23,7 +23,7 @@ describe('verifierChaine', () => {
     const s = { ordre: [...ORDRE_ATTENDU] };
     expect(verifierChaine(s).ok).toBe(true);
   });
-  it('message explicite quand Deploiement passe avant Test', () => {
+  it('message explicite quand Déploiement passe avant Test', () => {
     const s = { ordre: ['Déploiement', 'Test', 'Assemblage', 'Relecture'] };
     const r = verifierChaine(s);
     expect(r.messages.some((m) => m.includes('déploiement ne peut pas commencer avant les tests'))).toBe(true);

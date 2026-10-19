@@ -155,7 +155,7 @@ export default function PokerPlanning(props: Props) {
               onFocus={() => setFocus(i)}
               onClick={() => choisirStory(st, i)}
             >
-              {st}{estimation != null ? ` : ${estimation}` : ''}{s.revele ? ` (correction ${CORRECTIONS[st]})` : ''}
+              {st}{estimation != null ? `\u00A0: ${estimation}` : ''}{s.revele ? ` (correction ${CORRECTIONS[st]})` : ''}
             </button>
           );
         })}

@@ -103,3 +103,17 @@ test('glossaire : definitions et navigation', async ({ page }) => {
   await expect(page.getByRole('heading', { level: 1, name: 'Glossaire' })).toBeVisible();
   expect(await page.locator('dt').count()).toBeGreaterThanOrEqual(25);
 });
+
+test('impression : la fiche reflexe reste visible et le reste est masque', async ({ page }) => {
+  await page.goto(`${base}/module-1`);
+  await page.emulateMedia({ media: 'print' });
+  await page.evaluate(() => document.body.classList.add('printing-fiche'));
+  try {
+    await expect(page.locator('#reflexe')).toBeVisible();
+    await expect(page.locator('#fiche')).toBeHidden();
+    await expect(page.locator('header.site-header')).toBeHidden();
+  } finally {
+    await page.evaluate(() => document.body.classList.remove('printing-fiche'));
+    await page.emulateMedia({ media: 'screen' });
+  }
+});

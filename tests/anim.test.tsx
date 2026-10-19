@@ -32,6 +32,37 @@ describe('useInView', () => {
     }
   });
 
+  it('ne recree pas l observateur lors d un rendu local', () => {
+    const original = globalThis.IntersectionObserver;
+    let constructions = 0;
+    class CountIO implements IntersectionObserver {
+      root = null; rootMargin = ''; scrollMargin = ''; thresholds: number[] = [0];
+      constructor() { constructions += 1; }
+      observe() {} unobserve() {} disconnect() {} takeRecords() { return []; }
+    }
+    Object.defineProperty(globalThis, 'IntersectionObserver', { value: CountIO, writable: true });
+    try {
+      function ProbeStable() {
+        const ref = React.useRef<HTMLDivElement>(null);
+        useInView(ref, { once: true, threshold: 0.2 });
+        const [count, setCount] = React.useState(0);
+        return (
+          <>
+            <div ref={ref} data-testid="probe-stable" data-count={count} />
+            <button type="button" onClick={() => setCount((n) => n + 1)}>Relancer</button>
+          </>
+        );
+      }
+      const { getByTestId, getByRole } = render(<ProbeStable />);
+      expect(constructions).toBe(1);
+      act(() => { getByRole('button', { name: 'Relancer' }).click(); });
+      expect(getByTestId('probe-stable').dataset.count).toBe('1');
+      expect(constructions).toBe(1);
+    } finally {
+      Object.defineProperty(globalThis, 'IntersectionObserver', { value: original, writable: true });
+    }
+  });
+
   it('transmet threshold et rootMargin a l observateur', () => {
     const original = globalThis.IntersectionObserver;
     let init: IntersectionObserverInit | undefined;

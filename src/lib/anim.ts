@@ -1,25 +1,34 @@
 import React from 'react';
 
 export type InViewRef = React.RefObject<HTMLElement | null>;
-export function useInView(ref: InViewRef, options?: { once?: boolean; threshold?: number }): boolean {
+export type InViewOptions = { once?: boolean; threshold?: number; rootMargin?: string };
+
+export function useInView(ref: InViewRef, options?: InViewOptions): boolean {
   const [visible, setVisible] = React.useState(false);
+  const once = options?.once !== false;
+  const threshold = options?.threshold ?? 0.2;
+  const rootMargin = options?.rootMargin;
   React.useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setVisible(true);
+      return;
+    }
     const obs = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) {
             setVisible(true);
-            if (options?.once !== false) obs.disconnect();
-          } else if (options?.once === false) setVisible(false);
+            if (once) obs.disconnect();
+          } else if (!once) setVisible(false);
         }
       },
-      { threshold: options?.threshold ?? 0.2 },
+      { threshold, rootMargin },
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [ref, options]);
+  }, [ref, once, threshold, rootMargin]);
   return visible;
 }
 

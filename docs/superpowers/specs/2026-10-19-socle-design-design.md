@@ -1,7 +1,7 @@
 # Socle design du site : design validé
 
 Date : 2026-10-19
-Statut : design validé par l’utilisateur, en attente de relecture du spec.
+Statut : design validé et exécuté (cycle clôturé le 2026-10-19).
 
 ## Amendements en exécution
 
@@ -9,9 +9,9 @@ Ces amendements consignent les écarts constatés pendant l’exécution. Le cor
 
 - Header : point de rupture à 70rem, et non 68rem ou 56rem. La disposition sur une rangée et le `position: sticky` ne s’appliquent qu’à partir de 70rem ; en dessous, le header reste statique et empilé. L’écart `0.75rem 1rem` et la recherche à `10rem` permettent de tenir sur une rangée.
 - Ancres : `#contenu, main [id] { scroll-margin-top: 5.5rem; }` est appliqué dès la Task 2, dans le même bloc média que le header sticky. Aucun décalage n’est appliqué sous 70rem, les ancres sont donc différées sur mobile.
-- Tests : le total passe à 139 après les lots, puis à 140 avec le test de non-recéation de l’observateur.
-- Smoke : 7 tests avec la garde d’impression de la fiche réflexe.
-- Impression : correctif `body.printing-fiche .module-page > :not(:has(#reflexe))` approuvé par l’utilisateur. Il lève la contrainte « `print.css` inchangé » pour corriger la fiche réflexe blanche, car le sélecteur précédent masquait l’enveloppe `.reveal` contenant `#reflexe`.
+- Tests : le total passe à 139 après les lots, puis à 141 avec la non-recéation de l’observateur et l’état actif de la navigation.
+- Smoke : 7 tests avec la garde d’impression de la fiche réflexe et ses assertions d’opacité et de bordure.
+- Impression : correctif `body.printing-fiche .module-page > :not(:has(#reflexe))` approuvé par l’utilisateur. Il lève la contrainte « `print.css` inchangé » pour corriger la fiche réflexe blanche, car le sélecteur précédent masquait l’enveloppe `.reveal` contenant `#reflexe`. Durcissements d’audit : sélecteur `:has` isolé, bordure, marge et padding d’enveloppe neutralisés, transition coupée, `afterprint` enregistré avant `print()`.
 
 ## 1. Contexte et objectif
 

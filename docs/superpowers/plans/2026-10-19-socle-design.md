@@ -17,9 +17,9 @@ Ces amendements complètent le plan sans réécrire ses étapes.
 - Header : point de rupture porté à 70rem, et non 68rem ou 56rem. La disposition sur une rangée et le sticky ne s’appliquent qu’à partir de 70rem ; en dessous, le header reste statique et empilé.
 - Ajustements de tenue sur une rangée : recherche de header à `10rem`, écart `0.75rem 1rem`.
 - Ancres : `scroll-margin-top: 5.5rem` appliqué dans la Task 2, dans le bloc média du sticky, donc sans décalage sous 70rem ; les ancres sont différées sur mobile.
-- Tests : 139 tests après les lots, puis 140 avec le test de non-recéation de l’observateur.
-- Smoke : 7 tests avec la garde d’impression de la fiche réflexe.
-- Impression : correction `:has(#reflexe)` dans `print.css`, approuvée par l’utilisateur, en exception à la contrainte « `print.css` inchangé ».
+- Tests : 139 tests après les lots, puis 141 avec la non-recéation de l’observateur et l’état actif de la navigation.
+- Smoke : 7 tests avec la garde d’impression de la fiche réflexe et ses assertions d’opacité et de bordure.
+- Impression : correction `:has(#reflexe)` dans `print.css`, approuvée par l’utilisateur, en exception à la contrainte « `print.css` inchangé ». Durcissements d’audit : sélecteur `:has` isolé, bordure, marge et padding d’enveloppe neutralisés, transition coupée, `afterprint` enregistré avant `print()`.
 
 ## Global Constraints
 

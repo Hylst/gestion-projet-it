@@ -1,8 +1,8 @@
 export function FicheReflexe(props: { titre: string; items: string[] }) {
   const imprimer = () => {
     document.body.classList.add('printing-fiche');
-    window.print();
     window.addEventListener('afterprint', () => document.body.classList.remove('printing-fiche'), { once: true });
+    window.print();
   };
   return (
     <section id="reflexe" className="fiche-reflexe card" data-testid="fiche-reflexe" aria-labelledby="reflexe-t">

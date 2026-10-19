@@ -3,10 +3,11 @@
   body.printing-fiche footer,
   body.printing-fiche nav,
   body.printing-fiche .no-print,
-  body.printing-fiche main > :not(.module-page),
+  body.printing-fiche main > :not(.module-page) { display: none !important; }
   body.printing-fiche .module-page > :not(:has(#reflexe)) { display: none !important; }
+  body.printing-fiche .module-page > :has(#reflexe) { border-top: 0 !important; margin-top: 0 !important; padding-top: 0 !important; }
   body.printing-fiche .fiche-reflexe { border: 1.5px solid #000; padding: 1rem; }
   body { background: #fff; }
-  .reveal { opacity: 1 !important; transform: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   header, footer, nav, .no-print { display: none !important; }
 }

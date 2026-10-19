@@ -6,15 +6,19 @@ import { ProgressProvider } from '../src/lib/progress';
 
 afterEach(cleanup);
 
+function rendu(route = '/'): ReturnType<typeof render> {
+  return render(
+    <ProgressProvider>
+      <MemoryRouter initialEntries={[route]}>
+        <SiteHeader />
+      </MemoryRouter>
+    </ProgressProvider>,
+  );
+}
+
 describe('en-tete', () => {
   it('header-inner, marque cliquable et skip-link hors lien', () => {
-    const { container } = render(
-      <ProgressProvider>
-        <MemoryRouter>
-          <SiteHeader />
-        </MemoryRouter>
-      </ProgressProvider>,
-    );
+    const { container } = rendu();
     const header = container.querySelector('header.site-header');
     expect(header).not.toBeNull();
     const inner = header?.querySelector(':scope > .header-inner');
@@ -30,5 +34,20 @@ describe('en-tete', () => {
     expect(marque?.querySelector('.skip-link')).toBeNull();
     expect(inner?.querySelector('nav[aria-label="Navigation principale"]')).not.toBeNull();
     expect(inner?.querySelector(':scope > #header-tools')).not.toBeNull();
+  });
+
+  it('un seul lien courant selon la route', () => {
+    const cas: Array<[string, string | null]> = [
+      ['/', 'Accueil'],
+      ['/a-propos', 'À propos'],
+      ['/glossaire', 'Glossaire'],
+      ['/module-6', null],
+    ];
+    for (const [route, attendu] of cas) {
+      const { container, unmount } = rendu(route);
+      const courants = Array.from(container.querySelectorAll('nav a[aria-current="page"]')).map((a) => a.textContent);
+      expect(courants).toEqual(attendu ? [attendu] : []);
+      unmount();
+    }
   });
 });

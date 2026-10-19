@@ -112,6 +112,12 @@ test('impression : la fiche reflexe reste visible et le reste est masque', async
     await expect(page.locator('#reflexe')).toBeVisible();
     await expect(page.locator('#fiche')).toBeHidden();
     await expect(page.locator('header.site-header')).toBeHidden();
+    const impression = await page.locator('#reflexe').evaluate((el) => {
+      const fiche = getComputedStyle(el);
+      const enveloppe = getComputedStyle(el.closest('.reveal') as Element);
+      return { opacite: fiche.opacity, bordure: enveloppe.borderTopWidth, marge: enveloppe.marginTop, padding: enveloppe.paddingTop };
+    });
+    expect(impression).toEqual({ opacite: '1', bordure: '0px', marge: '0px', padding: '0px' });
   } finally {
     await page.evaluate(() => document.body.classList.remove('printing-fiche'));
     await page.emulateMedia({ media: 'screen' });

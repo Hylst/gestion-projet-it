@@ -31,6 +31,8 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 12
     const res = await page.request.get(`${base}/${a}`);
     expect(res.status(), a).toBe(200);
   }
+  const swBody = await (await page.request.get(`${base}/sw.js`)).text();
+  expect(swBody).toContain("const version = 'gestion-projet-it-v3';");
 
   expect(externals).toEqual([]);
   expect(failures).toEqual([]);

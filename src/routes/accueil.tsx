@@ -7,7 +7,7 @@ import '../styles/hero.css';
 
 function Hero() {
   return (
-    <section className="reveal visible">
+    <section className="hero reveal visible">
       <p className="kicker">Cours interactif gratuit, sans compte</p>
       <h1>Gérer un projet informatique, pas à pas</h1>
       <p className="accroche">Cadrer, découper, planifier, choisir sa méthode, outiller et animer l’équipe&nbsp;: 9 modules courts avec labos manipulables, exercices corrigés et quiz, sur un fil rouge fictif.</p>

@@ -10,7 +10,7 @@ describe('ComparateurMethodes', () => {
     const tabs = screen.getAllByRole('tab');
     expect(tabs).toHaveLength(3);
     expect(tabs.map((t) => t.textContent)).toEqual(METHODS.map((m) => m.nom));
-    expect(screen.getByRole('tablist', { name: /methodes/i })).toBeTruthy();
+    expect(screen.getByRole('tablist', { name: /méthodes/i })).toBeTruthy();
   });
 
   it('expose un panel actif accessible et suit les fleches', () => {
@@ -23,7 +23,7 @@ describe('ComparateurMethodes', () => {
     const panels = screen.getAllByRole('tabpanel');
     expect(panels).toHaveLength(1);
     expect(panels[0]?.getAttribute('aria-labelledby')).toBe(tabs[0]?.id);
-    expect(panels[0]?.textContent).toMatch(/Tests prepares pour chaque phase/);
+    expect(panels[0]?.textContent).toMatch(/Tests préparés pour chaque phase/);
 
     fireEvent.keyDown(tabs[0] as HTMLElement, { key: 'ArrowRight' });
     const tabsSuivants = screen.getAllByRole('tab');

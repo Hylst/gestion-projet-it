@@ -15,7 +15,7 @@ import { items } from './ficheReflexe';
 const Labo = () => {
   const p = useProgress();
   return (
-    <section id="labo" aria-label="Labo : associer livrables et phases">
+    <section id="labo" aria-label={'Labo\u00A0: associer livrables et phases'}>
       <LaboPhases
         valide={p.laboDone.includes('m3-phases')}
         onValide={() => p.dispatch({ type: 'labo', id: 'm3-phases' })}
@@ -30,7 +30,7 @@ export const M3Page = () => (
       id: 'm3-methodes',
       num: 3,
       slug: 'module-3',
-      titre: 'Cycle en V, cascade et choix de methode',
+      titre: 'Cycle en V, cascade et choix de méthode',
       resume: 'Phases, tests en miroir du V, cascade simple, comparateur sans dogme.',
       motsCles: ['cycle en v', 'waterfall', 'cascade', 'methodes', 'comparateur', 'phases'],
     }}
@@ -46,7 +46,7 @@ export const M3Page = () => (
     </Reveal>
     <Reveal><Exercices /></Reveal>
     <Reveal><QuizBlock data={quiz} /></Reveal>
-    <Reveal><FicheReflexe titre="Fiche reflexe : choisir sa methode" items={items} /></Reveal>
+    <Reveal><FicheReflexe titre={'Fiche réflexe\u00A0: choisir sa méthode'} items={items} /></Reveal>
   </ModuleLayout>
 );
 

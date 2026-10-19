@@ -10,6 +10,16 @@ export const DEPENDANCES: Array<[string, string]> = [
   ['Tests', 'Mise en ligne'],
 ];
 
+const LIBELLE_TACHE: Record<string, string> = {
+  'Contenu relu': 'Contenu relu',
+  Maquette: 'Maquette',
+  Integration: 'Intégration',
+  Tests: 'Tests',
+  'Mise en ligne': 'Mise en ligne',
+};
+
+const libelleTache = (t: string): string => LIBELLE_TACHE[t] ?? t;
+
 export type Barre = { debut: number; fin: number };
 
 export const BARRES_INIT: Record<string, Barre> = {
@@ -67,9 +77,9 @@ export function verifierGantt(barres: Record<string, Barre>): { ok: boolean; mes
     const precedente = barres[avant];
     const suivante = barres[apres];
     if (!precedente || !suivante) {
-      messages.push(`Barre manquante pour « ${suivante ? avant : apres} ».`);
+      messages.push(`Barre manquante pour «\u00A0${libelleTache(suivante ? avant : apres)}\u00A0».`);
     } else if (suivante.debut <= precedente.fin) {
-      messages.push(`« ${apres} » ne doit pas commencer avant la fin de « ${avant} ».`);
+      messages.push(`«\u00A0${libelleTache(apres)}\u00A0» ne doit pas commencer avant la fin de «\u00A0${libelleTache(avant)}\u00A0».`);
     }
   }
   return { ok: messages.length === 0, messages };
@@ -80,7 +90,7 @@ const CHAINE_TENDUE = ['Contenu relu', 'Maquette', 'Integration', 'Tests'];
 export function verifierPERT(liaisons: Array<[string, string]>): { ok: boolean; chaineTendue?: string[]; messages: string[] } {
   const manquantes = DEPENDANCES.filter(([a, b]) => !liaisons.some(([x, y]) => x === a && y === b));
   if (manquantes.length) {
-    return { ok: false, messages: manquantes.map(([a, b]) => `Liaison manquante : « ${a} » vers « ${b} ».`) };
+    return { ok: false, messages: manquantes.map(([a, b]) => `Liaison manquante\u00A0: «\u00A0${libelleTache(a)}\u00A0» vers «\u00A0${libelleTache(b)}\u00A0».`) };
   }
   return { ok: true, chaineTendue: CHAINE_TENDUE, messages: [] };
 }
@@ -101,13 +111,13 @@ export default function LaboGanttPert(props: Props) {
   const verifier = () => {
     setAVerifie(true);
     if (s.vue === 'gantt') {
-      setMessage(gantt.ok ? 'Le planning respecte les dependances.' : gantt.messages.join(' '));
+      setMessage(gantt.ok ? 'Le planning respecte les dépendances.' : gantt.messages.join(' '));
       if (gantt.ok) {
         setValideLocal(true);
         if (!p.laboDone.includes('m2-gantt')) props.onValide();
       }
     } else {
-      setMessage(pert.ok ? 'La chaine tendue est surlignee.' : pert.messages.join(' '));
+      setMessage(pert.ok ? 'La chaîne tendue est surlignée.' : pert.messages.join(' '));
       if (pert.ok) {
         setValideLocal(true);
         if (!p.laboDone.includes('m2-gantt')) props.onValide();
@@ -135,19 +145,19 @@ export default function LaboGanttPert(props: Props) {
   };
 
   const etapes = [
-    'GANTT a 5 barres affiche.',
-    'Deplacement d une barre avec les fleches.',
-    'Dependances non respectees affichees en alerte.',
-    'Barre replacee apres la precedente.',
-    'Vue PERT : relier les noeuds dans l ordre.',
-    'Chaine tendue surlignee, valider pour +5 XP.',
+    'GANTT à 5 barres affiché.',
+    'Déplacement d’une barre avec les flèches.',
+    'Dépendances non respectées affichées en alerte.',
+    'Barre replacée après la précédente.',
+    'Vue PERT\u00A0: relier les nœuds dans l’ordre.',
+    'Chaîne tendue surlignée, valider pour +5 XP.',
   ];
   const etape = s.vue === 'pert' ? (pert.ok ? 6 : 5) : gantt.ok ? 4 : aVerifie ? 3 : aBouge ? 2 : 1;
 
   return (
     <LaboFrame
-      titre="Labo : mini GANTT et chaine PERT"
-      consigne="Ordonne les barres puis relie la chaine PERT."
+      titre={'Labo\u00A0: mini GANTT et chaîne PERT'}
+      consigne={'Ordonne les barres puis relie la chaîne PERT.'}
       etapes={etapes}
       etape={etape}
       etat={message}
@@ -162,12 +172,12 @@ export default function LaboGanttPert(props: Props) {
             if (!barre) return null;
             return (
               <div className="gantt-row" key={t}>
-                <span>{t}</span>
+                <span>{libelleTache(t)}</span>
                 <div className="gantt-grid">
                   <button
                     type="button"
                     className="btn mini"
-                    aria-label={`Deplacer ${t} a gauche`}
+                    aria-label={`Déplacer ${libelleTache(t)} à gauche`}
                     onClick={() => deplacer(t, -1)}
                   >
                     {'<-'}
@@ -175,7 +185,7 @@ export default function LaboGanttPert(props: Props) {
                   <div
                     className="gantt-track"
                     role="img"
-                    aria-label={`${t} : jours ${barre.debut} a ${barre.fin}`}
+                    aria-label={`${libelleTache(t)}\u00A0: jours ${barre.debut} à ${barre.fin}`}
                     style={{ gridTemplateColumns: 'repeat(10, 1fr)' }}
                   >
                     <div
@@ -190,7 +200,7 @@ export default function LaboGanttPert(props: Props) {
                   <button
                     type="button"
                     className="btn mini"
-                    aria-label={`Deplacer ${t} a droite`}
+                    aria-label={`Déplacer ${libelleTache(t)} à droite`}
                     onClick={() => deplacer(t, 1)}
                   >
                     {'->'}
@@ -199,16 +209,16 @@ export default function LaboGanttPert(props: Props) {
               </div>
             );
           })}
-          <p className="help">Une barre deplacee repond aux dependances via les fleches gauche et droite (accessibilite clavier).</p>
+          <p className="help">Une barre déplacée répond aux dépendances via les flèches gauche et droite (accessibilité clavier).</p>
         </div>
       ) : (
         <div className="pert">
           <ul>
             {TACHES.map((t) => (
-              <li key={t} className={pert.ok ? 'tendue' : undefined}><strong>{t}</strong></li>
+              <li key={t} className={pert.ok ? 'tendue' : undefined}><strong>{libelleTache(t)}</strong></li>
             ))}
           </ul>
-          <p className="help">Reliez les taches dans l ordre ; le bouton retire annule la derniere liaison.</p>
+          <p className="help">Reliez les tâches dans l’ordre&nbsp;; le bouton retire annule la dernière liaison.</p>
           <div className="pert-actions">
             {TACHES.slice(0, -1).map((t, i) => {
               const vers = TACHES[i + 1];
@@ -220,13 +230,13 @@ export default function LaboGanttPert(props: Props) {
                   className="btn mini"
                   onClick={() => lier(t, vers)}
                 >
-                  Relier {t} vers {vers}
+                  Relier {libelleTache(t)} vers {libelleTache(vers)}
                 </button>
               );
             })}
             {s.liaisons.length > 0 && (
               <button type="button" className="btn secondary mini" onClick={retirerDerniere}>
-                Retirer la derniere liaison
+                Retirer la dernière liaison
               </button>
             )}
           </div>
@@ -238,7 +248,7 @@ export default function LaboGanttPert(props: Props) {
           className="btn secondary"
           onClick={() => { dispatch({ type: 'vue', v: s.vue === 'gantt' ? 'pert' : 'gantt' }); setMessage(''); }}
         >
-          Passer a la vue {s.vue === 'gantt' ? 'PERT' : 'GANTT'}
+          Passer à la vue {s.vue === 'gantt' ? 'PERT' : 'GANTT'}
         </button>
       </div>
       {message && <p role="alert">{message}</p>}

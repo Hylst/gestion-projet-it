@@ -9,6 +9,9 @@ import Glossaire from '../src/routes/Glossaire';
 import NotFound from '../src/routes/NotFound';
 import SiteHeader from '../src/components/SiteHeader';
 import { MODULES } from '../src/modules/index';
+import { M1Page } from '../src/modules/m1-wbs';
+import { M2Page } from '../src/modules/m2-planif';
+import { M3Page } from '../src/modules/m3-methodes';
 
 afterEach(cleanup);
 
@@ -51,6 +54,9 @@ const PAGES: Array<[string, ReactElement]> = [
   ['a-propos', <Apropos />],
   ['glossaire', <Glossaire />],
   ['404', <NotFound />],
+  ['module-1', <M1Page />],
+  ['module-2', <M2Page />],
+  ['module-3', <M3Page />],
 ];
 
 const rendre = (page: ReactElement) =>

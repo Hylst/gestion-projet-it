@@ -1,7 +1,7 @@
 export const items = [
-  'Relie chaque tache a sa tache predecesseur.',
-  'Repere la chaine tendue avant de discuter des delais.',
-  'Protege la chaine tendue : reordre, aide, jalon revu.',
-  'Deplace une barre a la fois, puis relis les dependances.',
+  'Relie chaque tâche à sa tâche prédécesseur.',
+  'Repère la chaîne tendue avant de discuter des délais.',
+  'Protège la chaîne tendue\u00A0: reordre, aide, jalon revu.',
+  'Déplace une barre à la fois, puis relis les dépendances.',
   'Pose un jalon visible pour chaque livraison utile.',
 ];

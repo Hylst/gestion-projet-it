@@ -9,6 +9,19 @@ export const PHASES = [
 ];
 export type Mode = 'cascade' | 'v';
 
+const LIBELLE_PHASE: Record<string, string> = {
+  Besoin: 'Besoin',
+  Conception: 'Conception',
+  Realisation: 'Réalisation',
+  Test: 'Test',
+  Deploiement: 'Déploiement',
+  Acceptation: 'Acceptation',
+  'Tests systeme': 'Tests système',
+  'Tests unitaires': 'Tests unitaires',
+};
+
+const libellePhase = (p: string): string => LIBELLE_PHASE[p] ?? p;
+
 export const ATTENDU: Record<Mode, Record<string, string>> = {
   cascade: {
     Besoin: 'Besoin', Maquette: 'Conception', Code: 'Realisation',
@@ -53,11 +66,11 @@ export function verifierPhases(s: PhasesState): { ok: boolean; messages: string[
     if (attendu === undefined) continue;
     if (place === undefined) {
       messages.push(
-        `« ${livrable} » n est pas encore place. En mode ${nomMode(s.mode)}, sa cible est « ${attendu} ».`,
+        `«\u00A0${livrable}\u00A0» n’est pas encore placé. En mode ${nomMode(s.mode)}, sa cible est «\u00A0${libellePhase(attendu)}\u00A0».`,
       );
     } else if (place !== attendu) {
       messages.push(
-        `« ${livrable} » est place en « ${place} », alors qu en mode ${nomMode(s.mode)} sa cible est « ${attendu} ».`,
+        `«\u00A0${livrable}\u00A0» est placé en «\u00A0${libellePhase(place)}\u00A0», alors qu’en mode ${nomMode(s.mode)} sa cible est «\u00A0${libellePhase(attendu)}\u00A0».`,
       );
     }
   }
@@ -126,12 +139,12 @@ export default function LaboPhases(props: Props) {
   };
 
   const etapes = [
-    'Six livrables fictifs affiches, huit phases cibles.',
+    'Six livrables fictifs affichés, huit phases cibles.',
     'Choisir un livrable puis une phase cible.',
-    'Clavier : fleches dans la liste, entree pour choisir, tabulation vers les phases.',
-    'Verifier : chaque erreur indique la cible attendue et la phase choisie.',
-    'Le comparateur de methodes reste disponible en rappel, sans dogme.',
-    'Validation des six livrables corrects (+5 XP la premiere fois).',
+    'Clavier\u00A0: flèches dans la liste, entrée pour choisir, tabulation vers les phases.',
+    'Vérifier\u00A0: chaque erreur indique la cible attendue et la phase choisie.',
+    'Le comparateur de méthodes reste disponible en rappel, sans dogme.',
+    'Validation des six livrables corrects (+5 XP la première fois).',
   ];
 
   const etape = valideLocal ? 6 : messages.length > 0 ? 4 : nbPlaces > 0 ? 3 : selection ? 2 : 1;
@@ -139,16 +152,16 @@ export default function LaboPhases(props: Props) {
 
   return (
     <LaboFrame
-      titre="Labo : associer livrables et phases"
-      consigne={`Mode courant : ${nomMode(s.mode)}. Place chaque livrable dans la phase attendue, puis verifie.`}
+      titre={'Labo\u00A0: associer livrables et phases'}
+      consigne={`Mode courant\u00A0: ${nomMode(s.mode)}. Place chaque livrable dans la phase attendue, puis vérifie.`}
       etapes={etapes}
       etape={etape}
-      etat={dernierMessage ?? (selection ? `Livrable « ${selection} » selectionne.` : '')}
+      etat={dernierMessage ?? (selection ? `Livrable «\u00A0${selection}\u00A0» sélectionné.` : '')}
       onVerifier={verifier}
       onReinitialiser={reinitialiser}
       valide={props.valide || valideLocal}
     >
-      <div className="mode-switch" role="group" aria-label="Mode de methode">
+      <div className="mode-switch" role="group" aria-label="Mode de méthode">
         <button
           type="button"
           className="btn"
@@ -168,10 +181,10 @@ export default function LaboPhases(props: Props) {
       </div>
       <p className="help">
         {s.mode === 'cascade'
-          ? 'En cascade, chaque livrable rejoint la phase qui le produit, les tests venant apres la realisation.'
-          : 'En cycle en V, les tests se preparent en miroir : la maquette repond aux tests systeme, le code aux tests unitaires.'}
+          ? 'En cascade, chaque livrable rejoint la phase qui le produit, les tests venant après la réalisation.'
+          : 'En cycle en V, les tests se préparent en miroir\u00A0: la maquette répond aux tests système, le code aux tests unitaires.'}
       </p>
-      <h4 id="phases-livrables-t">Livrables a placer</h4>
+      <h4 id="phases-livrables-t">Livrables à placer</h4>
       <div
         className="wbs-cards"
         role="listbox"
@@ -193,19 +206,19 @@ export default function LaboPhases(props: Props) {
             onFocus={() => setFocusIdx(i)}
             onClick={() => choisir(l)}
           >
-            {l}{s.place[l] ? ` (${s.place[l]})` : ''}
+            {l}{s.place[l] ? ` (${libellePhase(s.place[l] as string)})` : ''}
           </button>
         ))}
       </div>
       <p className="help">
         {selection
-          ? `« ${selection} » selectionne. Choisissez une phase puis « Placer ici ».`
-          : 'Selectionnez un livrable, puis une phase cible.'}
+          ? `«\u00A0${selection}\u00A0» sélectionné. Choisissez une phase puis «\u00A0Placer ici\u00A0».`
+          : 'Sélectionnez un livrable, puis une phase cible.'}
       </p>
       <div className="phases-grid">
         {PHASES.map((c) => (
           <div key={c} className={`wbs-lot${selection ? ' cible' : ''}`}>
-            <h4>{c}</h4>
+            <h4>{libellePhase(c)}</h4>
             <ul>
               {LIVRABLES.filter((l) => s.place[l] === c).map((l) => (
                 <li key={l}>
@@ -217,7 +230,7 @@ export default function LaboPhases(props: Props) {
               <button
                 type="button"
                 className="btn mini"
-                aria-label={`Placer ${selection} en ${c}`}
+                aria-label={`Placer ${selection} en ${libellePhase(c)}`}
                 onClick={() => placer(c)}
               >
                 Placer ici

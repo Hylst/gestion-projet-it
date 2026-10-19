@@ -12,10 +12,10 @@ export const LOT_ATTENDU: Record<string, Lot> = {
 export const CARDS_INITIALES: string[] = ['inventaire', 'textes', 'photos', 'maquette', 'integration', 'tests', 'sauvegarde', 'paiement', 'application'];
 export const NOTICE_CACHEE = 'notice';
 export const LIBELLE: Record<string, string> = {
-  inventaire: 'Inventaire des pages', textes: 'Reecrire les textes', photos: 'Choisir les photos locales',
-  maquette: 'Realiser la maquette', integration: 'Integrer les pages', tests: 'Tester sur mobile',
-  sauvegarde: 'Sauvegarde du site', notice: 'Notice pour les benevoles',
-  paiement: 'Paiement des cotisations en ligne', application: 'Application mobile dediee',
+  inventaire: 'Inventaire des pages', textes: 'Réécrire les textes', photos: 'Choisir les photos locales',
+  maquette: 'Réaliser la maquette', integration: 'Intégrer les pages', tests: 'Tester sur mobile',
+  sauvegarde: 'Sauvegarde du site', notice: 'Notice pour les bénévoles',
+  paiement: 'Paiement des cotisations en ligne', application: 'Application mobile dédiée',
 };
 export type WbsState = { place: Record<string, Lot>; noticeTrouvee: boolean };
 export type WbsAction = { type: 'assign'; carte: string; lot: Lot } | { type: 'devine-notice' } | { type: 'reset' };
@@ -29,7 +29,7 @@ export function reducerWBS(s: WbsState, a: WbsAction): WbsState {
 }
 
 export function lotLisible(l: Lot): string {
-  return l === 'contenu' ? 'Contenu' : l === 'realisation' ? 'Realisation' : l === 'mise-en-ligne' ? 'Mise en ligne' : 'Hors perimetre';
+  return l === 'contenu' ? 'Contenu' : l === 'realisation' ? 'Réalisation' : l === 'mise-en-ligne' ? 'Mise en ligne' : 'Hors périmètre';
 }
 
 export function verifierWBS(s: WbsState): { ok: boolean; messages: string[] } {
@@ -38,15 +38,15 @@ export function verifierWBS(s: WbsState): { ok: boolean; messages: string[] } {
     const place = s.place[carte];
     if (attendu === 'hors') {
       if (place && place !== 'hors') {
-        messages.push(`« ${LIBELLE[carte]} » doit rester hors perimetre, pas dans un lot.`);
+        messages.push(`«\u00A0${LIBELLE[carte]}\u00A0» doit rester hors périmètre, pas dans un lot.`);
       }
     } else if (place !== attendu) {
       if (place === undefined) {
         messages.push(carte === NOTICE_CACHEE
-          ? 'Oubli possible : il manque la notice pour les benevoles (lot Mise en ligne).'
-          : `« ${LIBELLE[carte]} » n est pas encore placee (lot attendu : ${lotLisible(attendu)}).`);
+          ? 'Oubli possible\u00A0: il manque la notice pour les bénévoles (lot Mise en ligne).'
+          : `«\u00A0${LIBELLE[carte]}\u00A0» n’est pas encore placée (lot attendu\u00A0: ${lotLisible(attendu)}).`);
       } else {
-        messages.push(`« ${LIBELLE[carte]} » attendue dans ${lotLisible(attendu)}, placee dans ${lotLisible(place)}.`);
+        messages.push(`«\u00A0${LIBELLE[carte]}\u00A0» attendue dans ${lotLisible(attendu)}, placée dans ${lotLisible(place)}.`);
       }
     }
   }
@@ -88,28 +88,28 @@ export default function LaboWbs(props: Props) {
   };
 
   const etapes = [
-    '9 cartes fictives (dont 2 hors perimetre) et 3 lots vides sont affichees.',
-    'Glisser ou deplacer au clavier une carte vers un lot.',
-    'Les compteurs par lot se mettent a jour et signalent les lots vides.',
-    'Verifier : les hors perimetre attendus restent hors lots.',
-    'Aide proposee si oubli (indice : il manque la notice).',
-    'Validation quand les 3 lots sont coherents, +5 XP.',
+    '9 cartes fictives (dont 2 hors périmètre) et 3 lots vides sont affichées.',
+    'Glisser ou déplacer au clavier une carte vers un lot.',
+    'Les compteurs par lot se mettent à jour et signalent les lots vides.',
+    'Vérifier\u00A0: les hors périmètre attendus restent hors lots.',
+    'Aide proposée si oubli (indice\u00A0: il manque la notice).',
+    'Validation quand les 3 lots sont cohérents, +5 XP.',
   ];
 
   return (
     <LaboFrame
-      titre="Labo : decoupage WBS interactif"
-      consigne="Place les 7 taches dedans dans les 3 lots, laisse les 2 hors perimetre dehors, puis verifie."
+      titre={'Labo\u00A0: découpage WBS interactif'}
+      consigne={'Place les 7 tâches dedans dans les 3 lots, laisse les 2 hors périmètre dehors, puis vérifie.'}
       etapes={etapes}
       etape={etape}
-      etat={messages[messages.length - 1] ?? (tiree ? `Carte ${LIBELLE[tiree]} selectionnee.` : '')}
+      etat={messages[messages.length - 1] ?? (tiree ? `Carte ${LIBELLE[tiree]} sélectionnée.` : '')}
       onVerifier={verifier}
       onReinitialiser={() => { dispatch({ type: 'reset' }); setMessages([]); setEtape(1); setTiree(null); }}
       valide={props.valide || (messages.length === 0 && verifierWBS(state).ok)}
     >
       <div className="wbs-grid">
         <div>
-          <h4>Cartes a placer</h4>
+          <h4>Cartes à placer</h4>
           <div
             className="wbs-cards"
             role="listbox"
@@ -142,7 +142,7 @@ export default function LaboWbs(props: Props) {
                 className="btn secondary"
                 onClick={() => { dispatch({ type: 'assign', carte: tiree, lot: 'hors' }); setTiree(null); }}
               >
-                Deposer « {LIBELLE[tiree]} » hors perimetre
+                Déposer&nbsp;«&nbsp;{LIBELLE[tiree]}&nbsp;» hors périmètre
               </button>
             </div>
           )}
@@ -176,7 +176,7 @@ export default function LaboWbs(props: Props) {
                     className="btn"
                     onClick={() => { dispatch({ type: 'assign', carte: tiree, lot }); setTiree(null); }}
                   >
-                    Deposer ici
+                    Déposer ici
                   </button>
                 )}
               </div>

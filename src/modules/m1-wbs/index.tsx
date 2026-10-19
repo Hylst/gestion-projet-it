@@ -15,7 +15,7 @@ import { moduleMetaByNum } from '../../modules/index';
 const Labo = () => {
   const p = useProgress();
   return (
-    <section id="labo" aria-label="Labo : decoupage WBS interactif">
+    <section id="labo" aria-label={'Labo\u00A0: découpage WBS interactif'}>
       <LaboWbs
         valide={p.laboDone.includes('m1-wbs-labo')}
         onValide={() => p.dispatch({ type: 'labo', id: 'm1-wbs-labo' })}
@@ -36,7 +36,7 @@ export const M1Page = () => {
       <Reveal><Labo /></Reveal>
       <Reveal><Exercices /></Reveal>
       <Reveal><QuizBlock data={quiz} /></Reveal>
-      <Reveal><FicheReflexe titre="Fiche reflexe : cadrer et decouper" items={items} /></Reveal>
+      <Reveal><FicheReflexe titre={'Fiche réflexe\u00A0: cadrer et découper'} items={items} /></Reveal>
     </ModuleLayout>
   );
 };

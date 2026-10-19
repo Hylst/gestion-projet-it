@@ -4,58 +4,58 @@ export const Exercices = () => (
   <div id="exercice">
     <ExerciseBlock
       id="m1-ex1"
-      titre="Exercice 1 : cadrer en une page"
+      titre={'Exercice 1\u00A0: cadrer en une page'}
       enonce={(
         <div>
-          <p>Sur le fil rouge fictif (refonte du site des Amis du Square), ecris le cadrage en une page : besoin, dedans et dehors, 3 lots, 2 jalons fictifs, 1 definition de fini par lot.</p>
+          <p>Sur le fil rouge fictif (refonte du site des Amis du Square), écris le cadrage en une page&nbsp;: besoin, dedans et dehors, 3 lots, 2 jalons fictifs, 1 définition de fini par lot.</p>
         </div>
       )}
       corrige={(
         <div>
-          <p><strong>Besoin formule en une phrase :</strong> "rendre le site de l association lisible et simple a maintenir par des benevoles fictifs."</p>
-          <p><strong>Dedans :</strong> presentation, agenda, contact fictif, version mobile lisible. <strong>Dehors :</strong> paiement, application dediee, traductions.</p>
-          <p><strong>3 lots :</strong> Contenu (inventaire des pages, textes relus, photos locales), Realisation (maquette, integration, mobile), Mise en ligne (notice, formation des benevoles, sauvegarde).</p>
-          <p><strong>2 jalons :</strong> maquette validee par le bureau fictif ; site publie.</p>
-          <p><strong>Definition de fini (exemple) :</strong> lot Contenu fini quand chaque page a un texte relu et une photo locale.</p>
+          <p><strong>Besoin formulé en une phrase&nbsp;:</strong> «&nbsp;rendre le site de l’association lisible et simple à maintenir par des bénévoles fictifs.&nbsp;»</p>
+          <p><strong>Dedans&nbsp;:</strong> présentation, agenda, contact fictif, version mobile lisible. <strong>Dehors&nbsp;:</strong> paiement, application dédiée, traductions.</p>
+          <p><strong>3 lots&nbsp;:</strong> Contenu (inventaire des pages, textes relus, photos locales), Réalisation (maquette, intégration, mobile), Mise en ligne (notice, formation des bénévoles, sauvegarde).</p>
+          <p><strong>2 jalons&nbsp;:</strong> maquette validée par le bureau fictif&nbsp;; site publié.</p>
+          <p><strong>Définition de fini (exemple)&nbsp;:</strong> lot Contenu fini quand chaque page a un texte relu et une photo locale.</p>
         </div>
       )}
       methode={[
         'Une phrase de besoin, sans jargon.',
-        'Deux listes : dedans, dehors ; aucune ambiguite.',
-        'Des lots nommes par livrable, jamais par role.',
-        'Deux jalons places, lisibles et valides par une personne.',
-        'Une definition de fini verifiable par lot.',
+        'Deux listes\u00A0: dedans, dehors\u00A0; aucune ambiguïté.',
+        'Des lots nommés par livrable, jamais par rôle.',
+        'Deux jalons placés, lisibles et validés par une personne.',
+        'Une définition de fini vérifiable par lot.',
       ]}
     />
     <ExerciseBlock
       id="m1-ex2"
-      titre="Exercice 2 : trier une liste tangible"
+      titre={'Exercice 2\u00A0: trier une liste tangible'}
       enonce={(
         <div>
-          <p>La liste fictive melange 8 taches dont 2 hors perimetre et 1 oubliee (la notice des benevoles fictifs). Trie en 3 lots, isole les hors perimetre, ajoute l oubliee.</p>
+          <p>La liste fictive mélange 8 tâches dont 2 hors périmètre et 1 oubliée (la notice des bénévoles fictifs). Trie en 3 lots, isole les hors périmètre, puis complète avec l’oubliée.</p>
           <ul>
             <li>inventaire des pages</li>
             <li>choix des photos locales</li>
-            <li>reecrire les textes</li>
-            <li>realiser la maquette</li>
-            <li>integration des pages</li>
+            <li>réécrire les textes</li>
+            <li>réaliser la maquette</li>
+            <li>intégration des pages</li>
             <li>paiement des cotisations en ligne</li>
             <li>sauvegarde du site</li>
-            <li>application mobile dediee</li>
+            <li>application mobile dédiée</li>
           </ul>
         </div>
       )}
       corrige={(
         <div>
-          <p><strong>Hors perimetre</strong> (isoles avec motif) : paiement des cotisations en ligne et application mobile dediee, exclus du cadrage fictif.</p>
-          <p><strong>Lot Contenu :</strong> inventaire, textes, photos. <strong>Lot Realisation :</strong> maquette, integration. <strong>Lot Mise en ligne :</strong> sauvegarde, plus la <strong>notice des benevoles</strong> (l oubli a ajouter).</p>
-          <p><strong>Methode :</strong> tout item sans lot revele un oubli ou un hors perimetre.</p>
+          <p><strong>Hors périmètre</strong> (isolés avec motif)&nbsp;: paiement des cotisations en ligne et application mobile dédiée, exclus du cadrage fictif.</p>
+          <p><strong>Lot Contenu&nbsp;:</strong> inventaire, textes, photos. <strong>Lot Réalisation&nbsp;:</strong> maquette, intégration. <strong>Lot Mise en ligne&nbsp;:</strong> sauvegarde, plus la <strong>notice des bénévoles</strong> (l’oubli à ajouter).</p>
+          <p><strong>Méthode&nbsp;:</strong> tout item sans lot révèle un oubli ou un hors périmètre.</p>
         </div>
       )}
       methode={[
-        'Distribuer chaque tache dans un lot.',
-        'Isoler ce qui refuse de rentrer et l expliquer.',
-        'Chercher une dependance oubliee et la nommer.',
+        'Distribuer chaque tâche dans un lot.',
+        'Isoler ce qui refuse de rentrer et l’expliquer.',
+        'Chercher une dépendance oubliée et la nommer.',
       ]}
     />
   </div>

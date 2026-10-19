@@ -1,7 +1,7 @@
 export const items = [
   'Formule le besoin en une phrase simple.',
-  'Separe dedans et dehors sans recouvrement.',
+  'Sépare dedans et dehors sans recouvrement.',
   'Nomme chaque lot par son livrable.',
-  'Pose deux jalons au moins, valides par une personne.',
-  'Ecris une definition de fini verifiable par lot.',
+  'Pose deux jalons au moins, validés par une personne.',
+  'Écris une définition de fini vérifiable par lot.',
 ];

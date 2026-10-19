@@ -4,30 +4,30 @@ export const quiz: QuizData = {
   id: 'm2-quiz',
   questions: [
     {
-      question: 'A quoi sert un PERT ?',
+      question: 'À quoi sert un PERT\u00A0?',
       choix: [
-        'Ordonner taches et dependances et lire la chaine tendue',
+        'Ordonner tâches et dépendances et lire la chaîne tendue',
         'Lister les outils',
-        'Animer une reunion',
+        'Animer une réunion',
       ],
       bonne: 0,
-      motif: 'Le PERT montre l ordre et ce qui commande la date cible fictive.',
+      motif: 'Le PERT montre l’ordre et ce qui commande la date cible fictive.',
     },
     {
-      question: 'A quoi sert un GANTT ?',
+      question: 'À quoi sert un GANTT\u00A0?',
       choix: [
-        'Voir qui fait quoi et quand et suivre l avancement',
-        'Ecrire le code',
-        'Chiffrer sans hypothese',
+        'Voir qui fait quoi et quand et suivre l’avancement',
+        'Écrire le code',
+        'Chiffrer sans hypothèse',
       ],
       bonne: 0,
-      motif: 'Barres, jalons et avancement partages, sans lien direct avec le code.',
+      motif: 'Barres, jalons et avancement partagés, sans lien direct avec le code.',
     },
     {
-      question: 'Que faire si une tache de la chaine tendue glisse ?',
-      choix: ['Ne rien changer', 'Ajouter des taches', 'Replanifier et proteger la chaine'],
+      question: 'Que faire si une tâche de la chaîne tendue glisse\u00A0?',
+      choix: ['Ne rien changer', 'Ajouter des tâches', 'Replanifier et protéger la chaîne'],
       bonne: 2,
-      motif: 'La chaine tendue commande la fin, il faut agir dessus en priorite.',
+      motif: 'La chaîne tendue commande la fin, il faut agir dessus en priorité.',
     },
   ],
 };

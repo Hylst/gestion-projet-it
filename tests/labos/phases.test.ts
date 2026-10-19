@@ -40,6 +40,6 @@ describe('verifierPhases', () => {
       { type: 'mode', m: 'v' },
     );
     const r = verifierPhases(s);
-    expect(r.messages.join(' ')).toMatch(/Tests systeme/);
+    expect(r.messages.join(' ')).toMatch(/Tests système/);
   });
 });

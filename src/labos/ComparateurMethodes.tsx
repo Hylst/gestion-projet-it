@@ -2,9 +2,9 @@ import { useRef, useState } from 'react';
 import type { KeyboardEvent } from 'react';
 
 export const METHODS: Array<{ nom: string; avantages: string[]; limites: string[]; cas: string[] }> = [
-  { nom: 'Cycle en V', avantages: ['Tests prepares pour chaque phase'], limites: ['Documentation lourde requise'], cas: ['Travaux fictifs reglementes avec besoin de traces'] },
+  { nom: 'Cycle en V', avantages: ['Tests préparés pour chaque phase'], limites: ['Documentation lourde requise'], cas: ['Travaux fictifs réglementés avec besoin de traces'] },
   { nom: 'Waterfall (cascade)', avantages: ['Phases simples et jalons clairs'], limites: ['Retards coûteux si le besoin bouge'], cas: ['Site vitrine figé fictif'] },
-  { nom: 'Agiles (Scrum/Kanban...)', avantages: ['Retours réguliers'], limites: ['Necessite des parties prenantes disponibles'], cas: ['Produit fictif évolutif comme l agenda du site'] },
+  { nom: 'Agiles (Scrum/Kanban...)', avantages: ['Retours réguliers'], limites: ['Nécessite des parties prenantes disponibles'], cas: ['Produit fictif évolutif comme l’agenda du site'] },
 ];
 
 export default function ComparateurMethodes(): JSX.Element {
@@ -29,14 +29,14 @@ export default function ComparateurMethodes(): JSX.Element {
 
   return (
     <div className="labo card">
-      <h2 id="comparateur-titre">Comparateur de methodes</h2>
+      <h2 id="comparateur-titre">Comparateur de méthodes</h2>
       <p className="consigne">
-        Trois familles, trois contextes. Chacune a des avantages et des limites : aucune n est superieure
-        dans l absolu, le besoin et le cadre de decision guident le choix.
+        Trois familles, trois contextes. Chacune a des avantages et des limites&nbsp;: aucune n’est supérieure
+        dans l’absolu, le besoin et le cadre de décision guident le choix.
       </p>
       <div
         role="tablist"
-        aria-label="Comparer les methodes"
+        aria-label="Comparer les méthodes"
         className="mode-switch comparateur-tabs"
         onKeyDown={surTouches}
       >
@@ -90,7 +90,7 @@ export default function ComparateurMethodes(): JSX.Element {
         </div>
       ))}
       <p className="help">
-        Exemples fictifs pour raisonner : aucune methode ne gagne par principe, le contexte tranche.
+        Exemples fictifs pour raisonner&nbsp;: aucune méthode ne gagne par principe, le contexte tranche.
       </p>
     </div>
   );

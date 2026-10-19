@@ -12,10 +12,10 @@ describe('reducKanban', () => {
   it('refuse d entrer en En cours si WIP atteint et compte un blocage', () => {
     let s = initialState();
     s = avance(s, 'Page accueil');          // En cours: 1
-    s = avance(s, 'Agenda des activites');  // En cours: 2
+    s = avance(s, 'Agenda des activités');  // En cours: 2
     const avant = s.blocages;
     s = avance(s, 'Formulaire contact');    // refusé
-    expect(s.cartes['Formulaire contact']).toBe('A faire');
+    expect(s.cartes['Formulaire contact']).toBe('À faire');
     expect(s.blocages).toBe(avant + 1);
     expect(COLONNES.length).toBe(4);
     expect(WIP_MAX).toBe(2);
@@ -31,7 +31,7 @@ describe('reducKanban', () => {
     let s = initialState();
     s = avance(s, 'Page accueil');
     s = recule(s, 'Page accueil');
-    expect(s.cartes['Page accueil']).toBe('A faire');
+    expect(s.cartes['Page accueil']).toBe('À faire');
     expect(s.blocages).toBe(0);
   });
 });
@@ -39,7 +39,7 @@ describe('reducKanban', () => {
 describe('verifierKanban', () => {
   it('ok quand toutes les cartes sont en Fini', () => {
     let s = initialState();
-    for (const carte of ['Page accueil', 'Agenda des activites', 'Formulaire contact', 'Version mobile', 'Galerie photos', 'Notice benevole']) {
+    for (const carte of ['Page accueil', 'Agenda des activités', 'Formulaire contact', 'Version mobile', 'Galerie photos', 'Notice bénévole']) {
       for (let i = 0; i < 5; i++) s = avance(s, carte);
     }
     expect(verifierKanban(s).ok).toBe(true);

@@ -3,12 +3,12 @@ import type { KeyboardEvent } from 'react';
 import { LaboFrame } from '../components/LaboFrame';
 import { useProgress } from '../lib/progress';
 
-export const STORIES = ['Page accueil', 'Agenda des activites', 'Formulaire contact', 'Version mobile', 'Galerie photos'] as const;
+export const STORIES = ['Page accueil', 'Agenda des activités', 'Formulaire contact', 'Version mobile', 'Galerie photos'] as const;
 export type Story = (typeof STORIES)[number];
 export const VALEURS = [1, 2, 3, 5, 8, 13] as const;
 export const CORRECTIONS: Record<Story, number> = {
   'Page accueil': 2,
-  'Agenda des activites': 5,
+  'Agenda des activités': 5,
   'Formulaire contact': 2,
   'Version mobile': 3,
   'Galerie photos': 5,
@@ -46,12 +46,12 @@ export function verifierPoker(s: PokerState): { ok: boolean; messages: string[] 
   for (const st of STORIES) {
     const estimation = s.estimations[st];
     if (estimation == null) {
-      messages.push(`${st} : pas encore estimee.`);
+      messages.push(`${st}\u00A0: pas encore estimée.`);
       continue;
     }
     const correction = CORRECTIONS[st];
     if (estimation !== correction) {
-      messages.push(`${st} : ton estimation ${estimation}, correction fictive ${correction}.`);
+      messages.push(`${st}\u00A0: ton estimation ${estimation}, correction fictive ${correction}.`);
     }
   }
   return { ok: messages.length === 0, messages };
@@ -118,20 +118,20 @@ export default function PokerPlanning(props: Props) {
 
   const etapes = [
     '5 stories fictives issues du fil rouge.',
-    'Selectionne une story dans la liste.',
+    'Sélectionne une story dans la liste.',
     'Choisis une valeur de la suite 1, 2, 3, 5, 8, 13.',
-    'Verifie : la correction fictive apparait story par story.',
-    'Rejoue sans nouveau gain d XP.',
-    'Validation quand les 5 estimations collent (+5 XP la premiere fois).',
+    'Vérifie\u00A0: la correction fictive apparaît story par story.',
+    'Rejoue sans nouveau gain d’XP.',
+    'Validation quand les 5 estimations collent (+5 XP la première fois).',
   ];
 
   const etape = valideLocal ? 6 : messages.length > 0 ? 4 : nbEstimees > 0 ? 3 : 2;
-  const etat = messages[messages.length - 1] ?? (selection ? `« ${selection} » selectionnee.` : '');
+  const etat = messages[messages.length - 1] ?? (selection ? `«\u00A0${selection}\u00A0» sélectionnée.` : '');
 
   return (
     <LaboFrame
-      titre="Labo : poker planning"
-      consigne="Estime les 5 stories fictives, puis verifie pour comparer a la correction fictive."
+      titre={'Labo\u00A0: poker planning'}
+      consigne="Estime les 5 stories fictives, puis vérifie pour comparer à la correction fictive."
       etapes={etapes}
       etape={etape}
       etat={etat}
@@ -139,7 +139,7 @@ export default function PokerPlanning(props: Props) {
       onReinitialiser={reinitialiser}
       valide={props.valide || valideLocal}
     >
-      <h4 id="poker-stories-t">Stories a estimer</h4>
+      <h4 id="poker-stories-t">Stories à estimer</h4>
       <div className="wbs-cards" role="listbox" aria-labelledby="poker-stories-t" onKeyDown={surTouches}>
         {STORIES.map((st, i) => {
           const estimation = s.estimations[st];
@@ -162,8 +162,8 @@ export default function PokerPlanning(props: Props) {
       </div>
       <p className="help">
         {selection
-          ? `« ${selection} » selectionnee. Choisis une valeur, puis verifie.`
-          : 'Selectionne une story, puis choisis une valeur.'}
+          ? `«\u00A0${selection}\u00A0» sélectionnée. Choisis une valeur, puis vérifie.`
+          : 'Sélectionne une story, puis choisis une valeur.'}
       </p>
       {selection && (
         <div className="mode-switch" role="group" aria-label={`Valeurs pour ${selection}`}>
@@ -173,7 +173,7 @@ export default function PokerPlanning(props: Props) {
               type="button"
               className="btn"
               aria-pressed={s.estimations[selection] === v}
-              aria-label={`Estimer ${selection} a ${v}`}
+              aria-label={`Estimer ${selection} à ${v}`}
               onClick={() => estimer(v)}
             >
               {v}

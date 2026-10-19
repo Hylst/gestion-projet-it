@@ -42,7 +42,7 @@ describe('priorites', () => {
     const py = priorites(placerTout());
     expect(py.length).toBe(RISQUES.length);
     expect(py[0]!.score).toBeGreaterThanOrEqual(py[py.length - 1]!.score);
-    expect(py[0]!.nom).toBe('Notice des benevoles non ecrite');
+    expect(py[0]!.nom).toBe('Notice des bénévoles non écrite');
     expect(py[0]!.score).toBe(9);
   });
 
@@ -86,7 +86,7 @@ describe('verifierRisques', () => {
     s = reduceR(s, { type: 'place', risque: RISQUES[0]!.nom, cell: 'p1-i1' });
     const r = verifierRisques(s);
     expect(r.ok).toBe(false);
-    expect(r.messages.join(' ')).toMatch(/probabilite 2, impact 3/i);
+    expect(r.messages.join(' ')).toMatch(/probabilité 2, impact 3/i);
   });
 });
 

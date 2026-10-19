@@ -2,8 +2,8 @@ import { useEffect, useReducer, useRef, useState } from 'react';
 import { LaboFrame } from '../components/LaboFrame';
 import { useProgress } from '../lib/progress';
 
-export const CARTES = ['Page accueil', 'Agenda des activites', 'Formulaire contact', 'Version mobile', 'Galerie photos', 'Notice benevole'];
-export const COLONNES = ['A faire', 'En cours', 'A relire', 'Fini'] as const;
+export const CARTES = ['Page accueil', 'Agenda des activités', 'Formulaire contact', 'Version mobile', 'Galerie photos', 'Notice bénévole'];
+export const COLONNES = ['À faire', 'En cours', 'À relire', 'Fini'] as const;
 export type Colonne = (typeof COLONNES)[number];
 export const WIP_MAX = 2;
 
@@ -18,7 +18,7 @@ export type KanbanAction =
 
 export function initialState(): KanbanState {
   const cartes: Record<string, Colonne> = {};
-  for (const c of CARTES) cartes[c] = 'A faire';
+  for (const c of CARTES) cartes[c] = 'À faire';
   return { cartes, blocages: 0 };
 }
 
@@ -46,7 +46,7 @@ export function reducKanban(s: KanbanState, a: KanbanAction): KanbanState {
 
 export function verifierKanban(s: KanbanState): { ok: boolean; messages: string[] } {
   const pasFini = CARTES.filter((c) => s.cartes[c] !== 'Fini');
-  if (pasFini.length > 0) return { ok: false, messages: [`Reste ${pasFini.length} carte(s) a finir.`] };
+  if (pasFini.length > 0) return { ok: false, messages: [`Reste ${pasFini.length} carte(s) à finir.`] };
   return { ok: true, messages: [] };
 }
 
@@ -77,11 +77,11 @@ export default function LaboKanban(props: Props) {
     if (!courante) return;
     const cible = COLONNES[COLONNES.indexOf(courante) + sens];
     if (!cible) {
-      setMessage(`La carte « ${carte} » est deja en ${courante}, impossible d aller plus loin.`);
+      setMessage(`La carte «\u00A0${carte}\u00A0» est déjà en ${courante}, impossible d’aller plus loin.`);
       return;
     }
     if (cible === 'En cours' && compteEnCours(s) >= WIP_MAX) {
-      setMessage(`Blocage : la colonne En cours est deja a ${WIP_MAX} cartes (limite de WIP). Finis-en une avant d en commencer une autre.`);
+      setMessage(`Blocage\u00A0: la colonne En cours est déjà à ${WIP_MAX} cartes (limite de WIP). Finis-en une avant d’en commencer une autre.`);
       dispatch({ type: 'deplace', carte, sens });
       return;
     }
@@ -94,7 +94,7 @@ export default function LaboKanban(props: Props) {
     const r = verifierKanban(s);
     if (r.ok) {
       setValideLocal(true);
-      setMessage('Toutes les cartes sont en Fini : le tableau est valide.');
+      setMessage('Toutes les cartes sont en Fini\u00A0: le tableau est validé.');
       if (!p.laboDone.includes('m4-kanban')) props.onValide();
     } else {
       setMessage(r.messages.join(' '));
@@ -109,20 +109,20 @@ export default function LaboKanban(props: Props) {
   };
 
   const etapes = [
-    '6 cartes fictives et 4 colonnes : A faire, En cours, A relire, Fini.',
+    '6 cartes fictives et 4 colonnes\u00A0: À faire, En cours, À relire, Fini.',
     'Fais avancer une carte avec les boutons ou au clavier.',
-    'Au dela de 2 cartes en En cours, le depot est bloque avec un message.',
-    'Le compteur de blocages se met a jour.',
-    'Le poker planning est un second labo ci dessous.',
-    'Validation du tableau complet (+5 XP la premiere fois).',
+    'Au-delà de 2 cartes en En cours, le dépôt est bloqué avec un message.',
+    'Le compteur de blocages se met à jour.',
+    'Le poker planning est un second labo ci-dessous.',
+    'Validation du tableau complet (+5 XP la première fois).',
   ];
 
-  const etape = ok ? 6 : s.blocages > 0 ? 4 : Object.values(s.cartes).some((c) => c !== 'A faire') ? 3 : 2;
+  const etape = ok ? 6 : s.blocages > 0 ? 4 : Object.values(s.cartes).some((c) => c !== 'À faire') ? 3 : 2;
 
   return (
     <LaboFrame
-      titre="Labo : tableau Kanban jouable"
-      consigne="Fais avancer les 6 cartes jusqu a Fini en respectant la limite de WIP de 2 cartes en En cours."
+      titre={'Labo\u00A0: tableau Kanban jouable'}
+      consigne="Fais avancer les 6 cartes jusqu’à Fini en respectant la limite de WIP de 2 cartes en En cours."
       etapes={etapes}
       etape={etape}
       etat={message}
@@ -130,7 +130,7 @@ export default function LaboKanban(props: Props) {
       onReinitialiser={reinitialiser}
       valide={props.valide || valideLocal}
     >
-      <div className="kanban-board" role="group" aria-label="Tableau Kanban a 4 colonnes">
+      <div className="kanban-board" role="group" aria-label="Tableau Kanban à 4 colonnes">
         {COLONNES.map((c) => (
           <div key={c} className="kanban-col">
             <h4>{c}{c === 'En cours' ? ` (${WIP_MAX} max)` : ''}</h4>
@@ -159,11 +159,11 @@ export default function LaboKanban(props: Props) {
                 </span>
               </div>
             ))}
-            {c === 'En cours' && <p className="compteur">En cours : {compteEnCours(s)} sur {WIP_MAX}</p>}
+            {c === 'En cours' && <p className="compteur">En cours&nbsp;: {compteEnCours(s)} sur {WIP_MAX}</p>}
           </div>
         ))}
       </div>
-      <p className="compteur">Blocages rencontres : {s.blocages}</p>
+      <p className="compteur">Blocages rencontrés&nbsp;: {s.blocages}</p>
       {message && <p role="alert" className={ok ? 'ok' : 'err'}>{message}</p>}
     </LaboFrame>
   );

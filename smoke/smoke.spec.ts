@@ -40,10 +40,10 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 12
 
 test('labo Eisenhower : depot au clavier et retour du focus', async ({ page }) => {
   await page.goto(`${base}/module-6`);
-  const tache = page.getByRole('option', { name: /Corriger le formulaire casse/ });
+  const tache = page.getByRole('option', { name: /Corriger le formulaire cassé/ });
   await tache.focus();
   await page.keyboard.press('Enter');
-  const placer = page.getByRole('button', { name: 'Placer Corriger le formulaire casse en Urgent et important' });
+  const placer = page.getByRole('button', { name: 'Placer Corriger le formulaire cassé en Urgent et important' });
   await placer.focus();
   await page.keyboard.press('Enter');
   await expect(tache).toBeFocused();

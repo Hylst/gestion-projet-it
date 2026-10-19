@@ -3,8 +3,8 @@ import { reduceSelecteur, verifierSelecteur, SUGGESTIONS, BESOINS, initialState 
 
 describe('LaboSelecteurOutil', () => {
   it('choisit un outil par besoin', () => {
-    const s = reduceSelecteur(initialState(), { type: 'choisit', besoin: 'Equipe dispersee', outil: 'Chaine CI' });
-    expect(s.choix['Equipe dispersee']).toBe('Chaine CI');
+    const s = reduceSelecteur(initialState(), { type: 'choisit', besoin: 'Équipe dispersée', outil: 'Chaîne CI' });
+    expect(s.choix['Équipe dispersée']).toBe('Chaîne CI');
   });
   it('ok quand les 3 besoins sont corrects', () => {
     let s = initialState();

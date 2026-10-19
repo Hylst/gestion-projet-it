@@ -24,14 +24,14 @@ describe('verifierChaine', () => {
     expect(verifierChaine(s).ok).toBe(true);
   });
   it('message explicite quand Deploiement passe avant Test', () => {
-    const s = { ordre: ['Deploiement', 'Test', 'Assemblage', 'Relecture'] };
+    const s = { ordre: ['Déploiement', 'Test', 'Assemblage', 'Relecture'] };
     const r = verifierChaine(s);
-    expect(r.messages.some((m) => m.includes('deploiement ne peut pas commencer avant les tests'))).toBe(true);
+    expect(r.messages.some((m) => m.includes('déploiement ne peut pas commencer avant les tests'))).toBe(true);
   });
 });
 
 describe('ETAPES', () => {
   it('contient les quatre etapes de la chaine', () => {
-    expect(ETAPES).toEqual(['Test', 'Assemblage', 'Relecture', 'Deploiement']);
+    expect(ETAPES).toEqual(['Test', 'Assemblage', 'Relecture', 'Déploiement']);
   });
 });

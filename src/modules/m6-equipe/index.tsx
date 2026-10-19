@@ -15,7 +15,7 @@ import { items } from './ficheReflexe';
 const Labo = () => {
   const p = useProgress();
   return (
-    <section id="labo" aria-label="Labo : matrice d Eisenhower placable">
+    <section id="labo" aria-label={'Labo\u00A0: matrice d’Eisenhower plaçable'}>
       <LaboEisenhower
         valide={p.laboDone.includes('m6-eisenhower')}
         onValide={() => p.dispatch({ type: 'labo', id: 'm6-eisenhower' })}
@@ -27,7 +27,7 @@ const Labo = () => {
 const LaboRisquesBloc = () => {
   const p = useProgress();
   return (
-    <section id="labo-risques" aria-label="Labo : matrice des risques et parades">
+    <section id="labo-risques" aria-label={'Labo\u00A0: matrice des risques et parades'}>
       <LaboRisques
         valide={p.laboDone.includes('m6-risques')}
         onValide={() => p.dispatch({ type: 'labo', id: 'm6-risques' })}
@@ -42,8 +42,8 @@ export const M6Page = () => (
       id: 'm6-equipe',
       num: 6,
       slug: 'module-6',
-      titre: 'Equipe, risques (Eisenhower) et suivi',
-      resume: 'Communication, tri urgent important, registre des risques, retro utile.',
+      titre: 'Équipe, risques (Eisenhower) et suivi',
+      resume: 'Communication, tri urgent important, registre des risques, rétro utile.',
       motsCles: ['eisenhower', 'risques', 'retro', 'communication', 'indicateurs'],
     }}
   >
@@ -54,7 +54,7 @@ export const M6Page = () => (
     <Reveal><LaboRisquesBloc /></Reveal>
     <Reveal><Exercices /></Reveal>
     <Reveal><QuizBlock data={quiz} /></Reveal>
-    <Reveal><FicheReflexe titre="Fiche reflexe : equipe, risques et suivi" items={items} /></Reveal>
+    <Reveal><FicheReflexe titre={'Fiche réflexe\u00A0: équipe, risques et suivi'} items={items} /></Reveal>
   </ModuleLayout>
 );
 

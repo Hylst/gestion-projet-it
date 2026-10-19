@@ -2,9 +2,9 @@ import { useReducer, useState } from 'react';
 import { LaboFrame } from '../components/LaboFrame';
 import { useProgress } from '../lib/progress';
 
-export const ETAPES = ['Test', 'Assemblage', 'Relecture', 'Deploiement'];
-export const ORDRE_ATTENDU = ['Test', 'Assemblage', 'Relecture', 'Deploiement'];
-const ORDRE_INITIAL = ['Relecture', 'Test', 'Deploiement', 'Assemblage'];
+export const ETAPES = ['Test', 'Assemblage', 'Relecture', 'Déploiement'];
+export const ORDRE_ATTENDU = ['Test', 'Assemblage', 'Relecture', 'Déploiement'];
+const ORDRE_INITIAL = ['Relecture', 'Test', 'Déploiement', 'Assemblage'];
 
 export type ChaineState = { ordre: string[] };
 export type ChaineAction =
@@ -45,24 +45,24 @@ export function verifierChaine(s: ChaineState): { ok: boolean; messages: string[
   const test = s.ordre.indexOf('Test');
   const assemblage = s.ordre.indexOf('Assemblage');
   const relecture = s.ordre.indexOf('Relecture');
-  const deploiement = s.ordre.indexOf('Deploiement');
+  const deploiement = s.ordre.indexOf('Déploiement');
 
   if (deploiement !== -1 && deploiement < test) {
-    messages.push('Le deploiement ne peut pas commencer avant les tests.');
+    messages.push('Le déploiement ne peut pas commencer avant les tests.');
   }
   if (relecture !== -1 && (relecture < test || relecture < assemblage)) {
-    messages.push('La relecture vient apres le test et l assemblage.');
+    messages.push('La relecture vient après le test et l’assemblage.');
   }
   if (deploiement !== -1 && deploiement >= test && deploiement < relecture) {
     messages.push(
       deploiement < assemblage
-        ? 'Le deploiement vient apres l assemblage.'
-        : 'Le deploiement vient apres la relecture.',
+        ? 'Le déploiement vient après l’assemblage.'
+        : 'Le déploiement vient après la relecture.',
     );
   }
   if (messages.length === 0) {
     messages.push(
-      'L ordre propose ne correspond pas a la chaine attendue : test, assemblage, relecture, deploiement.',
+      'L’ordre proposé ne correspond pas à la chaîne attendue\u00A0: test, assemblage, relecture, déploiement.',
     );
   }
   return { ok: false, messages };
@@ -99,27 +99,27 @@ export default function LaboChaineCI(props: Props) {
   };
 
   const etapes = [
-    'Quatre etapes fictives de chaine CI affichees dans un ordre melange.',
-    'Deplacer chaque etape avec les boutons Monter et Descendre, au clic ou au clavier.',
-    'Les deplacements sont bornes : la premiere etape ne monte pas, la derniere ne descend pas.',
-    'Verifier : un message explicite signale chaque inversion, sans piege.',
-    'L ordre attendu reste celui du cahier des charges : test, assemblage, relecture, deploiement.',
-    'Validation quand l ordre est correct (+5 XP la premiere fois).',
+    'Quatre étapes fictives de chaîne CI affichées dans un ordre mélangé.',
+    'Déplacer chaque étape avec les boutons Monter et Descendre, au clic ou au clavier.',
+    'Les déplacements sont bornés\u00A0: la première étape ne monte pas, la dernière ne descend pas.',
+    'Vérifier\u00A0: un message explicite indique chaque inversion, sans piège.',
+    'L’ordre attendu reste celui du cahier des charges\u00A0: test, assemblage, relecture, déploiement.',
+    'Validation quand l’ordre est correct (+5 XP la première fois).',
   ];
 
   const etape = valideLocal ? 6 : messages.length > 0 ? 4 : aBouge ? 3 : 2;
 
   return (
     <LaboFrame
-      titre="Labo : chaine CI a ordonner"
-      consigne="Ordonne les quatre etapes de la chaine CI simplifiee, puis verifie. Chaque inversion est expliquee."
+      titre={'Labo\u00A0: chaîne CI à ordonner'}
+      consigne="Ordonne les quatre étapes de la chaîne CI simplifiée, puis vérifie. Chaque inversion est expliquée."
       etapes={etapes}
       etape={etape}
       etat={
         messages[messages.length - 1] ??
         (valideLocal
-          ? 'Ordre correct : test, assemblage, relecture, deploiement.'
-          : `Ordre courant : ${s.ordre.join(', ')}.`)
+          ? 'Ordre correct\u00A0: test, assemblage, relecture, déploiement.'
+          : `Ordre courant\u00A0: ${s.ordre.join(', ')}.`)
       }
       onVerifier={verifier}
       onReinitialiser={reinitialiser}
@@ -153,7 +153,7 @@ export default function LaboChaineCI(props: Props) {
         ))}
       </ol>
       <p className="help">
-        Ordre courant : {s.ordre.join(', ')}.
+        Ordre courant&nbsp;: {s.ordre.join(', ')}.
       </p>
       {messages.length > 0 && (
         <ul className="messages" role="alert">
@@ -162,7 +162,7 @@ export default function LaboChaineCI(props: Props) {
       )}
       {valideLocal && (
         <p className="ok">
-          Ordre correct : tests, assemblage, relecture, puis deploiement.
+          Ordre correct&nbsp;: tests, assemblage, relecture, puis déploiement.
         </p>
       )}
     </LaboFrame>

@@ -15,7 +15,7 @@ import { items } from './ficheReflexe';
 const Labo = () => {
   const p = useProgress();
   return (
-    <section id="labo" aria-label="Labo : selecteur d outil">
+    <section id="labo" aria-label={'Labo\u00A0: sélecteur d’outil'}>
       <LaboSelecteurOutil
         valide={p.laboDone.includes('m5-selecteur')}
         onValide={() => p.dispatch({ type: 'labo', id: 'm5-selecteur' })}
@@ -27,7 +27,7 @@ const Labo = () => {
 const LaboChaine = () => {
   const p = useProgress();
   return (
-    <section id="labo-chaine" aria-label="Labo : chaine CI a ordonner">
+    <section id="labo-chaine" aria-label={'Labo\u00A0: chaîne CI à ordonner'}>
       <LaboChaineCI
         valide={p.laboDone.includes('m5-chaine')}
         onValide={() => p.dispatch({ type: 'labo', id: 'm5-chaine' })}
@@ -42,8 +42,8 @@ export const M5Page = () => (
       id: 'm5-outils',
       num: 5,
       slug: 'module-5',
-      titre: 'Outils : suivi, CI/CD et environnements',
-      resume: 'Suivi partage, chaine CI, environnements reproductibles, sans tutoriel operatoire.',
+      titre: 'Outils\u00A0: suivi, CI/CD et environnements',
+      resume: 'Suivi partagé, chaîne CI, environnements reproductibles, sans tutoriel opératoire.',
       motsCles: ['suivi', 'ci', 'cd', 'docker', 'jira', 'github projects', 'environnement'],
     }}
   >
@@ -54,7 +54,7 @@ export const M5Page = () => (
     <Reveal><LaboChaine /></Reveal>
     <Reveal><Exercices /></Reveal>
     <Reveal><QuizBlock data={quiz} /></Reveal>
-    <Reveal><FicheReflexe titre="Fiche reflexe : outiller sans dogme" items={items} /></Reveal>
+    <Reveal><FicheReflexe titre={'Fiche réflexe\u00A0: outiller sans dogme'} items={items} /></Reveal>
   </ModuleLayout>
 );
 

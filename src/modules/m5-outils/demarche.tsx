@@ -1,12 +1,12 @@
 export const Demarche = () => (
   <section id="demarche" aria-labelledby="demarche-t">
-    <h2 id="demarche-t">Demarche en 5 gestes</h2>
+    <h2 id="demarche-t">Démarche en 5 gestes</h2>
     <ol>
-      <li>Exprime le besoin en une phrase (equipe dispersee, regressions, demo fragile).</li>
-      <li>Choisis une famille d outils qui repond au besoin, pas une marque.</li>
-      <li>Pose des tests courts a chaque changement.</li>
-      <li>Reproduis le meme environnement pour la demo.</li>
-      <li>Entretiens chaine et tests, sinon la chaine devient une promesse vide.</li>
+      <li>Exprime le besoin en une phrase (équipe dispersée, régressions, démo fragile).</li>
+      <li>Choisis une famille d’outils qui répond au besoin, pas une marque.</li>
+      <li>Pose des tests courts à chaque changement.</li>
+      <li>Reproduis le même environnement pour la démo.</li>
+      <li>Entretiens chaîne et tests, sinon la chaîne devient une promesse vide.</li>
     </ol>
   </section>
 );

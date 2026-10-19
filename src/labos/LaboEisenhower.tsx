@@ -2,19 +2,19 @@ import { useReducer, useRef, useState } from 'react';
 import { LaboFrame } from '../components/LaboFrame';
 import { useProgress } from '../lib/progress';
 
-export const TACHES = ['Corriger le formulaire casse', 'Preparer la notice benevole', 'Repondre a la demande d horaire', "Refaire un logo non demande", 'Relire l agenda des activites', 'Repondre au sondage du bureau'] as const;
+export const TACHES = ['Corriger le formulaire cassé', 'Préparer la notice bénévole', 'Répondre à la demande d’horaire', 'Refaire un logo non demandé', 'Relire l’agenda des activités', 'Répondre au sondage du bureau'] as const;
 export type Tache = (typeof TACHES)[number];
 
 export const QUADRANTS = ['urgent-important', 'important-non-urgent', 'urgent-non-important', 'ni-ni'] as const;
 export type Quadrant = (typeof QUADRANTS)[number];
 
 export const ATTENDU_Q: Record<Tache, Quadrant> = {
-  'Corriger le formulaire casse': 'urgent-important',
-  'Preparer la notice benevole': 'important-non-urgent',
-  'Repondre a la demande d horaire': 'urgent-non-important',
-  "Refaire un logo non demande": 'ni-ni',
-  'Relire l agenda des activites': 'important-non-urgent',
-  'Repondre au sondage du bureau': 'urgent-non-important',
+  'Corriger le formulaire cassé': 'urgent-important',
+  'Préparer la notice bénévole': 'important-non-urgent',
+  'Répondre à la demande d’horaire': 'urgent-non-important',
+  'Refaire un logo non demandé': 'ni-ni',
+  'Relire l’agenda des activités': 'important-non-urgent',
+  'Répondre au sondage du bureau': 'urgent-non-important',
 };
 
 export const NOMS_QUADRANTS: Record<Quadrant, string> = {
@@ -25,19 +25,19 @@ export const NOMS_QUADRANTS: Record<Quadrant, string> = {
 };
 
 export const MOTIFS_QUADRANTS: Record<Quadrant, string> = {
-  'urgent-important': 'Fais maintenant : echeance proche et impact fort.',
-  'important-non-urgent': 'Planifie : impact fort, sans urgence immediate.',
-  'urgent-non-important': 'Delegue ou simplifie : urgence sans impact fort.',
-  'ni-ni': 'Laisse de cote et rediscute : ni urgence ni impact fort.',
+  'urgent-important': 'Fais maintenant\u00A0: échéance proche et impact fort.',
+  'important-non-urgent': 'Planifie\u00A0: impact fort, sans urgence immédiate.',
+  'urgent-non-important': 'Délègue ou simplifie\u00A0: urgence sans impact fort.',
+  'ni-ni': 'Laisse de côté et rediscute\u00A0: ni urgence ni impact fort.',
 };
 
 export const MOTIFS: Record<Tache, string> = {
-  'Corriger le formulaire casse': 'il bloque les inscriptions et doit etre traite tout de suite.',
-  'Preparer la notice benevole': 'utile pour l autonomie, sans urgence immediate.',
-  'Repondre a la demande d horaire': 'demande simple, a deleguer ou traiter vite.',
-  "Refaire un logo non demande": 'aucune demande ni impact, a laisser de cote.',
-  'Relire l agenda des activites': 'preparation de fond, a planifier sans precipitation.',
-  'Repondre au sondage du bureau': 'reponse rapide, sans enjeu majeur.',
+  'Corriger le formulaire cassé': 'il bloque les inscriptions et doit être traité tout de suite.',
+  'Préparer la notice bénévole': 'utile pour l’autonomie, sans urgence immédiate.',
+  'Répondre à la demande d’horaire': 'demande simple, à déléguer ou traiter vite.',
+  'Refaire un logo non demandé': 'aucune demande ni impact, à laisser de côté.',
+  'Relire l’agenda des activités': 'préparation de fond, à planifier sans précipitation.',
+  'Répondre au sondage du bureau': 'réponse rapide, sans enjeu majeur.',
 };
 
 export type QState = { place: Record<string, Quadrant> };
@@ -63,9 +63,9 @@ export function verifierQ(s: QState): { ok: boolean; messages: string[] } {
     const attendu = ATTENDU_Q[tache];
     const place = s.place[tache];
     if (place === undefined) {
-      messages.push(`« ${tache} » n est pas encore placee. Quadrant attendu : ${NOMS_QUADRANTS[attendu]} (${MOTIFS[tache]}).`);
+      messages.push(`«\u00A0${tache}\u00A0» n’est pas encore placée. Quadrant attendu\u00A0: ${NOMS_QUADRANTS[attendu]} (${MOTIFS[tache]}).`);
     } else if (place !== attendu) {
-      messages.push(`« ${tache} » est placee en ${NOMS_QUADRANTS[place]}, alors que le quadrant attendu est ${NOMS_QUADRANTS[attendu]} (${MOTIFS[tache]}).`);
+      messages.push(`«\u00A0${tache}\u00A0» est placée en ${NOMS_QUADRANTS[place]}, alors que le quadrant attendu est ${NOMS_QUADRANTS[attendu]} (${MOTIFS[tache]}).`);
     }
   }
   return { ok: messages.length === 0, messages };
@@ -130,25 +130,25 @@ export default function LaboEisenhower(props: Props) {
   };
 
   const etapes = [
-    'Six taches fictives a placer dans les quatre quadrants.',
-    'Choisir une tache puis un quadrant, a la souris ou au clavier.',
-    'Le quadrant et un motif court s affichent apres chaque depot.',
-    'Verifier : chaque tache mal placee indique le quadrant attendu et le motif.',
-    'Le labo des risques est separe : il garde ses propres priorites et parades.',
-    'Validation des six taches correctes (+5 XP la premiere fois).',
+    'Six tâches fictives à placer dans les quatre quadrants.',
+    'Choisir une tâche puis un quadrant, à la souris ou au clavier.',
+    'Le quadrant et un motif court s’affichent après chaque dépôt.',
+    'Vérifier\u00A0: chaque tâche mal placée indique le quadrant attendu et le motif.',
+    'Le labo des risques est séparé\u00A0: il garde ses propres priorités et parades.',
+    'Validation des six tâches correctes (+5 XP la première fois).',
   ];
 
   const etape = valideLocal ? 6 : messages.length > 0 ? 4 : nbPlaces > 0 ? 3 : selection ? 2 : 1;
   const etat = derniere
-    ? `« ${derniere.tache} » placee en ${NOMS_QUADRANTS[derniere.q]} : ${MOTIFS[derniere.tache]}`
+    ? `«\u00A0${derniere.tache}\u00A0» placée en ${NOMS_QUADRANTS[derniere.q]}\u00A0: ${MOTIFS[derniere.tache]}`
     : selection
-      ? `« ${selection} » selectionnee. Choisissez un quadrant puis « Placer ici ».`
+      ? `«\u00A0${selection}\u00A0» sélectionnée. Choisissez un quadrant puis «\u00A0Placer ici\u00A0».`
       : '';
 
   return (
     <LaboFrame
-      titre="Labo : matrice d Eisenhower placable"
-      consigne="Classe les six taches fictives dans le bon quadrant, puis verifie. Un motif court accompagne chaque depot."
+      titre={'Labo\u00A0: matrice d’Eisenhower plaçable'}
+      consigne="Classe les six tâches fictives dans le bon quadrant, puis vérifie. Un motif court accompagne chaque dépôt."
       etapes={etapes}
       etape={etape}
       etat={etat}
@@ -156,7 +156,7 @@ export default function LaboEisenhower(props: Props) {
       onReinitialiser={reinitialiser}
       valide={props.valide || valideLocal}
     >
-      <h4 id="eisenhower-taches-t">Taches a classer</h4>
+      <h4 id="eisenhower-taches-t">Tâches à classer</h4>
       <div
         className="wbs-cards"
         role="listbox"
@@ -184,8 +184,8 @@ export default function LaboEisenhower(props: Props) {
       </div>
       <p className="help">
         {selection
-          ? `« ${selection} » selectionnee. Choisissez un quadrant puis « Placer ici ».`
-          : 'Selectionnez une tache, puis le quadrant qui lui correspond.'}
+          ? `«\u00A0${selection}\u00A0» sélectionnée. Choisissez un quadrant puis «\u00A0Placer ici\u00A0».`
+          : 'Sélectionnez une tâche, puis le quadrant qui lui correspond.'}
       </p>
       <div className="eisenhower-grid">
         {QUADRANTS.map((q) => {
@@ -206,7 +206,7 @@ export default function LaboEisenhower(props: Props) {
                     <p className="motif">{MOTIFS[t]}</p>
                   </li>
                 ))}
-                {placees.length === 0 && <li className="compteur">Aucune tache placee.</li>}
+                {placees.length === 0 && <li className="compteur">Aucune tâche placée.</li>}
               </ul>
               {selection && (
                 <button
@@ -229,7 +229,7 @@ export default function LaboEisenhower(props: Props) {
       )}
       {valideLocal && (
         <p className="ok">
-          Les six taches sont dans les quadrants attendus. Le tri rend l arbitrage visible.
+          Les six tâches sont dans les quadrants attendus. Le tri rend l’arbitrage visible.
         </p>
       )}
     </LaboFrame>

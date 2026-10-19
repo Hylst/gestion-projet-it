@@ -10,12 +10,12 @@ export interface RISQUE_D {
 }
 
 export const RISQUES: RISQUE_D[] = [
-  { nom: 'Benevole indisponible avant la mise en ligne', proba: 2, impact: 3, parade: 'Benevole de rechange fictif' },
-  { nom: 'Photos non recues', proba: 3, impact: 2, parade: 'Jeu de photos locales de rechange' },
+  { nom: 'Bénévole indisponible avant la mise en ligne', proba: 2, impact: 3, parade: 'Bénévole de rechange fictif' },
+  { nom: 'Photos non reçues', proba: 3, impact: 2, parade: 'Jeu de photos locales de rechange' },
   { nom: 'Agenda du site vide au tournant', proba: 2, impact: 2, parade: 'Relancer le bureau fictif avant le jalon' },
-  { nom: 'Domaine du site expire', proba: 1, impact: 3, parade: 'Renouveler des maintenant et le noter' },
-  { nom: 'Notice des benevoles non ecrite', proba: 3, impact: 3, parade: 'Temps dedie en retro prevue' },
-  { nom: 'Formulaire non teste', proba: 2, impact: 1, parade: 'Passer par la chaine CI du module 5' },
+  { nom: 'Domaine du site expiré', proba: 1, impact: 3, parade: 'Renouveler dès maintenant et le noter' },
+  { nom: 'Notice des bénévoles non écrite', proba: 3, impact: 3, parade: 'Temps dédié en rétro prévue' },
+  { nom: 'Formulaire non testé', proba: 2, impact: 1, parade: 'Passer par la chaîne CI du module 5' },
 ];
 
 export interface OptionParade {
@@ -24,20 +24,20 @@ export interface OptionParade {
 }
 
 export const OPTIONS_PARADES: Record<string, OptionParade[]> = {
-  'Benevole indisponible avant la mise en ligne': [
-    { valeur: 'Attendre le jour J sans plan', motif: 'Aucun remplacant n est identifie : le risque reste entier.' },
-    { valeur: 'Benevole de rechange fictif', motif: 'Un remplacant fictif est prevu avant la mise en ligne.' },
-    { valeur: 'Retirer la mise en ligne', motif: 'Le risque disparait avec l objectif : ce n est pas une parade.' },
+  'Bénévole indisponible avant la mise en ligne': [
+    { valeur: 'Attendre le jour J sans plan', motif: 'Aucun remplaçant n’est identifié\u00A0: le risque reste entier.' },
+    { valeur: 'Bénévole de rechange fictif', motif: 'Un remplaçant fictif est prévu avant la mise en ligne.' },
+    { valeur: 'Retirer la mise en ligne', motif: 'Le risque disparaît avec l’objectif\u00A0: ce n’est pas une parade.' },
   ],
-  'Photos non recues': [
-    { valeur: 'Publier la page sans photos', motif: 'La page reste vide : l impact n est pas reduit.' },
-    { valeur: 'Demander les photos le jour J', motif: 'La demande arrive au plus pres du besoin, sans marge.' },
+  'Photos non reçues': [
+    { valeur: 'Publier la page sans photos', motif: 'La page reste vide\u00A0: l’impact n’est pas réduit.' },
+    { valeur: 'Demander les photos le jour J', motif: 'La demande arrive au plus près du besoin, sans marge.' },
     { valeur: 'Jeu de photos locales de rechange', motif: 'Un jeu de secours permet de tenir la date du jalon.' },
   ],
-  'Notice des benevoles non ecrite': [
-    { valeur: 'Temps dedie en retro prevue', motif: 'Un creneau est reserve pour ecrire la notice.' },
-    { valeur: 'Compter sur la memoire des benevoles', motif: 'La transmission repose sur l improvisation.' },
-    { valeur: 'Ecrire la notice apres la mise en ligne', motif: 'L information manque au moment ou elle sert.' },
+  'Notice des bénévoles non écrite': [
+    { valeur: 'Temps dédié en rétro prévue', motif: 'Un créneau est réservé pour écrire la notice.' },
+    { valeur: 'Compter sur la mémoire des bénévoles', motif: 'La transmission repose sur l’improvisation.' },
+    { valeur: 'Écrire la notice après la mise en ligne', motif: 'L’information manque au moment où elle sert.' },
   ],
 };
 
@@ -79,8 +79,8 @@ const analyserCellule = (value: string): { proba: number; impact: number } | nul
 
 const decrireCellule = (value: string): string => {
   const c = analyserCellule(value);
-  if (!c) return `la cellule « ${value} »`;
-  return `probabilite ${c.proba}, impact ${c.impact}`;
+  if (!c) return `la cellule «\u00A0${value}\u00A0»`;
+  return `probabilité ${c.proba}, impact ${c.impact}`;
 };
 
 const raccourciCellule = (value: string): string => {
@@ -109,20 +109,20 @@ export function verifierRisques(s: RisquesState): { ok: boolean; messages: strin
     const place = s.place[r.nom];
     if (place === undefined) {
       messages.push(
-        `« ${r.nom} » n est pas encore place. Cellule attendue : probabilite ${r.proba}, impact ${r.impact}.`,
+        `«\u00A0${r.nom}\u00A0» n’est pas encore placé. Cellule attendue\u00A0: probabilité ${r.proba}, impact ${r.impact}.`,
       );
     } else if (place !== attendue) {
       messages.push(
-        `« ${r.nom} » est place en ${decrireCellule(place)}, alors que la cellule attendue est probabilite ${r.proba}, impact ${r.impact}.`,
+        `«\u00A0${r.nom}\u00A0» est placé en ${decrireCellule(place)}, alors que la cellule attendue est probabilité ${r.proba}, impact ${r.impact}.`,
       );
     }
     if (r.proba * r.impact >= 6) {
       const parade = s.parades[r.nom];
       if (parade === undefined || parade === null) {
-        messages.push(`Une parade reste a choisir pour le risque majeur « ${r.nom} ».`);
+        messages.push(`Une parade reste à choisir pour le risque majeur «\u00A0${r.nom}\u00A0».`);
       } else if (parade !== r.parade) {
         messages.push(
-          `La parade choisie pour « ${r.nom} » ne couvre pas ce risque : relis le motif et choisis une autre option.`,
+          `La parade choisie pour «\u00A0${r.nom}\u00A0» ne couvre pas ce risque\u00A0: relis le motif et choisis une autre option.`,
         );
       }
     }
@@ -159,12 +159,12 @@ export default function LaboRisques(props: Props) {
   const choisir = (nom: string) => {
     setSelection(nom);
     setMessages([]);
-    setRetour(`« ${nom} » selectionne. Choisis une cellule dans la matrice.`);
+    setRetour(`«\u00A0${nom}\u00A0» sélectionné. Choisis une cellule dans la matrice.`);
   };
 
   const placer = (cell: string) => {
     if (!selection) {
-      setRetour('Choisis d abord un risque dans la liste, puis une cellule de la matrice.');
+      setRetour('Choisis d’abord un risque dans la liste, puis une cellule de la matrice.');
       return;
     }
     const risque = selection;
@@ -173,7 +173,7 @@ export default function LaboRisques(props: Props) {
     setSelection(null);
     setMessages([]);
     setValideLocal(false);
-    setRetour(`« ${risque} » place en ${decrireCellule(cell)}.`);
+    setRetour(`«\u00A0${risque}\u00A0» placé en ${decrireCellule(cell)}.`);
     refs.current[idx]?.focus();
   };
 
@@ -181,7 +181,7 @@ export default function LaboRisques(props: Props) {
     dispatch({ type: 'parade', risque, valeur });
     setMessages([]);
     setValideLocal(false);
-    setRetour(`Parade retenue pour « ${risque} » : ${valeur}.`);
+    setRetour(`Parade retenue pour «\u00A0${risque}\u00A0»\u00A0: ${valeur}.`);
   };
 
   const verifier = () => {
@@ -194,7 +194,7 @@ export default function LaboRisques(props: Props) {
     } else {
       setMessages(r.messages);
       setValideLocal(false);
-      setRetour('La verification signale des points a revoir, sans jugement.');
+      setRetour('La vérification signale des points à revoir, sans jugement.');
     }
   };
 
@@ -208,20 +208,20 @@ export default function LaboRisques(props: Props) {
   };
 
   const etapes = [
-    'Six risques fictifs a placer dans la matrice probabilite x impact.',
-    'Choisir un risque puis une cellule : probabilite en colonne, impact en ligne.',
-    'Les priorites se calculent localement, de probabilite x impact la plus haute a la plus basse.',
+    'Six risques fictifs à placer dans la matrice probabilité x impact.',
+    'Choisir un risque puis une cellule\u00A0: probabilité en colonne, impact en ligne.',
+    'Les priorités se calculent localement, de probabilité x impact la plus haute à la plus basse.',
     'Pour chaque risque majeur (score 6 ou plus), choisir une parade parmi trois propositions.',
-    'Verifier : les messages indiquent la cellule attendue ou la parade a revoir, sans jugement.',
-    'Validation quand la matrice et les parades majeures sont completes (+5 XP la premiere fois).',
+    'Vérifier\u00A0: les messages indiquent la cellule attendue ou la parade à revoir, sans jugement.',
+    'Validation quand la matrice et les parades majeures sont complètes (+5 XP la première fois).',
   ];
 
   const etape = valideLocal ? 6 : messages.length > 0 ? 5 : nbParades > 0 ? 4 : nbPlaces > 0 ? 3 : selection ? 2 : 1;
 
   return (
     <LaboFrame
-      titre="Labo : matrice des risques et parades"
-      consigne="Place les six risques fictifs sur la matrice probabilite x impact, choisis une parade pour chaque risque majeur, puis verifie."
+      titre={'Labo\u00A0: matrice des risques et parades'}
+      consigne="Place les six risques fictifs sur la matrice probabilité x impact, choisis une parade pour chaque risque majeur, puis vérifie."
       etapes={etapes}
       etape={etape}
       etat={retour}
@@ -229,7 +229,7 @@ export default function LaboRisques(props: Props) {
       onReinitialiser={reinitialiser}
       valide={props.valide || valideLocal}
     >
-      <h4 id="risques-liste-t">Risques fictifs a placer</h4>
+      <h4 id="risques-liste-t">Risques fictifs à placer</h4>
       <div
         className="wbs-cards"
         role="listbox"
@@ -250,7 +250,7 @@ export default function LaboRisques(props: Props) {
               aria-label={
                 place === undefined
                   ? r.nom
-                  : `${r.nom}, place en ${decrireCellule(place)}`
+                  : `${r.nom}, placé en ${decrireCellule(place)}`
               }
               className={`wbs-card${selection === r.nom ? ' tiree' : ''}`}
               ref={(el) => { refs.current[i] = el; }}
@@ -267,18 +267,18 @@ export default function LaboRisques(props: Props) {
       <p className="help">
         {retour ||
           (selection
-            ? `« ${selection} » selectionne. Choisis une cellule puis clique dessus.`
-            : 'Selectionne un risque, puis la cellule qui correspond a sa probabilite et a son impact.')}
+            ? `«\u00A0${selection}\u00A0» sélectionné. Choisis une cellule puis clique dessus.`
+            : 'Sélectionne un risque, puis la cellule qui correspond à sa probabilité et à son impact.')}
       </p>
-      <h4 id="risques-matrice-t">Matrice probabilite x impact</h4>
-      <p className="help">Colonnes : probabilite de 1 a 3. Lignes : impact de 3 a 1.</p>
+      <h4 id="risques-matrice-t">Matrice probabilité x impact</h4>
+      <p className="help">Colonnes&nbsp;: probabilité de 1 à 3. Lignes&nbsp;: impact de 3 à 1.</p>
       <div className="risques-matrice-wrap">
         <table className="risques-matrice" aria-labelledby="risques-matrice-t">
           <thead>
             <tr>
-              <th scope="col">Impact / Probabilite</th>
+              <th scope="col">Impact / Probabilité</th>
               {COLONNE_PROBA.map((proba) => (
-                <th key={proba} scope="col">Probabilite {proba}</th>
+                <th key={proba} scope="col">Probabilité {proba}</th>
               ))}
             </tr>
           </thead>
@@ -296,7 +296,7 @@ export default function LaboRisques(props: Props) {
                         className={`risques-cell${selection ? ' cible' : ''}`}
                         onClick={() => placer(cell)}
                       >
-                        <span className="sr-only">Cellule probabilite {proba}, impact {impact}.</span>
+                        <span className="sr-only">Cellule probabilité {proba}, impact {impact}.</span>
                         <span className="risques-cell-lab" aria-hidden="true">{raccourciCellule(cell)}</span>
                         {places.map((r) => (
                           <span key={r.nom} className="risques-puce">{r.nom}</span>
@@ -311,9 +311,9 @@ export default function LaboRisques(props: Props) {
           </tbody>
         </table>
       </div>
-      <h4>Priorites calculees</h4>
+      <h4>Priorités calculées</h4>
       {py.length === 0 ? (
-        <p className="help">Place des risques pour voir leurs priorites (probabilite x impact).</p>
+        <p className="help">Place des risques pour voir leurs priorités (probabilité x impact).</p>
       ) : (
         <ol className="risques-priorites">
           {py.map(({ nom, score }) => (
@@ -326,7 +326,7 @@ export default function LaboRisques(props: Props) {
       )}
       <h4 id="risques-parades-t">Parades des risques majeurs</h4>
       <p className="help">
-        Un risque est majeur quand probabilite x impact atteint 6. Choisis une parade pour chacun, puis verifie.
+        Un risque est majeur quand probabilité x impact atteint 6. Choisis une parade pour chacun, puis vérifie.
       </p>
       <div className="risques-parades" role="group" aria-labelledby="risques-parades-t">
         {MAJEURS.map((r, idx) => {
@@ -335,7 +335,7 @@ export default function LaboRisques(props: Props) {
           return (
             <fieldset key={r.nom} className="risques-parade">
               <legend>{r.nom}</legend>
-              <p className="compteur">Score {r.proba * r.impact} : risque majeur.</p>
+              <p className="compteur">Score {r.proba * r.impact}&nbsp;: risque majeur.</p>
               <div className="risques-options">
                 {options.map((o) => (
                   <label key={o.valeur}>
@@ -364,7 +364,7 @@ export default function LaboRisques(props: Props) {
       )}
       {valideLocal && (
         <p className="ok">
-          Matrice correcte et parades majeures choisies. Les priorites se lisent de la plus haute a la plus basse.
+          Matrice correcte et parades majeures choisies. Les priorités se lisent de la plus haute à la plus basse.
         </p>
       )}
     </LaboFrame>

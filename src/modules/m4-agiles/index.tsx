@@ -16,13 +16,13 @@ const Labo = () => {
   const p = useProgress();
   return (
     <>
-      <section id="labo" aria-label="Labo : tableau Kanban jouable">
+      <section id="labo" aria-label={'Labo\u00A0: tableau Kanban jouable'}>
         <LaboKanban
           valide={p.laboDone.includes('m4-kanban')}
           onValide={() => p.dispatch({ type: 'labo', id: 'm4-kanban' })}
         />
       </section>
-      <section id="labo-poker" aria-label="Labo : poker planning">
+      <section id="labo-poker" aria-label={'Labo\u00A0: poker planning'}>
         <PokerPlanning
           valide={p.laboDone.includes('m4-poker')}
           onValide={() => p.dispatch({ type: 'labo', id: 'm4-poker' })}
@@ -38,8 +38,8 @@ export const M4Page = () => (
       id: 'm4-agiles',
       num: 4,
       slug: 'module-4',
-      titre: 'Agiles : Scrum, Kanban, Lean, XP',
-      resume: 'Backlog, rituels, limites de WIP, petits lots, qualite du code.',
+      titre: 'Agiles\u00A0: Scrum, Kanban, Lean, XP',
+      resume: 'Backlog, rituels, limites de WIP, petits lots, qualité du code.',
       motsCles: ['scrum', 'kanban', 'wip', 'lean', 'xp', 'backlog', 'poker planning', 'user stories'],
     }}
   >
@@ -49,7 +49,7 @@ export const M4Page = () => (
     <Reveal><Labo /></Reveal>
     <Reveal><Exercices /></Reveal>
     <Reveal><QuizBlock data={quiz} /></Reveal>
-    <Reveal><FicheReflexe titre="Fiche reflexe : travailler en agile" items={items} /></Reveal>
+    <Reveal><FicheReflexe titre={'Fiche réflexe\u00A0: travailler en agile'} items={items} /></Reveal>
   </ModuleLayout>
 );
 

@@ -4,39 +4,39 @@ export const Exercices = () => (
   <div id="exercice">
     <ExerciseBlock
       id="m5-ex1"
-      titre="Exercice 1 : 3 situations, quel type d outil ?"
+      titre={'Exercice 1\u00A0: 3 situations, quel type d’outil\u00A0?'}
       enonce={(
-        <p>Pour 3 situations fictives (equipe dispersee, regressions frequentes, demo fragile sur postes differents), choisis un type d outil avec motif et limite, sans verdict definitif.</p>
+        <p>Pour 3 situations fictives (équipe dispersée, régressions fréquentes, démo fragile sur postes différents), choisis un type d’outil avec motif et limite, sans verdict définitif.</p>
       )}
       corrige={(
         <ul>
-          <li><strong>Situation 1 :</strong> outil de suivi partage, motif : trace et assignation, limite : a renseigner sinon inutile.</li>
-          <li><strong>Situation 2 :</strong> chaine CI avec tests a chaque changement fictif, motif : detecter tot, limite : tests a entretenir.</li>
-          <li><strong>Situation 3 :</strong> environnement reproductible fictif, motif : meme poste partout, limite : image a maintenir.</li>
+          <li><strong>Situation 1&nbsp;:</strong> outil de suivi partagé, motif&nbsp;: trace et assignation, limite&nbsp;: à renseigner sinon inutile.</li>
+          <li><strong>Situation 2&nbsp;:</strong> chaîne CI avec tests à chaque changement fictif, motif&nbsp;: détecter tôt, limite&nbsp;: tests à entretenir.</li>
+          <li><strong>Situation 3&nbsp;:</strong> environnement reproductible fictif, motif&nbsp;: même poste partout, limite&nbsp;: image à maintenir.</li>
         </ul>
       )}
       methode={[
-        'Phrase de besoin avant l outil',
-        'Motif et limite a chaque choix',
-        'Aucun verdict definitif, jamais',
+        'Phrase de besoin avant l’outil',
+        'Motif et limite à chaque choix',
+        'Aucun verdict définitif, jamais',
       ]}
     />
     <ExerciseBlock
       id="m5-ex2"
-      titre="Exercice 2 : ou placer la chaine CI"
+      titre={'Exercice 2\u00A0: ou placer la chaîne CI'}
       enonce={(
-        <p>Ordonner 4 etapes fictives (test, assemblage, relecture, deploiement fictif) et dis ou placer un controle qualite simple.</p>
+        <p>Ordonner 4 étapes fictives (test, assemblage, relecture, déploiement fictif) et dis ou placer un contrôle qualité simple.</p>
       )}
       corrige={(
         <ul>
-          <li><strong>Ordre attendu :</strong> test, assemblage, relecture, deploiement fictif.</li>
-          <li><strong>Controle :</strong> place avant deploiement, avec critere simple (tests au vert et relecture faite).</li>
-          <li><strong>Methode :</strong> si la relecture echoue, retour avant deploiement.</li>
+          <li><strong>Ordre attendu&nbsp;:</strong> test, assemblage, relecture, déploiement fictif.</li>
+          <li><strong>Contrôle&nbsp;:</strong> placé avant déploiement, avec critère simple (tests au vert et relecture faite).</li>
+          <li><strong>Méthode&nbsp;:</strong> si la relecture échoue, retour avant déploiement.</li>
         </ul>
       )}
       methode={[
-        'Ordre avant depot',
-        'Reperer le critere de controle avant le deploiement',
+        'Ordre avant dépôt',
+        'Repérer le critère de contrôle avant le déploiement',
       ]}
     />
   </div>

@@ -15,7 +15,7 @@ export function QuizBlock(props: { data: QuizData }) {
 
   React.useEffect(() => {
     if (complet) {
-      const s = `${bonnes} sur ${props.data.questions.length} bonnes reponses. ${deja ? 'Gain deja recu pour ce quiz.' : bonnes >= 2 ? '+10 XP' : 'Moins de 2/3 : pas de gain, tu peux recommencer.'}`;
+      const s = `${bonnes} sur ${props.data.questions.length} bonnes réponses. ${deja ? 'Gain déjà reçu pour ce quiz.' : bonnes >= 2 ? '+10 XP' : 'Moins de 2/3\u00A0: pas de gain, tu peux recommencer.'}`;
       setVerdict(s);
       if (bonnes >= 2 && !deja) {
         p.dispatch({ type: 'quiz', id: props.data.id, correctes: bonnes, total: props.data.questions.length });
@@ -41,12 +41,12 @@ export function QuizBlock(props: { data: QuizData }) {
           ))}
           {repondu[i] !== null && (
             <p className={repondu[i] === q.bonne ? 'ok' : 'err'} role="note">
-              {repondu[i] === q.bonne ? 'Correct. ' : 'Pas cette fois. '} Motif : {q.motif}
+              {repondu[i] === q.bonne ? 'Correct. ' : 'Pas cette fois. '} Motif&nbsp;: {q.motif}
             </p>
           )}
         </fieldset>
       ))}
-      <p role="status">{verdict}{gagne && <strong> +10 XP ajoutes.</strong>}</p>
+      <p role="status">{verdict}{gagne && <strong> +10 XP ajoutés.</strong>}</p>
       {complet && <button type="button" className="btn secondary" onClick={reset}>Recommencer sans XP</button>}
     </section>
   );

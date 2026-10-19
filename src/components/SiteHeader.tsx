@@ -9,11 +9,11 @@ export default function SiteHeader() {
         <a className="skip-link" href="#contenu" data-testid="skip">Aller au contenu</a>
         <span className="logo-mark" aria-hidden="true"><span /></span>
         <strong>Gestion de Projet IT</strong>
-        <span className="brand-sub">Methodologies et Equipes</span>
+        <span className="brand-sub">Méthodologies et Équipes</span>
       </div>
       <nav aria-label="Navigation principale">
         <NavLink to="/">Accueil</NavLink>
-        <NavLink to="/a-propos">A propos</NavLink>
+        <NavLink to="/a-propos">À propos</NavLink>
         <NavLink to="/glossaire">Glossaire</NavLink>
       </nav>
       <div id="header-tools"><SearchBar /> <ProgressHeader /></div>

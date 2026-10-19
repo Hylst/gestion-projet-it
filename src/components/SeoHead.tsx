@@ -5,7 +5,7 @@ export { canonicalUrl };
 
 export function SeoHead(props: { title: string; description: string }) {
   React.useEffect(() => {
-    document.title = `${props.title} : Gestion de Projet IT`;
+    document.title = `${props.title}\u00A0: Gestion de Projet IT`;
     const set = (attr: 'name' | 'property', key: string, value: string) => {
       let el = document.querySelector(`meta[${attr}="${key}"]`);
       if (!el) { el = document.createElement('meta'); el.setAttribute(attr, key); document.head.appendChild(el); }

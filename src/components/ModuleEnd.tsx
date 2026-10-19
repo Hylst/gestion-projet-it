@@ -7,8 +7,8 @@ export function ModuleEnd(props: { id: string }) {
   return (
     <section id="fin" className="module-end">
       {fait
-        ? <p className="ok" role="status">Module termine. Badge ajoute ({p.moduleDone.length}/{MODULES.length}).</p>
-        : <button type="button" className="btn" onClick={() => p.dispatch({ type: 'module', id: props.id })}>Marquer le module comme termine (+20 XP)</button>}
+        ? <p className="ok" role="status">Module terminé. Badge ajouté ({p.moduleDone.length}/{MODULES.length}).</p>
+        : <button type="button" className="btn" onClick={() => p.dispatch({ type: 'module', id: props.id })}>Marquer le module comme terminé (+20 XP)</button>}
     </section>
   );
 }

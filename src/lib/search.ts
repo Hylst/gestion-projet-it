@@ -5,11 +5,11 @@ export interface SearchHit { moduleNum: number; moduleTitre: string; section: st
 const SECTIONS: Array<{ section: string; ancre: string }> = [
   { section: 'Fiche', ancre: 'fiche' },
   { section: 'Fil rouge', ancre: 'fil-rouge' },
-  { section: 'Demarche', ancre: 'demarche' },
+  { section: 'Démarche', ancre: 'demarche' },
   { section: 'Labo', ancre: 'labo' },
-  { section: 'Exercice corrige', ancre: 'exercice' },
+  { section: 'Exercice corrigé', ancre: 'exercice' },
   { section: 'Quiz', ancre: 'quiz' },
-  { section: 'Fiche reflexe', ancre: 'reflexe' },
+  { section: 'Fiche réflexe', ancre: 'reflexe' },
 ];
 
 export function normaliser(s: string): string {
@@ -22,7 +22,7 @@ export function buildIndex(): SearchHit[] {
     for (const s of SECTIONS) {
       out.push({
         moduleNum: m.num, moduleTitre: m.titre, section: s.section, ancre: s.ancre,
-        label: `${s.section} : ${m.titre}`,
+        label: `${s.section}\u00A0: ${m.titre}`,
         needles: normaliser(`${m.num} ${m.titre} ${m.resume} ${m.motsCles.join(' ')} ${s.section}`),
       });
     }

@@ -4,9 +4,9 @@ export default function Footer() {
   return (
     <footer>
       <p>
-        Gestion de Projet IT. Realise par Geoffroy avec assistance IA.
-        Licence AGPL-3.0-or-later. Aucun compte, aucun cookie, aucune donnee sortante.{" "}
-        <Link to="/a-propos">A propos du projet</Link>{" "}<Link to="/glossaire">Glossaire</Link>
+        Gestion de Projet IT. Réalisé par Geoffroy avec assistance IA.
+        Licence AGPL-3.0-or-later. Aucun compte, aucun cookie, aucune donnée sortante.{" "}
+        <Link to="/a-propos">À propos du projet</Link>{" "}<Link to="/glossaire">Glossaire</Link>
       </p>
     </footer>
   );

@@ -10,7 +10,7 @@ describe('seo', () => {
   it('SeoHead met title, description, canonical et og:url', () => {
     window.history.replaceState({}, '', '/gestion-projet-it/');
     render(<SeoHead title="Accueil" description="Cours interactif" />);
-    expect(document.title).toBe('Accueil : Gestion de Projet IT');
+    expect(document.title).toBe('Accueil\u00A0: Gestion de Projet IT');
     const sel = (n: string, a: string) => document.querySelector(`meta[${n}="${a}"]`);
     expect(sel('name', 'description')?.getAttribute('content')).toBe('Cours interactif');
     expect(sel('property', 'og:url')?.getAttribute('content')).toBe('http://localhost/gestion-projet-it/');

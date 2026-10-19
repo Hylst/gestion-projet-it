@@ -1,7 +1,7 @@
 import React from 'react';
 
 const slug = (s: string): string =>
-  s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
 export function LaboFrame(props: {
   titre: string;
@@ -36,11 +36,11 @@ export function LaboFrame(props: {
       <div className="labo-body">{props.children}</div>
       <div className="labo-actions">
         <button type="button" className="btn" onClick={props.onVerifier}>
-          {props.valide ? 'Reverifier' : 'Verifier'}
+          {props.valide ? 'Revérifier' : 'Vérifier'}
         </button>
-        <button type="button" className="btn secondary" onClick={props.onReinitialiser}>Reinitialiser</button>
+        <button type="button" className="btn secondary" onClick={props.onReinitialiser}>Réinitialiser</button>
         <p className="sr-only" role="status" aria-live="polite">{props.etat}</p>
-        {props.valide && <p className="ok" role="status">Labo valide : +5 XP (un seul gain).</p>}
+        {props.valide && <p className="ok" role="status">Labo validé&nbsp;: +5 XP (un seul gain).</p>}
       </div>
     </div>
   );

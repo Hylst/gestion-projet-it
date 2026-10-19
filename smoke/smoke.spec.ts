@@ -15,10 +15,10 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 12
   page.on('pageerror', (e) => consoleErrors.push(String(e)));
 
   await page.goto(`${base}/`);
-  await page.locator('.module-card .titre', { hasText: 'Cadrer et decouper' }).click();
+  await page.locator('.module-card .titre', { hasText: 'Cadrer et découper' }).click();
   await expect(page).toHaveURL(/\/module-1$/);
-  await expect(page.locator('#contenu h1')).toHaveText('Cadrer et decouper (WBS)');
-  await page.locator('footer a', { hasText: 'A propos' }).click();
+  await expect(page.locator('#contenu h1')).toHaveText('Cadrer et découper (WBS)');
+  await page.locator('footer a', { hasText: 'À propos' }).click();
   await expect(page).toHaveURL(/\/a-propos$/);
   await expect(page.locator('#contenu')).toBeVisible();
 
@@ -62,8 +62,8 @@ test('module 7 : plan de communication complet', async ({ page }) => {
   for (const [partie, canal] of choix) {
     await page.getByRole('group', { name: partie as string }).getByLabel(canal as string).check();
   }
-  await page.getByRole('button', { name: 'Verifier' }).click();
-  await expect(page.getByText('Labo valide : +5 XP (un seul gain).')).toBeVisible();
+  await page.getByRole('button', { name: 'Vérifier' }).click();
+  await expect(page.getByText('Labo validé : +5 XP (un seul gain).')).toBeVisible();
 });
 
 test('module 8 : provisions d alea completes', async ({ page }) => {
@@ -78,8 +78,8 @@ test('module 8 : provisions d alea completes', async ({ page }) => {
   for (const [lot, niveau] of choix) {
     await page.getByRole('group', { name: lot as string }).getByLabel(niveau as string).check();
   }
-  await page.getByRole('button', { name: 'Verifier' }).click();
-  await expect(page.getByText('Labo valide : +5 XP (un seul gain).')).toBeVisible();
+  await page.getByRole('button', { name: 'Vérifier' }).click();
+  await expect(page.getByText('Labo validé : +5 XP (un seul gain).')).toBeVisible();
 });
 
 test('module 9 : leviers d adoption complets', async ({ page }) => {
@@ -94,8 +94,8 @@ test('module 9 : leviers d adoption complets', async ({ page }) => {
   for (const [situation, levier] of choix) {
     await page.getByRole('group', { name: situation as string }).getByLabel(levier as string).check();
   }
-  await page.getByRole('button', { name: 'Verifier' }).click();
-  await expect(page.getByText('Labo valide : +5 XP (un seul gain).')).toBeVisible();
+  await page.getByRole('button', { name: 'Vérifier' }).click();
+  await expect(page.getByText('Labo validé : +5 XP (un seul gain).')).toBeVisible();
 });
 
 test('glossaire : definitions et navigation', async ({ page }) => {

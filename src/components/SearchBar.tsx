@@ -51,18 +51,18 @@ export default function SearchBar() {
         }}
       />
       {ouverte && (
-        <ul id="search-results" role="listbox" aria-label="Resultats de recherche">
+        <ul id="search-results" role="listbox" aria-label="Résultats de recherche">
           {visibles.map((h, i) => (
             <li key={`${h.moduleNum}-${h.ancre}`} id={`search-opt-${i}`} role="option" aria-selected={i === actif}>
               <button type="button" onClick={() => aller(h.moduleNum, h.ancre)}>
-                Module {h.moduleNum} : {h.moduleTitre} <span>{h.section}</span>
+                Module {h.moduleNum}&nbsp;: {h.moduleTitre} <span>{h.section}</span>
               </button>
             </li>
           ))}
-          {hits.length === 0 && <li role="option" aria-selected={false}>Aucun resultat</li>}
+          {hits.length === 0 && <li role="option" aria-selected={false}>Aucun résultat</li>}
         </ul>
       )}
-      <p className="sr-only" aria-live="polite">{ouverte ? `${hits.length} resultat(s)` : ''}</p>
+      <p className="sr-only" aria-live="polite">{ouverte ? `${hits.length} résultat(s)` : ''}</p>
     </div>
   );
 }

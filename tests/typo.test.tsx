@@ -1,0 +1,96 @@
+import { afterEach, describe, expect, it } from 'vitest';
+import { cleanup, render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import type { ReactElement } from 'react';
+import { ProgressProvider } from '../src/lib/progress';
+import Accueil from '../src/routes/accueil';
+import Apropos from '../src/routes/Apropos';
+import Glossaire from '../src/routes/Glossaire';
+import NotFound from '../src/routes/NotFound';
+import SiteHeader from '../src/components/SiteHeader';
+import { MODULES } from '../src/modules/index';
+
+afterEach(cleanup);
+
+const normaliserEspaces = (s: string): string => s.replace(/\s+/g, ' ').trim();
+
+const FORMES_DEFENDUES = [
+  'a propos', 'a quoi', 'a faire', 'a relire', 'a l aise', 'a cote', 'cote a cote', 'au dela', 'peut etre',
+  'apres', 'apparait', 'arriere', 'annee', 'annees', 'activite', 'activites', 'actualite', 'actualites',
+  'ajoute', 'ajoutee', 'ajoutes', 'ajoutees', 'benevole', 'benevoles', 'casse', 'chaine', 'chaines',
+  'cle', 'cles', 'coherent', 'coherents', 'coherente', 'coherentes', 'controle', 'couteux', 'couteuse',
+  'couteuses', 'cout', 'couts', 'cree', 'creer', 'croisee', 'croisees', 'deja', 'delai', 'delais',
+  'demarche', 'depart', 'dependance', 'dependances', 'derniere', 'dernieres', 'developpement',
+  'difference', 'differences', 'disponibilite', 'donnee', 'donnees', 'debloquer', 'debloque', 'deblocage',
+  'decouverte', 'decouvertes', 'decouper', 'decoupage', 'detecter', 'detecte', 'ecart', 'ecarts',
+  'echoue', 'echouer', 'echec', 'ecole', 'ecoles', 'ecran', 'ecrans', 'ecrire', 'ecrit', 'ecrite',
+  'ecrits', 'ecrites', 'egal', 'egale', 'egaux', 'egalement', 'element', 'elements', 'eliminer',
+  'enchainement', 'entree', 'entrees', 'equilibre', 'equipe', 'equipes', 'etape', 'etapes', 'etat',
+  'etats', 'ete', 'etre', 'etude', 'etudes', 'eviter', 'evenement', 'evenements', 'evident', 'evidents',
+  'evidente', 'evidentes', 'evoluer', 'evolutif', 'evolutive', 'experience', 'experiences', 'fleche',
+  'fleches', 'frequente', 'frequentes', 'frequent', 'frequents', 'generale', 'generales', 'hebergeur',
+  'hypothese', 'interet', 'interets', 'lecon', 'lecons', 'legende', 'lisibilite', 'melange', 'meme',
+  'memes', 'methode', 'methodes', 'methodologie', 'methodologies', 'modele', 'motive', 'motives',
+  'motivee', 'motivees', 'necessaire', 'necessaires', 'perimetre', 'periode', 'periodes', 'piege',
+  'pieges', 'precis', 'precise', 'precises', 'prepare', 'preparee', 'prepares', 'preparees',
+  'presentation', 'presentations', 'presente', 'presenter', 'presentent', 'premiere', 'premieres',
+  'prevoir', 'prevu', 'prevue', 'prevus', 'prevues', 'priorise', 'priorisee', 'priorises', 'priorisees',
+  'probabilite', 'proximite', 'qualifie', 'qualifiee', 'qualifies', 'qualifiees', 'qualite', 'qualites',
+  'realise', 'realisee', 'realises', 'realisees', 'realisation', 'realisations', 'recu', 'recue', 'recus',
+  'recues', 'reduire', 'reference', 'references', 'reflexe', 'regle', 'regles', 'regression',
+  'regressions', 'regulier', 'reguliere', 'reguliers', 'regulieres', 'reinitialiser', 'repete',
+  'repetee', 'repetes', 'repetees', 'reperer', 'repere', 'reperes', 'represente', 'representer',
+  'representent', 'reunion', 'reunions', 'reveler', 'revele', 'revelent', 'role', 'roles', 'securite',
+  'signale', 'signalee', 'signales', 'signalees', 'specificite', 'specificites', 'specifique', 'succes',
+  'sure', 'systeme', 'tache', 'taches', 'termine', 'terminee', 'termines', 'terminees', 'tres', 'unite',
+  'unites', 'validee', 'validees', 'verifie', 'verifier', 'verification', 'visibilite', 'zero',
+];
+
+const PAGES: Array<[string, ReactElement]> = [
+  ['accueil', <Accueil />],
+  ['a-propos', <Apropos />],
+  ['glossaire', <Glossaire />],
+  ['404', <NotFound />],
+];
+
+const rendre = (page: ReactElement) =>
+  render(
+    <ProgressProvider>
+      <MemoryRouter>{page}</MemoryRouter>
+    </ProgressProvider>,
+  );
+
+describe('typographie du site', () => {
+  for (const [nom, page] of PAGES) {
+    it(`${nom} : ponctuation française et accents`, () => {
+      const { container } = rendre(page);
+      const brut = container.textContent ?? '';
+      const texte = normaliserEspaces(brut);
+      expect(brut, `${nom} tiret cadratin`).not.toContain('—');
+      expect(brut, `${nom} espace avant ponctuation`).not.toMatch(/ [;:?!]/);
+      expect(brut, `${nom} guillemets`).not.toMatch(/« | »/);
+      expect(brut, `${nom} apostrophe droite`).not.toContain("'");
+      for (const forme of FORMES_DEFENDUES) {
+        const motif = new RegExp(`(?<![a-z])${forme}(?![a-z])`, 'i');
+        expect(motif.test(texte), `${nom} contient « ${forme} »`).toBe(false);
+      }
+      for (const el of Array.from(container.querySelectorAll('[aria-label]'))) {
+        const label = el.getAttribute('aria-label') ?? '';
+        expect(label, `${nom} aria-label ponctuation`).not.toMatch(/ [;:?!]/);
+        expect(label, `${nom} aria-label apostrophe`).not.toContain("'");
+      }
+      expect(document.title, `${nom} titre`).not.toMatch(/ [;:?!]|—/);
+      const description = document.querySelector('meta[name="description"]')?.getAttribute('content') ?? '';
+      expect(description, `${nom} description`).not.toMatch(/ [;:?!]|—/);
+    });
+  }
+
+  it('les libellés clés sont accentués', () => {
+    expect(MODULES.find((m) => m.num === 6)?.titre).toBe('Équipe, risques (Eisenhower) et suivi');
+    expect(MODULES.find((m) => m.num === 3)?.titre).toContain('méthode');
+    const { container } = rendre(<SiteHeader />);
+    const texte = container.textContent ?? '';
+    expect(texte).toContain('À propos');
+    expect(texte).toContain('Méthodologies et Équipes');
+  });
+});

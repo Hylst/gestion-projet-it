@@ -6,7 +6,7 @@ export default function ProgressHeader() {
   const p = useProgress();
   return (
     <div className="progress-header" aria-label="Progression">
-      <span className="xp-chip">{p.xp} XP</span>
+      <span className="xp-chip">{p.xp}&nbsp;XP</span>
       <span className="niveau-chip">{p.niveau.nom}</span>
       <span className="badge-chip">{p.moduleDone.length}/{MODULES.length} modules</span>
       <button type="button" className="btn secondary mini" onClick={exportJson}>Exporter</button>
@@ -14,7 +14,7 @@ export default function ProgressHeader() {
         Importer
         <input type="file" accept="application/json" className="sr-only" onChange={importJson} aria-label="Importer une progression JSON" />
       </label>
-      <p className="sr-only" aria-live="polite">{`${p.xp} XP, niveau ${p.niveau.nom}`}</p>
+      <p className="sr-only" aria-live="polite">{`${p.xp}\u00A0XP, niveau ${p.niveau.nom}`}</p>
     </div>
   );
 

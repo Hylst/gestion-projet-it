@@ -4,40 +4,40 @@ export const Exercices = () => (
   <div id="exercice">
     <ExerciseBlock
       id="m9-ex1"
-      titre="Exercice 1 : lire trois freins"
+      titre={'Exercice 1\u00A0: lire trois freins'}
       enonce={(
-        <p>Pour les benevoles, les usagers et le bureau fictifs, identifie un frein probable et une reponse courte.</p>
+        <p>Pour les bénévoles, les usagers et le bureau fictifs, identifie un frein probable et une réponse courte.</p>
       )}
       corrige={(
         <ul>
-          <li><strong>Benevoles :</strong> geste inconnu ; formation courte et relais de proximite.</li>
-          <li><strong>Usagers :</strong> information manquante ; message simple et repete.</li>
-          <li><strong>Bureau :</strong> consignes contradictoires ; message unique et clarification en reunion courte.</li>
-          <li><strong>Methode :</strong> ecouter le signe avant de choisir le levier.</li>
+          <li><strong>Bénévoles&nbsp;:</strong> geste inconnu&nbsp;; formation courte et relais de proximité.</li>
+          <li><strong>Usagers&nbsp;:</strong> information manquante&nbsp;; message simple et répété.</li>
+          <li><strong>Bureau&nbsp;:</strong> consignes contradictoires&nbsp;; message unique et clarification en réunion courte.</li>
+          <li><strong>Méthode&nbsp;:</strong> écouter le signe avant de choisir le levier.</li>
         </ul>
       )}
       methode={[
         'Un frein, un signe observable',
-        'Choisir le levier apres le signe',
-        'Repondre sans nier',
+        'Choisir le levier après le signe',
+        'Répondre sans nier',
       ]}
     />
     <ExerciseBlock
       id="m9-ex2"
-      titre="Exercice 2 : plan d adoption court"
+      titre={'Exercice 2\u00A0: plan d’adoption court'}
       enonce={(
-        <p>Redige un plan d adoption pour la mise en ligne du site fictif : relais, formation, message, suivi.</p>
+        <p>Rédige un plan d’adoption pour la mise en ligne du site fictif&nbsp;: relais, formation, message, suivi.</p>
       )}
       corrige={(
         <ul>
-          <li><strong>Relais :</strong> deux benevoles volontaires, avec un temps dedie fictif.</li>
-          <li><strong>Formation :</strong> une courte seance sur la mise a jour de l agenda.</li>
-          <li><strong>Message :</strong> une phrase simple, repetee sur deux supports.</li>
-          <li><strong>Suivi :</strong> questions en reunion courte et usages observes au jalon.</li>
+          <li><strong>Relais&nbsp;:</strong> deux bénévoles volontaires, avec un temps dédié fictif.</li>
+          <li><strong>Formation&nbsp;:</strong> une courte séance sur la mise à jour de l’agenda.</li>
+          <li><strong>Message&nbsp;:</strong> une phrase simple, répétée sur deux supports.</li>
+          <li><strong>Suivi&nbsp;:</strong> questions en réunion courte et usages observés au jalon.</li>
         </ul>
       )}
       methode={[
-        'Un plan court et date',
+        'Un plan court et daté',
         'Un relais disponible',
         'Un suivi observable',
       ]}

@@ -12,17 +12,17 @@ export interface Lot {
 }
 
 export const LOTS: Lot[] = [
-  { nom: 'Pages de presentation', incertitude: 'Contenu proche de l existant, relecture maitrisee.', provision: 'faible' },
-  { nom: 'Agenda des activites', incertitude: 'Le bureau fictif doit encore valider les categories.', provision: 'moyenne' },
-  { nom: 'Formulaire de contact', incertitude: 'Le prestataire fictif change d outil, integration non testee.', provision: 'forte' },
-  { nom: 'Photos et textes', incertitude: 'Les benevoles fournissent les contenus, disponibilite incertaine.', provision: 'moyenne' },
-  { nom: 'Mise en ligne', incertitude: 'Premier deploiement sur l hebergement fictif.', provision: 'forte' },
+  { nom: 'Pages de présentation', incertitude: 'Contenu proche de l’existant, relecture maîtrisée.', provision: 'faible' },
+  { nom: 'Agenda des activités', incertitude: 'Le bureau fictif doit encore valider les catégories.', provision: 'moyenne' },
+  { nom: 'Formulaire de contact', incertitude: 'Le prestataire fictif change d’outil, intégration non testée.', provision: 'forte' },
+  { nom: 'Photos et textes', incertitude: 'Les bénévoles fournissent les contenus, disponibilité incertaine.', provision: 'moyenne' },
+  { nom: 'Mise en ligne', incertitude: 'Premier déploiement sur l’hébergement fictif.', provision: 'forte' },
 ];
 
 const MOTIFS: Record<Niveau, string> = {
-  faible: 'Peu d inconnues : le perimetre et les moyens sont stables.',
-  moyenne: 'Quelques inconnues : un ajustement reste probable.',
-  forte: 'Inconnues fortes : le perimetre ou les moyens peuvent bouger.',
+  faible: 'Peu d’inconnues\u00A0: le périmètre et les moyens sont stables.',
+  moyenne: 'Quelques inconnues\u00A0: un ajustement reste probable.',
+  forte: 'Inconnues fortes\u00A0: le périmètre ou les moyens peuvent bouger.',
 };
 
 export type AleaState = { choix: Record<string, Niveau> };
@@ -49,9 +49,9 @@ export function verifierAlea(s: AleaState): { ok: boolean; messages: string[] } 
   for (const l of LOTS) {
     const choisi = s.choix[l.nom];
     if (choisi === undefined) {
-      messages.push(`« ${l.nom} » n a pas encore de provision. Provision attendue : ${l.provision} (${l.incertitude})`);
+      messages.push(`«\u00A0${l.nom}\u00A0» n’a pas encore de provision. Provision attendue\u00A0: ${l.provision} (${l.incertitude})`);
     } else if (choisi !== l.provision) {
-      messages.push(`« ${l.nom} » : la provision choisie ne correspond pas au niveau d incertitude. Provision attendue : ${l.provision} (${l.incertitude})`);
+      messages.push(`«\u00A0${l.nom}\u00A0»\u00A0: la provision choisie ne correspond pas au niveau d’incertitude. Provision attendue\u00A0: ${l.provision} (${l.incertitude})`);
     }
   }
   return { ok: messages.length === 0, messages };
@@ -71,7 +71,7 @@ export default function LaboAlea(props: Props) {
     dispatch({ type: 'choisir', lot, niveau });
     setMessages([]);
     setValideLocal(false);
-    setRetour(`« ${lot} » : provision ${niveau}.`);
+    setRetour(`«\u00A0${lot}\u00A0»\u00A0: provision ${niveau}.`);
   };
 
   const verifier = () => {
@@ -84,7 +84,7 @@ export default function LaboAlea(props: Props) {
     } else {
       setMessages(r.messages);
       setValideLocal(false);
-      setRetour('La verification signale des points a revoir, sans jugement.');
+      setRetour('La vérification indique des points à revoir, sans jugement.');
     }
   };
 
@@ -96,19 +96,19 @@ export default function LaboAlea(props: Props) {
   };
 
   const etapes = [
-    'Cinq lots fictifs du fil rouge, avec leur niveau d incertitude.',
+    'Cinq lots fictifs du fil rouge, avec leur niveau d’incertitude.',
     'Pour chaque lot, choisir une provision parmi trois niveaux.',
-    'Le motif du niveau retenu s affiche sous l option.',
-    'Verifier : chaque provision inadaptee est signalee avec le niveau attendu.',
-    'Validation quand les cinq provisions correspondent (+5 XP la premiere fois).',
+    'Le motif du niveau retenu s’affiche sous l’option.',
+    'Vérifier\u00A0: chaque provision inadaptée est signalée avec le niveau attendu.',
+    'Validation quand les cinq provisions correspondent (+5 XP la première fois).',
   ];
 
   const etape = valideLocal ? 5 : messages.length > 0 ? 4 : nbChoix > 0 ? 3 : 2;
 
   return (
     <LaboFrame
-      titre="Labo : provision d alea par lot"
-      consigne="Choisis une provision faible, moyenne ou forte pour chaque lot fictif, selon l incertitude decrite."
+      titre={'Labo\u00A0: provision d’aléa par lot'}
+      consigne="Choisis une provision faible, moyenne ou forte pour chaque lot fictif, selon l’incertitude décrite."
       etapes={etapes}
       etape={etape}
       etat={retour}
@@ -145,7 +145,7 @@ export default function LaboAlea(props: Props) {
           );
         })}
       </div>
-      <p className="help">{retour || 'Choisis une provision par lot, puis verifie.'}</p>
+      <p className="help">{retour || 'Choisis une provision par lot, puis vérifie.'}</p>
       {messages.length > 0 && (
         <ul className="messages" role="alert">
           {messages.map((m, i) => <li key={i} className="err">{m}</li>)}
@@ -153,7 +153,7 @@ export default function LaboAlea(props: Props) {
       )}
       {valideLocal && (
         <p className="ok">
-          Les cinq provisions suivent l incertitude. Une marge explicite reste discutable.
+          Les cinq provisions suivent l’incertitude. Une marge explicite reste discutable.
         </p>
       )}
     </LaboFrame>

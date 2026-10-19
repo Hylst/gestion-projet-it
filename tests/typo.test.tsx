@@ -15,6 +15,9 @@ import { M3Page } from '../src/modules/m3-methodes';
 import { M4Page } from '../src/modules/m4-agiles';
 import { M5Page } from '../src/modules/m5-outils';
 import { M6Page } from '../src/modules/m6-equipe';
+import { M7Page } from '../src/modules/m7-parties';
+import { M8Page } from '../src/modules/m8-budget';
+import { M9Page } from '../src/modules/m9-changement';
 
 afterEach(cleanup);
 
@@ -63,6 +66,9 @@ const PAGES: Array<[string, ReactElement]> = [
   ['module-4', <M4Page />],
   ['module-5', <M5Page />],
   ['module-6', <M6Page />],
+  ['module-7', <M7Page />],
+  ['module-8', <M8Page />],
+  ['module-9', <M9Page />],
 ];
 
 const rendre = (page: ReactElement) =>

@@ -4,9 +4,9 @@ export const quiz: QuizData = {
   id: 'm9-quiz',
   questions: [
     {
-      question: 'Que faire face a un frein exprime ?',
+      question: 'Que faire face à un frein exprimé\u00A0?',
       choix: [
-        'Ecouter et comprendre avant de repondre',
+        'Écouter et comprendre avant de répondre',
         'Nier le frein et continuer',
         'Reporter le projet sans limite',
       ],
@@ -14,24 +14,24 @@ export const quiz: QuizData = {
       motif: 'Un frein compris peut devenir une information utile pour ajuster.',
     },
     {
-      question: 'A quoi sert un relais de proximite ?',
+      question: 'À quoi sert un relais de proximité\u00A0?',
       choix: [
-        'Faciliter l adoption par les pairs',
-        'Remplacer toute decision',
-        'Eviter les questions',
+        'Faciliter l’adoption par les pairs',
+        'Remplacer toute décision',
+        'Éviter les questions',
       ],
       bonne: 0,
       motif: 'Un pair disponible rassure et montre le geste au quotidien.',
     },
     {
-      question: 'Pourquoi une formation courte ?',
+      question: 'Pourquoi une formation courte\u00A0?',
       choix: [
         'Ancrer un geste utile sans surcharger',
         'Tout apprendre en une fois',
-        'Eviter la pratique',
+        'Éviter la pratique',
       ],
       bonne: 0,
-      motif: 'Un geste precis et pratique s ancre mieux qu un cours complet.',
+      motif: 'Un geste précis et pratique s’ancre mieux qu’un cours complet.',
     },
   ],
 };

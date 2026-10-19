@@ -52,12 +52,12 @@ test('labo Eisenhower : depot au clavier et retour du focus', async ({ page }) =
 test('module 7 : plan de communication complet', async ({ page }) => {
   await page.goto(`${base}/module-7`);
   const choix = [
-    ['Bureau de l association', 'Point court mensuel et compte rendu'],
-    ['Benevoles', 'Message court et tableau des taches'],
-    ['Financeur fictif', 'Note d avancement trimestrielle'],
-    ['Usagers du quartier', 'Affiche et page d actualites'],
-    ['Mairie fictive', 'Courriel formel aux etapes cles'],
-    ['Hebergeur fictif', 'Fiche technique et contact incident'],
+    ['Bureau de l’association', 'Point court mensuel et compte rendu'],
+    ['Bénévoles', 'Message court et tableau des tâches'],
+    ['Financeur fictif', 'Note d’avancement trimestrielle'],
+    ['Usagers du quartier', 'Affiche et page d’actualités'],
+    ['Mairie fictive', 'Courriel formel aux étapes clés'],
+    ['Hébergeur fictif', 'Fiche technique et contact incident'],
   ];
   for (const [partie, canal] of choix) {
     await page.getByRole('group', { name: partie as string }).getByLabel(canal as string).check();
@@ -69,8 +69,8 @@ test('module 7 : plan de communication complet', async ({ page }) => {
 test('module 8 : provisions d alea completes', async ({ page }) => {
   await page.goto(`${base}/module-8`);
   const choix = [
-    ['Pages de presentation', 'Provision faible'],
-    ['Agenda des activites', 'Provision moyenne'],
+    ['Pages de présentation', 'Provision faible'],
+    ['Agenda des activités', 'Provision moyenne'],
     ['Formulaire de contact', 'Provision forte'],
     ['Photos et textes', 'Provision moyenne'],
     ['Mise en ligne', 'Provision forte'],
@@ -85,11 +85,11 @@ test('module 8 : provisions d alea completes', async ({ page }) => {
 test('module 9 : leviers d adoption complets', async ({ page }) => {
   await page.goto(`${base}/module-9`);
   const choix = [
-    ['Benevoles peu a l aise avec le nouvel agenda', 'Formation courte'],
-    ['Deux benevoles motives peuvent accompagner', 'Relais de proximite'],
-    ['Les usagers ignorent la nouvelle page', 'Message repete et simple'],
-    ['Le bureau melange ancien et nouveau processus', 'Message repete et simple'],
-    ['Une equipe teste le formulaire et peut montrer le geste', 'Relais de proximite'],
+    ['Bénévoles peu à l’aise avec le nouvel agenda', 'Formation courte'],
+    ['Deux bénévoles motivés peuvent accompagner', 'Relais de proximité'],
+    ['Les usagers ignorent la nouvelle page', 'Message répété et simple'],
+    ['Le bureau mélange ancien et nouveau processus', 'Message répété et simple'],
+    ['Une équipe teste le formulaire et peut montrer le geste', 'Relais de proximité'],
   ];
   for (const [situation, levier] of choix) {
     await page.getByRole('group', { name: situation as string }).getByLabel(levier as string).check();

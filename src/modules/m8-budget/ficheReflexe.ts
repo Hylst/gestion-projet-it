@@ -1,7 +1,7 @@
 export const items = [
-  'Decoupe le chiffrage en lots discutables.',
-  'Ecris les hypotheses avant de donner un montant.',
-  'Donne une fourchette plutot qu un chiffre unique.',
-  'Rends la marge d alea explicite et justifiee.',
-  'Compare budget et depense a chaque jalon.',
+  'Découpe le chiffrage en lots discutables.',
+  'Écris les hypothèses avant de donner un montant.',
+  'Donne une fourchette plutôt qu’un chiffre unique.',
+  'Rends la marge d’aléa explicite et justifiée.',
+  'Compare budget et dépense à chaque jalon.',
 ];

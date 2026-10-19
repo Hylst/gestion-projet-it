@@ -14,7 +14,7 @@ import { items } from './ficheReflexe';
 const Labo = () => {
   const p = useProgress();
   return (
-    <section id="labo" aria-label="Labo : provision d alea par lot">
+    <section id="labo" aria-label={'Labo\u00A0: provision d’aléa par lot'}>
       <LaboAlea
         valide={p.laboDone.includes('m8-alea')}
         onValide={() => p.dispatch({ type: 'labo', id: 'm8-alea' })}
@@ -30,7 +30,7 @@ export const M8Page = () => (
       num: 8,
       slug: 'module-8',
       titre: 'Budget et chiffrage',
-      resume: 'Estimer par lots, poser des hypotheses, prevoir une marge d alea et suivre les ecarts.',
+      resume: 'Estimer par lots, poser des hypothèses, prévoir une marge d’aléa et suivre les écarts.',
       motsCles: ['budget', 'chiffrage', 'estimation', 'marge', 'alea', 'ecarts'],
     }}
   >
@@ -40,7 +40,7 @@ export const M8Page = () => (
     <Reveal><Labo /></Reveal>
     <Reveal><Exercices /></Reveal>
     <Reveal><QuizBlock data={quiz} /></Reveal>
-    <Reveal><FicheReflexe titre="Fiche reflexe : budget et chiffrage" items={items} /></Reveal>
+    <Reveal><FicheReflexe titre={'Fiche réflexe\u00A0: budget et chiffrage'} items={items} /></Reveal>
   </ModuleLayout>
 );
 

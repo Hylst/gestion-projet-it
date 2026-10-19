@@ -14,7 +14,7 @@ import { items } from './ficheReflexe';
 const Labo = () => {
   const p = useProgress();
   return (
-    <section id="labo" aria-label="Labo : plan de communication">
+    <section id="labo" aria-label={'Labo\u00A0: plan de communication'}>
       <LaboCommunication
         valide={p.laboDone.includes('m7-communication')}
         onValide={() => p.dispatch({ type: 'labo', id: 'm7-communication' })}
@@ -30,7 +30,7 @@ export const M7Page = () => (
       num: 7,
       slug: 'module-7',
       titre: 'Parties prenantes et communication',
-      resume: 'Cartographier, choisir les canaux, animer un rituel court et ajuster apres les retours.',
+      resume: 'Cartographier, choisir les canaux, animer un rituel court et ajuster après les retours.',
       motsCles: ['parties prenantes', 'communication', 'cartographie', 'canaux', 'rituels'],
     }}
   >
@@ -40,7 +40,7 @@ export const M7Page = () => (
     <Reveal><Labo /></Reveal>
     <Reveal><Exercices /></Reveal>
     <Reveal><QuizBlock data={quiz} /></Reveal>
-    <Reveal><FicheReflexe titre="Fiche reflexe : parties prenantes et communication" items={items} /></Reveal>
+    <Reveal><FicheReflexe titre={'Fiche réflexe\u00A0: parties prenantes et communication'} items={items} /></Reveal>
   </ModuleLayout>
 );
 

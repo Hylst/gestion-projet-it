@@ -1,17 +1,34 @@
 .hero { padding: 2.5rem 0 1rem; }
 .hero h1 { font-size: 2.2rem; margin: 0 0 0.5rem; }
 .hero .accroche { font-size: 1.15rem; color: var(--c-muted); max-width: 46rem; }
-.hero-svg { width: 100%; max-width: 46rem; height: auto; display: block; margin: 1rem 0; }
+.hero-panels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; max-width: 46rem; margin: 1.25rem 0; }
+.hero-panel { display: grid; grid-template-areas: "titre" "svg" "legende"; gap: 0.35rem; padding: 0.75rem; background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--radius); }
+.hero-panel-titre { grid-area: titre; margin: 0; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-muted); }
+.hero-panel-svg { grid-area: svg; width: 100%; height: auto; display: block; }
+.hero-panel-legende { grid-area: legende; margin: 0; font-size: 0.75rem; color: var(--c-muted); }
+.hero-today, .hero-mirror { stroke: var(--c-line); stroke-dasharray: 3 4; }
+@media (max-width: 680px) {
+  .hero-panels { grid-template-columns: 1fr; gap: 0.6rem; }
+  .hero-panel { grid-template-areas: "titre legende" "svg svg"; grid-template-columns: auto 1fr; column-gap: 0.5rem; row-gap: 0.3rem; align-items: baseline; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2rem; }
+  .hero .accroche { font-size: 1rem; }
+}
 @media (max-width: 900px) { .modules-grid { grid-template-columns: 1fr !important; } }
 .gantt-bar { animation: gantt-slide 6s ease-in-out infinite alternate; }
 .gantt-bar2 { animation: gantt-slide 7s 0.8s ease-in-out infinite alternate; }
-@keyframes gantt-slide { from { transform: translateX(0); } to { transform: translateX(60px); } }
+@keyframes gantt-slide { from { transform: translateX(0); } to { transform: translateX(18px); } }
 .kan-1, .kan-2 { animation: kan-fill 8s ease-in-out infinite alternate; }
 .kan-2 { transform-origin: center; }
 @keyframes kan-fill { 0%, 15% { opacity: 0.15; } 60%, 100% { opacity: 1; } }
-.v-path { stroke-dasharray: 320; animation: v-draw 9s ease-in-out infinite alternate; }
-@keyframes v-draw { 0%, 10% { stroke-dashoffset: 320; } 70%, 100% { stroke-dashoffset: 0; } }
-@media (prefers-reduced-motion: reduce) { .gantt-bar, .gantt-bar2, .kan-1, .kan-2, .v-path { animation: none; } .v-path { stroke-dashoffset: 0; } .kan-1, .kan-2 { opacity: 1; } }
+.v-path { stroke-dasharray: 220; animation: v-draw 9s ease-in-out infinite alternate; }
+@keyframes v-draw { 0%, 10% { stroke-dashoffset: 220; } 70%, 100% { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .gantt-bar, .gantt-bar2, .kan-1, .kan-2, .v-path { animation: none; }
+  .v-path { stroke-dashoffset: 0; }
+  .kan-1, .kan-2 { opacity: 1; }
+}
 
 /* cartes modules */
 .modules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }

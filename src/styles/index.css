@@ -184,15 +184,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .site-header nav a:hover { background: var(--c-bg); }
 .site-header nav a[aria-current='page'] { background: var(--c-main); color: #fff; }
 #header-tools { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-#contenu, main [id] { scroll-margin-top: 5rem; }
-@media (min-width: 68rem) {
+#contenu, main [id] { scroll-margin-top: 5.5rem; }
+@media (min-width: 70rem) {
   .site-header { position: sticky; top: 0; }
   .site-header nav { margin-left: auto; }
   #header-tools { flex-wrap: nowrap; }
   .search { min-width: 0; }
   .search input { width: 10rem; min-width: 0; }
 }
-@media (max-width: 67.99rem) {
+@media not all and (min-width: 70rem) {
   .site-header nav { width: 100%; }
   #header-tools { width: 100%; }
   .search, .search input { width: 100%; }

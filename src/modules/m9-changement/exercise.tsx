@@ -24,7 +24,7 @@ export const Exercices = () => (
     />
     <ExerciseBlock
       id="m9-ex2"
-      titre={'Exercice 2\u00A0: plan d’adoption court'}
+      titre={'Exercice 2\u00A0: préparer un plan d’adoption court'}
       enonce={(
         <p>Rédige un plan d’adoption pour la mise en ligne du site fictif&nbsp;: relais, formation, message, suivi.</p>
       )}

@@ -4,7 +4,7 @@ export const Exercices = () => (
   <div id="exercice">
     <ExerciseBlock
       id="m4-ex1"
-      titre={'Exercice 1\u00A0: user stories et choix de méthode'}
+      titre={'Exercice 1\u00A0: écrire des user stories et choisir une méthode'}
       enonce={(
         <p>Écris 3 user stories correctes pour le site fictif (qui, quoi, pourquoi) puis choisis Scrum ou Kanban pour 2 cas fictifs avec motif.</p>
       )}
@@ -23,7 +23,7 @@ export const Exercices = () => (
     />
     <ExerciseBlock
       id="m4-ex2"
-      titre={'Exercice 2\u00A0: tableau bloqué'}
+      titre={'Exercice 2\u00A0: débloquer un tableau'}
       enonce={(
         <p>Sur un tableau fictif bloqué (3 cartes en En cours pour une limite fictive de 2), propose 2 actions Lean et 1 pratique XP liée à la qualité, sans changer l’outil de suivi.</p>
       )}

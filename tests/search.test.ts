@@ -15,6 +15,10 @@ describe('search', () => {
     const hits2 = searchIndex(index, 'eisenhower');
     expect(hits2.every((h) => h.moduleNum === 6)).toBe(true);
   });
+  it('trouve le module 6 avec une requête sans accent', () => {
+    const hits = searchIndex(index, 'equipe');
+    expect(hits.some((h) => h.moduleNum === 6)).toBe(true);
+  });
   it('requête vide rend vide', () => {
     expect(searchIndex(index, '')).toEqual([]);
   });

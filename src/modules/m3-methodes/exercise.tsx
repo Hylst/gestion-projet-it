@@ -4,7 +4,7 @@ export const Exercices = () => (
   <div id="exercice">
     <ExerciseBlock
       id="m3-ex1"
-      titre={'Exercice 1\u00A0: 3 cas fictifs, V ou cascade\u00A0?'}
+      titre={'Exercice 1\u00A0: choisir entre V et cascade sur trois cas fictifs'}
       enonce={(
         <p>Pour 3 cas fictifs (site vitrine figé, demande peu détaillée, besoin médical fictif à contraintes fortes), dis si V ou cascade convient, avec motif et limite.</p>
       )}
@@ -23,7 +23,7 @@ export const Exercices = () => (
     />
     <ExerciseBlock
       id="m3-ex2"
-      titre={'Exercice 2 dédié demande\u00A0: cascade ou agile\u00A0?'}
+      titre={'Exercice 2\u00A0: choisir entre cascade et agile sur un cas dédié'}
       enonce={(
         <p>L’association fictive hésite entre cascade (tout figer puis livrer) et agile (livrer par tranches avec retours). Tranche avec motif et propose 1 parade si le besoin bouge.</p>
       )}

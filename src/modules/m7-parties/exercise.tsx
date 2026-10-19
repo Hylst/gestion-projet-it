@@ -24,7 +24,7 @@ export const Exercices = () => (
     />
     <ExerciseBlock
       id="m7-ex2"
-      titre={'Exercice 2\u00A0: plan de communication de mise en ligne'}
+      titre={'Exercice 2\u00A0: préparer un plan de communication de mise en ligne'}
       enonce={(
         <p>Rédige un plan court pour la mise en ligne du site fictif&nbsp;: destinataires, messages, moments, canaux.</p>
       )}

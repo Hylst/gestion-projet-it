@@ -4,7 +4,7 @@ export const Exercices = () => (
   <div id="exercice">
     <ExerciseBlock
       id="m6-ex1"
-      titre={'Exercice 1\u00A0: tri et ordre du jour'}
+      titre={'Exercice 1\u00A0: trier et préparer un ordre du jour'}
       enonce={(
         <p>Classe 2 tâches fictives avec Eisenhower avec motif et écris l’ordre du jour de rétro en 4 points pour le site fictif.</p>
       )}
@@ -23,7 +23,7 @@ export const Exercices = () => (
     />
     <ExerciseBlock
       id="m6-ex2"
-      titre={'Exercice 2\u00A0: registre des risques'}
+      titre={'Exercice 2\u00A0: tenir un registre des risques'}
       enonce={(
         <p>Pour 3 risques fictifs fournis, place-les sur la matrice probabilité x impact fictive et propose 1 parade par risque majeur.</p>
       )}

@@ -4,7 +4,7 @@ export const Fiche = () => (
     <h3>Scrum</h3>
     <p><strong>À quoi ça sert.</strong> Faire un produit évolutif par tranches courtes, avec un backlog priorisé et des rituels courts (planning, quotidienne, revue, rétro) et trois rôles (porteur de besoin, animateur, réalisateurs). <strong>Quand.</strong> Le contenu évolue et des retours réguliers sont possibles. <strong>Limites.</strong> Demande de la disponibilité des personnes et de la stabilité des rôles.</p>
     <h3>Kanban</h3>
-    <p><strong>À quoi ça sert.</strong> Gérer un flux continu sans grosse phase de planification, avec des colonnes, une limite de WIP et des indicateurs simples. <strong>Quand.</strong> Les demandes arrivent au fil de l’eau. <strong>Limites.</strong> Sans limite de WIP respectée, la colonne En cours s’encombre.</p>
+    <p><strong>À quoi ça sert.</strong> Gérer un flux continu sans grosse phase de planification, avec des colonnes, une limite de WIP et des indicateurs simples. <strong>Quand.</strong> Les demandes arrivent au fil de l’eau. <strong>Limites.</strong> Sans limite de WIP respectée, la colonne En cours s’encombre. <strong>Indicateurs.</strong> Suivre le délai de traversée (lead time) et tenir une courte revue de flux pour agir sur les blocages.</p>
     <h3>Lean</h3>
     <p><strong>À quoi ça sert.</strong> Éliminer les gaspillages, découper en petits lots, boucler court. <strong>Quand.</strong> On cherche à réduire l’encombrement et les travaux sans suite. <strong>Limites.</strong> Demande un suivi des blocages réel&nbsp;: petit lot ne veut pas dire publication continue sans contrôle.</p>
     <h3>XP</h3>

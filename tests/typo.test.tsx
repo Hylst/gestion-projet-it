@@ -26,7 +26,7 @@ const normaliserEspaces = (s: string): string => s.replace(/\s+/g, ' ').trim();
 const FORMES_DEFENDUES = [
   'a propos', 'a quoi', 'a faire', 'a relire', 'a l aise', 'a cote', 'cote a cote', 'au dela', 'peut etre',
   'apres', 'apparait', 'arriere', 'annee', 'annees', 'activite', 'activites', 'actualite', 'actualites',
-  'ajoute', 'ajoutee', 'ajoutes', 'ajoutees', 'benevole', 'benevoles', 'casse', 'chaine', 'chaines',
+  'ajoutee', 'ajoutees', 'benevole', 'benevoles', 'casse', 'chaine', 'chaines',
   'cle', 'cles', 'coherent', 'coherents', 'coherente', 'coherentes', 'controle', 'couteux', 'couteuse',
   'couteuses', 'cout', 'couts', 'cree', 'creer', 'croisee', 'croisees', 'deja', 'delai', 'delais',
   'demarche', 'depart', 'dependance', 'dependances', 'derniere', 'dernieres', 'developpement',
@@ -43,14 +43,14 @@ const FORMES_DEFENDUES = [
   'motivee', 'motivees', 'necessaire', 'necessaires', 'perimetre', 'periode', 'periodes', 'piege',
   'pieges', 'precis', 'precise', 'precises', 'prepare', 'preparee', 'prepares', 'preparees',
   'presentation', 'presentations', 'presente', 'presenter', 'presentent', 'premiere', 'premieres',
-  'prevoir', 'prevu', 'prevue', 'prevus', 'prevues', 'priorise', 'priorisee', 'priorises', 'priorisees',
-  'probabilite', 'proximite', 'qualifie', 'qualifiee', 'qualifies', 'qualifiees', 'qualite', 'qualites',
+  'prevoir', 'prevu', 'prevue', 'prevus', 'prevues', 'priorisee', 'priorisees', 'priorite', 'priorites',
+  'probabilite', 'proximite', 'qualifiee', 'qualifiees', 'qualite', 'qualites',
   'realise', 'realisee', 'realises', 'realisees', 'realisation', 'realisations', 'recu', 'recue', 'recus',
   'recues', 'reduire', 'reference', 'references', 'reflexe', 'regle', 'regles', 'regression',
-  'regressions', 'regulier', 'reguliere', 'reguliers', 'regulieres', 'reinitialiser', 'repete',
+  'regressions', 'resultat', 'resultats', 'regulier', 'reguliere', 'reguliers', 'regulieres', 'reinitialiser', 'repete',
   'repetee', 'repetes', 'repetees', 'reperer', 'repere', 'reperes', 'represente', 'representer',
   'representent', 'reunion', 'reunions', 'reveler', 'revele', 'revelent', 'role', 'roles', 'securite',
-  'signale', 'signalee', 'signales', 'signalees', 'specificite', 'specificites', 'specifique', 'succes',
+  'signalee', 'signalees', 'specificite', 'specificites', 'specifique', 'succes',
   'sure', 'systeme', 'tache', 'taches', 'termine', 'terminee', 'termines', 'terminees', 'tres', 'unite',
   'unites', 'validee', 'validees', 'verifie', 'verifier', 'verification', 'visibilite', 'zero',
 ];
@@ -102,6 +102,22 @@ describe('typographie du site', () => {
       expect(description, `${nom} description`).not.toMatch(/ [;:?!]|—/);
     });
   }
+
+  it('les corrections éditoriales sont présentes', () => {
+    localStorage.clear();
+    const m3 = rendre(<M3Page />).container.textContent ?? '';
+    expect(m3).toContain('La cascade convient quand le besoin est stable');
+    const m4 = rendre(<M4Page />).container.textContent ?? '';
+    expect(m4).toContain('lead time');
+    expect(m4).toContain('revue de flux');
+    expect(m4).toContain('Les Amis du Square');
+    expect(m4).toContain('Exercice 2\u00A0: débloquer un tableau');
+    const m3Reflexe = rendre(<M3Page />).container.textContent ?? '';
+    expect(m3Reflexe).toContain('Repère prudent');
+    expect(m3Reflexe).not.toContain('Valeur sûre');
+    const m5 = rendre(<M5Page />).container.textContent ?? '';
+    expect(m5).toContain('Exercice 2\u00A0: placer la chaîne CI');
+  });
 
   it('les libellés clés sont accentués', () => {
     expect(MODULES.find((m) => m.num === 6)?.titre).toBe('Équipe, risques (Eisenhower) et suivi');

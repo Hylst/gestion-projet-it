@@ -4,7 +4,7 @@ export const Exercices = () => (
   <div id="exercice">
     <ExerciseBlock
       id="m5-ex1"
-      titre={'Exercice 1\u00A0: 3 situations, quel type d’outil\u00A0?'}
+      titre={'Exercice 1\u00A0: choisir un type d’outil pour trois situations'}
       enonce={(
         <p>Pour 3 situations fictives (équipe dispersée, régressions fréquentes, démo fragile sur postes différents), choisis un type d’outil avec motif et limite, sans verdict définitif.</p>
       )}
@@ -23,9 +23,9 @@ export const Exercices = () => (
     />
     <ExerciseBlock
       id="m5-ex2"
-      titre={'Exercice 2\u00A0: ou placer la chaîne CI'}
+      titre={'Exercice 2\u00A0: placer la chaîne CI'}
       enonce={(
-        <p>Ordonner 4 étapes fictives (test, assemblage, relecture, déploiement fictif) et dis ou placer un contrôle qualité simple.</p>
+        <p>Ordonner 4 étapes fictives (test, assemblage, relecture, déploiement fictif) et dis où placer un contrôle qualité simple.</p>
       )}
       corrige={(
         <ul>

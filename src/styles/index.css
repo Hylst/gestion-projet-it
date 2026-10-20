@@ -219,7 +219,14 @@ p, ul, ol { margin: 0.55rem 0; }
 .kicker { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--c-main); margin: 0.1rem 0 0.3rem; }
 .module-head { margin: 2.25rem 0 1.75rem; }
 .module-head h1 { margin: 0.3rem 0 0.5rem; }
-.module-head > p:not(.kicker) { color: var(--c-muted); max-width: 65ch; }
+.module-head-row { display: flex; align-items: flex-start; gap: 1rem; }
+.module-head-row .module-picto { width: 44px; height: 44px; margin-top: 0.2rem; }
+.module-head-texte { min-width: 0; }
+.module-head-texte > p:not(.kicker) { color: var(--c-muted); max-width: 65ch; }
+@media (max-width: 600px) {
+  .module-head-row { gap: 0.75rem; }
+  .module-head-row .module-picto { width: 36px; height: 36px; }
+}
 .module-page > .reveal + .reveal { margin-top: 2.5rem; padding-top: 1.75rem; border-top: 1px solid var(--c-line); }
 footer { border-top: 1px solid var(--c-line); margin-top: 3rem; padding-top: 1.25rem; }
 footer p { color: var(--c-muted); font-size: 0.85rem; max-width: 75ch; }

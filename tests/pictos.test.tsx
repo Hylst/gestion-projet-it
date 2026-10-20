@@ -3,6 +3,7 @@ import { cleanup, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { ModulePicto } from '../src/components/ModulePicto';
 import Accueil from '../src/routes/accueil';
+import { M1Page } from '../src/modules/m1-wbs';
 import { ProgressProvider } from '../src/lib/progress';
 
 afterEach(cleanup);
@@ -17,6 +18,20 @@ describe('pictos de module', () => {
       expect(svg?.getAttribute('focusable')).toBe('false');
       unmount();
     }
+  });
+
+  it('l’en-tête d’un module affiche son picto', () => {
+    const { container } = render(
+      <ProgressProvider>
+        <MemoryRouter>
+          <M1Page />
+        </MemoryRouter>
+      </ProgressProvider>,
+    );
+    const entete = container.querySelector('.module-head-row');
+    expect(entete).not.toBeNull();
+    expect(entete?.querySelector('svg.module-picto')).not.toBeNull();
+    expect(entete?.querySelector('h1')?.textContent).toContain('Cadrer et découper');
   });
 
   it('l’accueil affiche neuf pictos et les étiquettes de module', () => {

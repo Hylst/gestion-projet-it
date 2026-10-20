@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MODULES } from '../modules/index';
+import { ModulePicto } from '../components/ModulePicto';
 import { SeoHead } from '../components/SeoHead';
 import Reveal from '../components/Reveal';
 import { useProgress } from '../lib/progress';
@@ -72,7 +73,10 @@ export default function Accueil() {
         {MODULES.map((m, i) => (
           <Reveal key={m.id} delay={i * 60}>
             <div className="module-card">
-              <span className="num" aria-hidden="true">{m.num}</span>
+              <div className="module-card-head">
+                <ModulePicto num={m.num} />
+                <span className="module-kicker">Module {m.num}</span>
+              </div>
               <Link className="titre" to={`/${m.slug}`}>{m.titre}</Link>
               <p className="resume">{m.resume}</p>
             </div>

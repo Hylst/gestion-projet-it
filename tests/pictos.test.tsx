@@ -1,6 +1,9 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { cleanup, render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { ModulePicto } from '../src/components/ModulePicto';
+import Accueil from '../src/routes/accueil';
+import { ProgressProvider } from '../src/lib/progress';
 
 afterEach(cleanup);
 
@@ -14,5 +17,22 @@ describe('pictos de module', () => {
       expect(svg?.getAttribute('focusable')).toBe('false');
       unmount();
     }
+  });
+
+  it('l’accueil affiche neuf pictos et les étiquettes de module', () => {
+    const { container } = render(
+      <ProgressProvider>
+        <MemoryRouter>
+          <Accueil />
+        </MemoryRouter>
+      </ProgressProvider>,
+    );
+    expect(container.querySelectorAll('.module-card .module-picto')).toHaveLength(9);
+    const etiquettes = Array.from(
+      container.querySelectorAll('.module-card .module-kicker'),
+    ).map((el) => el.textContent);
+    expect(etiquettes).toEqual(
+      Array.from({ length: 9 }, (_, i) => `Module ${i + 1}`),
+    );
   });
 });

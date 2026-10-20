@@ -35,7 +35,9 @@
 .module-card { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.1rem; border-radius: var(--radius); background: var(--c-surface); border: 1px solid var(--c-line); box-shadow: var(--shadow); transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .module-card:hover { transform: scale(1.02); }
 @media (prefers-reduced-motion: reduce) { .module-card, .module-card:hover { transform: none; } }
-.module-card .num { color: var(--c-main); font-weight: 700; }
+.module-card-head { display: flex; align-items: center; gap: 0.55rem; }
+.module-kicker { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-main); }
+.module-card:hover .module-picto { color: var(--c-main); }
 .module-card a.titre { font-weight: 700; font-size: 1.05rem; }
 .module-card .resume { color: var(--c-muted); font-size: 0.95rem; }
 .module-card.avenir { opacity: 0.85; box-shadow: none; }

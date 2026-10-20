@@ -1,7 +1,7 @@
 # Cycle graphismes : hero et pictos des modules
 
 Date : 2026-10-20
-Statut : design validé, implémentation à venir.
+Statut : design validé et exécuté le 2026-10-20.
 
 ## 1. Contexte et objectif
 
@@ -168,7 +168,7 @@ Motifs et accents :
 | Module | Motif | Aplat |
 | --- | --- | --- |
 | 1 | Arbre WBS, racine et trois enfants | jaune sur la racine |
-| 2 | Trois barres Gantt sur un axe | vert sur la barre centrale |
+| 2 | Trois barres Gantt sur un axe | vert sur la barre du haut |
 | 3 | V avec deux ronds en miroir | jaune sur le rond gauche |
 | 4 | Trois colonnes Kanban | vert sur une carte |
 | 5 | Deux nœuds reliés par une flèche | jaune sur le nœud gauche |

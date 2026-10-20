@@ -34,7 +34,7 @@
 - Consumes: rien.
 - Produces: `ModulePicto(props: { num: number }): JSX.Element | null`, classes `.module-picto`, `.picto-soft`, `.picto-calm`, `.picto-plat`.
 
-- [ ] **Step 1: Écrire le test rouge**
+- [x] **Step 1: Écrire le test rouge**
 
 Créer `tests/pictos.test.tsx` :
 
@@ -59,12 +59,12 @@ describe('pictos de module', () => {
 });
 ```
 
-- [ ] **Step 2: Lancer le test pour vérifier l’échec**
+- [x] **Step 2: Lancer le test pour vérifier l’échec**
 
 Run: `npx vitest run tests/pictos.test.tsx`
 Expected: FAIL, module `../src/components/ModulePicto` introuvable.
 
-- [ ] **Step 3: Écrire le composant minimal**
+- [x] **Step 3: Écrire le composant minimal**
 
 Créer `src/components/ModulePicto.tsx` :
 
@@ -154,7 +154,7 @@ export function ModulePicto(props: { num: number }) {
 }
 ```
 
-- [ ] **Step 4: Ajouter les styles globaux**
+- [x] **Step 4: Ajouter les styles globaux**
 
 Dans `src/styles/index.css`, après le bloc `:root` et avant les styles de header, ajouter :
 
@@ -175,12 +175,12 @@ Dans `src/styles/index.css`, après le bloc `:root` et avant les styles de heade
 .module-picto .picto-plat { stroke: none; }
 ```
 
-- [ ] **Step 5: Relancer le test**
+- [x] **Step 5: Relancer le test**
 
 Run: `npx vitest run tests/pictos.test.tsx`
 Expected: PASS, 1 test.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/components/ModulePicto.tsx src/styles/index.css tests/pictos.test.tsx
@@ -200,7 +200,7 @@ git commit -m "feat: pictos des neuf modules"
 - Consumes: rien.
 - Produces: `.hero-panels`, `.hero-panel`, `.hero-panel-titre`, `.hero-panel-svg`, `.hero-panel-legende`, `.hero-today`, `.hero-mirror`.
 
-- [ ] **Step 1: Renforcer le test du hero**
+- [x] **Step 1: Renforcer le test du hero**
 
 Remplacer le test de `tests/hero.test.tsx` par :
 
@@ -226,12 +226,12 @@ it('la section hero utilise la classe hero et trois panneaux', () => {
 });
 ```
 
-- [ ] **Step 2: Lancer le test pour vérifier l’échec**
+- [x] **Step 2: Lancer le test pour vérifier l’échec**
 
 Run: `npx vitest run tests/hero.test.tsx`
 Expected: FAIL, 0 panneau au lieu de 3.
 
-- [ ] **Step 3: Remplacer le hero JSX**
+- [x] **Step 3: Remplacer le hero JSX**
 
 Dans `src/routes/accueil.tsx`, remplacer la fonction `Hero` par :
 
@@ -288,7 +288,7 @@ function Hero() {
 }
 ```
 
-- [ ] **Step 4: Remplacer les styles du hero**
+- [x] **Step 4: Remplacer les styles du hero**
 
 Dans `src/styles/hero.css`, remplacer les règles `.hero` à `.hero-svg` par :
 
@@ -332,12 +332,12 @@ Remplacer ensuite les animations par :
 
 Conserver le reste du fichier, notamment `.modules-grid` et `.module-card`.
 
-- [ ] **Step 5: Relancer le test**
+- [x] **Step 5: Relancer le test**
 
 Run: `npx vitest run tests/hero.test.tsx`
 Expected: PASS, 1 test.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/routes/accueil.tsx src/styles/hero.css tests/hero.test.tsx
@@ -357,7 +357,7 @@ git commit -m "feat: hero en trois panneaux"
 - Consumes: `ModulePicto` de la Task 1.
 - Produces: `.module-card-head`, `.module-kicker`; le grand `.num` disparaît.
 
-- [ ] **Step 1: Ajouter le test des cartes**
+- [x] **Step 1: Ajouter le test des cartes**
 
 Dans `tests/pictos.test.tsx`, ajouter les imports :
 
@@ -388,12 +388,12 @@ it('l’accueil affiche neuf pictos et les étiquettes de module', () => {
 });
 ```
 
-- [ ] **Step 2: Lancer le test pour vérifier l’échec**
+- [x] **Step 2: Lancer le test pour vérifier l’échec**
 
 Run: `npx vitest run tests/pictos.test.tsx`
 Expected: FAIL, 0 picto dans les cartes.
 
-- [ ] **Step 3: Modifier la carte**
+- [x] **Step 3: Modifier la carte**
 
 Dans `src/routes/accueil.tsx`, ajouter l’import :
 
@@ -414,7 +414,7 @@ Remplacer le contenu de `.module-card` par :
 </div>
 ```
 
-- [ ] **Step 4: Ajouter les styles des cartes**
+- [x] **Step 4: Ajouter les styles des cartes**
 
 Dans `src/styles/hero.css`, remplacer `.module-card .num` par :
 
@@ -424,12 +424,12 @@ Dans `src/styles/hero.css`, remplacer `.module-card .num` par :
 .module-card:hover .module-picto { color: var(--c-main); }
 ```
 
-- [ ] **Step 5: Relancer le test**
+- [x] **Step 5: Relancer le test**
 
 Run: `npx vitest run tests/pictos.test.tsx`
 Expected: PASS, 2 tests.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/routes/accueil.tsx src/styles/hero.css tests/pictos.test.tsx
@@ -449,7 +449,7 @@ git commit -m "feat: pictos sur les cartes de modules"
 - Consumes: `ModulePicto` de la Task 1, `ModuleMeta.num`.
 - Produces: `.module-head-row`, `.module-head-texte`.
 
-- [ ] **Step 1: Ajouter le test de l’en-tête**
+- [x] **Step 1: Ajouter le test de l’en-tête**
 
 Dans `tests/pictos.test.tsx`, ajouter l’import :
 
@@ -475,12 +475,12 @@ it('l’en-tête d’un module affiche son picto', () => {
 });
 ```
 
-- [ ] **Step 2: Lancer le test pour vérifier l’échec**
+- [x] **Step 2: Lancer le test pour vérifier l’échec**
 
 Run: `npx vitest run tests/pictos.test.tsx`
 Expected: FAIL, `.module-head-row` introuvable.
 
-- [ ] **Step 3: Modifier ModuleLayout**
+- [x] **Step 3: Modifier ModuleLayout**
 
 Dans `src/components/ModuleLayout.tsx`, ajouter l’import :
 
@@ -512,7 +512,7 @@ Remplacer le contenu du `header` par :
 </header>
 ```
 
-- [ ] **Step 4: Ajouter les styles de l’en-tête**
+- [x] **Step 4: Ajouter les styles de l’en-tête**
 
 Dans `src/styles/index.css`, remplacer :
 
@@ -533,12 +533,12 @@ par :
 }
 ```
 
-- [ ] **Step 5: Relancer le test**
+- [x] **Step 5: Relancer le test**
 
 Run: `npx vitest run tests/pictos.test.tsx`
 Expected: PASS, 3 tests.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add src/components/ModuleLayout.tsx src/styles/index.css tests/pictos.test.tsx
@@ -558,7 +558,7 @@ git commit -m "feat: pictos dans les en-tetes de module"
 - Consumes: le site construit et prévisualisé.
 - Produces: preuves de non-régression et captures validées.
 
-- [ ] **Step 1: Passer les gardes complètes**
+- [x] **Step 1: Passer les gardes complètes**
 
 Run:
 
@@ -568,7 +568,7 @@ npm run lint && npm run typecheck && npm test && npm run build
 
 Expected: lint et typecheck sans erreur, 144 tests, build réussi.
 
-- [ ] **Step 2: Lancer la prévisualisation**
+- [x] **Step 2: Lancer la prévisualisation**
 
 Vérifier le port puis démarrer :
 
@@ -579,12 +579,12 @@ MSYS_NO_PATHCONV=1 npx vite preview --host 127.0.0.1 --base=/gestion-projet-it/ 
 
 Expected: `http://127.0.0.1:4173/gestion-projet-it/` répond 200.
 
-- [ ] **Step 3: Lancer le smoke**
+- [x] **Step 3: Lancer le smoke**
 
 Run: `npx playwright test smoke/smoke.spec.ts --reporter=line`
 Expected: 7 tests passés.
 
-- [ ] **Step 4: Captures et contrôles responsive**
+- [x] **Step 4: Captures et contrôles responsive**
 
 Créer `.shots/graphics-check.cjs` :
 
@@ -625,7 +625,7 @@ Expected: aucun débordement, 0 erreur console, animations `none`, offset `0px`.
 
 Supprimer ensuite `.shots/graphics-check.cjs`.
 
-- [ ] **Step 5: Lighthouse mobile**
+- [x] **Step 5: Lighthouse mobile**
 
 Run:
 
@@ -636,7 +636,7 @@ npx lighthouse http://127.0.0.1:4173/gestion-projet-it/module-1 --output=json --
 
 Expected: performance et accessibilité supérieures ou égales à 90 sur les deux pages. Les erreurs EPERM de nettoyage temporaire de Lighthouse sont bénignes si les JSON sont produits.
 
-- [ ] **Step 6: Contrôle visuel**
+- [x] **Step 6: Contrôle visuel**
 
 Ouvrir les captures 1440, 736 et 390. Vérifier :
 
@@ -646,7 +646,7 @@ Ouvrir les captures 1440, 736 et 390. Vérifier :
 - pictos nets à 30 px sur les cartes et 44 px dans l’en-tête ;
 - aucun débordement horizontal à 390 px.
 
-- [ ] **Step 7: Commit des ajustements éventuels**
+- [x] **Step 7: Commit des ajustements éventuels**
 
 Si une correction CSS est nécessaire, la faire, relancer les étapes 1 à 5, puis :
 
@@ -673,16 +673,16 @@ Sinon, ne rien committer.
 - Consumes: build vérifié de la Task 5.
 - Produces: version publiée et vérifiée en production.
 
-- [ ] **Step 0: Demander l’accord de déploiement**
+- [x] **Step 0: Demander l’accord de déploiement**
 
 Ne pas pousser avant un accord explicite de l’utilisateur. Le reste de la tâche ne démarre qu’après cet accord.
 
-- [ ] **Step 1: Mettre à jour le statut du spec**
+- [x] **Step 1: Mettre à jour le statut du spec**
 
 Remplacer `Statut : design validé, implémentation à venir.` par
 `Statut : design validé et exécuté le 2026-10-20.`
 
-- [ ] **Step 2: Synchroniser le build**
+- [x] **Step 2: Synchroniser le build**
 
 ```bash
 cd "D:/0CODE/AntiGravity/Cours_Memos/Docker"
@@ -694,7 +694,7 @@ diff -rq "D:/0CODE/OpenCode/gestion-projet-it/dist" gestion-projet-it
 
 Expected: aucune différence, seul le nouveau build apparaît dans `git status`.
 
-- [ ] **Step 3: Relever les empreintes**
+- [x] **Step 3: Relever les empreintes**
 
 ```bash
 python - <<'EOF'
@@ -710,7 +710,7 @@ EOF
 
 Noter les valeurs pour le changelog et le catalogue.
 
-- [ ] **Step 4: Mettre à jour les docs plateforme**
+- [x] **Step 4: Mettre à jour les docs plateforme**
 
 Dans `changelog.md`, ajouter en tête une entrée `## [2.17.52] - 2026-10-20` avec :
 
@@ -725,7 +725,7 @@ nouveau build, les 144 tests, les pictos, le hero et les scores Lighthouse.
 Dans `todo.md`, remplacer la ligne SW v3 par une ligne « cycle graphismes »
 avec le build publié et les vérifications.
 
-- [ ] **Step 5: Committer et pousser le build**
+- [x] **Step 5: Committer et pousser le build**
 
 ```bash
 git add gestion-projet-it changelog.md hylst_IT_platform_content.md todo.md
@@ -733,7 +733,7 @@ git commit -m "gestion-projet-it: build cycle graphismes"
 git push origin main
 ```
 
-- [ ] **Step 6: Vérifier la production**
+- [x] **Step 6: Vérifier la production**
 
 Attendre que le nouveau `index.html` et le nouveau JS soient servis, puis :
 
@@ -745,14 +745,14 @@ bash scripts/verifier-prod.sh --full gestion-projet-it
 
 Expected: manifest en `application/manifest+json`, 12 routes 200, 0 anomalie.
 
-- [ ] **Step 7: Vérifier le hero et les pictos en production**
+- [x] **Step 7: Vérifier le hero et les pictos en production**
 
 Avec Playwright, charger l’accueil et module-1 en 1440 et 390, vérifier
 trois panneaux, neuf pictos sur l’accueil, un picto dans l’en-tête de
 module-1, zéro erreur console, zéro requête externe. Faire une capture
 finale et relancer Lighthouse accueil.
 
-- [ ] **Step 8: Compléter les docs de vérification**
+- [x] **Step 8: Compléter les docs de vérification**
 
 Ajouter au changelog les scores et le résultat de production, puis :
 
@@ -762,7 +762,7 @@ git commit -m "docs: verification prod cycle graphismes"
 git push origin main
 ```
 
-- [ ] **Step 9: Clore le plan**
+- [x] **Step 9: Clore le plan**
 
 Cocher les cases du plan et du spec, mettre à jour le ledger
 `.superpowers/sdd/2026-10-20-cycle-graphismes/progress.md`, puis annoncer

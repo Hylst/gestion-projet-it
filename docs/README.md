@@ -37,6 +37,10 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-10-22 | [Plan section IA](superpowers/plans/2026-10-22-ia-gestion-projet.md) | Livré | Cinq pages IA |
 | 2026-10-24 | [Plan enrichissements P0](superpowers/plans/2026-10-24-enrichissements-p0.md) | En cours | Guides, ressources et accessibilité |
 
+## Politique
+
+- [Sources et veille](sources.md) : critères, dates, revue et retrait.
+
 ## Règles
 
 - Une spec validée ne se réécrit pas silencieusement : une nouvelle décision ajoute un avenant daté.

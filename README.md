@@ -119,6 +119,7 @@ Ne jamais committer de secret, de clé, de jeton, `node_modules/`, `dist/`, `tes
 - [BACKLOG.md](BACKLOG.md) : priorités et prochains lots.
 - [CHANGELOG.md](CHANGELOG.md) : état publié et vérifications.
 - [docs/README.md](docs/README.md) : index des specs et plans.
+- [docs/sources.md](docs/sources.md) : politique de sources et de veille.
 - [cahier_des_charges.md](cahier_des_charges.md) : vision et contraintes durables.
 - [agents.md](agents.md) : règles de collaboration et conventions techniques.
 

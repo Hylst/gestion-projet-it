@@ -28,6 +28,15 @@ puis ce fichier, puis les conventions du dépôt de déploiement.
 - Toute nouvelle décision de conception va dans une spec datée.
 - Toute publication met à jour le changelog et les dates de sources.
 
+## Sources et ressources
+
+- La politique applicable est `docs/sources.md`.
+- Chaque ressource porte un organisme identifiable, un titre, une URL stable, une date ou une version, un usage, une limite et une date de vérification.
+- Les données publiques sont dans `src/lib/ressources.ts` et la page `/ressources`.
+- Vérification initiale : 24 ressources, 24 URL en réponse 200, le 24 octobre 2026.
+- Revue annuelle au minimum, ou avant en cas de changement de version ou d’URL.
+- Aucun lien d’affiliation, aucun embed, aucun chargement automatique.
+
 ## Méthode (anti-dispersion)
 
 - Un changement à la fois, finir avant d’enchaîner.

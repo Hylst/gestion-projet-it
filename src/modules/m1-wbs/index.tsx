@@ -1,6 +1,7 @@
 import { ModuleLayout } from '../../components/ModuleLayout';
 import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
+import { ModuleGuide } from '../../components/ModuleGuide';
 import Reveal from '../../components/Reveal';
 import LaboWbs from '../../labos/LaboWbs';
 import { useProgress } from '../../lib/progress';
@@ -9,6 +10,7 @@ import FilRouge from './filRouge';
 import Demarche from './demarche';
 import Exercices from './exercice';
 import { quiz } from './quiz';
+import { guide } from './guide';
 import { items } from './ficheReflexe';
 import { moduleMetaByNum } from '../../modules/index';
 
@@ -36,6 +38,7 @@ export const M1Page = () => {
       <Reveal><Labo /></Reveal>
       <Reveal><Exercices /></Reveal>
       <Reveal><QuizBlock data={quiz} /></Reveal>
+      <Reveal><ModuleGuide data={guide} moduleNum={1} /></Reveal>
       <Reveal><FicheReflexe titre={'Fiche réflexe\u00A0: cadrer et découper'} items={items} /></Reveal>
     </ModuleLayout>
   );

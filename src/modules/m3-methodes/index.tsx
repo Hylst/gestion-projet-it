@@ -1,6 +1,7 @@
 import { ModuleLayout } from '../../components/ModuleLayout';
 import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
+import { ModuleGuide } from '../../components/ModuleGuide';
 import Reveal from '../../components/Reveal';
 import LaboPhases from '../../labos/LaboPhases';
 import ComparateurMethodes from '../../labos/ComparateurMethodes';
@@ -10,6 +11,7 @@ import FilRouge from './filRouge';
 import Demarche from './demarche';
 import Exercices from './exercise';
 import { quiz } from './quiz';
+import { guide } from './guide';
 import { items } from './ficheReflexe';
 
 const Labo = () => {
@@ -46,6 +48,7 @@ export const M3Page = () => (
     </Reveal>
     <Reveal><Exercices /></Reveal>
     <Reveal><QuizBlock data={quiz} /></Reveal>
+    <Reveal><ModuleGuide data={guide} moduleNum={3} /></Reveal>
     <Reveal><FicheReflexe titre={'Fiche réflexe\u00A0: choisir sa méthode'} items={items} /></Reveal>
   </ModuleLayout>
 );

@@ -1,6 +1,7 @@
 import { ModuleLayout } from '../../components/ModuleLayout';
 import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
+import { ModuleGuide } from '../../components/ModuleGuide';
 import Reveal from '../../components/Reveal';
 import LaboAlea from '../../labos/LaboAlea';
 import { useProgress } from '../../lib/progress';
@@ -9,6 +10,7 @@ import FilRouge from './filRouge';
 import Demarche from './demarche';
 import Exercices from './exercise';
 import { quiz } from './quiz';
+import { guide } from './guide';
 import { items } from './ficheReflexe';
 
 const Labo = () => {
@@ -40,6 +42,7 @@ export const M8Page = () => (
     <Reveal><Labo /></Reveal>
     <Reveal><Exercices /></Reveal>
     <Reveal><QuizBlock data={quiz} /></Reveal>
+    <Reveal><ModuleGuide data={guide} moduleNum={8} /></Reveal>
     <Reveal><FicheReflexe titre={'Fiche réflexe\u00A0: budget et chiffrage'} items={items} /></Reveal>
   </ModuleLayout>
 );

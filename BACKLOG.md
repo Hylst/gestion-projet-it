@@ -31,9 +31,9 @@ Chaque item doit rester compatible avec les non-objectifs du projet. Un item qui
 | Qualité et plateforme | 8 | 0 | 2 | 6 |
 | **Total** | **44** | **9** | **27** | **8** |
 
-## Prochain lot recommandé (P0 puis P1)
+## Lot P0 livré
 
-Le socle documentaire est livré. Le premier lot de contenu est :
+Le premier lot de contenu est livré au 24 octobre 2026 :
 
 1. `ENR-001` Audit éditorial des neuf modules.
 2. `ENR-002` Erreurs fréquentes dans les neuf modules.
@@ -42,7 +42,16 @@ Le socle documentaire est livré. Le premier lot de contenu est :
 5. `RES-004` Politique de sources et dates de vérification.
 6. `QUA-001` Audit WCAG 2.2 AA des nouvelles pages.
 
-Les parcours Produit et Cybersécurité restent P1. Ils ne démarrent qu’après validation du lot précédent.
+## Lot suivant recommandé
+
+1. `ENR-004` Exercices de transfert.
+2. `ENR-005` Glossaire étendu.
+3. `ENR-007` Pré-mortem et revue des risques.
+4. `RES-002` Fiches outils normalisées.
+5. `RES-005` Grille de comparaison d’outils.
+6. `QUA-002` Parcours clavier et focus.
+
+Les parcours Produit et Cybersécurité restent P1. Ils ne démarrent qu’après validation du lot P0.
 
 ---
 
@@ -102,24 +111,24 @@ Les parcours Produit et Cybersécurité restent P1. Ils ne démarrent qu’aprè
 ## Approfondissement des modules
 
 ### ENR-001 Audit éditorial des neuf modules
-`P0` · `M` · `Prêt`
+`P0` · `M` · `Livré`
 **Résultat :** une matrice des neuf modules avec sections présentes, manques, doublons et ressources.
 **Acceptation :** chaque module a une liste d’actions courtes et priorisées.
-**Preuve :** tableau dans la spec du prochain cycle.
+**Preuve :** `docs/superpowers/specs/2026-10-24-audit-editorial-modules.md`.
 **Vigilance :** corriger les manques, ne pas réécrire pour le plaisir.
 
 ### ENR-002 Erreurs fréquentes
-`P0` · `M` · `Prêt`
+`P0` · `M` · `Livré`
 **Résultat :** trois à cinq erreurs concrètes par module, avec conséquence et correction.
 **Acceptation :** chaque erreur est observable sur le fil rouge, sans jugement d’école.
-**Preuve :** contenu relu, test de typographie, cohérence avec la fiche.
+**Preuve :** `src/modules/m*/guide.ts`, `tests/module-guide.test.tsx`, `tests/typo.test.tsx`.
 **Vigilance :** éviter les listes génériques de type « bien communiquer ».
 
 ### ENR-003 Points de décision
-`P0` · `M` · `Prêt`
+`P0` · `M` · `Livré`
 **Résultat :** un guide court par module pour choisir entre deux ou trois options.
 **Acceptation :** critères, limites et cas de non-usage sont explicites.
-**Preuve :** contenu et test de charte.
+**Preuve :** `src/components/ModuleGuide.tsx`, `tests/module-guide.test.tsx`.
 **Vigilance :** ne pas présenter une méthode comme supérieure.
 
 ### ENR-004 Exercices de transfert
@@ -282,10 +291,10 @@ Les parcours Produit et Cybersécurité restent P1. Ils ne démarrent qu’aprè
 ## Ressources et outils
 
 ### RES-001 Bibliothèque de ressources officielles
-`P1` · `M` · `Candidat`
+`P1` · `M` · `Livré`
 **Résultat :** une ressource à trois par module et par parcours, datée et qualifiée.
 **Acceptation :** organisme, titre, usage, limite et date de vérification.
-**Preuve :** tableau de sources et liens vérifiés.
+**Preuve :** `src/lib/ressources.ts`, `/ressources`, 18 ressources de modules et 6 de parcours, `tests/ressources.test.tsx`.
 **Vigilance :** aucun lien d’affiliation, aucun contenu généré non relu.
 
 ### RES-002 Fiches outils normalisées
@@ -303,10 +312,10 @@ Les parcours Produit et Cybersécurité restent P1. Ils ne démarrent qu’aprè
 **Vigilance :** ne pas créer de formulaires qui collectent des données.
 
 ### RES-004 Politique de sources et de veille
-`P1` · `S` · `Candidat`
+`P1` · `S` · `Livré`
 **Résultat :** une règle écrite pour accepter, dater, vérifier et retirer une ressource.
 **Acceptation :** organisme identifiable, date, limite, revue périodique.
-**Preuve :** section dans `agents.md` ou document dédié.
+**Preuve :** `docs/sources.md`, section « Sources et ressources » dans `agents.md`.
 **Vigilance :** ne pas confondre source officielle et opinion.
 
 ### RES-005 Grille de comparaison d’outils
@@ -321,10 +330,10 @@ Les parcours Produit et Cybersécurité restent P1. Ils ne démarrent qu’aprè
 ## Qualité et plateforme
 
 ### QUA-001 Audit WCAG 2.2 AA
-`P1` · `M` · `Candidat`
+`P1` · `M` · `Livré`
 **Résultat :** audit des nouvelles pages et parcours.
 **Acceptation :** contrastes, structure, labels, focus, clavier et messages d’erreur.
-**Preuve :** rapport d’audit et tests.
+**Preuve :** `docs/accessibilite/audit-2026-10-24.md`, smoke 11/11 et Lighthouse 100 en accessibilité sur `/ressources` et `/module-1`. Périmètre du lot ; parcours à auditer à leur ouverture.
 **Vigilance :** ne pas se limiter à Lighthouse.
 
 ### QUA-002 Parcours clavier et focus

@@ -6,10 +6,10 @@ Application 100 % front, sans compte, sans cookie, sans backend et sans requête
 
 ## État actuel
 
-- 9 modules avec fiche, démarche, laboratoire interactif, exercice corrigé, quiz et fiche réflexe.
+- 9 modules avec fiche, démarche, laboratoire interactif, exercice corrigé, quiz, erreurs fréquentes, point de décision et fiche réflexe.
 - 1 dossier projet en 6 étapes, avec sauvegarde locale, export JSON, impression et auto-évaluation.
 - 5 pages IA : introduction, usages, méthodes, outils et gouvernance.
-- 19 routes publiques, recherche globale, glossaire et export de progression.
+- 19 routes publiques, recherche globale, glossaire, bibliothèque de ressources et export de progression.
 - Deux parcours futurs sont cadrés dans le backlog : Produit et Cybersécurité. Ils ne sont pas encore implémentés.
 
 ## Démarrage

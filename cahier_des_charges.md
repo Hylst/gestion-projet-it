@@ -551,15 +551,22 @@ Les sections 3 et 8 décrivent le MVP v1 et restent historiques. L’état livr�
 - Neuf modules avec fiche, démarche, laboratoire, exercice corrigé, quiz et fiche réflexe.
 - Dossier projet en six étapes, sauvegarde locale, export JSON, impression et auto-évaluation.
 - Section IA en cinq pages : introduction, usages, méthodes, outils et gouvernance.
-- Recherche globale, glossaire étendu, sitemap 18 URL et service worker v5.
+- Recherche globale, glossaire étendu, sitemap 19 URL et service worker v5.
 - Build publié : `index-BN9HjO3I.js` et `index-o6t1cYmb.css`.
 - CI GitHub Actions sur `main` et les pull requests : lint, typecheck, tests et build.
 - Contrôle manuel : branche, PR, CI verte, fusion. La protection de branche GitHub n’est pas disponible sur l’offre gratuite pour un dépôt privé.
 
-Le prochain cycle est cadré dans `BACKLOG.md` :
+Mise à jour du 24 octobre 2026 : le lot P0 est livré.
 
-- approfondissement des neuf modules ;
-- parcours Produit et parcours Cybersécurité, autonomes, sans XP et sans modification du compteur `0/9` ;
-- bibliothèque de ressources, fiches outils, modèles imprimables et qualité accessible.
+- Les neuf modules ajoutent trois erreurs fréquentes, un point de décision et des ressources qualifiées.
+- La page `/ressources` regroupe 18 ressources de modules et 6 ressources de parcours.
+- La politique de sources est dans `docs/sources.md` et l’audit WCAG dans `docs/accessibilite/audit-2026-10-24.md`.
+- Le parcours reste sans XP et sans modification du compteur `0/9`.
+
+Le prochain cycle reste cadré dans `BACKLOG.md` :
+
+- exercices de transfert, glossaire étendu et pré-mortem ;
+- fiches outils et grille de comparaison ;
+- parcours Produit et parcours Cybersécurité, autonomes, sans XP.
 
 Les non-objectifs du projet restent : backend, comptes, cookies, analytics, certification, ressources chargées automatiquement et contenus inventés.

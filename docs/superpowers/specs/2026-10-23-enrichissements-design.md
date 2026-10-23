@@ -1,9 +1,9 @@
 # Design : enrichissements du contenu et du backlog
 
 **Date :** 2026-10-23
-**Statut :** validé par l’utilisateur
+**Statut :** validé par l’utilisateur ; lot P0 livré le 24 octobre 2026.
 **Périmètre :** documentation, backlog et cadrage des prochains enrichissements.
-**Hors périmètre :** aucune modification de code applicatif dans ce cycle.
+**Hors périmètre du cycle documentaire initial :** aucune modification de code applicatif.
 
 ## 1. Contexte
 

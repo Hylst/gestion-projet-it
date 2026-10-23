@@ -12,9 +12,10 @@ puis ce fichier, puis les conventions du dépôt de déploiement.
 - Stack : Vite + React + TypeScript, SPA, 100 % front, sans compte,
   sans cookie, sans backend. Progression en `localStorage`
   (clés `gestion-projet-it:*`), export et import JSON.
-- État livré : 9 modules, dossier projet en 6 étapes, section IA en
-  5 pages. Les parcours Produit et Cybersécurité sont au backlog, pas
-  encore implémentés.
+- État livré : 9 modules avec erreurs fréquentes et points de décision,
+  dossier projet en 6 étapes, section IA en 5 pages, bibliothèque de
+  ressources en 19 routes. Les parcours Produit et Cybersécurité sont
+  au backlog, pas encore implémentés.
 - Licence AGPL-3.0-or-later. Paternité : réalisé par Geoffroy avec
   assistance IA (mentions : footer, page À propos).
 
@@ -27,6 +28,15 @@ puis ce fichier, puis les conventions du dépôt de déploiement.
 - `CHANGELOG.md` : état publié et vérifications.
 - Toute nouvelle décision de conception va dans une spec datée.
 - Toute publication met à jour le changelog et les dates de sources.
+
+## Sources et ressources
+
+- La politique applicable est `docs/sources.md`.
+- Chaque ressource porte un organisme identifiable, un titre, une URL stable, une date ou une version, un usage, une limite et une date de vérification.
+- Les données publiques sont dans `src/lib/ressources.ts` et la page `/ressources`.
+- Vérification initiale : 24 ressources, 24 URL en réponse 200, le 24 octobre 2026.
+- Revue annuelle au minimum, ou avant en cas de changement de version ou d’URL.
+- Aucun lien d’affiliation, aucun embed, aucun chargement automatique.
 
 ## Méthode (anti-dispersion)
 

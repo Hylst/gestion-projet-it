@@ -42,6 +42,7 @@ describe('en-tete', () => {
       ['/a-propos', 'À propos'],
       ['/glossaire', 'Glossaire'],
       ['/dossier-projet', 'Dossier projet'],
+      ['/ressources', 'Ressources'],
       ['/ia', 'IA'],
       ['/ia/usages', 'IA'],
       ['/module-6', null],

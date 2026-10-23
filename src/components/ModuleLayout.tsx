@@ -24,6 +24,7 @@ export function ModuleLayout(props: { meta: ModuleMeta; children: React.ReactNod
           <a href="#labo">Labo</a>
           <a href="#exercice">Exercice corrigé</a>
           <a href="#quiz">Quiz</a>
+          <a href="#guide">Erreurs et décisions</a>
           <a href="#reflexe">Fiche réflexe</a>
         </nav>
       </header>

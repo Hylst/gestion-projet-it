@@ -22,6 +22,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-10-21 | [Dossier projet](superpowers/specs/2026-10-21-dossier-projet-design.md) | Livré | Capstone en six étapes |
 | 2026-10-22 | [Section IA](superpowers/specs/2026-10-22-ia-gestion-projet-design.md) | Livré | Cinq pages IA |
 | 2026-10-23 | [Enrichissements et backlog](superpowers/specs/2026-10-23-enrichissements-design.md) | Livré | Documentation et cadrage du prochain cycle |
+| 2026-10-24 | [Audit éditorial des neuf modules](superpowers/specs/2026-10-24-audit-editorial-modules.md) | Livré | Manques, doublons et actions par module |
 
 ## Plans
 
@@ -34,6 +35,15 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-10-20 | [Plan angles morts](superpowers/plans/2026-10-20-angles-morts.md) | Historique livré | Modules 3 et 7 |
 | 2026-10-21 | [Plan dossier projet](superpowers/plans/2026-10-21-dossier-projet.md) | Livré | Capstone |
 | 2026-10-22 | [Plan section IA](superpowers/plans/2026-10-22-ia-gestion-projet.md) | Livré | Cinq pages IA |
+| 2026-10-24 | [Plan enrichissements P0](superpowers/plans/2026-10-24-enrichissements-p0.md) | Livré | Guides, ressources et accessibilité |
+
+## Politique
+
+- [Sources et veille](sources.md) : critères, dates, revue et retrait.
+
+## Audits
+
+- [Accessibilité du 24 octobre 2026](accessibilite/audit-2026-10-24.md) : guides et page Ressources.
 
 ## Règles
 

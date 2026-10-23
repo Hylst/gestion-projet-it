@@ -6,10 +6,10 @@ Application 100 % front, sans compte, sans cookie, sans backend et sans requête
 
 ## État actuel
 
-- 9 modules avec fiche, démarche, laboratoire interactif, exercice corrigé, quiz et fiche réflexe.
+- 9 modules avec fiche, démarche, laboratoire interactif, exercice corrigé, quiz, erreurs fréquentes, point de décision et fiche réflexe.
 - 1 dossier projet en 6 étapes, avec sauvegarde locale, export JSON, impression et auto-évaluation.
 - 5 pages IA : introduction, usages, méthodes, outils et gouvernance.
-- 18 routes publiques, recherche globale, glossaire et export de progression.
+- 19 routes publiques, recherche globale, glossaire, bibliothèque de ressources et export de progression.
 - Deux parcours futurs sont cadrés dans le backlog : Produit et Cybersécurité. Ils ne sont pas encore implémentés.
 
 ## Démarrage
@@ -55,6 +55,7 @@ SMOKE_BASE_URL=http://127.0.0.1:4182/gestion-projet-it npm run smoke
 | `/ia/outils-configuration` | Outils et configuration |
 | `/ia/gouvernance` | Gouvernance et risques |
 | `/glossaire` | Glossaire |
+| `/ressources` | Bibliothèque de ressources officielles |
 | `/a-propos` | Paternité, licence et confidentialité |
 
 ## Architecture
@@ -118,6 +119,7 @@ Ne jamais committer de secret, de clé, de jeton, `node_modules/`, `dist/`, `tes
 - [BACKLOG.md](BACKLOG.md) : priorités et prochains lots.
 - [CHANGELOG.md](CHANGELOG.md) : état publié et vérifications.
 - [docs/README.md](docs/README.md) : index des specs et plans.
+- [docs/sources.md](docs/sources.md) : politique de sources et de veille.
 - [cahier_des_charges.md](cahier_des_charges.md) : vision et contraintes durables.
 - [agents.md](agents.md) : règles de collaboration et conventions techniques.
 

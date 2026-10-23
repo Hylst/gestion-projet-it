@@ -1,6 +1,7 @@
 import { ModuleLayout } from '../../components/ModuleLayout';
 import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
+import { ModuleGuide } from '../../components/ModuleGuide';
 import Reveal from '../../components/Reveal';
 import LaboKanban from '../../labos/LaboKanban';
 import PokerPlanning from '../../labos/PokerPlanning';
@@ -10,6 +11,7 @@ import FilRouge from './filRouge';
 import Demarche from './demarche';
 import Exercices from './exercise';
 import { quiz } from './quiz';
+import { guide } from './guide';
 import { items } from './ficheReflexe';
 
 const Labo = () => {
@@ -49,6 +51,7 @@ export const M4Page = () => (
     <Reveal><Labo /></Reveal>
     <Reveal><Exercices /></Reveal>
     <Reveal><QuizBlock data={quiz} /></Reveal>
+    <Reveal><ModuleGuide data={guide} moduleNum={4} /></Reveal>
     <Reveal><FicheReflexe titre={'Fiche réflexe\u00A0: travailler en agile'} items={items} /></Reveal>
   </ModuleLayout>
 );

@@ -1,5 +1,14 @@
 # Changelog
 
+## [Non publié]
+
+### Documentation
+
+- Ajout du README opérationnel, du backlog central et de l’index des specs et plans.
+- Intégration des specs et plans du dossier projet et de la section IA.
+- Mise à jour des règles agents et ajout d’un addendum au cahier des charges.
+- Cadrage des enrichissements à venir : parcours Produit, parcours Cybersécurité, ressources, outils et qualité.
+
 ## [1.0.0] - 2026-10-23
 
 ### Ajouté

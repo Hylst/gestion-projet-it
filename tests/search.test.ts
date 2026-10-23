@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { buildIndex, isIaHit, isModuleHit, searchIndex } from '../src/lib/search';
+import { buildIndex, isIaHit, isModuleHit, isPageHit, searchIndex } from '../src/lib/search';
 import { MODULES } from '../src/modules/index';
 import { IA_PAGES } from '../src/ia/pages';
 
@@ -66,5 +66,14 @@ describe('search', () => {
     expect(hits.length).toBeGreaterThan(0);
     expect(hits.every(isIaHit)).toBe(true);
     expect(hits.some((h) => h.path === '/ia/gouvernance')).toBe(true);
+  });
+
+  it('indexe les guides et la page de ressources', () => {
+    expect(index.some((h) => h.ancre === 'guide')).toBe(true);
+    const guides = searchIndex(index, 'erreurs');
+    expect(guides.some((h) => isModuleHit(h) && h.moduleNum === 1 && h.ancre === 'guide')).toBe(true);
+    const ressources = searchIndex(index, 'bibliotheque');
+    expect(ressources.some(isPageHit)).toBe(true);
+    expect(ressources.find(isPageHit)?.path).toBe('/ressources');
   });
 });

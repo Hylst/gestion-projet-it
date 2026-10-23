@@ -40,7 +40,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 3. `ENR-003` Points de décision dans les neuf modules.
 4. `RES-001` Bibliothèque de ressources officielles.
 5. `RES-004` Politique de sources et dates de vérification.
-6. `QUA-001` Audit WCAG 2.2 AA des nouvelles pages.
+6. `QUA-001` Audit WCAG 2.2 AA des pages du lot ; parcours reportés à leur ouverture.
 
 ## Lot suivant recommandé
 
@@ -51,7 +51,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 5. `RES-005` Grille de comparaison d’outils.
 6. `QUA-002` Parcours clavier et focus.
 
-Les parcours Produit et Cybersécurité restent P1. Ils ne démarrent qu’après validation du lot P0.
+`QUA-001` reste ouvert pour l’audit des parcours à leur ouverture. Les parcours Produit et Cybersécurité restent P1 et ne démarrent qu’après validation du lot P0.
 
 ---
 
@@ -330,10 +330,10 @@ Les parcours Produit et Cybersécurité restent P1. Ils ne démarrent qu’aprè
 ## Qualité et plateforme
 
 ### QUA-001 Audit WCAG 2.2 AA
-`P1` · `M` · `Livré`
+`P1` · `M` · `En cours`
 **Résultat :** audit des nouvelles pages et parcours.
 **Acceptation :** contrastes, structure, labels, focus, clavier et messages d’erreur.
-**Preuve :** `docs/accessibilite/audit-2026-10-24.md`, smoke 11/11 et Lighthouse 100 en accessibilité sur `/ressources` et `/module-1`. Périmètre du lot ; parcours à auditer à leur ouverture.
+**Preuve :** `docs/accessibilite/audit-2026-10-24.md`, smoke 11/11 et Lighthouse 100 en accessibilité sur `/ressources` et `/module-1`. Les pages du lot sont auditées ; le volet parcours reste à faire à leur ouverture.
 **Vigilance :** ne pas se limiter à Lighthouse.
 
 ### QUA-002 Parcours clavier et focus

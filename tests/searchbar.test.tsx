@@ -30,6 +30,7 @@ function App() {
       <Routes>
         <Route path="/module-1" element={<Cible num={1} />} />
         <Route path="/module-6" element={<Cible num={6} />} />
+        <Route path="/ressources" element={<h1>Ressources et outils</h1>} />
       </Routes>
     </MemoryRouter>
   );
@@ -48,5 +49,16 @@ describe('recherche globale', () => {
     const cible = scrollIntoView.mock.instances[0] as HTMLElement;
     expect(cible.id).toBe('fiche');
     expect(cible.dataset.page).toBe('m6');
+  });
+
+  it('navigue vers la bibliothèque de ressources', async () => {
+    render(<App />);
+    fireEvent.change(screen.getByLabelText('Rechercher dans le cours'), {
+      target: { value: 'bibliotheque' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: /Ressources et outils/ }));
+
+    await waitFor(() => expect(screen.getByRole('heading', { level: 1, name: 'Ressources et outils' })).not.toBeNull());
+    expect(scrollIntoView).not.toHaveBeenCalled();
   });
 });

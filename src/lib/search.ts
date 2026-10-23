@@ -20,7 +20,12 @@ export interface IaSearchHit extends SearchHitBase {
   pageTitre: string;
 }
 
-export type SearchHit = ModuleSearchHit | IaSearchHit;
+export interface PageSearchHit extends SearchHitBase {
+  type: 'page';
+  pageTitre: string;
+}
+
+export type SearchHit = ModuleSearchHit | IaSearchHit | PageSearchHit;
 
 export function isModuleHit(hit: SearchHit): hit is ModuleSearchHit {
   return hit.type === 'module';
@@ -30,6 +35,10 @@ export function isIaHit(hit: SearchHit): hit is IaSearchHit {
   return hit.type === 'ia';
 }
 
+export function isPageHit(hit: SearchHit): hit is PageSearchHit {
+  return hit.type === 'page';
+}
+
 const SECTIONS: Array<{ section: string; ancre: string }> = [
   { section: 'Fiche', ancre: 'fiche' },
   { section: 'Fil rouge', ancre: 'fil-rouge' },
@@ -37,6 +46,7 @@ const SECTIONS: Array<{ section: string; ancre: string }> = [
   { section: 'Labo', ancre: 'labo' },
   { section: 'Exercice corrigé', ancre: 'exercice' },
   { section: 'Quiz', ancre: 'quiz' },
+  { section: 'Erreurs et décisions', ancre: 'guide' },
   { section: 'Fiche réflexe', ancre: 'reflexe' },
 ];
 
@@ -73,6 +83,15 @@ export function buildIndex(): SearchHit[] {
       });
     }
   }
+  out.push({
+    type: 'page',
+    path: '/ressources',
+    pageTitre: 'Ressources et outils',
+    section: 'Bibliothèque',
+    ancre: '',
+    label: 'Ressources et outils',
+    needles: normaliser('ressources outils bibliotheque sources documents liens'),
+  });
   return out;
 }
 

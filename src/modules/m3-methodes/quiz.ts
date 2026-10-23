@@ -33,5 +33,25 @@ export const quiz: QuizData = {
       bonne: 0,
       motif: 'La cascade supporte mal les allers retours tardifs, elle convient quand le besoin bouge peu.',
     },
+    {
+      question: 'Quand écrit-on les critères d’acceptation\u00A0?',
+      choix: [
+        'Avant la réalisation, avec les parties prenantes',
+        'Après la mise en ligne',
+        'Seulement quand un bug apparaît',
+      ],
+      bonne: 0,
+      motif: 'Les critères se discutent tôt\u00A0: ils guident la réalisation et la recette.',
+    },
+    {
+      question: 'À quoi sert la non-régression\u00A0?',
+      choix: [
+        'Vérifier qu’un changement ne casse pas ce qui fonctionnait',
+        'Ajouter des fonctionnalités',
+        'Remplacer la recette',
+      ],
+      bonne: 0,
+      motif: 'La non-régression protège l’existant pendant que le produit évolue.',
+    },
   ],
 };

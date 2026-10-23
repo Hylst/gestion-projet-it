@@ -5,6 +5,12 @@ import NotFound from './routes/NotFound';
 import Accueil from './routes/accueil';
 import Apropos from './routes/Apropos';
 import Glossaire from './routes/Glossaire';
+import DossierProjet from './routes/DossierProjet';
+import { IaHubPage } from './ia/content/Hub';
+import { IaUsagesPage } from './ia/content/Usages';
+import { IaMethodesPage } from './ia/content/Methodes';
+import { IaOutilsPage } from './ia/content/OutilsConfiguration';
+import { IaGouvernancePage } from './ia/content/Gouvernance';
 import { moduleMetaByNum } from './modules/index';
 import { M1Page } from './modules/m1-wbs';
 import { M2Page } from './modules/m2-planif';
@@ -40,6 +46,12 @@ export default function App() {
           <Route path="/module-7" element={<M7Page />} />
           <Route path="/module-8" element={<M8Page />} />
           <Route path="/module-9" element={<M9Page />} />
+          <Route path="/dossier-projet" element={<DossierProjet />} />
+          <Route path="/ia" element={<IaHubPage />} />
+          <Route path="/ia/usages" element={<IaUsagesPage />} />
+          <Route path="/ia/methodes" element={<IaMethodesPage />} />
+          <Route path="/ia/outils-configuration" element={<IaOutilsPage />} />
+          <Route path="/ia/gouvernance" element={<IaGouvernancePage />} />
           <Route path="/module-:num" element={<ModulePlaceholder />} />
           <Route path="/a-propos" element={<Apropos />} />
           <Route path="/glossaire" element={<Glossaire />} />

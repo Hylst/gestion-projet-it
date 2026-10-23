@@ -1,24 +1,35 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { buildIndex, searchIndex } from '../lib/search';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { buildIndex, searchIndex, type SearchHit } from '../lib/search';
 
 export default function SearchBar() {
   const [q, setQ] = React.useState('');
   const [ouverte, setOuverte] = React.useState(false);
   const [actif, setActif] = React.useState(-1);
+  const [cible, setCible] = React.useState<{ path: string; ancre: string } | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
   const index = React.useMemo(() => buildIndex(), []);
   const hits = React.useMemo(() => searchIndex(index, q), [index, q]);
   const visibles = hits.slice(0, 10);
 
-  const aller = (moduleNum: number, ancre: string) => {
+  React.useEffect(() => {
+    if (!cible || location.pathname !== cible.path) return;
+    const element = document.getElementById(cible.ancre);
+    if (element) element.scrollIntoView();
+    setCible(null);
+  }, [cible, location.pathname]);
+
+  const aller = (hit: SearchHit) => {
     setOuverte(false);
     setActif(-1);
     setQ('');
-    navigate(`/module-${moduleNum}`);
-    window.setTimeout(() => {
-      document.getElementById(ancre)?.scrollIntoView();
-    }, 0);
+    if (hit.path === location.pathname) {
+      document.getElementById(hit.ancre)?.scrollIntoView();
+      return;
+    }
+    setCible({ path: hit.path, ancre: hit.ancre });
+    navigate(hit.path);
   };
 
   return (
@@ -46,16 +57,16 @@ export default function SearchBar() {
             e.preventDefault();
             const h = visibles[actif >= 0 ? actif : 0];
             if (!h) return;
-            aller(h.moduleNum, h.ancre);
+            aller(h);
           }
         }}
       />
       {ouverte && (
         <ul id="search-results" role="listbox" aria-label="Résultats de recherche">
           {visibles.map((h, i) => (
-            <li key={`${h.moduleNum}-${h.ancre}`} id={`search-opt-${i}`} role="option" aria-selected={i === actif}>
-              <button type="button" onClick={() => aller(h.moduleNum, h.ancre)}>
-                Module {h.moduleNum}&nbsp;: {h.moduleTitre} <span>{h.section}</span>
+            <li key={h.type === 'module' ? `m-${h.moduleNum}-${h.ancre}` : `ia-${h.path}-${h.ancre}`} id={`search-opt-${i}`} role="option" aria-selected={i === actif}>
+              <button type="button" onClick={() => aller(h)}>
+                {h.type === 'module' ? <>Module {h.moduleNum}&nbsp;: {h.moduleTitre}</> : <>{h.pageTitre}</>} <span>{h.section}</span>
               </button>
             </li>
           ))}

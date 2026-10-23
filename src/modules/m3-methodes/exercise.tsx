@@ -40,6 +40,27 @@ export const Exercices = () => (
         'Aucun dogme, on compare sur le fil rouge.',
       ]}
     />
+    <ExerciseBlock
+      id="m3-ex3"
+      titre={'Exercice 3\u00A0: écrire trois critères d’acceptation'}
+      enonce={(
+        <p>Pour la page agenda fictive, écris trois critères d’acceptation observables et testables. Indique qui fait la recette et quelle preuve est gardée.</p>
+      )}
+      corrige={(
+        <ul>
+          <li><strong>Critère 1&nbsp;:</strong> un bénévole crée un événement avec un titre, une date et un lieu&nbsp;; l’événement apparaît dans la liste.</li>
+          <li><strong>Critère 2&nbsp;:</strong> un champ obligatoire manquant affiche un message explicite et l’enregistrement est refusé.</li>
+          <li><strong>Critère 3&nbsp;:</strong> un événement modifié ou supprimé disparaît de la liste et de la page publique.</li>
+          <li><strong>Recette&nbsp;:</strong> le bureau et un bénévole testent sur un jeu fictif&nbsp;; une capture datée ou un compte rendu sert de preuve.</li>
+          <li><strong>Méthode&nbsp;:</strong> critère observable, testable et accepté avant la réalisation.</li>
+        </ul>
+      )}
+      methode={[
+        'Un critère se constate, il ne s’interprète pas.',
+        'Écris le critère avant de réaliser.',
+        'Garde une preuve de la recette.',
+      ]}
+    />
   </div>
 );
 

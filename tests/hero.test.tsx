@@ -25,5 +25,7 @@ describe('accueil', () => {
     ).toEqual(['GANTT', 'Kanban', 'Cycle en V']);
     expect(container.querySelectorAll('.hero-panel-legende')).toHaveLength(3);
     expect(container.querySelectorAll('.hero-panel svg[aria-hidden="true"]')).toHaveLength(3);
+    expect(container.querySelector('a[href="/dossier-projet"]')?.textContent).toBe('Ouvrir le dossier projet');
+    expect(container.querySelector('#capstone-cta-titre')?.textContent).toBe('Mettre les méthodes en pratique');
   });
 });

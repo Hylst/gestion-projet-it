@@ -31,8 +31,8 @@ export const M3Page = () => (
       num: 3,
       slug: 'module-3',
       titre: 'Cycle en V, cascade et choix de méthode',
-      resume: 'Phases, tests en miroir du V, cascade simple, comparateur sans dogme.',
-      motsCles: ['cycle en v', 'waterfall', 'cascade', 'methodes', 'comparateur', 'phases'],
+      resume: 'Phases, tests en miroir du V, cascade simple, critères d’acceptation, recette, comparateur sans dogme.',
+      motsCles: ['cycle en v', 'waterfall', 'cascade', 'methodes', 'comparateur', 'phases', 'qualite', 'recette', 'acceptation', 'non regression'],
     }}
   >
     <Reveal><Fiche /></Reveal>

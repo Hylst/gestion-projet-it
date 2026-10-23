@@ -30,8 +30,8 @@ export const M7Page = () => (
       num: 7,
       slug: 'module-7',
       titre: 'Parties prenantes et communication',
-      resume: 'Cartographier, choisir les canaux, animer un rituel court et ajuster après les retours.',
-      motsCles: ['parties prenantes', 'communication', 'cartographie', 'canaux', 'rituels'],
+      resume: 'Cartographier, clarifier les rôles et les décisions, choisir les canaux, animer un rituel court et ajuster après les retours.',
+      motsCles: ['parties prenantes', 'communication', 'cartographie', 'canaux', 'rituels', 'raci', 'gouvernance', 'decisions', 'escalade'],
     }}
   >
     <Reveal><Fiche /></Reveal>

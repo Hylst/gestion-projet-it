@@ -9,16 +9,18 @@ export function QuizBlock(props: { data: QuizData }) {
   const [repondu, setRepondu] = React.useState<Array<number | null>>(() => props.data.questions.map(() => null));
   const deja = p.quizDone.includes(props.data.id);
   const bonnes = props.data.questions.filter((q, i) => repondu[i] === q.bonne).length;
+  const total = props.data.questions.length;
+  const seuil = Math.ceil((total * 2) / 3);
   const complet = repondu.every((r) => r !== null);
   const [verdict, setVerdict] = React.useState<null | string>(null);
   const [gagne, setGagne] = React.useState(false);
 
   React.useEffect(() => {
     if (complet) {
-      const s = `${bonnes} sur ${props.data.questions.length} bonnes réponses. ${deja ? 'Gain déjà reçu pour ce quiz.' : bonnes >= 2 ? '+10 XP' : 'Moins de 2/3\u00A0: pas de gain, tu peux recommencer.'}`;
+      const s = `${bonnes} sur ${total} bonnes réponses. ${deja ? 'Gain déjà reçu pour ce quiz.' : bonnes >= seuil ? '+10 XP' : `Moins de ${seuil} sur ${total}\u00A0: pas de gain, tu peux recommencer.`}`;
       setVerdict(s);
-      if (bonnes >= 2 && !deja) {
-        p.dispatch({ type: 'quiz', id: props.data.id, correctes: bonnes, total: props.data.questions.length });
+      if (bonnes >= seuil && !deja) {
+        p.dispatch({ type: 'quiz', id: props.data.id, correctes: bonnes, total });
         setGagne(true);
       }
     }
@@ -29,7 +31,7 @@ export function QuizBlock(props: { data: QuizData }) {
 
   return (
     <section id="quiz" className="quiz" aria-labelledby="quiz-t">
-      <h2 id="quiz-t">Quiz courant (3 questions)</h2>
+      <h2 id="quiz-t">Quiz courant ({total} questions)</h2>
       {props.data.questions.map((q: QuizQuestion, i: number) => (
         <fieldset key={i} disabled={repondu[i] !== null}>
           <legend>{`Q${i + 1}.${q.question}`}</legend>

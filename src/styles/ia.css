@@ -1,0 +1,36 @@
+.ia-page { max-width: 52rem; margin: 0 auto; }
+.ia-hero { margin-bottom: 1.5rem; }
+.ia-hero .kicker { margin-bottom: 0.4rem; }
+.ia-hero h1 { margin-top: 0; }
+.ia-sommaire { display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; margin: 1rem 0 1.5rem; padding: 0.7rem 0.9rem; border: 1px solid var(--c-line); border-radius: var(--radius); background: var(--c-surface); font-size: 0.92rem; }
+.ia-sommaire a { color: var(--c-main-ink); }
+.ia-page h2 { margin-top: 1.8rem; }
+.ia-page section { scroll-margin-top: 5rem; }
+.ia-table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--c-line); border-radius: var(--radius); }
+.ia-table-wrap table { width: 100%; min-width: 38rem; border-collapse: collapse; background: var(--c-surface); font-size: 0.95rem; }
+.ia-table-wrap caption { caption-side: top; text-align: left; padding: 0.8rem 0.9rem; font-weight: 700; }
+.ia-table-wrap th, .ia-table-wrap td { padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--c-line); vertical-align: top; text-align: left; }
+.ia-table-wrap th { background: var(--c-soft); }
+.ia-callout { margin: 1.4rem 0; padding: 1rem 1.1rem; border-left: 4px solid var(--c-main); border-radius: 0 var(--radius) var(--radius) 0; background: var(--c-surface); }
+.ia-callout--limite { border-left-color: var(--c-warn, #b45309); }
+.ia-callout--fil { border-left-color: var(--c-calm); }
+.ia-callout--retenir { border-left-color: var(--c-calm); }
+.ia-callout-titre { margin: 0 0 0.3rem; font-weight: 700; }
+.ia-callout p:last-child, .ia-callout ul:last-child { margin-bottom: 0; }
+.ia-checklist { margin: 1.6rem 0; padding: 1rem 1.1rem; border: 1px solid var(--c-line); border-radius: var(--radius); background: var(--c-surface); }
+.ia-checklist ul { margin-bottom: 0; }
+.ia-sources { margin-top: 2rem; font-size: 0.92rem; }
+.ia-sources ul { padding-left: 1.1rem; }
+.ia-pager { display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0; padding-top: 1rem; border-top: 1px solid var(--c-line); }
+.ia-carte { list-style: none; margin: 1rem 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.ia-carte .module-card { padding: 1rem; }
+.ia-accueil { margin-top: 2.5rem; }
+.ia-accueil .ia-carte { margin-top: 1.2rem; }
+@media (max-width: 40rem) {
+  .ia-carte { grid-template-columns: 1fr; }
+  .ia-pager { flex-direction: column; }
+}
+@media print {
+  .ia-sommaire, .ia-pager { display: none !important; }
+  .ia-callout, .ia-checklist { break-inside: avoid; }
+}

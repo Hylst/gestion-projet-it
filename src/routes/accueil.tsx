@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { MODULES } from '../modules/index';
+import { IA_PAGES } from '../ia/pages';
 import { ModulePicto } from '../components/ModulePicto';
 import { SeoHead } from '../components/SeoHead';
 import Reveal from '../components/Reveal';
 import { useProgress } from '../lib/progress';
 import '../styles/hero.css';
+import '../styles/ia.css';
 
 function Hero() {
   return (
@@ -85,6 +87,29 @@ export default function Accueil() {
       </div>
       <h2>Le fil rouge du cours</h2>
       <p>Un seul cas fictif traverse les 9 modules&nbsp;: la refonte du site de l’association fictive <strong>Les Amis du Square</strong> (pages de présentation, agenda des activités, formulaire de contact fictif). Toutes les données restent fictives, stockées uniquement dans le navigateur.</p>
+      <section className="capstone-cta card" aria-labelledby="capstone-cta-titre">
+        <h2 id="capstone-cta-titre">Mettre les méthodes en pratique</h2>
+        <p>
+          Le dossier projet prolonge les neuf modules&nbsp;: six étapes pour cadrer, planifier, organiser la qualité, la gouvernance, les risques et le changement sur le cas fictif des Amis du Square.
+        </p>
+        <Link className="btn" to="/dossier-projet">Ouvrir le dossier projet</Link>
+      </section>
+      <section className="ia-accueil" aria-labelledby="ia-accueil-titre">
+        <h2 id="ia-accueil-titre">Gestion de projet et IA</h2>
+        <p>
+          Une section autonome pour situer l’IA dans le travail du chef de projet&nbsp;: usages par phase, méthodes, outils, configuration et gouvernance. Aucun XP, aucune obligation de parcours.
+        </p>
+        <p><Link className="btn" to="/ia">Ouvrir la section IA</Link></p>
+        <div className="ia-carte">
+          {IA_PAGES.slice(1).map((page) => (
+            <div className="module-card" key={page.slug}>
+              <span className="module-kicker">Section IA</span>
+              <Link className="titre" to={page.path}>{page.titre}</Link>
+              <p className="resume">{page.resume}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

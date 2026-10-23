@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { render, screen, fireEvent, within } from '@testing-library/react';
+import { describe, it, expect, afterEach } from 'vitest';
+import { render, screen, fireEvent, within, cleanup } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { ProgressProvider } from '../src/lib/progress';
 import { QuizBlock } from '../src/components/QuizBlock';
@@ -8,9 +8,21 @@ import { ExerciseBlock } from '../src/components/ExerciseBlock';
 import { FicheReflexe } from '../src/components/FicheReflexe';
 import { ModuleEnd } from '../src/components/ModuleEnd';
 
+afterEach(cleanup);
+
 const quizData: QuizData = {
   id: 'q-unit',
   questions: [1, 2, 3].map((n) => ({
+    question: `Qu ${n}`,
+    choix: ['Bonne', 'Fausse a', 'Fausse b'] as [string, string, string],
+    bonne: 0 as 0 | 1 | 2,
+    motif: `M ${n}`,
+  })),
+};
+
+const quiz5: QuizData = {
+  id: 'q-unit-5',
+  questions: [1, 2, 3, 4, 5].map((n) => ({
     question: `Qu ${n}`,
     choix: ['Bonne', 'Fausse a', 'Fausse b'] as [string, string, string],
     bonne: 0 as 0 | 1 | 2,
@@ -31,6 +43,28 @@ describe('QuizBlock', () => {
     expect(res.textContent).toMatch(/10 XP/);
     fireEvent.click(screen.getByRole('button', { name: /Recommencer sans XP/ }));
     expect((screen.getAllByRole('radio', { name: 'Fausse a' })[0] as HTMLInputElement).disabled).toBe(false);
+  });
+
+  it('accorde XP des 4 sur 5, pas 3 sur 5', () => {
+    localStorage.clear();
+    render(<ProgressProvider><MemoryRouter><QuizBlock data={quiz5} /></MemoryRouter></ProgressProvider>);
+    expect(screen.getByRole('heading', { name: /Quiz courant \(5 questions\)/ })).toBeTruthy();
+    fireEvent.click(screen.getAllByRole('radio', { name: 'Bonne' })[0] as HTMLElement);
+    fireEvent.click(screen.getAllByRole('radio', { name: 'Bonne' })[1] as HTMLElement);
+    fireEvent.click(screen.getAllByRole('radio', { name: 'Bonne' })[2] as HTMLElement);
+    fireEvent.click(screen.getAllByRole('radio', { name: 'Fausse a' })[3] as HTMLElement);
+    fireEvent.click(screen.getAllByRole('radio', { name: 'Fausse a' })[4] as HTMLElement);
+    const sansGain = screen.getByRole('status');
+    expect(sansGain.textContent).toMatch(/3 sur 5/);
+    expect(sansGain.textContent).not.toMatch(/10 XP/);
+    fireEvent.click(screen.getByRole('button', { name: /Recommencer sans XP/ }));
+    for (const i of [0, 1, 2, 3]) {
+      fireEvent.click(screen.getAllByRole('radio', { name: 'Bonne' })[i] as HTMLElement);
+    }
+    fireEvent.click(screen.getAllByRole('radio', { name: 'Fausse a' })[4] as HTMLElement);
+    const avecGain = screen.getByRole('status');
+    expect(avecGain.textContent).toMatch(/4 sur 5/);
+    expect(avecGain.textContent).toMatch(/10 XP/);
   });
 });
 

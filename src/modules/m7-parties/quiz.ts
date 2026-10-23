@@ -33,5 +33,25 @@ export const quiz: QuizData = {
       bonne: 0,
       motif: 'Un plan vivant s’ajuste après un retour, sans défensive.',
     },
+    {
+      question: 'Dans une matrice RACI, que signifie la lettre A\u00A0?',
+      choix: [
+        'La personne qui rend compte et décide',
+        'La personne qui informe seulement',
+        'La personne qui réalise toujours',
+      ],
+      bonne: 0,
+      motif: 'Un seul A par activité\u00A0: il rend compte du résultat et tranche.',
+    },
+    {
+      question: 'À quoi sert un journal de décisions\u00A0?',
+      choix: [
+        'Garder la décision, son motif, son responsable et sa suite',
+        'Remplacer le planning',
+        'Lister les réunions sans décision',
+      ],
+      bonne: 0,
+      motif: 'Le journal garde la trace utile pour éviter de redécider sans contexte.',
+    },
   ],
 };

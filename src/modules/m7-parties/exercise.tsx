@@ -42,6 +42,26 @@ export const Exercices = () => (
         'Prévoir la suite après le jalon',
       ]}
     />
+    <ExerciseBlock
+      id="m7-ex3"
+      titre={'Exercice 3\u00A0: construire un RACI et noter une décision'}
+      enonce={(
+        <p>Pour la mise en ligne de la page agenda fictive, attribue R, A, C et I au bureau, au chef de projet, aux bénévoles, aux usagers et au financeur. Puis note une décision dans le journal avec son motif, son responsable et sa suite.</p>
+      )}
+      corrige={(
+        <ul>
+          <li><strong>Validation du contenu&nbsp;:</strong> R&nbsp;: chef de projet&nbsp;; A&nbsp;: bureau&nbsp;; C&nbsp;: bénévoles&nbsp;; I&nbsp;: usagers.</li>
+          <li><strong>Publication de la page&nbsp;:</strong> R&nbsp;: bénévole formé&nbsp;; A&nbsp;: chef de projet&nbsp;; C&nbsp;: bureau&nbsp;; I&nbsp;: financeur.</li>
+          <li><strong>Règle&nbsp;:</strong> un seul A par activité, au moins un R, pas de ligne vide.</li>
+          <li><strong>Journal&nbsp;:</strong> date&nbsp;: jalon de recette&nbsp;; décision&nbsp;: valider le contenu de la page agenda&nbsp;; motif&nbsp;: critères d’acceptation vérifiés&nbsp;; responsable&nbsp;: bureau&nbsp;; suite&nbsp;: publication puis annonce aux usagers.</li>
+        </ul>
+      )}
+      methode={[
+        'Écris les rôles avant l’activité, pas après le conflit.',
+        'Un seul A par activité.',
+        'Note la décision et sa suite.',
+      ]}
+    />
   </div>
 );
 

@@ -42,9 +42,9 @@ describe('pictos de module', () => {
         </MemoryRouter>
       </ProgressProvider>,
     );
-    expect(container.querySelectorAll('.module-card .module-picto')).toHaveLength(9);
+    expect(container.querySelectorAll('.modules-grid .module-card .module-picto')).toHaveLength(9);
     const etiquettes = Array.from(
-      container.querySelectorAll('.module-card .module-kicker'),
+      container.querySelectorAll('.modules-grid .module-card .module-kicker'),
     ).map((el) => el.textContent);
     expect(etiquettes).toEqual(
       Array.from({ length: 9 }, (_, i) => `Module ${i + 1}`),

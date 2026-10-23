@@ -1,0 +1,46 @@
+.capstone-page { max-width: 1180px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+.btn.danger { background: var(--c-error); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.btn:disabled:hover { transform: none; box-shadow: none; }
+.capstone-hero { max-width: 760px; margin-bottom: 1.5rem; }
+.capstone-hero h1 { margin: 0.2rem 0 0.6rem; }
+.capstone-hero__note { color: var(--c-muted); font-size: 0.95rem; }
+.capstone-alerte { border: 1px solid var(--c-error); background: #fee2e2; padding: 0.8rem 1rem; border-radius: 0.5rem; }
+.capstone-statut { color: var(--c-muted); font-size: 0.9rem; }
+.capstone-layout { display: grid; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr); gap: 2rem; align-items: start; }
+.capstone-stepper ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.4rem; }
+.capstone-stepper button { width: 100%; display: flex; gap: 0.7rem; text-align: left; padding: 0.7rem; border: 1px solid var(--c-line); border-radius: 0.5rem; background: var(--c-surface); color: inherit; }
+.capstone-stepper button.is-current { border-color: var(--c-main); background: var(--c-soft); }
+.capstone-stepper__num { font-weight: 700; }
+.capstone-stepper__titre { display: block; font-weight: 600; }
+.capstone-stepper__statut { display: block; font-size: 0.82rem; color: var(--c-muted); }
+.capstone-step__compteur { color: var(--c-muted); font-size: 0.9rem; margin: 0; }
+.capstone-step h2:focus { outline: 2px solid var(--c-main); outline-offset: 4px; }
+.capstone-step__champs { display: grid; gap: 1rem; }
+.capstone-field { display: grid; gap: 0.3rem; }
+.capstone-field label { font-weight: 600; }
+.capstone-field__aide { margin: 0; color: var(--c-muted); font-size: 0.9rem; }
+.capstone-field textarea { width: 100%; resize: vertical; font: inherit; padding: 0.7rem; border: 1px solid var(--c-line); border-radius: 0.4rem; background: var(--c-bg); color: inherit; }
+.capstone-field.is-invalid textarea { border-color: var(--c-error); }
+.capstone-field__meta { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.85rem; color: var(--c-muted); }
+.capstone-step__livrables, .capstone-summary__auto { border: 1px solid var(--c-line); border-radius: 0.5rem; padding: 0.8rem 1rem; margin: 1.2rem 0; }
+.capstone-step__livrables label, .capstone-summary__auto label { display: block; margin: 0.3rem 0; }
+.capstone-step__actions, .capstone-summary__actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+.capstone-summary__etape { border-top: 1px solid var(--c-line); padding-top: 1rem; margin-top: 1rem; break-inside: avoid; }
+.capstone-summary__etape dl { display: grid; gap: 0.6rem; }
+.capstone-summary__etape dt { font-weight: 600; }
+.capstone-summary__etape dd { margin: 0.1rem 0 0; white-space: pre-wrap; }
+.capstone-badge { display: inline-block; padding: 0.4rem 0.7rem; border-radius: 999px; background: var(--c-soft); color: var(--c-main); font-weight: 700; }
+.capstone-summary__manque { color: var(--c-muted); }
+.capstone-summary__confirmation { border: 1px solid var(--c-error); border-radius: 0.5rem; padding: 0.8rem; }
+.capstone-summary__confirmation p { margin-top: 0; }
+@media (max-width: 760px) {
+  .capstone-layout { grid-template-columns: 1fr; gap: 1rem; }
+  .capstone-stepper ol { grid-template-columns: 1fr; }
+}
+@media print {
+  .capstone-stepper, .capstone-step, .capstone-summary__actions, .capstone-alerte, .capstone-statut, .capstone-hero__note, .site-header, footer { display: none !important; }
+  .capstone-page { max-width: none; padding: 0; }
+  .capstone-summary__etape { break-inside: avoid; }
+  .capstone-summary__etape dd { white-space: pre-wrap; }
+}

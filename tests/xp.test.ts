@@ -26,6 +26,13 @@ describe('xp', () => {
     expect(s.xp).toBe(20);
   });
 
+  it('quiz à cinq questions: gain des 4/5 seulement', () => {
+    let s = reduireXP({ xp: 0, quizDone: [], laboDone: [], moduleDone: [] }, { type: 'quiz', id: 'q5', correctes: 3, total: 5 });
+    expect(s.xp).toBe(0);
+    s = reduireXP(s, { type: 'quiz', id: 'q5', correctes: 4, total: 5 });
+    expect(s.xp).toBe(10);
+  });
+
   it('labo: +5 une seule fois', () => {
     let s = reduireXP({ xp: 0, quizDone: [], laboDone: [], moduleDone: [] }, { type: 'labo', id: 'l' });
     expect(s.xp).toBe(5);

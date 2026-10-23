@@ -3,5 +3,7 @@ export const items = [
   'Choisis V si les traces et tests sont attendus.',
   'Choisis la cascade si le besoin est stable et petit.',
   'Repère prudent\u00A0: un lot court avant de figer une phase.',
+  'Écris les critères d’acceptation avant de réaliser.',
+  'Prévois la recette et la non-régression.',
   'Prévois une parade si le besoin bouge.',
 ];

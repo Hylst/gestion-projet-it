@@ -6,6 +6,23 @@ describe('glossaire', () => {
     expect(TERMES.length).toBeGreaterThanOrEqual(25);
   });
 
+  it('contient les neuf termes des angles morts', () => {
+    const noms = TERMES.map((t) => t.terme);
+    for (const terme of [
+      'Comité de pilotage',
+      'Critère d’acceptation',
+      'Définition de prêt',
+      'Gouvernance',
+      'Journal de décisions',
+      'Non-régression',
+      'RACI',
+      'Recette',
+      'Sponsor',
+    ]) {
+      expect(noms).toContain(terme);
+    }
+  });
+
   it('les termes sont uniques', () => {
     const noms = TERMES.map((t) => t.terme.toLowerCase());
     expect(new Set(noms).size).toBe(noms.length);
@@ -29,5 +46,26 @@ describe('glossaire', () => {
 
   it('aucun tiret cadratin dans les definitions', () => {
     expect(TERMES.every((t) => !t.definition.includes('—'))).toBe(true);
+  });
+
+  it('contient les dix termes IA et leurs liens', () => {
+    const attendus = [
+      'Agent',
+      'Contexte',
+      'Donnée personnelle',
+      'Évaluation',
+      'Hallucination',
+      'Human-in-the-loop',
+      'IA générative',
+      'Jeu de test',
+      'Prompt',
+      'RAG',
+    ];
+    for (const terme of attendus) {
+      const entree = TERMES.find((t) => t.terme === terme);
+      expect(entree, terme).toBeDefined();
+      expect(entree?.lien?.to.startsWith('/ia')).toBe(true);
+      expect(entree?.lien?.label.length).toBeGreaterThan(5);
+    }
   });
 });

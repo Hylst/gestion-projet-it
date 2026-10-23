@@ -1,9 +1,21 @@
 import { test, expect } from '@playwright/test';
+import { CRITERES, ETAPES, etatInitialDossier } from '../src/lib/capstone';
+import { DOSSIER_STORAGE_KEY } from '../src/lib/capstoneStorage';
+import { MODULES } from '../src/modules/index';
+import { IA_PAGES } from '../src/ia/pages';
 
-const base = 'http://localhost:4173/gestion-projet-it';
-const routes = ['/', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/module-8', '/module-9', '/a-propos', '/glossaire'];
+const base = process.env.SMOKE_BASE_URL ?? 'http://localhost:4173/gestion-projet-it';
+const routes = ['/', '/ia', '/ia/usages', '/ia/methodes', '/ia/outils-configuration', '/ia/gouvernance', '/dossier-projet', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/module-8', '/module-9', '/a-propos', '/glossaire'];
+const routeTitres: Record<string, string> = {
+  '/': 'Gérer un projet informatique, pas à pas',
+  '/dossier-projet': 'Dossier projet',
+  '/a-propos': 'À propos du projet',
+  '/glossaire': 'Glossaire',
+  ...Object.fromEntries(MODULES.map((m) => [`/${m.slug}`, m.titre])),
+  ...Object.fromEntries(IA_PAGES.map((p) => [p.path, p.titre])),
+};
 
-test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 12 routes, zero erreur', async ({ page }) => {
+test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 18 routes, zero erreur', async ({ page }) => {
   const externals: string[] = [];
   const failures: string[] = [];
   const badStatus: string[] = [];
@@ -25,6 +37,7 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 12
   for (const r of routes) {
     await page.goto(`${base}${r}`);
     await expect(page.locator('#contenu')).toBeVisible();
+    await expect(page.locator('#contenu h1').first()).toHaveText(routeTitres[r] as string);
   }
 
   for (const a of ['manifest.webmanifest', 'sw.js', 'sitemap.xml', 'robots.txt', 'offline.html', 'icon-192.svg', 'icon-512.svg']) {
@@ -32,12 +45,45 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 12
     expect(res.status(), a).toBe(200);
   }
   const swBody = await (await page.request.get(`${base}/sw.js`)).text();
-  expect(swBody).toContain("const version = 'gestion-projet-it-v3';");
+  expect(swBody).toContain("const version = 'gestion-projet-it-v5';");
 
   expect(externals).toEqual([]);
   expect(failures).toEqual([]);
   expect(badStatus).toEqual([]);
   expect(consoleErrors).toEqual([]);
+});
+
+test('liens internes : routes, ancres et ids valides', async ({ page }) => {
+  const broken: string[] = [];
+  const duplicateIds: string[] = [];
+
+  for (const route of routes) {
+    await page.goto(`${base}${route}`);
+    await expect(page.locator('#contenu')).toBeVisible();
+    const ids = await page.locator('[id]').evaluateAll((els) => els.map((el) => el.id));
+    const duplicates = [...new Set(ids.filter((id, i) => id && ids.indexOf(id) !== i))];
+    if (duplicates.length) duplicateIds.push(`${route}: ${duplicates.join(', ')}`);
+
+    const links = await page.locator('a[href]').evaluateAll((els) => els.map((el) => ({
+      href: el.getAttribute('href') ?? '',
+      text: (el.textContent ?? '').replace(/\s+/g, ' ').trim(),
+    })));
+
+    for (const link of links) {
+      if (!link.href || link.href.startsWith('http')) continue;
+      if (link.href.startsWith('#')) {
+        const id = link.href.slice(1);
+        if (!id || !ids.includes(id)) broken.push(`${route} -> ${link.href} (${link.text})`);
+        continue;
+      }
+      const url = new URL(link.href, `${base}${route}`);
+      const path = url.pathname.replace('/gestion-projet-it', '') || '/';
+      if (!routes.includes(path)) broken.push(`${route} -> ${link.href} (${link.text})`);
+    }
+  }
+
+  expect(broken).toEqual([]);
+  expect(duplicateIds).toEqual([]);
 });
 
 test('labo Eisenhower : depot au clavier et retour du focus', async ({ page }) => {
@@ -124,4 +170,74 @@ test('impression : la fiche reflexe reste visible et le reste est masque', async
     await page.evaluate(() => document.body.classList.remove('printing-fiche'));
     await page.emulateMedia({ media: 'screen' });
   }
+});
+
+test('dossier projet : sauvegarde, synthèse, badge et impression', async ({ page }) => {
+  await page.goto(`${base}/dossier-projet`);
+  await expect(page.getByRole('heading', { level: 1, name: 'Dossier projet' })).toBeVisible();
+  await page.getByLabel('Besoin').fill('Besoin fictif du capstone.');
+  await expect(page.getByText('Enregistré localement')).toBeVisible();
+  await page.reload();
+  await expect(page.getByLabel('Besoin')).toHaveValue('Besoin fictif du capstone.');
+
+  const etat = etatInitialDossier();
+  etat.etapeCourante = 5;
+  for (const etape of ETAPES) {
+    for (const champ of etape.champs) etat.reponses[champ.id] = 'Réponse fictive.';
+    for (const livrable of etape.livrables) etat.livrables[livrable.id] = true;
+  }
+  for (const critere of CRITERES) etat.autoEvaluation[critere.id] = 3;
+  await page.evaluate(
+    ({ cle, valeur }) => localStorage.setItem(cle, valeur),
+    { cle: DOSSIER_STORAGE_KEY, valeur: JSON.stringify(etat) },
+  );
+  await page.reload();
+  await page.getByRole('button', { name: 'Voir la synthèse' }).click();
+  await expect(page.getByText('Dossier complet', { exact: true })).toBeVisible();
+  await expect(page.getByText('18/24')).toBeVisible();
+
+  const telechargement = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Exporter en JSON' }).click();
+  const fichier = await telechargement;
+  expect(fichier.suggestedFilename()).toBe('gestion-projet-it-dossier-projet.json');
+
+  await page.emulateMedia({ media: 'print' });
+  await expect(page.locator('.capstone-summary')).toBeVisible();
+  await expect(page.locator('.capstone-stepper')).toBeHidden();
+  await expect(page.locator('.capstone-summary__actions')).toBeHidden();
+});
+
+test('section IA : navigation, recherche, glossaire et impression', async ({ page }) => {
+  await page.goto(`${base}/`);
+  await page.getByRole('link', { name: 'IA', exact: true }).click();
+  await expect(page).toHaveURL(/\/ia$/);
+  await expect(page.getByRole('heading', { level: 1, name: 'Gestion de projet et IA' })).toBeVisible();
+
+  const pages = [
+    ['/ia/usages', 'Usages de l’IA par phase de projet'],
+    ['/ia/methodes', 'Méthodes et évaluation'],
+    ['/ia/outils-configuration', 'Outils, environnement et configuration'],
+    ['/ia/gouvernance', 'Gouvernance, risques et qualité'],
+  ] as const;
+  for (const [path, titre] of pages) {
+    await page.goto(`${base}${path}`);
+    await expect(page.getByRole('heading', { level: 1, name: titre })).toBeVisible();
+  }
+
+  await page.goto(`${base}/ia`);
+  await page.getByLabel('Rechercher dans le cours').fill('RAG documentaire');
+  const resultat = page.getByRole('button', { name: /Recherche documentaire et RAG/ });
+  await expect(resultat).toBeVisible();
+  await resultat.click();
+  await expect(page).toHaveURL(/\/ia\/methodes$/);
+  await expect(page.locator('#contexte')).toBeInViewport();
+
+  await page.goto(`${base}/glossaire`);
+  await expect(page.getByText('RAG', { exact: true })).toBeVisible();
+
+  await page.goto(`${base}/ia/outils-configuration`);
+  await page.emulateMedia({ media: 'print' });
+  await expect(page.locator('.ia-checklist')).toBeVisible();
+  await expect(page.locator('.ia-sommaire')).toBeHidden();
+  await page.emulateMedia({ media: 'screen' });
 });

@@ -41,6 +41,9 @@ describe('en-tete', () => {
       ['/', 'Accueil'],
       ['/a-propos', 'À propos'],
       ['/glossaire', 'Glossaire'],
+      ['/dossier-projet', 'Dossier projet'],
+      ['/ia', 'IA'],
+      ['/ia/usages', 'IA'],
       ['/module-6', null],
     ];
     for (const [route, attendu] of cas) {
@@ -49,5 +52,11 @@ describe('en-tete', () => {
       expect(courants).toEqual(attendu ? [attendu] : []);
       unmount();
     }
+  });
+
+  it('expose le lien IA dans la navigation principale', () => {
+    const { container } = rendu();
+    const lien = container.querySelector('nav[aria-label="Navigation principale"] a[href="/ia"]');
+    expect(lien?.textContent).toBe('IA');
   });
 });

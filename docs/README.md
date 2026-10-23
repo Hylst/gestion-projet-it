@@ -21,7 +21,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-10-20 | [Angles morts](superpowers/specs/2026-10-20-angles-morts-design.md) | Historique livré | Modules 3 et 7, glossaire, recherche |
 | 2026-10-21 | [Dossier projet](superpowers/specs/2026-10-21-dossier-projet-design.md) | Livré | Capstone en six étapes |
 | 2026-10-22 | [Section IA](superpowers/specs/2026-10-22-ia-gestion-projet-design.md) | Livré | Cinq pages IA |
-| 2026-10-23 | [Enrichissements et backlog](superpowers/specs/2026-10-23-enrichissements-design.md) | En revue | Documentation et cadrage du prochain cycle |
+| 2026-10-23 | [Enrichissements et backlog](superpowers/specs/2026-10-23-enrichissements-design.md) | Livré | Documentation et cadrage du prochain cycle |
 
 ## Plans
 

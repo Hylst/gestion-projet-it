@@ -33,7 +33,7 @@ Chaque item doit rester compatible avec les non-objectifs du projet. Un item qui
 
 ## Prochain lot recommandé (P0 puis P1)
 
-Le socle documentaire est en revue. Une fois la PR fusionnée, le premier lot de contenu est :
+Le socle documentaire est livré. Le premier lot de contenu est :
 
 1. `ENR-001` Audit éditorial des neuf modules.
 2. `ENR-002` Erreurs fréquentes dans les neuf modules.
@@ -49,42 +49,42 @@ Les parcours Produit et Cybersécurité restent P1. Ils ne démarrent qu’aprè
 ## Documentation et gouvernance
 
 ### DOC-001 README du projet
-`P0` · `S` · `En revue`
+`P0` · `S` · `Livré`
 **Résultat :** un README opérationnel avec état, routes, commandes, tests, CI, confidentialité et index documentaire.
 **Acceptation :** une personne peut installer, lancer, tester et construire le projet sans lire une spec.
 **Preuve :** `README.md` relu et liens internes valides.
 **Vigilance :** ne pas dupliquer le cahier des charges.
 
 ### DOC-002 Backlog central
-`P0` · `S` · `En revue`
+`P0` · `S` · `Livré`
 **Résultat :** un backlog unique, priorisé et actionnable.
 **Acceptation :** chaque item a un identifiant, une priorité, un effort, une dépendance, un résultat et une acceptation.
 **Preuve :** ce fichier et revue de cohérence avec les specs.
 **Vigilance :** ne pas transformer le backlog en catalogue de vœux.
 
 ### DOC-003 Index des specs et plans
-`P0` · `S` · `En revue`
+`P0` · `S` · `Livré`
 **Résultat :** `docs/README.md` indexe les specs et plans avec leur statut.
 **Acceptation :** les specs et plans du dossier projet et de la section IA sont présents et liés.
 **Preuve :** index, liens relatifs et `git status`.
 **Vigilance :** conserver les documents historiques sans les réécrire.
 
 ### DOC-004 Mise à jour des règles agents
-`P0` · `S` · `En revue`
+`P0` · `S` · `Livré`
 **Résultat :** `agents.md` décrit l’état réel, les commandes, la CI et la règle PR + CI.
 **Acceptation :** les consignes de source, build, tests, confidentialité et documentation sont cohérentes avec le README.
 **Preuve :** relecture croisée `agents.md` et `README.md`.
 **Vigilance :** ne pas affaiblir les interdictions existantes.
 
 ### DOC-005 Addendum au cahier des charges
-`P0` · `S` · `En revue`
+`P0` · `S` · `Livré`
 **Résultat :** un addendum daté indique les neuf modules, le dossier projet, la section IA et le backlog.
 **Acceptation :** la section historique v2 est identifiée comme livrée, sans réécrire l’histoire du MVP.
 **Preuve :** section 18 et note d’état.
 **Vigilance :** le cahier des charges reste la source de vision, pas un journal de projet.
 
 ### DOC-006 Changelog documentaire
-`P0` · `S` · `En revue`
+`P0` · `S` · `Livré`
 **Résultat :** le changelog mentionne le README, le backlog, l’index et les specs intégrées.
 **Acceptation :** aucune modification applicative n’est annoncée à tort.
 **Preuve :** section « Non publié ».

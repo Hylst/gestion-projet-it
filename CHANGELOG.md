@@ -16,6 +16,13 @@
 - Page `/ressources` : 18 ressources de modules et 6 ressources de parcours, qualifiées et datées.
 - Audit WCAG 2.2 AA des guides et de la page Ressources.
 
+### Sécurité
+
+- Mise à jour de Vitest vers 5.0.5 et ajout de `node` aux types TypeScript.
+- Prérequis Node.js porté à 22.12, conformément à Vitest 5.
+- `npm audit` ne signale plus aucune vulnérabilité.
+- Audit npm ajouté à la CI et Dependabot activé pour npm et GitHub Actions.
+
 ### Vérifié
 
 - 36 fichiers de tests, 220 tests.

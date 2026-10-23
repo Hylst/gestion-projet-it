@@ -14,7 +14,7 @@ Application 100 % front, sans compte, sans cookie, sans backend et sans requête
 
 ## Démarrage
 
-Prérequis : Node.js 22 ou plus récent, npm.
+Prérequis : Node.js 22.12 ou plus récent, npm.
 
 ```bash
 npm ci
@@ -99,7 +99,7 @@ Avant une publication :
 5. smoke Playwright
 6. Lighthouse mobile sur l’accueil et une page représentative
 
-La CI GitHub Actions exécute lint, typecheck, tests et build sur `main` et sur les pull requests.
+La CI GitHub Actions exécute l’audit npm, lint, typecheck, tests et build sur `main` et sur les pull requests. Dependabot propose les mises à jour npm et GitHub Actions une fois par semaine.
 
 ## Contribution
 

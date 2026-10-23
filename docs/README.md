@@ -41,6 +41,10 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 
 - [Sources et veille](sources.md) : critères, dates, revue et retrait.
 
+## Audits
+
+- [Accessibilité du 24 octobre 2026](accessibilite/audit-2026-10-24.md) : guides et page Ressources.
+
 ## Règles
 
 - Une spec validée ne se réécrit pas silencieusement : une nouvelle décision ajoute un avenant daté.

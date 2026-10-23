@@ -1,5 +1,7 @@
 # Gestion de Projet IT - cahier des charges (source de verite)
 
+> **Addendum 2026-10-23 :** l’état livré, les commandes et les priorités courantes sont décrits dans `README.md` et `BACKLOG.md`. La section 17 est historique : les trois modules v2 sont livrés.
+
 ## 1. Vision
 
 Apprendre a mener un projet informatique : cadrer, decouper (WBS),
@@ -16,8 +18,9 @@ Aucune ecole presentee comme superieure, aucune certification promise.
 - Slug : `gestion-projet-it`. URL : `https://hylst.fr/gestion-projet-it/`.
 - Source : `D:\0CODE\OpenCode\gestion-projet-it`. Build depose dans
   `D:\0CODE\AntiGravity\Cours_Memos\Docker\gestion-projet-it/`.
-- Hub : carte Bloc 3 (grisee en attente, badge Bientot, tooltip existant).
-- 6 modules, quiz, recherche, gamification XP.
+- Dépôt source : `https://github.com/Hylst/gestion-projet-it`, privé.
+- Hub : carte Bloc 3 active.
+- 9 modules, quiz, recherche, gamification XP, dossier projet et section IA.
 - Auteur : Geoffroy, avec assistance IA. Licence AGPL-3.0-or-later.
 
 ## 3. Perimetre MVP (v1)
@@ -518,7 +521,7 @@ Cas fictifs : convient au site vitrine fige, convient peu a un besoin
 qui bouge chaque semaine. Exercice dedie demande : voir 15.3, cascade
 face a agile, avec tranche motivee et parade.
 
-## 17. Plan de contenu v2 (3 modules futurs, hors v1)
+## 17. Plan de contenu v2 (historique, livré)
 
 Module futur A : parties prenantes et communication.
 - Perimetre : identifier les roles fictifs, leurs attentes et leur pouvoir de decision sur le fil rouge fictif.
@@ -540,3 +543,23 @@ Module futur C : conduite du changement.
 - Cas : notice fictive, demo fictive, permanence fictive d aide, retours collectes puis tries.
 - Sans dogme : demarche progressive avec ecoute, aucune methode presentee comme superieure.
 - Labo envisage : frise fictive avant et apres avec 5 actions a ordonner puis quiz court de validation fictive.
+
+## 18. Addendum 2026-10-23 : état publié et prochain cycle
+
+Les sections 3 et 8 décrivent le MVP v1 et restent historiques. L’état livré est le suivant :
+
+- Neuf modules avec fiche, démarche, laboratoire, exercice corrigé, quiz et fiche réflexe.
+- Dossier projet en six étapes, sauvegarde locale, export JSON, impression et auto-évaluation.
+- Section IA en cinq pages : introduction, usages, méthodes, outils et gouvernance.
+- Recherche globale, glossaire étendu, sitemap 18 URL et service worker v5.
+- Build publié : `index-BN9HjO3I.js` et `index-o6t1cYmb.css`.
+- CI GitHub Actions sur `main` et les pull requests : lint, typecheck, tests et build.
+- Contrôle manuel : branche, PR, CI verte, fusion. La protection de branche GitHub n’est pas disponible sur l’offre gratuite pour un dépôt privé.
+
+Le prochain cycle est cadré dans `BACKLOG.md` :
+
+- approfondissement des neuf modules ;
+- parcours Produit et parcours Cybersécurité, autonomes, sans XP et sans modification du compteur `0/9` ;
+- bibliothèque de ressources, fiches outils, modèles imprimables et qualité accessible.
+
+Les non-objectifs du projet restent : backend, comptes, cookies, analytics, certification, ressources chargées automatiquement et contenus inventés.

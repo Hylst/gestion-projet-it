@@ -6,6 +6,7 @@ import Accueil from './routes/accueil';
 import Apropos from './routes/Apropos';
 import Glossaire from './routes/Glossaire';
 import DossierProjet from './routes/DossierProjet';
+import Ressources from './routes/Ressources';
 import { IaHubPage } from './ia/content/Hub';
 import { IaUsagesPage } from './ia/content/Usages';
 import { IaMethodesPage } from './ia/content/Methodes';
@@ -55,6 +56,7 @@ export default function App() {
           <Route path="/module-:num" element={<ModulePlaceholder />} />
           <Route path="/a-propos" element={<Apropos />} />
           <Route path="/glossaire" element={<Glossaire />} />
+          <Route path="/ressources" element={<Ressources />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

@@ -1,6 +1,6 @@
 # Changelog
 
-## [Non publié]
+## [1.1.0] - 2026-10-24
 
 ### Documentation
 
@@ -33,9 +33,16 @@
 
 - 38 fichiers de tests, 237 tests.
 - Lint, typecheck et build production.
-- Smoke Playwright : 11/11, 19 routes, liens internes, clavier et ressources.
-- Lighthouse mobile : `/ressources` 99/100 et `/module-1` 99/100.
+- Smoke Playwright : 13/13, 20 routes, liens internes, clavier, ressources et outils.
+- Lighthouse mobile : accueil 99/100, `/ressources` 99/100, `/module-1` 99/100, `/outils` 99/100, `/module-6` 99/100.
 - 24 URL de ressources en réponse HTTP 200 le 24 octobre 2026.
+
+### Publication
+
+- Build : `index-D81qJG7o.js`, `index-DfEfIL14.css`.
+- Service worker : `gestion-projet-it-v6`.
+- Docker : commit `d617cd3c`, 20 routes et build identique. Smoke 13/13 sur la copie Docker.
+- Sitemap racine : date du 24 octobre 2026.
 
 ## [1.0.0] - 2026-10-23
 

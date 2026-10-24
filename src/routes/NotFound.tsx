@@ -6,10 +6,16 @@ import { SeoHead } from '../components/SeoHead';
 
 export default function NotFound() {
   return (
-    <>
+    <article className="module-page module-theme-6">
       <SeoHead title="Page introuvable" description="Cette route n’existe pas dans le cours." noindex />
-      <h1>Page introuvable</h1>
-      <p>Retour vers <Link to="/">l’accueil du cours</Link>.</p>
-    </>
+      <header className="module-head">
+        <p className="kicker">Erreur 404</p>
+        <h1>Page introuvable</h1>
+        <p className="accroche">Cette route n’existe pas dans le cours.</p>
+      </header>
+      <section>
+        <p>Retour vers <Link to="/">l’accueil du cours</Link>.</p>
+      </section>
+    </article>
   );
 }

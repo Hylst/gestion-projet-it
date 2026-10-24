@@ -20,10 +20,13 @@ const lettres = [...groupes.keys()].sort();
 
 export default function Glossaire() {
   return (
-    <>
+    <article className="module-page module-theme-8">
       <SeoHead title="Glossaire" description={'Glossaire neutre du cours Gestion de Projet IT\u00A0: cadrage, planification, méthodes, agiles, outils, équipe, gouvernance, qualité, budget et changement.'} />
-      <h1>Glossaire</h1>
-      <p className="accroche">Définitions courtes et neutres des termes du cours. Chaque entrée renvoie au module qui la développe, sans dogme d’école.</p>
+      <header className="module-head">
+        <p className="kicker">Référence</p>
+        <h1>Glossaire</h1>
+        <p className="accroche">Définitions courtes et neutres des termes du cours. Chaque entrée renvoie au module qui la développe, sans dogme d’école.</p>
+      </header>
       <nav className="glossaire-sommaire" aria-label="Sommaire du glossaire">
         {lettres.map((l) => <a key={l} href={`#lettre-${l}`}>{l}</a>)}
       </nav>
@@ -48,6 +51,6 @@ export default function Glossaire() {
           </dl>
         </section>
       ))}
-    </>
+    </article>
   );
 }

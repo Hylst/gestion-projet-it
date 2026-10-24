@@ -17,6 +17,12 @@ function Hero() {
       <p className="kicker">Cours interactif gratuit, sans compte</p>
       <h1>Gérer un projet informatique, pas à pas</h1>
       <p className="accroche">Cadrer, découper, planifier, choisir sa méthode, outiller et animer l’équipe&nbsp;: 9 modules courts avec labos manipulables, exercices corrigés et quiz, sur un fil rouge fictif.</p>
+      <ul className="hero-stats" aria-label="Le cours en bref">
+        <li><strong>9</strong> modules</li>
+        <li><strong>11</strong> laboratoires</li>
+        <li><strong>6</strong> étapes de dossier projet</li>
+        <li><strong>0</strong> compte ou cookie</li>
+      </ul>
       <div className="hero-panels" role="group" aria-label="Trois vues du cours">
         <div className="hero-panel">
           <p className="hero-panel-titre">GANTT</p>
@@ -77,7 +83,7 @@ export default function Accueil() {
       <div className="modules-grid">
         {MODULES.map((m, i) => (
           <Reveal key={m.id} delay={i * 60}>
-            <div className="module-card">
+            <div className={`module-card module-theme-${m.num}`}>
               <div className="module-card-head">
                 <ModulePicto num={m.num} />
                 <span className="module-kicker">Module {m.num}</span>
@@ -97,7 +103,7 @@ export default function Accueil() {
         </p>
         <Link className="btn" to="/dossier-projet">Ouvrir le dossier projet</Link>
       </section>
-      <section className="ia-accueil" aria-labelledby="ia-accueil-titre">
+      <section className="ia-accueil theme-ia" aria-labelledby="ia-accueil-titre">
         <h2 id="ia-accueil-titre">Gestion de projet et IA</h2>
         <p>
           Une section autonome pour situer l’IA dans le travail du chef de projet&nbsp;: usages par phase, méthodes, outils, configuration et gouvernance. Aucun XP, aucune obligation de parcours.

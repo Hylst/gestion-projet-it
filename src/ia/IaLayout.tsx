@@ -23,18 +23,18 @@ export function IaLayout({ meta, intro, retenir, checklist, checklistTitre, sour
   const precedent = index > 0 ? IA_PAGES[index - 1] : undefined;
   const suivant = index >= 0 && index < IA_PAGES.length - 1 ? IA_PAGES[index + 1] : undefined;
   return (
-    <article className="ia-page">
+    <article className="ia-page theme-ia">
       <SeoHead title={meta.titre} description={meta.description} />
       <header className="ia-hero">
         <p className="kicker">Section IA</p>
         <h1>{meta.titre}</h1>
         <p className="accroche">{intro}</p>
-        <nav className="ia-sommaire" aria-label="Sommaire de la page">
-          {meta.sections.map((section) => (
-            <a key={section.id} href={`#${section.id}`}>{section.label}</a>
-          ))}
-        </nav>
       </header>
+      <nav className="ia-sommaire" aria-label="Sommaire de la page">
+        {meta.sections.map((section) => (
+          <a key={section.id} href={`#${section.id}`}>{section.label}</a>
+        ))}
+      </nav>
       {children}
       <aside className="ia-callout ia-callout--retenir" aria-labelledby="ia-retenir-titre">
         <h2 id="ia-retenir-titre">À retenir</h2>

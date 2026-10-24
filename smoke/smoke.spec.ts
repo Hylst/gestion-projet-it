@@ -48,7 +48,7 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 21
     expect(res.status(), a).toBe(200);
   }
   const swBody = await (await page.request.get(`${base}/sw.js`)).text();
-  expect(swBody).toContain("const version = 'gestion-projet-it-v7';");
+  expect(swBody).toContain("const version = 'gestion-projet-it-v8';");
 
   expect(externals).toEqual([]);
   expect(failures).toEqual([]);
@@ -127,6 +127,31 @@ test('journal : saisie locale et rechargement', async ({ page }) => {
   await page.reload();
   await expect(page.getByLabel('Décision').first()).toHaveValue('Décision fictive persistante');
   await expect(page.getByRole('button', { name: 'Imprimer le journal' })).toBeVisible();
+  await page.emulateMedia({ media: 'print' });
+  await expect(page.getByRole('button', { name: 'Imprimer le journal' })).toBeHidden();
+  await expect(page.locator('nav.sommaire')).toBeHidden();
+  await expect(page.getByLabel('Décision').first()).toBeVisible();
+  await expect(page.getByRole('table').first()).toBeVisible();
+  await page.emulateMedia({ media: 'screen' });
+});
+
+test('mode hors ligne : la page modèles reste disponible', async ({ page, context }) => {
+  await page.goto(`${base}/`);
+  await page.evaluate(async () => {
+    await navigator.serviceWorker.ready;
+  });
+  await page.reload();
+  await page.goto(`${base}/modeles`);
+  await page.waitForLoadState('networkidle');
+  await page.getByLabel('Décision').first().fill('Décision hors ligne');
+  await context.setOffline(true);
+  try {
+    await page.reload();
+    await expect(page.getByRole('heading', { level: 1, name: 'Journal et modèles' })).toBeVisible();
+    await expect(page.getByLabel('Décision').first()).toHaveValue('Décision hors ligne');
+  } finally {
+    await context.setOffline(false);
+  }
 });
 
 test('labo Eisenhower : depot au clavier et retour du focus', async ({ page }) => {

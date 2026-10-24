@@ -87,6 +87,7 @@ Le routeur utilise `basename="/gestion-projet-it/"`. Le build utilise `--base=/g
 - Aucun compte, aucun cookie, aucun analytics.
 - Progression dans `localStorage` avec le préfixe `gestion-projet-it:`.
 - Dossier projet dans `gestion-projet-it:dossier-projet:v1`.
+- Journal et modèles dans `gestion-projet-it:journal:v1`.
 - Export JSON côté navigateur.
 - Aucune ressource distante, fonte distante, image distante ou requête réseau au chargement.
 - Les liens de sources externes ne s’ouvrent qu’après une action de l’utilisateur.
@@ -103,7 +104,7 @@ Avant une publication :
 6. smoke Playwright
 7. Lighthouse mobile sur l’accueil et les pages de référence
 
-Le budget Lighthouse et la procédure de contrôle sont documentés dans [`docs/qualite/lighthouse.md`](docs/qualite/lighthouse.md).
+Le budget Lighthouse et la procédure de contrôle sont documentés dans [`docs/qualite/lighthouse.md`](docs/qualite/lighthouse.md). Le périmètre du contrôle des liens est décrit dans [`docs/qualite/liens.md`](docs/qualite/liens.md).
 
 La CI GitHub Actions exécute l’audit npm, lint, typecheck, contrôle des liens, tests et build sur `main` et sur les pull requests. Dependabot propose les mises à jour npm et GitHub Actions une fois par semaine.
 

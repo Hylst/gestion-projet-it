@@ -77,6 +77,13 @@ describe('search', () => {
     expect(equipe.some((h) => isModuleHit(h) && h.moduleNum === 6)).toBe(true);
   });
 
+  it('ne régresse pas sur les termes historiques', () => {
+    for (const requete of ['risque', 'danger']) {
+      expect(searchIndex(index, requete).some((h) => isModuleHit(h) && h.moduleNum === 6)).toBe(true);
+    }
+    expect(searchIndex(index, 'budget').some((h) => isModuleHit(h) && h.moduleNum === 8)).toBe(true);
+  });
+
   it('indexe les guides et la page de ressources', () => {
     expect(index.some((h) => h.ancre === 'guide')).toBe(true);
     const guides = searchIndex(index, 'erreurs');

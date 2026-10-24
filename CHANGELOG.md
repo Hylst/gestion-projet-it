@@ -1,5 +1,35 @@
 # Changelog
 
+## [1.2.1] - 2026-10-24
+
+### Corrigé
+
+- Recherche par synonymes : un OU dans chaque groupe et un ET entre les groupes. `risque` et `danger` retrouvent le module 6 sans régression.
+- Journal : une écriture `localStorage` en échec ne casse plus la saisie et affiche un message explicite.
+- Contrôle des liens : comparaison stricte des routes et du sitemap, détection des URL absentes ou en double.
+- Lien vers `/modeles` ajouté au footer et clé `gestion-projet-it:journal:v1` documentée.
+
+### Qualité
+
+- Tests de non-régression sur `risque`, `danger` et `budget`, plus un test d’échec de stockage local.
+- Smoke enrichi : impression du journal et fonctionnement hors ligne après première visite.
+- Plan P2 et périmètre du contrôle des liens documentés.
+- Service worker v8 et 21 routes publiques.
+
+### Vérifié
+
+- 39 fichiers de tests, 244 tests.
+- Lint, typecheck, contrôle des liens, audit npm et build production.
+- Smoke Playwright : 15/15, 21 routes, journal, impression, hors ligne et clavier.
+- Lighthouse mobile : accueil 99/100, `/modeles` 99/100.
+- 24 URL externes en réponse HTTP 200.
+
+### Publication
+
+- Build : `index-DPR_ZLjS.js`, `index-n7YZdwAn.css`.
+- Service worker : `gestion-projet-it-v8`.
+- Docker : commit `f161210c`, 21 routes et build identique. Smoke 15/15 sur la copie Docker.
+
 ## [1.2.0] - 2026-10-24
 
 ### Contenu

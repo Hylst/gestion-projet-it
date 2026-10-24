@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SeoHead } from '../components/SeoHead';
 import { ENTREES_JOURNAL, JOURNAL_STORAGE_KEY, type JournalEtat, type JournalValeur } from '../lib/journal';
@@ -14,25 +14,37 @@ function lireJournal(): JournalEtat {
   }
 }
 
+type StatutSauvegarde = 'idle' | 'ok' | 'error';
+
 export default function Modeles() {
   const [journal, setJournal] = useState<JournalEtat>(lireJournal);
-  const [sauvegarde, setSauvegarde] = useState(false);
+  const [sauvegarde, setSauvegarde] = useState<StatutSauvegarde>('idle');
+  const journalRef = useRef(journal);
 
   const changer = (id: string, champ: keyof JournalValeur, valeur: string) => {
-    setJournal((etat) => {
-      const suivant: JournalEtat = {
-        ...etat,
-        [id]: {
-          decision: etat[id]?.decision ?? '',
-          suite: etat[id]?.suite ?? '',
-          [champ]: valeur,
-        },
-      };
+    const suivant: JournalEtat = {
+      ...journalRef.current,
+      [id]: {
+        decision: journalRef.current[id]?.decision ?? '',
+        suite: journalRef.current[id]?.suite ?? '',
+        [champ]: valeur,
+      },
+    };
+    journalRef.current = suivant;
+    setJournal(suivant);
+    try {
       localStorage.setItem(JOURNAL_STORAGE_KEY, JSON.stringify(suivant));
-      return suivant;
-    });
-    setSauvegarde(true);
+      setSauvegarde('ok');
+    } catch {
+      setSauvegarde('error');
+    }
   };
+
+  const messageSauvegarde = sauvegarde === 'error'
+    ? 'Sauvegarde impossible : vérifiez l’espace disponible.'
+    : sauvegarde === 'ok'
+      ? 'Enregistré localement'
+      : 'Sauvegarde locale à la saisie';
 
   return (
     <article className="module-page">
@@ -77,7 +89,7 @@ export default function Modeles() {
             </fieldset>
           ))}
         </div>
-        <p className="help no-print" role="status">{sauvegarde ? 'Enregistré localement' : 'Sauvegarde locale à la saisie'}</p>
+        <p className={`help no-print journal-statut ${sauvegarde}`} role={sauvegarde === 'error' ? 'alert' : 'status'}>{messageSauvegarde}</p>
         <button type="button" className="btn secondary no-print" onClick={() => window.print()}>Imprimer le journal</button>
       </section>
 

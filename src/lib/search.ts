@@ -63,14 +63,12 @@ const SYNONYMES: ReadonlyArray<readonly string[]> = [
   ['ressources', 'sources', 'documents'],
 ];
 
-export function etendreRecherche(s: string): string {
-  const mots = new Set(s.split(/[^a-z0-9]+/).filter(Boolean));
-  for (const groupe of SYNONYMES) {
-    if (groupe.some((mot) => mots.has(mot))) {
-      for (const mot of groupe) mots.add(mot);
-    }
-  }
-  return [...mots].join(' ');
+function groupesRecherche(q: string): string[][] {
+  const mots = normaliser(q).split(/[^a-z0-9]+/).filter(Boolean);
+  return mots.map((mot) => {
+    const groupe = SYNONYMES.find((synonymes) => synonymes.includes(mot));
+    return groupe ? [...groupe] : [mot];
+  });
 }
 
 export function buildIndex(): SearchHit[] {
@@ -85,7 +83,7 @@ export function buildIndex(): SearchHit[] {
         section: s.section,
         ancre: s.ancre,
         label: `${s.section}\u00A0: ${m.titre}`,
-        needles: etendreRecherche(normaliser(`${m.num} ${m.titre} ${m.resume} ${m.motsCles.join(' ')} ${s.section}`)),
+        needles: normaliser(`${m.num} ${m.titre} ${m.resume} ${m.motsCles.join(' ')} ${s.section}`),
       });
     }
   }
@@ -98,7 +96,7 @@ export function buildIndex(): SearchHit[] {
         section: section.label,
         ancre: section.id,
         label: `${page.titre}\u00A0: ${section.label}`,
-        needles: etendreRecherche(normaliser(`${page.titre} ${page.resume} ${(page.motsCles ?? []).join(' ')} ${section.label}`)),
+        needles: normaliser(`${page.titre} ${page.resume} ${(page.motsCles ?? []).join(' ')} ${section.label}`),
       });
     }
   }
@@ -109,7 +107,7 @@ export function buildIndex(): SearchHit[] {
     section: 'Bibliothèque',
     ancre: '',
     label: 'Ressources et outils',
-    needles: etendreRecherche(normaliser('ressources outils bibliotheque sources documents liens')),
+    needles: normaliser('ressources outils bibliotheque sources documents liens'),
   });
   out.push({
     type: 'page',
@@ -118,7 +116,7 @@ export function buildIndex(): SearchHit[] {
     section: 'Grille de comparaison',
     ancre: '',
     label: 'Fiches outils',
-    needles: etendreRecherche(normaliser('fiches outils criteres comparaison suivi documentation diagrammes tests securite accessibilite')),
+    needles: normaliser('fiches outils criteres comparaison suivi documentation diagrammes tests securite accessibilite'),
   });
   out.push({
     type: 'page',
@@ -127,14 +125,13 @@ export function buildIndex(): SearchHit[] {
     section: 'Journal, revue et modèles',
     ancre: '',
     label: 'Journal et modèles',
-    needles: etendreRecherche(normaliser('journal modeles revue pairs imprimable wbs raci risques recette decisions entretien')),
+    needles: normaliser('journal modeles revue pairs imprimable wbs raci risques recette decisions entretien'),
   });
   return out;
 }
 
 export function searchIndex(index: SearchHit[], q: string): SearchHit[] {
-  const n = etendreRecherche(normaliser(q.trim()));
-  if (!n) return [];
-  const mots = n.split(/\s+/);
-  return index.filter((h) => mots.every((mot) => h.needles.includes(mot)));
+  const groupes = groupesRecherche(q.trim());
+  if (groupes.length === 0) return [];
+  return index.filter((h) => groupes.every((groupe) => groupe.some((mot) => h.needles.includes(mot))));
 }

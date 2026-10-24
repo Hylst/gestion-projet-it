@@ -37,6 +37,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-10-22 | [Plan section IA](superpowers/plans/2026-10-22-ia-gestion-projet.md) | Livré | Cinq pages IA |
 | 2026-10-24 | [Plan enrichissements P0](superpowers/plans/2026-10-24-enrichissements-p0.md) | Livré | Guides, ressources et accessibilité |
 | 2026-10-24 | [Plan enrichissements P1](superpowers/plans/2026-10-24-enrichissements-p1.md) | Livré | Exercices, glossaire, pré-mortem, outils |
+| 2026-10-24 | [Plan enrichissements P2](superpowers/plans/2026-10-24-enrichissements-p2.md) | Livré | Journal, modèles, synonymes et qualité |
 
 ## Politique
 
@@ -46,6 +47,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 
 - [Accessibilité du 24 octobre 2026](accessibilite/audit-2026-10-24.md) : guides, Ressources, outils et modèles.
 - [Budget Lighthouse](qualite/lighthouse.md) : seuils, pages de référence et procédure.
+- [Contrôle des liens](qualite/liens.md) : périmètre, limites et journal des vérifications.
 
 ## Règles
 

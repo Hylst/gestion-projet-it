@@ -39,11 +39,16 @@ const routes = [...app.matchAll(/<Route path="([^"]+)"/g)]
 const sitemap = fs.readFileSync(path.join(root, 'public', 'sitemap.xml'), 'utf8');
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 const base = 'https://hylst.fr/gestion-projet-it';
-const missing = routes.filter((route) => !urls.includes(`${base}${route === '/' ? '/' : route}`));
+const attendues = routes.map((route) => `${base}${route === '/' ? '/' : route}`);
+const missing = attendues.filter((url) => !urls.includes(url));
+const extra = urls.filter((url) => !attendues.includes(url));
+const doublons = urls.filter((url, index) => urls.indexOf(url) !== index);
 
-if (broken.length || missing.length) {
+if (broken.length || missing.length || extra.length || doublons.length) {
   for (const item of broken) console.error(`lien cassé: ${item}`);
   for (const route of missing) console.error(`route absente du sitemap: ${route}`);
+  for (const url of extra) console.error(`URL absente des routes: ${url}`);
+  for (const url of doublons) console.error(`URL en double dans le sitemap: ${url}`);
   process.exit(1);
 }
 

@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import type { KeyboardEvent } from 'react';
+import type { JSX, KeyboardEvent } from 'react';
 
 export const METHODS: Array<{ nom: string; avantages: string[]; limites: string[]; cas: string[] }> = [
   { nom: 'Cycle en V', avantages: ['Tests préparés pour chaque phase'], limites: ['Documentation lourde requise'], cas: ['Travaux fictifs réglementés avec besoin de traces'] },

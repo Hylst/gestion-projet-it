@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.3.0] - 2026-10-24
+
+### Outillage
+
+- React et React DOM passent en 19.3.1, avec les types 19.3.
+- Vite passe en 8.3.5 et `@vitejs/plugin-react` en 6.1.2.
+- ESLint passe en 10.13, `@eslint/js` en 10.0.1, `eslint-plugin-react-hooks` en 7.1.1 et `typescript-eslint` en 8.72.
+- jsdom passe en 30.1.3 ; le prérequis Node est porté à 22.22.2.
+
+### Corrigé
+
+- Les trois effets signalés par `react-hooks` sont simplifiés : quiz, recherche et observateur d’intersection.
+- Les types des laboratoires et le namespace JSX sont alignés sur React 19.
+
+### Vérifié
+
+- 39 fichiers de tests, 244 tests.
+- Lint, typecheck, contrôle des liens, audit npm et build production.
+- Smoke Playwright : 15/15, 21 routes, journal, impression, hors ligne et clavier.
+- Lighthouse mobile : accueil 99/100, `/modeles` 99/100.
+- 42 liens relatifs contrôlés, 24 URL externes en HTTP 200.
+- Bundle production : 563 kB minifié, 160 kB gzip, avertissement de taille Vite assumé.
+
+### Publication
+
+- Build : `index-KpBdzZ83.js`, `index-D02aBuyy.css`.
+- Service worker : `gestion-projet-it-v9`.
+- Docker : commit `86e9452e`, 21 routes et build identique. Smoke 15/15 sur la copie Docker.
+
 ## [1.2.1] - 2026-10-24
 
 ### Corrigé

@@ -38,6 +38,7 @@ Compléter le cours avec des traces de décision utilisables, des grilles de rev
 
 - Version 1.2.0 : journal, revue, modèles et synonymes.
 - Version 1.2.1 : correction de la recherche historique, robustesse du stockage, tests d’impression et hors ligne, contrôle strict du sitemap.
+- Version 1.3.0 : React 19, Vite 8, ESLint 10 et durcissement des effets React.
 
 ## Références
 

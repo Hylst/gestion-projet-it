@@ -51,7 +51,7 @@ npx lighthouse http://127.0.0.1:4182/gestion-projet-it/ \
 
 | Page | Performance | Accessibilité |
 | --- | --- | --- |
-| `/` | 99 | 100 |
+| `/` | 100 | 100 |
 | `/ressources` | 99 | 100 |
 | `/module-1` | 99 | 100 |
 | `/outils` | 99 | 100 |

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import type { ModuleGuideData } from './guideTypes';
 import { guide as m1 } from './m1-wbs/guide';
 import { guide as m2 } from './m2-planif/guide';

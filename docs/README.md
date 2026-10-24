@@ -38,6 +38,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-10-24 | [Plan enrichissements P0](superpowers/plans/2026-10-24-enrichissements-p0.md) | Livré | Guides, ressources et accessibilité |
 | 2026-10-24 | [Plan enrichissements P1](superpowers/plans/2026-10-24-enrichissements-p1.md) | Livré | Exercices, glossaire, pré-mortem, outils |
 | 2026-10-24 | [Plan enrichissements P2](superpowers/plans/2026-10-24-enrichissements-p2.md) | Livré | Journal, modèles, synonymes et qualité |
+| 2026-10-24 | [Plan partage public 1.4.0](superpowers/plans/2026-10-24-partage-public-1.4.0.md) | Livré | RGPD, AI Act, source publique, partage social |
 
 ## Politique
 
@@ -49,6 +50,15 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 - [Checklist des futurs parcours](accessibilite/checklist-parcours.md) : audit à l’ouverture de Produit et Cybersécurité.
 - [Budget Lighthouse](qualite/lighthouse.md) : seuils, pages de référence et procédure.
 - [Contrôle des liens](qualite/liens.md) : périmètre, limites et journal des vérifications.
+- [Partage public](qualite/partage.md) : checklist avant et après mise en ligne.
+
+## Conformité
+
+- [Registre des traitements](conformite/registre-traitements.md) : journaux, emails, stockage local.
+- [Analyse AI Act](conformite/analyse-ai-act.md) : qualification et transparence.
+- [Transferts Royaume-Uni](conformite/transferts-royaume-uni.md) : Hostinger, adéquation et DPA.
+- [Provenance des illustrations](conformite/provenance-illustrations.md) : outils et fichiers.
+- [Checklist RGPD](conformite/checklist-rgpd.md) : état des contrôles.
 
 ## Règles
 

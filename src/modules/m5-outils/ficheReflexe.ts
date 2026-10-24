@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 export const items = [
   'Renseigne l’outil de suivi, sinon il ne montre rien.',
   'Fais tourner des tests courts à chaque changement.',

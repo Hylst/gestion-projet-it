@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import React from 'react';
 
 export function ExerciseBlock(props: { id: string; titre: string; enonce: React.ReactNode; corrige: React.ReactNode; methode: string[] }) {

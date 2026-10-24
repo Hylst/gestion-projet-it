@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 export const items = [
   'Liste les parties prenantes avant d’écrire un message.',
   'Évalue pouvoir et intérêt sans juger les personnes.',

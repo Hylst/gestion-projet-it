@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import { describe, it, expect } from 'vitest';
 import { buildIndex, isIaHit, isModuleHit, isPageHit, searchIndex } from '../src/lib/search';
 import { MODULES } from '../src/modules/index';
@@ -95,5 +98,11 @@ describe('search', () => {
     expect(outils.find(isPageHit)?.path).toBe('/outils');
     const modeles = searchIndex(index, 'journal');
     expect(modeles.find(isPageHit)?.path).toBe('/modeles');
+    const confidentialite = searchIndex(index, 'confidentialite');
+    expect(confidentialite.find(isPageHit)?.path).toBe('/confidentialite');
+    const transparence = searchIndex(index, 'transparence');
+    expect(transparence.find(isPageHit)?.path).toBe('/transparence-ia');
+    const accessibilite = searchIndex(index, 'wcag');
+    expect(accessibilite.find(isPageHit)?.path).toBe('/accessibilite');
   });
 });

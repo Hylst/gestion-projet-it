@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import { readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it } from 'vitest';
 import { cleanup, render, screen, within } from '@testing-library/react';
@@ -168,16 +171,20 @@ describe('glossaire IA', () => {
 });
 
 describe('sitemap IA', () => {
-  it('contient les cinq routes IA, les ressources et 21 URL uniques', () => {
+  it('contient les cinq routes IA, les ressources et 25 URL uniques', () => {
     const xml = readFileSync('public/sitemap.xml', 'utf8');
     const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-    expect(urls).toHaveLength(21);
-    expect(new Set(urls).size).toBe(21);
+    expect(urls).toHaveLength(25);
+    expect(new Set(urls).size).toBe(25);
     for (const page of IA_PAGES) {
       expect(xml).toContain(`https://hylst.fr/gestion-projet-it${page.path}`);
     }
     expect(xml).toContain('https://hylst.fr/gestion-projet-it/ressources');
     expect(xml).toContain('https://hylst.fr/gestion-projet-it/outils');
     expect(xml).toContain('https://hylst.fr/gestion-projet-it/modeles');
+    expect(xml).toContain('https://hylst.fr/gestion-projet-it/mentions-legales');
+    expect(xml).toContain('https://hylst.fr/gestion-projet-it/confidentialite');
+    expect(xml).toContain('https://hylst.fr/gestion-projet-it/transparence-ia');
+    expect(xml).toContain('https://hylst.fr/gestion-projet-it/accessibilite');
   });
 });

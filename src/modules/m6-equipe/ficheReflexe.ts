@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 export const items = [
   'Distribue chaque tâche\u00A0: urgente, importante, les deux ou aucune.',
   'Écris une parade pour chaque risque majeur.',

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import { Link } from 'react-router-dom';
 import { MODULES } from '../modules/index';
 import { IA_PAGES } from '../ia/pages';

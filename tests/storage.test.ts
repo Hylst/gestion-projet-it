@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import { describe, it, expect, beforeEach } from 'vitest';
 import { readJSON, writeJSON, removeKey, storageAvailable, quizKey } from '../src/lib/storage';
 

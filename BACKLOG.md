@@ -364,7 +364,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 `P2` · `M` · `Livré`
 **Résultat :** un contrôle scripté des liens internes et de la cohérence des routes.
 **Acceptation :** liens relatifs, routes et sitemap contrôlés ; les URL externes restent vérifiées manuellement et datées.
-**Preuve :** `scripts/check-liens.mjs`, 42 liens relatifs, 21 routes et sitemap strictement cohérent, 24 URL externes en HTTP 200, exécution en CI.
+**Preuve :** `scripts/check-liens.mjs`, 56 liens relatifs, 25 routes et sitemap strictement cohérent, 24 URL externes en HTTP 200, exécution en CI.
 **Vigilance :** ne pas ajouter de requête réseau au runtime de l’application.
 
 ### QUA-005 Recherche avec synonymes

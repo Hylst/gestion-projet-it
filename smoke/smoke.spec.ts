@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import { test, expect } from '@playwright/test';
 import { CRITERES, ETAPES, etatInitialDossier } from '../src/lib/capstone';
 import { DOSSIER_STORAGE_KEY } from '../src/lib/capstoneStorage';
@@ -5,7 +8,7 @@ import { MODULES } from '../src/modules/index';
 import { IA_PAGES } from '../src/ia/pages';
 
 const base = process.env.SMOKE_BASE_URL ?? 'http://localhost:4173/gestion-projet-it';
-const routes = ['/', '/ia', '/ia/usages', '/ia/methodes', '/ia/outils-configuration', '/ia/gouvernance', '/dossier-projet', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/module-8', '/module-9', '/a-propos', '/glossaire', '/ressources', '/outils', '/modeles'];
+const routes = ['/', '/ia', '/ia/usages', '/ia/methodes', '/ia/outils-configuration', '/ia/gouvernance', '/dossier-projet', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/module-8', '/module-9', '/a-propos', '/glossaire', '/ressources', '/outils', '/modeles', '/mentions-legales', '/confidentialite', '/transparence-ia', '/accessibilite'];
 const routeTitres: Record<string, string> = {
   '/': 'Gérer un projet informatique, pas à pas',
   '/dossier-projet': 'Dossier projet',
@@ -14,11 +17,15 @@ const routeTitres: Record<string, string> = {
   '/ressources': 'Ressources et outils',
   '/outils': 'Fiches outils',
   '/modeles': 'Journal et modèles',
+  '/mentions-legales': 'Mentions légales',
+  '/confidentialite': 'Politique de confidentialité',
+  '/transparence-ia': 'Transparence sur l’IA',
+  '/accessibilite': 'Accessibilité',
   ...Object.fromEntries(MODULES.map((m) => [`/${m.slug}`, m.titre])),
   ...Object.fromEntries(IA_PAGES.map((p) => [p.path, p.titre])),
 };
 
-test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 21 routes, zero erreur', async ({ page }) => {
+test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 25 routes, zero erreur', async ({ page }) => {
   const externals: string[] = [];
   const failures: string[] = [];
   const badStatus: string[] = [];
@@ -48,7 +55,7 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 21
     expect(res.status(), a).toBe(200);
   }
   const swBody = await (await page.request.get(`${base}/sw.js`)).text();
-  expect(swBody).toContain("const version = 'gestion-projet-it-v9';");
+  expect(swBody).toContain("const version = 'gestion-projet-it-v10';");
 
   expect(externals).toEqual([]);
   expect(failures).toEqual([]);
@@ -81,12 +88,16 @@ test('liens internes : routes, ancres et ids valides', async ({ page }) => {
       }
       const url = new URL(link.href, `${base}${route}`);
       const path = url.pathname.replace('/gestion-projet-it', '') || '/';
-      if (!routes.includes(path)) broken.push(`${route} -> ${link.href} (${link.text})`);
+      if (!routes.includes(path) && !/\.(txt|png|svg|webmanifest|xml|js|css)$/.test(path)) {
+        broken.push(`${route} -> ${link.href} (${link.text})`);
+      }
     }
   }
 
   expect(broken).toEqual([]);
   expect(duplicateIds).toEqual([]);
+  const licence = await page.request.get(`${base}/LICENSE.txt`);
+  expect(licence.status()).toBe(200);
 });
 
 test('ressources : liens externes et focus clavier', async ({ page }) => {

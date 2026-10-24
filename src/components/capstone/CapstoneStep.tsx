@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import { useEffect, useRef } from 'react';
 import type { DossierProjetState, Etape } from '../../lib/capstone';
 import { CapstoneField } from './CapstoneField';

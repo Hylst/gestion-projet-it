@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import { beforeAll, afterEach } from 'vitest';
 
 interface Obs { cb: (entries: Array<IntersectionObserverEntry>) => void; els: Set<Element> }

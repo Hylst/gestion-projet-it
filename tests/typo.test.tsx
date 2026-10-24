@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import { afterEach, describe, expect, it } from 'vitest';
 import { cleanup, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
@@ -10,6 +13,10 @@ import DossierProjet from '../src/routes/DossierProjet';
 import Ressources from '../src/routes/Ressources';
 import Outils from '../src/routes/Outils';
 import Modeles from '../src/routes/Modeles';
+import MentionsLegales from '../src/routes/MentionsLegales';
+import Confidentialite from '../src/routes/Confidentialite';
+import TransparenceIA from '../src/routes/TransparenceIA';
+import Accessibilite from '../src/routes/Accessibilite';
 import NotFound from '../src/routes/NotFound';
 import SiteHeader from '../src/components/SiteHeader';
 import { MODULES } from '../src/modules/index';
@@ -72,6 +79,10 @@ const PAGES: Array<[string, ReactElement]> = [
   ['ressources', <Ressources />],
   ['outils', <Outils />],
   ['modeles', <Modeles />],
+  ['mentions-legales', <MentionsLegales />],
+  ['confidentialite', <Confidentialite />],
+  ['transparence-ia', <TransparenceIA />],
+  ['accessibilite', <Accessibilite />],
   ['404', <NotFound />],
   ['module-1', <M1Page />],
   ['module-2', <M2Page />],

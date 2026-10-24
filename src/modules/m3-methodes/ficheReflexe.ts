@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 export const items = [
   'Décris le besoin\u00A0: stable ou flou, avant de choisir.',
   'Choisis V si les traces et tests sont attendus.',

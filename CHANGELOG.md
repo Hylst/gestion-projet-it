@@ -1,5 +1,38 @@
 # Changelog
 
+## [1.4.0] - 2026-10-24
+
+### Conformité et partage
+
+- Source AGPL publique, fichier `LICENSE`, licence servie avec le site et en-têtes SPDX.
+- Pages `/mentions-legales`, `/confidentialite`, `/transparence-ia` et `/accessibilite`.
+- Documentation complète : architecture, sécurité, contribution, crédits et dossier de conformité.
+- Auteur, hébergement, journaux, transfert Royaume-Uni, RGPD et AI Act documentés.
+- Transparence sur l’assistance IA, les illustrations générées localement et l’absence d’IA au runtime.
+
+### Partage, SEO et PWA
+
+- Métadonnées sociales statiques, image Open Graph 1200 × 630 et carte Twitter.
+- Canonical limité à l’origine et au chemin, sans query ni fragment.
+- Icônes PNG 192/512 et icône Apple Touch.
+- Service worker v10, 25 routes et sitemap de 25 URL.
+- Routes de contenu chargées en différé avec un fallback accessible sans décalage.
+
+### Vérifié
+
+- 40 fichiers de tests, 256 tests.
+- Lint, typecheck, 56 liens relatifs, 25 routes, audit npm à 0 et build.
+- Smoke Playwright : 15/15 sur 25 routes, pages légales, impression et hors ligne.
+- Lighthouse mobile : accueil 100/100/100/100, `/modeles` 99/100/100/100.
+- Bundle initial : 292 kB minifiés, 92 kB gzip, sans avertissement de taille.
+- 24 URL externes en réponse HTTP 200.
+
+### Publication
+
+- Build : `index-BU69uoIT.js`, `index-9eoXZOKN.css`.
+- Service worker : `gestion-projet-it-v10`.
+- Docker : commit `dca956e1`, 25 routes et build identique. Smoke 15/15 sur la copie Docker.
+
 ## [1.3.0] - 2026-10-24
 
 ### Outillage

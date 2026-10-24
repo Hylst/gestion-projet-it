@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 export const items = [
   'Nomme le changement attendu en une phrase.',
   'Écoute les freins avant de défendre la solution.',

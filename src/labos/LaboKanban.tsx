@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import { useEffect, useReducer, useRef, useState } from 'react';
 import { LaboFrame } from '../components/LaboFrame';
 import { useProgress } from '../lib/progress';

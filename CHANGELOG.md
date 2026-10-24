@@ -1,5 +1,37 @@
 # Changelog
 
+## [1.2.0] - 2026-10-24
+
+### Contenu
+
+- Page `/modeles` : journal de projet guidé, revue par les pairs et six modèles imprimables.
+- Dix entrées de journal couvrant les neuf modules et le dossier projet, avec décision, suite et sauvegarde locale.
+- Grille de revue par les pairs avec critères observables, ton non défensif et aucune obligation d’outil.
+- Modèles WBS, RACI, registre des risques, plan de recette, journal de décisions et guide d’entretien.
+- Lien vers `/modeles` depuis `/outils`, recherche, sitemap et service worker mis à jour.
+
+### Qualité
+
+- Recherche étendue à six familles de synonymes métier, sans dégrader les résultats existants.
+- Script `check:liens` : liens relatifs des documents, cohérence des routes et du sitemap.
+- Budget Lighthouse documenté avec seuils, pages de référence et procédure en cas d’échec.
+- Audit d’accessibilité étendu aux pages du lot P2.
+- Service worker v7 et 21 routes publiques.
+
+### Vérifié
+
+- 39 fichiers de tests, 242 tests.
+- Lint, typecheck, contrôle des liens et build production.
+- Smoke Playwright : 14/14, 21 routes, journal local, clavier, liens internes et ressources.
+- Lighthouse mobile : accueil 99/100, `/modeles` 99/100, bonnes pratiques 100, SEO 100.
+- `npm audit` : 0 vulnérabilité.
+
+### Publication
+
+- Build : `index-CPwd5sWk.js`, `index-CdEV3cdB.css`.
+- Service worker : `gestion-projet-it-v7`.
+- Docker : commit `ba620a77`, 21 routes et build identique. Smoke 14/14 sur la copie Docker.
+
 ## [1.1.0] - 2026-10-24
 
 ### Documentation

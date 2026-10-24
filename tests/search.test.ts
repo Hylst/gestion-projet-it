@@ -68,6 +68,15 @@ describe('search', () => {
     expect(hits.some((h) => h.path === '/ia/gouvernance')).toBe(true);
   });
 
+  it('tolère quelques synonymes métier', () => {
+    const planification = searchIndex(index, 'delai');
+    expect(planification.some((h) => isModuleHit(h) && h.moduleNum === 2)).toBe(true);
+    const budget = searchIndex(index, 'prix');
+    expect(budget.some((h) => isModuleHit(h) && h.moduleNum === 8)).toBe(true);
+    const equipe = searchIndex(index, 'team');
+    expect(equipe.some((h) => isModuleHit(h) && h.moduleNum === 6)).toBe(true);
+  });
+
   it('indexe les guides et la page de ressources', () => {
     expect(index.some((h) => h.ancre === 'guide')).toBe(true);
     const guides = searchIndex(index, 'erreurs');
@@ -77,5 +86,7 @@ describe('search', () => {
     expect(ressources.find(isPageHit)?.path).toBe('/ressources');
     const outils = searchIndex(index, 'fiches');
     expect(outils.find(isPageHit)?.path).toBe('/outils');
+    const modeles = searchIndex(index, 'journal');
+    expect(modeles.find(isPageHit)?.path).toBe('/modeles');
   });
 });

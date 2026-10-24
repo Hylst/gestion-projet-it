@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Modeles from '../src/routes/Modeles';
@@ -7,6 +7,7 @@ import { ENTREES_JOURNAL, JOURNAL_STORAGE_KEY } from '../src/lib/journal';
 afterEach(() => {
   cleanup();
   localStorage.clear();
+  vi.restoreAllMocks();
 });
 
 const rendre = () => render(<MemoryRouter><Modeles /></MemoryRouter>);
@@ -29,6 +30,17 @@ describe('journal et modèles', () => {
     expect(sauvegarde.m1).toEqual({ decision: 'Décision fictive', suite: 'Suite fictive' });
     expect(screen.getByText('Enregistré localement')).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Imprimer le journal' })).toBeTruthy();
+  });
+
+  it('signale un échec de sauvegarde locale', () => {
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('QuotaExceededError');
+    });
+    rendre();
+    const champ = screen.getAllByRole('textbox')[0] as HTMLTextAreaElement;
+    fireEvent.change(champ, { target: { value: 'Décision non enregistrée' } });
+    expect(champ.value).toBe('Décision non enregistrée');
+    expect(screen.getByText(/Sauvegarde impossible/)).toBeTruthy();
   });
 
   it('affiche la revue par les pairs et les six modèles', () => {

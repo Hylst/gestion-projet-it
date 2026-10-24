@@ -551,13 +551,13 @@ Les sections 3 et 8 décrivent le MVP v1 et restent historiques. L’état livr�
 - Neuf modules avec fiche, démarche, laboratoire, exercice corrigé, quiz et fiche réflexe.
 - Dossier projet en six étapes, sauvegarde locale, export JSON, impression et auto-évaluation.
 - Section IA en cinq pages : introduction, usages, méthodes, outils et gouvernance.
-- Recherche globale avec synonymes, glossaire étendu, bibliothèque de ressources, fiches outils, journal de projet, modèles imprimables, sitemap 21 URL et service worker v7.
+- Recherche globale avec synonymes, glossaire étendu, bibliothèque de ressources, fiches outils, journal de projet, modèles imprimables, sitemap 21 URL et service worker v8.
 - Exercices de transfert dans les neuf modules et pré-mortem dans le module 6.
-- Build publié : `index-CPwd5sWk.js` et `index-CdEV3cdB.css`.
+- Build publié : `index-DPR_ZLjS.js` et `index-n7YZdwAn.css`.
 - CI GitHub Actions sur `main` et les pull requests : audit npm, lint, typecheck, contrôle des liens, tests et build.
 - Contrôle manuel : branche, PR, CI verte, fusion. La protection de branche GitHub n’est pas disponible sur l’offre gratuite pour un dépôt privé.
 
-Mise à jour du 24 octobre 2026 : les lots P0, P1 et P2 sont livrés, ainsi que le build 1.2.0 dans Docker au commit `ba620a77`.
+Mise à jour du 24 octobre 2026 : les lots P0, P1 et P2 sont livrés, ainsi que le build 1.2.1 dans Docker au commit `f161210c`.
 
 - Les neuf modules ajoutent trois erreurs fréquentes, un point de décision et des ressources qualifiées.
 - La page `/ressources` regroupe 18 ressources de modules et 6 ressources de parcours.

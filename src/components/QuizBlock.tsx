@@ -12,22 +12,25 @@ export function QuizBlock(props: { data: QuizData }) {
   const total = props.data.questions.length;
   const seuil = Math.ceil((total * 2) / 3);
   const complet = repondu.every((r) => r !== null);
-  const [verdict, setVerdict] = React.useState<null | string>(null);
   const [gagne, setGagne] = React.useState(false);
 
-  React.useEffect(() => {
-    if (complet) {
-      const s = `${bonnes} sur ${total} bonnes réponses. ${deja ? 'Gain déjà reçu pour ce quiz.' : bonnes >= seuil ? '+10 XP' : `Moins de ${seuil} sur ${total}\u00A0: pas de gain, tu peux recommencer.`}`;
-      setVerdict(s);
-      if (bonnes >= seuil && !deja) {
-        p.dispatch({ type: 'quiz', id: props.data.id, correctes: bonnes, total });
+  const choisir = (i: number, j: number) => {
+    const suivant = repondu.map((v, k) => (k === i ? j : v));
+    setRepondu(suivant);
+    if (suivant.every((r) => r !== null) && !deja) {
+      const resultat = props.data.questions.filter((q, k) => suivant[k] === q.bonne).length;
+      if (resultat >= seuil) {
+        p.dispatch({ type: 'quiz', id: props.data.id, correctes: resultat, total });
         setGagne(true);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [complet]);
+  };
 
-  const reset = () => { setRepondu(props.data.questions.map(() => null)); setVerdict(null); setGagne(false); };
+  const verdict = complet
+    ? `${bonnes} sur ${total} bonnes réponses. ${gagne ? '+10 XP' : deja ? 'Gain déjà reçu pour ce quiz.' : bonnes >= seuil ? '+10 XP' : `Moins de ${seuil} sur ${total}\u00A0: pas de gain, tu peux recommencer.`}`
+    : null;
+
+  const reset = () => { setRepondu(props.data.questions.map(() => null)); setGagne(false); };
 
   return (
     <section id="quiz" className="quiz" aria-labelledby="quiz-t">
@@ -37,7 +40,7 @@ export function QuizBlock(props: { data: QuizData }) {
           <legend>{`Q${i + 1}.${q.question}`}</legend>
           {q.choix.map((c, j) => (
             <div key={j} className="choix">
-              <input type="radio" name={`q-${i}`} id={`q-${i}-${j}`} value={j} checked={repondu[i] === j} onChange={() => setRepondu((r) => r.map((v, k) => (k === i ? j : v)))} />
+              <input type="radio" name={`q-${i}`} id={`q-${i}-${j}`} value={j} checked={repondu[i] === j} onChange={() => choisir(i, j)} />
               <label htmlFor={`q-${i}-${j}`}>{c}</label>
             </div>
           ))}

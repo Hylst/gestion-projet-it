@@ -6,7 +6,7 @@ export default function SearchBar() {
   const [q, setQ] = React.useState('');
   const [ouverte, setOuverte] = React.useState(false);
   const [actif, setActif] = React.useState(-1);
-  const [cible, setCible] = React.useState<{ path: string; ancre: string } | null>(null);
+  const cible = React.useRef<{ path: string; ancre: string } | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
   const index = React.useMemo(() => buildIndex(), []);
@@ -14,11 +14,11 @@ export default function SearchBar() {
   const visibles = hits.slice(0, 10);
 
   React.useEffect(() => {
-    if (!cible || location.pathname !== cible.path) return;
-    const element = document.getElementById(cible.ancre);
-    if (element) element.scrollIntoView();
-    setCible(null);
-  }, [cible, location.pathname]);
+    const c = cible.current;
+    if (!c || location.pathname !== c.path) return;
+    document.getElementById(c.ancre)?.scrollIntoView();
+    cible.current = null;
+  }, [location.pathname]);
 
   const aller = (hit: SearchHit) => {
     setOuverte(false);
@@ -28,7 +28,7 @@ export default function SearchBar() {
       document.getElementById(hit.ancre)?.scrollIntoView();
       return;
     }
-    setCible({ path: hit.path, ancre: hit.ancre });
+    cible.current = { path: hit.path, ancre: hit.ancre };
     navigate(hit.path);
   };
 

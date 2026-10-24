@@ -14,7 +14,7 @@ Application 100 % front, sans compte, sans cookie, sans backend et sans requête
 
 ## Démarrage
 
-Prérequis : Node.js 22.12 ou plus récent, npm.
+Prérequis : Node.js 22.22.2 ou plus récent, npm.
 
 ```bash
 npm ci

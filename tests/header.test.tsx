@@ -43,6 +43,7 @@ describe('en-tete', () => {
       ['/glossaire', 'Glossaire'],
       ['/dossier-projet', 'Dossier projet'],
       ['/ressources', 'Ressources'],
+      ['/outils', 'Outils'],
       ['/ia', 'IA'],
       ['/ia/usages', 'IA'],
       ['/module-6', null],

@@ -5,18 +5,19 @@ import { MODULES } from '../src/modules/index';
 import { IA_PAGES } from '../src/ia/pages';
 
 const base = process.env.SMOKE_BASE_URL ?? 'http://localhost:4173/gestion-projet-it';
-const routes = ['/', '/ia', '/ia/usages', '/ia/methodes', '/ia/outils-configuration', '/ia/gouvernance', '/dossier-projet', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/module-8', '/module-9', '/a-propos', '/glossaire', '/ressources'];
+const routes = ['/', '/ia', '/ia/usages', '/ia/methodes', '/ia/outils-configuration', '/ia/gouvernance', '/dossier-projet', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/module-8', '/module-9', '/a-propos', '/glossaire', '/ressources', '/outils'];
 const routeTitres: Record<string, string> = {
   '/': 'Gérer un projet informatique, pas à pas',
   '/dossier-projet': 'Dossier projet',
   '/a-propos': 'À propos du projet',
   '/glossaire': 'Glossaire',
   '/ressources': 'Ressources et outils',
+  '/outils': 'Fiches outils',
   ...Object.fromEntries(MODULES.map((m) => [`/${m.slug}`, m.titre])),
   ...Object.fromEntries(IA_PAGES.map((p) => [p.path, p.titre])),
 };
 
-test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 19 routes, zero erreur', async ({ page }) => {
+test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 20 routes, zero erreur', async ({ page }) => {
   const externals: string[] = [];
   const failures: string[] = [];
   const badStatus: string[] = [];
@@ -46,7 +47,7 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 19
     expect(res.status(), a).toBe(200);
   }
   const swBody = await (await page.request.get(`${base}/sw.js`)).text();
-  expect(swBody).toContain("const version = 'gestion-projet-it-v5';");
+  expect(swBody).toContain("const version = 'gestion-projet-it-v6';");
 
   expect(externals).toEqual([]);
   expect(failures).toEqual([]);
@@ -96,6 +97,25 @@ test('ressources : liens externes et focus clavier', async ({ page }) => {
   await expect(premier).toHaveAttribute('rel', 'noopener noreferrer');
   await page.keyboard.press('Tab');
   await expect(page.locator(':focus')).toBeVisible();
+});
+
+test('outils : navigation clavier et grille', async ({ page }) => {
+  await page.goto(`${base}/outils`);
+  const lien = page.getByRole('link', { name: 'Accessibilité et qualité' }).first();
+  await lien.focus();
+  await expect(lien).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.locator(':focus')).toBeVisible();
+  await expect(page.getByRole('table')).toBeVisible();
+});
+
+test('module 6 : le lien pré-mortem fonctionne au clavier', async ({ page }) => {
+  await page.goto(`${base}/module-6`);
+  const lien = page.locator('.sommaire a[href="#pre-mortem"]');
+  await lien.focus();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/#pre-mortem$/);
+  await expect(page.locator('#pre-mortem')).toBeVisible();
 });
 
 test('labo Eisenhower : depot au clavier et retour du focus', async ({ page }) => {

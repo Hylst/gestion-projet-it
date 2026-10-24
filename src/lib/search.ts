@@ -92,6 +92,15 @@ export function buildIndex(): SearchHit[] {
     label: 'Ressources et outils',
     needles: normaliser('ressources outils bibliotheque sources documents liens'),
   });
+  out.push({
+    type: 'page',
+    path: '/outils',
+    pageTitre: 'Fiches outils',
+    section: 'Grille de comparaison',
+    ancre: '',
+    label: 'Fiches outils',
+    needles: normaliser('fiches outils criteres comparaison suivi documentation diagrammes tests securite accessibilite'),
+  });
   return out;
 }
 

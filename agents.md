@@ -12,10 +12,11 @@ puis ce fichier, puis les conventions du dépôt de déploiement.
 - Stack : Vite + React + TypeScript, SPA, 100 % front, sans compte,
   sans cookie, sans backend. Progression en `localStorage`
   (clés `gestion-projet-it:*`), export et import JSON.
-- État livré : 9 modules avec erreurs fréquentes et points de décision,
-  dossier projet en 6 étapes, section IA en 5 pages, bibliothèque de
-  ressources en 19 routes. Les parcours Produit et Cybersécurité sont
-  au backlog, pas encore implémentés.
+- État livré : 9 modules avec erreurs fréquentes, points de décision et
+  exercices de transfert, dossier projet en 6 étapes, section IA en
+  5 pages, bibliothèque de ressources et fiches outils en 20 routes.
+  Les parcours Produit et Cybersécurité sont au backlog, pas encore
+  implémentés.
 - Licence AGPL-3.0-or-later. Paternité : réalisé par Geoffroy avec
   assistance IA (mentions : footer, page À propos).
 

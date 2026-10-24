@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.5.0] - 2026-10-24
+
+### Design éditorial
+
+- Système de couleurs par module, surfaces teintées, bordures d’accent et ombres mesurées.
+- Accueil refondu : hero plus graphique, statistiques et cartes de modules avec identité propre.
+- Pages module : en-tête coloré, sommaire sticky, sections en cartes, fiche découpée en blocs.
+- Erreurs fréquentes en détails natifs, corrigés dépliables et survols des cartes, tableaux et ressources.
+- Pages IA, outils, ressources, modèles, glossaire, À propos, légales et dossier projet alignées sur le même langage visuel.
+- Thème clair uniquement, contrastes AA, focus clavier et mouvement réduit conservés.
+
+### Vérifié
+
+- 40 fichiers de tests, 256 tests.
+- Lint, typecheck, 58 liens relatifs, 25 routes, audit npm à 0 et build.
+- Smoke Playwright : 15/15 sur 25 routes, impression, hors ligne et pages légales.
+- Lighthouse mobile : accueil 100/100/100/100, `/module-1` 99/100/100/100, `/modeles` 99/100/100/100.
+- Bundle initial : 292 kB minifiés, 92 kB gzip ; CSS 42 kB, sans avertissement Vite.
+
+### Publication
+
+- Build : `index-CSOg-N2L.js`, `index-PPGPK_P4.css`.
+- Service worker : `gestion-projet-it-v11`.
+- Docker : commit `008f33e2`, 25 routes et build identique. Smoke 15/15 sur la copie Docker.
+
 ## [1.4.0] - 2026-10-24
 
 ### Conformité et partage

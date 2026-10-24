@@ -10,6 +10,7 @@ Application 100 % front, sans compte, sans cookie, sans backend et sans requête
 - 1 dossier projet en 6 étapes, avec sauvegarde locale, export JSON, impression et auto-évaluation.
 - 5 pages IA : introduction, usages, méthodes, outils et gouvernance.
 - 25 routes publiques, recherche globale avec synonymes, glossaire étendu, bibliothèque de ressources, fiches outils, journal de projet, modèles imprimables et pages légales.
+- Design éditorial coloré : thèmes par module, cartes de section, sommaire sticky et contenus secondaires dépliables.
 - Deux parcours futurs sont cadrés dans le backlog : Produit et Cybersécurité. Ils ne sont pas encore implémentés.
 
 ## Démarrage

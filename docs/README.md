@@ -23,6 +23,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-10-22 | [Section IA](superpowers/specs/2026-10-22-ia-gestion-projet-design.md) | Livré | Cinq pages IA |
 | 2026-10-23 | [Enrichissements et backlog](superpowers/specs/2026-10-23-enrichissements-design.md) | Livré | Documentation et cadrage du prochain cycle |
 | 2026-10-24 | [Audit éditorial des neuf modules](superpowers/specs/2026-10-24-audit-editorial-modules.md) | Livré | Manques, doublons et actions par module |
+| 2026-10-24 | [Design éditorial coloré](superpowers/specs/2026-10-24-refonte-editoriale-design.md) | Livré | Couleurs, structure et interactions |
 
 ## Plans
 
@@ -39,6 +40,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-10-24 | [Plan enrichissements P1](superpowers/plans/2026-10-24-enrichissements-p1.md) | Livré | Exercices, glossaire, pré-mortem, outils |
 | 2026-10-24 | [Plan enrichissements P2](superpowers/plans/2026-10-24-enrichissements-p2.md) | Livré | Journal, modèles, synonymes et qualité |
 | 2026-10-24 | [Plan partage public 1.4.0](superpowers/plans/2026-10-24-partage-public-1.4.0.md) | Livré | RGPD, AI Act, source publique, partage social |
+| 2026-10-24 | [Plan refonte éditoriale 1.5.0](superpowers/plans/2026-10-24-refonte-editoriale-1.5.0.md) | Livré | Couleurs, cartes, détails et interactions |
 
 ## Politique
 

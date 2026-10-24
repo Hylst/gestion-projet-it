@@ -12,10 +12,12 @@ export function ModuleGuide({ data, moduleNum }: { data: ModuleGuideData; module
       <h3>Erreurs fréquentes</h3>
       <ul className="guide-erreurs">
         {data.erreurs.map((erreur) => (
-          <li key={erreur.titre} className="guide-erreur card">
-            <strong>{erreur.titre}</strong>
-            <p><span className="guide-label">Conséquence</span> {erreur.consequence}</p>
-            <p><span className="guide-label">Correction</span> {erreur.correction}</p>
+          <li key={erreur.titre}>
+            <details className="guide-erreur">
+              <summary>{erreur.titre}<span className="detail-chevron" aria-hidden="true">⌄</span></summary>
+              <p><span className="guide-label">Conséquence</span> {erreur.consequence}</p>
+              <p><span className="guide-label">Correction</span> {erreur.correction}</p>
+            </details>
           </li>
         ))}
       </ul>

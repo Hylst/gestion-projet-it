@@ -1,5 +1,5 @@
 const BASE = '/gestion-projet-it/';
-const version = 'gestion-projet-it-v8';
+const version = 'gestion-projet-it-v9';
 const precache = [
   `${BASE}`, `${BASE}offline.html`, `${BASE}manifest.webmanifest`,
 ];

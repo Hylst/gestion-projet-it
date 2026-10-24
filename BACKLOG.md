@@ -15,6 +15,7 @@
 - **Livré** : présent dans le dépôt.
 - **En revue** : rédigé, en attente de PR et CI.
 - **Prêt** : assez précis pour être planifié.
+- **En attente** : dépend d’un contenu ou d’un parcours non encore ouvert.
 - **Candidat** : idée validée mais pas encore découpée.
 
 Chaque item doit rester compatible avec les non-objectifs du projet. Un item qui exige un backend, un compte, un cookie, une ressource chargée automatiquement ou une dépendance runtime est écarté.
@@ -339,11 +340,11 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 ## Qualité et plateforme
 
 ### QUA-001 Audit WCAG 2.2 AA
-`P1` · `M` · `En cours`
+`P1` · `M` · `En attente`
 **Résultat :** audit des nouvelles pages et parcours.
 **Acceptation :** contrastes, structure, labels, focus, clavier et messages d’erreur.
-**Preuve :** `docs/accessibilite/audit-2026-10-24.md`, smoke 14/14 et Lighthouse 100 en accessibilité sur les pages contrôlées. Les pages des lots P0, P1 et P2 sont auditées ; le volet parcours reste à faire à leur ouverture.
-**Vigilance :** ne pas se limiter à Lighthouse.
+**Preuve :** `docs/accessibilite/audit-2026-10-24.md`, smoke 15/15 et Lighthouse 100 en accessibilité sur les pages contrôlées. Les pages des lots P0, P1 et P2 sont auditées ; la checklist des parcours est dans `docs/accessibilite/checklist-parcours.md`.
+**Vigilance :** ne pas se limiter à Lighthouse. Le point reste en attente de l’ouverture des parcours Produit et Cybersécurité.
 
 ### QUA-002 Parcours clavier et focus
 `P1` · `S` · `Livré`
@@ -363,7 +364,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 `P2` · `M` · `Livré`
 **Résultat :** un contrôle scripté des liens internes et de la cohérence des routes.
 **Acceptation :** liens relatifs, routes et sitemap contrôlés ; les URL externes restent vérifiées manuellement et datées.
-**Preuve :** `scripts/check-liens.mjs`, 41 liens relatifs, 21 routes et sitemap strictement cohérent, 24 URL externes en HTTP 200, exécution en CI.
+**Preuve :** `scripts/check-liens.mjs`, 42 liens relatifs, 21 routes et sitemap strictement cohérent, 24 URL externes en HTTP 200, exécution en CI.
 **Vigilance :** ne pas ajouter de requête réseau au runtime de l’application.
 
 ### QUA-005 Recherche avec synonymes

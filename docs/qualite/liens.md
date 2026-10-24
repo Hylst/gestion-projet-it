@@ -30,7 +30,7 @@ Une URL externe est revue lors de l’ajout, du changement de version ou de la r
 
 | Contrôle | Résultat |
 | --- | --- |
-| Liens Markdown relatifs | 41 contrôlés, 0 cassé |
+| Liens Markdown relatifs | 42 contrôlés, 0 cassé |
 | Routes publiques | 21 |
 | URL du sitemap | 21, aucune en double |
 | URL externes | 24 sur 24 en HTTP 200 |

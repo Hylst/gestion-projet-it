@@ -8,6 +8,7 @@ import { MODULES } from '../src/modules/index';
 import { IA_PAGES } from '../src/ia/pages';
 
 const base = process.env.SMOKE_BASE_URL ?? 'http://localhost:4173/gestion-projet-it';
+const baseOrigin = new URL(base).origin;
 const routes = ['/', '/ia', '/ia/usages', '/ia/methodes', '/ia/outils-configuration', '/ia/gouvernance', '/dossier-projet', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/module-8', '/module-9', '/a-propos', '/glossaire', '/ressources', '/outils', '/modeles', '/mentions-legales', '/confidentialite', '/transparence-ia', '/accessibilite'];
 const routeTitres: Record<string, string> = {
   '/': 'Gérer un projet informatique, pas à pas',
@@ -30,7 +31,7 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 25
   const failures: string[] = [];
   const badStatus: string[] = [];
   const consoleErrors: string[] = [];
-  page.on('request', (r) => { const u = r.url(); if (u.startsWith('http') && !u.startsWith('http://127.0.0.1') && !u.startsWith('http://localhost')) externals.push(u); });
+  page.on('request', (r) => { const u = new URL(r.url()); if (u.protocol.startsWith('http') && u.origin !== baseOrigin) externals.push(r.url()); });
   page.on('requestfailed', (r) => failures.push(r.url()));
   page.on('response', (r) => { if (r.status() >= 400) badStatus.push(`${r.status()} ${r.url()}`); });
   page.on('console', (m) => { if (m.type() === 'error') consoleErrors.push(m.text()); });
@@ -50,7 +51,7 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 25
     await expect(page.locator('#contenu h1').first()).toHaveText(routeTitres[r] as string);
   }
 
-  for (const a of ['manifest.webmanifest', 'sw.js', 'sitemap.xml', 'robots.txt', 'offline.html', 'icon-192.svg', 'icon-512.svg']) {
+  for (const a of ['manifest.webmanifest', 'sw.js', 'sitemap.xml', 'robots.txt', 'offline.html', 'icon-192.svg', 'icon-512.svg', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png', 'og-image.png', 'LICENSE.txt']) {
     const res = await page.request.get(`${base}/${a}`);
     expect(res.status(), a).toBe(200);
   }

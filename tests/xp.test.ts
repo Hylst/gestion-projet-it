@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import { describe, it, expect } from 'vitest';
 import { XPQuiz, XPLabo, XPModule, NIVEAUX, niveauPour, reduireXP, loadXPState, saveXPState } from '../src/lib/xp';
 

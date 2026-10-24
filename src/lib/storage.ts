@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 const PREFIX = 'gestion-projet-it:';
 export const X_KEY = `${PREFIX}xp`;
 export const quizKey = (id: string) => `${PREFIX}quiz:done:${id}`;

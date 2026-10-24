@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 export const Fiche = () => (
   <section id="fiche" aria-labelledby="fiche-t">
     <h2 id="fiche-t">Fiche&nbsp;: suivi, CI/CD et environnements</h2>

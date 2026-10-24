@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import { MODULES } from '../modules/index';
 import { IA_PAGES } from '../ia/pages';
 
@@ -126,6 +129,42 @@ export function buildIndex(): SearchHit[] {
     ancre: '',
     label: 'Journal et modèles',
     needles: normaliser('journal modeles revue pairs imprimable wbs raci risques recette decisions entretien'),
+  });
+  out.push({
+    type: 'page',
+    path: '/mentions-legales',
+    pageTitre: 'Mentions légales',
+    section: 'Informations légales',
+    ancre: '',
+    label: 'Mentions légales',
+    needles: normaliser('mentions legales editeur hebergeur hostinger source licence contact'),
+  });
+  out.push({
+    type: 'page',
+    path: '/confidentialite',
+    pageTitre: 'Confidentialité',
+    section: 'Données personnelles',
+    ancre: '',
+    label: 'Confidentialité',
+    needles: normaliser('confidentialite rgpd donnees personnelles journaux cookies stockage local droits cnil'),
+  });
+  out.push({
+    type: 'page',
+    path: '/transparence-ia',
+    pageTitre: 'Transparence IA',
+    section: 'IA et contenus',
+    ancre: '',
+    label: 'Transparence IA',
+    needles: normaliser('transparence ia intelligence artificielle illustrations z-image assistant code textes ai act'),
+  });
+  out.push({
+    type: 'page',
+    path: '/accessibilite',
+    pageTitre: 'Accessibilité',
+    section: 'WCAG',
+    ancre: '',
+    label: 'Accessibilité',
+    needles: normaliser('accessibilite wcag clavier contraste focus labels'),
   });
   return out;
 }

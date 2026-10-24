@@ -1,5 +1,8 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 const BASE = '/gestion-projet-it/';
-const version = 'gestion-projet-it-v9';
+const version = 'gestion-projet-it-v10';
 const precache = [
   `${BASE}`, `${BASE}offline.html`, `${BASE}manifest.webmanifest`,
 ];

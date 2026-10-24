@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { buildIndex, searchIndex, type SearchHit } from '../lib/search';
@@ -16,8 +19,24 @@ export default function SearchBar() {
   React.useEffect(() => {
     const c = cible.current;
     if (!c || location.pathname !== c.path) return;
-    document.getElementById(c.ancre)?.scrollIntoView();
-    cible.current = null;
+    let annule = false;
+    let essais = 0;
+    let minuteur = 0;
+    const chercher = () => {
+      if (annule) return;
+      const element = document.getElementById(c.ancre);
+      if (element) {
+        element.scrollIntoView();
+        cible.current = null;
+        return;
+      }
+      if (essais++ < 40) minuteur = window.setTimeout(chercher, 50);
+    };
+    chercher();
+    return () => {
+      annule = true;
+      window.clearTimeout(minuteur);
+    };
   }, [location.pathname]);
 
   const aller = (hit: SearchHit) => {

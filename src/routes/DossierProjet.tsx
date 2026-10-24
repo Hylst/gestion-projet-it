@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { SeoHead } from '../components/SeoHead';
 import { CapstoneStepper } from '../components/capstone/CapstoneStepper';

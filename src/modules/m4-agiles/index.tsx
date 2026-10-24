@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import { ModuleLayout } from '../../components/ModuleLayout';
 import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';

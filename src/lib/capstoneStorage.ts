@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import { etatInitialDossier, validerDossier, type DossierProjetState } from './capstone';
 
 export const DOSSIER_STORAGE_KEY = 'gestion-projet-it:dossier-projet:v1';

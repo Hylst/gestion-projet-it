@@ -9,12 +9,12 @@ Application 100 % front, sans compte, sans cookie, sans backend et sans requête
 - 9 modules avec fiche, démarche, laboratoire interactif, exercice corrigé, exercice de transfert, quiz, erreurs fréquentes, point de décision et fiche réflexe.
 - 1 dossier projet en 6 étapes, avec sauvegarde locale, export JSON, impression et auto-évaluation.
 - 5 pages IA : introduction, usages, méthodes, outils et gouvernance.
-- 21 routes publiques, recherche globale avec synonymes, glossaire étendu, bibliothèque de ressources, fiches outils, journal de projet et modèles imprimables.
+- 25 routes publiques, recherche globale avec synonymes, glossaire étendu, bibliothèque de ressources, fiches outils, journal de projet, modèles imprimables et pages légales.
 - Deux parcours futurs sont cadrés dans le backlog : Produit et Cybersécurité. Ils ne sont pas encore implémentés.
 
 ## Démarrage
 
-Prérequis : Node.js 22.22.2 ou plus récent, npm.
+Prérequis : Node.js 22.22.2 LTS, 24.15 ou plus, ou 26 ou plus, npm.
 
 ```bash
 npm ci
@@ -34,6 +34,7 @@ Le serveur de développement Vite affiche l’application avec le préfixe `/ges
 | `npm run lint` | ESLint |
 | `npm run typecheck` | Vérification TypeScript |
 | `npm run check:liens` | Liens documentaires et cohérence routes/sitemap |
+| `npm run images` | Régénère l’image de partage et les icônes PNG |
 | `npm run smoke` | Smoke Playwright, après un preview |
 
 Le smoke utilise le build et un serveur de prévisualisation. Pour un port différent :
@@ -60,6 +61,10 @@ SMOKE_BASE_URL=http://127.0.0.1:4182/gestion-projet-it npm run smoke
 | `/outils` | Fiches outils et grille de comparaison |
 | `/modeles` | Journal de projet, revue par les pairs et modèles imprimables |
 | `/a-propos` | Paternité, licence et confidentialité |
+| `/mentions-legales` | Éditeur, hébergeur, source et licence |
+| `/confidentialite` | Données, journaux, cookies et droits RGPD |
+| `/transparence-ia` | Assistance IA, illustrations et AI Act |
+| `/accessibilite` | Démarche WCAG 2.2 AA et contact |
 
 ## Architecture
 
@@ -75,7 +80,7 @@ src/
 public/
   manifest, service worker, sitemap, offline
 docs/
-  specs et plans des cycles
+  specs, plans, conformité et qualité
 smoke/              parcours Playwright
 tests/              tests unitaires et de composants
 ```
@@ -91,6 +96,8 @@ Le routeur utilise `basename="/gestion-projet-it/"`. Le build utilise `--base=/g
 - Export JSON côté navigateur.
 - Aucune ressource distante, fonte distante, image distante ou requête réseau au chargement.
 - Les liens de sources externes ne s’ouvrent qu’après une action de l’utilisateur.
+- Les journaux Nginx, les emails et les droits RGPD sont détaillés dans [`docs/conformite/registre-traitements.md`](docs/conformite/registre-traitements.md) et sur `/confidentialite`.
+- Aucune IA n’est exécutée au chargement ; l’assistance IA porte sur la création du code, des textes et des illustrations.
 
 ## Qualité
 
@@ -104,15 +111,15 @@ Avant une publication :
 6. smoke Playwright
 7. Lighthouse mobile sur l’accueil et les pages de référence
 
-Le budget Lighthouse et la procédure de contrôle sont documentés dans [`docs/qualite/lighthouse.md`](docs/qualite/lighthouse.md). Le périmètre du contrôle des liens est décrit dans [`docs/qualite/liens.md`](docs/qualite/liens.md).
+Le budget Lighthouse et la procédure de contrôle sont documentés dans [`docs/qualite/lighthouse.md`](docs/qualite/lighthouse.md). Le périmètre du contrôle des liens est décrit dans [`docs/qualite/liens.md`](docs/qualite/liens.md). La checklist de partage est dans [`docs/qualite/partage.md`](docs/qualite/partage.md).
 
 La CI GitHub Actions exécute l’audit npm, lint, typecheck, contrôle des liens, tests et build sur `main` et sur les pull requests. Dependabot propose les mises à jour npm et GitHub Actions une fois par semaine.
 
 ## Contribution
 
-Dépôt source : `https://github.com/Hylst/gestion-projet-it`, privé.
+Dépôt source public : `https://github.com/Hylst/gestion-projet-it`.
 
-Le contrôle de branche GitHub n’est pas disponible sur l’offre gratuite pour un dépôt privé. La convention du projet reste :
+La convention du projet reste :
 
 1. créer une branche ;
 2. ouvrir une pull request ;
@@ -129,7 +136,14 @@ Ne jamais committer de secret, de clé, de jeton, `node_modules/`, `dist/`, `tes
 - [docs/sources.md](docs/sources.md) : politique de sources et de veille.
 - [cahier_des_charges.md](cahier_des_charges.md) : vision et contraintes durables.
 - [agents.md](agents.md) : règles de collaboration et conventions techniques.
+- [ARCHITECTURE.md](ARCHITECTURE.md) : stack, routes, données locales et déploiement.
+- [CREDITS.md](CREDITS.md) : auteur, assistance IA et provenance des illustrations.
+- [SECURITY.md](SECURITY.md) : signalement et règles de sécurité.
+- [CONTRIBUTING.md](CONTRIBUTING.md) : contribution, licence et vérifications.
+- [docs/conformite/](docs/conformite/) : RGPD, AI Act, transferts UK et provenance.
 
 ## Licence
 
-AGPL-3.0-or-later. Réalisé par Geoffroy avec assistance IA.
+AGPL-3.0-or-later. Réalisé par Geoffroy Streit avec assistance IA. Le code et les textes sont documentés dans le dépôt public. Les illustrations sont générées par IA en local et décrites dans `CREDITS.md`.
+
+Hébergement : Hostinger International Limited, serveur au Royaume-Uni, Coolify et Nginx statique.

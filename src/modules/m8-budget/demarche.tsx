@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 export const Demarche = () => (
   <section id="demarche" aria-labelledby="demarche-t">
     <h2 id="demarche-t">Démarche en 5 gestes</h2>

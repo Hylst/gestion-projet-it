@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 export function PreMortem() {
   return (
     <section id="pre-mortem" aria-labelledby="pre-mortem-t">

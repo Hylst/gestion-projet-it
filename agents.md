@@ -8,18 +8,19 @@ puis ce fichier, puis les conventions du dépôt de déploiement.
 - Nom : Gestion de Projet IT. Source : ce dossier
   (`D:\0CODE\OpenCode\gestion-projet-it`). Build déposé dans
   `D:\0CODE\AntiGravity\Cours_Memos\Docker\gestion-projet-it/`.
-- Dépôt source : `https://github.com/Hylst/gestion-projet-it`, privé.
+- Dépôt source public : `https://github.com/Hylst/gestion-projet-it`.
 - Stack : Vite + React + TypeScript, SPA, 100 % front, sans compte,
   sans cookie, sans backend. Progression en `localStorage`
   (clés `gestion-projet-it:*`), export et import JSON.
 - État livré : 9 modules avec erreurs fréquentes, points de décision et
   exercices de transfert, dossier projet en 6 étapes, section IA en
   5 pages, bibliothèque de ressources, fiches outils, journal et modèles
-  imprimables en 21 routes.
+  imprimables, pages légales et transparence IA en 25 routes.
   Les parcours Produit et Cybersécurité sont au backlog, pas encore
   implémentés.
-- Licence AGPL-3.0-or-later. Paternité : réalisé par Geoffroy avec
-  assistance IA (mentions : footer, page À propos).
+- Licence AGPL-3.0-or-later. Paternité : réalisé par Geoffroy Streit avec
+  assistance IA. Illustrations générées par IA en local (mentions : footer,
+  page À propos, CREDITS et page Transparence IA).
 
 ## Documentation
 
@@ -80,7 +81,7 @@ port dédié et `SMOKE_BASE_URL`.
 ## Conventions techniques
 
 - Router : `basename="/gestion-projet-it/"`. Build : `--base=/gestion-projet-it/`.
-- Canonical et `og:url` par route depuis `window.location.href`.
+- Canonical et `og:url` par route depuis `origin + pathname` sans query ni fragment.
 - Aucun script inline ni handler inline (CSP `script-src 'self'`).
   Styles : classes ou `style-src 'unsafe-inline'` toléré.
 - Autonomie assets : fontes woff2 latin locales (`font-display: swap`),

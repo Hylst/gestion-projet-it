@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 export interface ModuleMeta { id: string; num: number; slug: string; titre: string; resume: string; motsCles: string[]; avenir?: boolean }
 export const MODULES: ModuleMeta[] = [
   { id: 'm1-wbs', num: 1, slug: 'module-1', titre: 'Cadrer et découper (WBS)', resume: 'Besoin, périmètre dedans dehors, WBS en 3 lots, jalons, définition de fini.', motsCles: ['wbs', 'cadrage', 'perimetre', 'lots', 'jalons', 'decoupage'] },

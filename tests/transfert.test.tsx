@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import { afterEach, describe, expect, it } from 'vitest';
 import type { ReactElement } from 'react';
 import { cleanup, render, within } from '@testing-library/react';

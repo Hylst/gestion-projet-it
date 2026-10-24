@@ -1,30 +1,39 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+import { Suspense, lazy } from 'react';
 import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
 import SiteHeader from './components/SiteHeader';
 import Footer from './components/Footer';
-import NotFound from './routes/NotFound';
 import Accueil from './routes/accueil';
-import Apropos from './routes/Apropos';
-import Glossaire from './routes/Glossaire';
-import DossierProjet from './routes/DossierProjet';
-import Ressources from './routes/Ressources';
-import Outils from './routes/Outils';
-import Modeles from './routes/Modeles';
-import { IaHubPage } from './ia/content/Hub';
-import { IaUsagesPage } from './ia/content/Usages';
-import { IaMethodesPage } from './ia/content/Methodes';
-import { IaOutilsPage } from './ia/content/OutilsConfiguration';
-import { IaGouvernancePage } from './ia/content/Gouvernance';
 import { moduleMetaByNum } from './modules/index';
-import { M1Page } from './modules/m1-wbs';
-import { M2Page } from './modules/m2-planif';
-import { M3Page } from './modules/m3-methodes';
-import { M4Page } from './modules/m4-agiles';
-import { M5Page } from './modules/m5-outils';
-import { M6Page } from './modules/m6-equipe';
-import { M7Page } from './modules/m7-parties';
-import { M8Page } from './modules/m8-budget';
-import { M9Page } from './modules/m9-changement';
 import './styles/reveal.css';
+
+const NotFound = lazy(() => import('./routes/NotFound'));
+const Apropos = lazy(() => import('./routes/Apropos'));
+const Glossaire = lazy(() => import('./routes/Glossaire'));
+const DossierProjet = lazy(() => import('./routes/DossierProjet'));
+const Ressources = lazy(() => import('./routes/Ressources'));
+const Outils = lazy(() => import('./routes/Outils'));
+const Modeles = lazy(() => import('./routes/Modeles'));
+const MentionsLegales = lazy(() => import('./routes/MentionsLegales'));
+const Confidentialite = lazy(() => import('./routes/Confidentialite'));
+const TransparenceIA = lazy(() => import('./routes/TransparenceIA'));
+const Accessibilite = lazy(() => import('./routes/Accessibilite'));
+const IaHubPage = lazy(() => import('./ia/content/Hub').then((m) => ({ default: m.IaHubPage })));
+const IaUsagesPage = lazy(() => import('./ia/content/Usages').then((m) => ({ default: m.IaUsagesPage })));
+const IaMethodesPage = lazy(() => import('./ia/content/Methodes').then((m) => ({ default: m.IaMethodesPage })));
+const IaOutilsPage = lazy(() => import('./ia/content/OutilsConfiguration').then((m) => ({ default: m.IaOutilsPage })));
+const IaGouvernancePage = lazy(() => import('./ia/content/Gouvernance').then((m) => ({ default: m.IaGouvernancePage })));
+const M1Page = lazy(() => import('./modules/m1-wbs').then((m) => ({ default: m.M1Page })));
+const M2Page = lazy(() => import('./modules/m2-planif').then((m) => ({ default: m.M2Page })));
+const M3Page = lazy(() => import('./modules/m3-methodes').then((m) => ({ default: m.M3Page })));
+const M4Page = lazy(() => import('./modules/m4-agiles').then((m) => ({ default: m.M4Page })));
+const M5Page = lazy(() => import('./modules/m5-outils').then((m) => ({ default: m.M5Page })));
+const M6Page = lazy(() => import('./modules/m6-equipe').then((m) => ({ default: m.M6Page })));
+const M7Page = lazy(() => import('./modules/m7-parties').then((m) => ({ default: m.M7Page })));
+const M8Page = lazy(() => import('./modules/m8-budget').then((m) => ({ default: m.M8Page })));
+const M9Page = lazy(() => import('./modules/m9-changement').then((m) => ({ default: m.M9Page })));
 
 function ModulePlaceholder() {
   const { num } = useParams() as { num: string };
@@ -38,31 +47,37 @@ export default function App() {
     <BrowserRouter basename="/gestion-projet-it/">
       <SiteHeader />
       <main id="contenu">
-        <Routes>
-          <Route path="/" element={<Accueil />} />
-          <Route path="/module-1" element={<M1Page />} />
-          <Route path="/module-2" element={<M2Page />} />
-          <Route path="/module-3" element={<M3Page />} />
-          <Route path="/module-4" element={<M4Page />} />
-          <Route path="/module-5" element={<M5Page />} />
-          <Route path="/module-6" element={<M6Page />} />
-          <Route path="/module-7" element={<M7Page />} />
-          <Route path="/module-8" element={<M8Page />} />
-          <Route path="/module-9" element={<M9Page />} />
-          <Route path="/dossier-projet" element={<DossierProjet />} />
-          <Route path="/ia" element={<IaHubPage />} />
-          <Route path="/ia/usages" element={<IaUsagesPage />} />
-          <Route path="/ia/methodes" element={<IaMethodesPage />} />
-          <Route path="/ia/outils-configuration" element={<IaOutilsPage />} />
-          <Route path="/ia/gouvernance" element={<IaGouvernancePage />} />
-          <Route path="/module-:num" element={<ModulePlaceholder />} />
-          <Route path="/a-propos" element={<Apropos />} />
-          <Route path="/glossaire" element={<Glossaire />} />
-          <Route path="/ressources" element={<Ressources />} />
-          <Route path="/outils" element={<Outils />} />
-          <Route path="/modeles" element={<Modeles />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={<div className="route-loading" role="status" aria-live="polite">Chargement de la page…</div>}>
+          <Routes>
+            <Route path="/" element={<Accueil />} />
+            <Route path="/module-1" element={<M1Page />} />
+            <Route path="/module-2" element={<M2Page />} />
+            <Route path="/module-3" element={<M3Page />} />
+            <Route path="/module-4" element={<M4Page />} />
+            <Route path="/module-5" element={<M5Page />} />
+            <Route path="/module-6" element={<M6Page />} />
+            <Route path="/module-7" element={<M7Page />} />
+            <Route path="/module-8" element={<M8Page />} />
+            <Route path="/module-9" element={<M9Page />} />
+            <Route path="/dossier-projet" element={<DossierProjet />} />
+            <Route path="/ia" element={<IaHubPage />} />
+            <Route path="/ia/usages" element={<IaUsagesPage />} />
+            <Route path="/ia/methodes" element={<IaMethodesPage />} />
+            <Route path="/ia/outils-configuration" element={<IaOutilsPage />} />
+            <Route path="/ia/gouvernance" element={<IaGouvernancePage />} />
+            <Route path="/module-:num" element={<ModulePlaceholder />} />
+            <Route path="/a-propos" element={<Apropos />} />
+            <Route path="/glossaire" element={<Glossaire />} />
+            <Route path="/ressources" element={<Ressources />} />
+            <Route path="/outils" element={<Outils />} />
+            <Route path="/modeles" element={<Modeles />} />
+            <Route path="/mentions-legales" element={<MentionsLegales />} />
+            <Route path="/confidentialite" element={<Confidentialite />} />
+            <Route path="/transparence-ia" element={<TransparenceIA />} />
+            <Route path="/accessibilite" element={<Accessibilite />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </BrowserRouter>

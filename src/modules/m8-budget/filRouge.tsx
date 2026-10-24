@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 export const FilRouge = () => (
   <section id="fil-rouge" aria-labelledby="fr-t">
     <h2 id="fr-t">Exemples vécus du fil rouge</h2>

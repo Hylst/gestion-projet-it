@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Geoffroy Streit
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 import React from 'react';
 import { canonicalUrl } from '../lib/seo';
 
@@ -17,6 +20,11 @@ export function SeoHead(props: { title: string; description: string; noindex?: b
     set('property', 'og:description', props.description);
     set('property', 'og:url', canonicalUrl());
     set('property', 'og:type', 'website');
+    set('property', 'og:image', 'https://hylst.fr/gestion-projet-it/og-image.png');
+    set('name', 'twitter:card', 'summary_large_image');
+    set('name', 'twitter:title', props.title);
+    set('name', 'twitter:description', props.description);
+    set('name', 'twitter:image', 'https://hylst.fr/gestion-projet-it/og-image.png');
     let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!link) { link = document.createElement('link'); link.rel = 'canonical'; document.head.appendChild(link); }
     link.href = canonicalUrl();

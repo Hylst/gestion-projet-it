@@ -16,14 +16,16 @@
 - 40 fichiers de tests, 256 tests.
 - Lint, typecheck, 58 liens relatifs, 25 routes, audit npm à 0 et build.
 - Smoke Playwright : 15/15 sur 25 routes, impression, hors ligne et pages légales.
-- Lighthouse mobile : accueil 100/100/100/100, `/module-1` 99/100/100/100, `/modeles` 99/100/100/100.
+- Lighthouse mobile local : accueil 100/100/100/100, `/module-1` 99/100/100/100, `/modeles` 99/100/100/100.
+- Lighthouse production après déploiement : accueil 98/100/100/100, `/module-1` 100/100/100/100.
 - Bundle initial : 292 kB minifiés, 92 kB gzip ; CSS 42 kB, sans avertissement Vite.
 
 ### Publication
 
 - Build : `index-CSOg-N2L.js`, `index-PPGPK_P4.css`.
 - Service worker : `gestion-projet-it-v11`.
-- Docker : commit `008f33e2`, 25 routes et build identique. Smoke 15/15 sur la copie Docker.
+- Docker : commit `008f33e2`, 25 routes et build identique. Smoke 15/15 sur la copie Docker et en production.
+- Search Console : sitemap du module soumis le 24 octobre 2026.
 
 ## [1.4.0] - 2026-10-24
 

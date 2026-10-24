@@ -557,7 +557,7 @@ Les sections 3 et 8 décrivent le MVP v1 et restent historiques. L’état livr�
 - CI GitHub Actions sur `main` et les pull requests : audit npm, lint, typecheck, contrôle des liens, tests et build.
 - Contrôle manuel : branche, PR, CI verte, fusion. La protection de branche GitHub n’est pas disponible sur l’offre gratuite pour un dépôt privé.
 
-Mise à jour du 24 octobre 2026 : les lots P0, P1 et P2 sont livrés, ainsi que le build 1.5.0 dans Docker au commit `008f33e2`.
+Mise à jour du 24 octobre 2026 : les lots P0, P1 et P2 sont livrés, ainsi que le build 1.5.0 dans Docker au commit `008f33e2`. Le sitemap du module a été soumis à Search Console le 24 octobre 2026.
 
 - Les neuf modules ajoutent trois erreurs fréquentes, un point de décision et des ressources qualifiées.
 - La page `/ressources` regroupe 18 ressources de modules et 6 ressources de parcours.

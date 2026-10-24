@@ -59,3 +59,5 @@ npx lighthouse http://127.0.0.1:4182/gestion-projet-it/ \
 | `/modeles` | 99 | 100 |
 
 Le CLI a retourné le code 1 lors du nettoyage du profil temporaire Windows (`EPERM`). Les rapports JSON étaient complets et les scores ont été lus depuis ces fichiers.
+
+Mesures de production après déploiement de la version 1.5.0 : accueil 98 en performance et 100 en accessibilité ; `/module-1` 100 et 100. La variation de performance sur l’accueil dépend du réseau et du poste de mesure.

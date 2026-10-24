@@ -17,7 +17,7 @@
 - [ ] Aucune requête externe au chargement.
 - [ ] En-têtes CSP, HSTS, nosniff, Referrer et Permissions.
 - [ ] Docker resynchronisé et smoke sur la copie Docker.
-- [ ] Search Console soumise après déploiement.
+- [x] Search Console soumise après déploiement le 24 octobre 2026.
 
 ## Après le partage
 

@@ -81,7 +81,7 @@ type Props = { valide: boolean; onValide: () => void };
 
 export default function LaboPhases(props: Props) {
   const p = useProgress();
-  const [s, dispatch] = useReducer(reductions, undefined, () => ({ mode: 'cascade' as Mode, place: {} }));
+  const [s, dispatch] = useReducer(reductions, undefined, (): PhasesState => ({ mode: 'cascade', place: {} }));
   const [messages, setMessages] = useState<string[]>([]);
   const [selection, setSelection] = useState<string | null>(null);
   const [valideLocal, setValideLocal] = useState(false);

@@ -57,7 +57,7 @@ type Props = { valide: boolean; onValide: () => void };
 
 export default function LaboWbs(props: Props) {
   const p = useProgress();
-  const [state, dispatch] = useReducer(reducerWBS, undefined, () => ({ place: {}, noticeTrouvee: false }));
+  const [state, dispatch] = useReducer(reducerWBS, undefined, (): WbsState => ({ place: {}, noticeTrouvee: false }));
   const [tiree, setTiree] = useState<string | null>(null);
   const [messages, setMessages] = useState<string[]>([]);
   const [etape, setEtape] = useState(1);

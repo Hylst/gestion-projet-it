@@ -237,6 +237,22 @@ p, ul, ol { margin: 0.55rem 0; }
 .guide-option h4 { margin: 0.1rem 0 0.4rem; }
 .guide-non-usage { border-left: 4px solid var(--c-soft); padding-left: 0.75rem; }
 @media (max-width: 50rem) { .guide-options { grid-template-columns: 1fr; } }
+.pre-mortem-wrap { overflow-x: auto; margin-top: 0.6rem; }
+.pre-mortem-table { width: 100%; min-width: 38rem; border-collapse: collapse; }
+.pre-mortem-table caption { text-align: left; color: var(--c-muted); font-size: 0.9rem; padding: 0.3rem 0; }
+.pre-mortem-table th, .pre-mortem-table td { border: 1px solid var(--c-line); padding: 0.5rem; text-align: left; vertical-align: top; }
+.pre-mortem-table thead th { background: var(--c-bg); }
+.outil-fiche { padding: 1rem; margin: 0.8rem 0; }
+.outil-champs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.4rem 1rem; margin: 0; }
+.outil-champs div { border-top: 1px solid var(--c-line); padding-top: 0.45rem; }
+.outil-champs dt { font-weight: 600; }
+.outil-champs dd { margin: 0.15rem 0 0; color: var(--c-muted); }
+.outils-grille-wrap { overflow-x: auto; margin-top: 0.6rem; }
+.outils-grille { width: 100%; min-width: 40rem; border-collapse: collapse; }
+.outils-grille caption { text-align: left; color: var(--c-muted); font-size: 0.9rem; padding: 0.3rem 0; }
+.outils-grille th, .outils-grille td { border: 1px solid var(--c-line); padding: 0.5rem; text-align: left; vertical-align: top; }
+.outils-grille thead th, .outils-grille tbody th { background: var(--c-bg); }
+@media (max-width: 50rem) { .outil-champs { grid-template-columns: 1fr; } }
 .ressources-liste { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
 .ressource { padding: 1rem; }
 .ressource h3 { margin: 0 0 0.5rem; }

@@ -39,6 +39,7 @@ export default function Ressources() {
         <p className="kicker">Ressources</p>
         <h1>Ressources et outils</h1>
         <p className="accroche">Des liens documentaires qualifiés, ouverts dans un nouvel onglet. Aucun contenu n’est chargé automatiquement.</p>
+        <p><Link to="/outils">Voir les fiches outils et la grille de comparaison</Link></p>
       </header>
       <nav className="sommaire" aria-label="Sommaire des ressources">
         {RESSOURCES_MODULES.map((groupe) => <a key={groupe.id} href={`#${groupe.id}`}>{groupe.titre}</a>)}

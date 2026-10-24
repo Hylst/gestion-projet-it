@@ -15,7 +15,12 @@
 - Trois erreurs fréquentes et un point de décision par module, avec conséquence, correction, critères, limites et cas de non-usage.
 - Page `/ressources` : 18 ressources de modules et 6 ressources de parcours, qualifiées et datées.
 - Recherche étendue aux guides « erreurs et décision » et à la page Ressources.
-- Audit WCAG 2.2 AA des guides et de la page Ressources.
+- Neuf exercices de transfert, un par module, avec corrigé et méthode.
+- Vingt termes de glossaire supplémentaires, dont pré-mortem, fiche outil et modèle de menace.
+- Atelier de pré-mortem dans le module 6.
+- Page `/outils` : six fiches normalisées et grille de comparaison.
+- Service worker v6 et 20 routes publiques.
+- Audit WCAG 2.2 AA des guides, de Ressources et des outils.
 
 ### Sécurité
 
@@ -26,7 +31,7 @@
 
 ### Vérifié
 
-- 36 fichiers de tests, 222 tests.
+- 38 fichiers de tests, 237 tests.
 - Lint, typecheck et build production.
 - Smoke Playwright : 11/11, 19 routes, liens internes, clavier et ressources.
 - Lighthouse mobile : `/ressources` 99/100 et `/module-1` 99/100.

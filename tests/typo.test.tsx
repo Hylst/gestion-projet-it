@@ -8,6 +8,7 @@ import Apropos from '../src/routes/Apropos';
 import Glossaire from '../src/routes/Glossaire';
 import DossierProjet from '../src/routes/DossierProjet';
 import Ressources from '../src/routes/Ressources';
+import Outils from '../src/routes/Outils';
 import NotFound from '../src/routes/NotFound';
 import SiteHeader from '../src/components/SiteHeader';
 import { MODULES } from '../src/modules/index';
@@ -68,6 +69,7 @@ const PAGES: Array<[string, ReactElement]> = [
   ['glossaire', <Glossaire />],
   ['dossier-projet', <DossierProjet />],
   ['ressources', <Ressources />],
+  ['outils', <Outils />],
   ['404', <NotFound />],
   ['module-1', <M1Page />],
   ['module-2', <M2Page />],

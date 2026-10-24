@@ -6,10 +6,10 @@ Application 100 % front, sans compte, sans cookie, sans backend et sans requête
 
 ## État actuel
 
-- 9 modules avec fiche, démarche, laboratoire interactif, exercice corrigé, quiz, erreurs fréquentes, point de décision et fiche réflexe.
+- 9 modules avec fiche, démarche, laboratoire interactif, exercice corrigé, exercice de transfert, quiz, erreurs fréquentes, point de décision et fiche réflexe.
 - 1 dossier projet en 6 étapes, avec sauvegarde locale, export JSON, impression et auto-évaluation.
 - 5 pages IA : introduction, usages, méthodes, outils et gouvernance.
-- 19 routes publiques, recherche globale, glossaire, bibliothèque de ressources et export de progression.
+- 20 routes publiques, recherche globale, glossaire étendu, bibliothèque de ressources, fiches outils et export de progression.
 - Deux parcours futurs sont cadrés dans le backlog : Produit et Cybersécurité. Ils ne sont pas encore implémentés.
 
 ## Démarrage
@@ -56,6 +56,7 @@ SMOKE_BASE_URL=http://127.0.0.1:4182/gestion-projet-it npm run smoke
 | `/ia/gouvernance` | Gouvernance et risques |
 | `/glossaire` | Glossaire |
 | `/ressources` | Bibliothèque de ressources officielles |
+| `/outils` | Fiches outils et grille de comparaison |
 | `/a-propos` | Paternité, licence et confidentialité |
 
 ## Architecture

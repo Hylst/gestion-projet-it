@@ -61,6 +61,26 @@ export const Exercices = () => (
         'Garde une preuve de la recette.',
       ]}
     />
+    <ExerciseBlock
+      id="m3-transfert"
+      titre={'Exercice de transfert\u00A0: choisir une méthode pour une obligation de traçabilité'}
+      enonce={(
+        <div>
+          <p>La mairie fictive exige des preuves de recette. Choisis entre cascade, cycle en V et tranches, puis écris deux critères de sortie.</p>
+        </div>
+      )}
+      corrige={(
+        <div>
+          <p><strong>Choix&nbsp;:</strong> cycle en V si le besoin est stable et les preuves sont exigées&nbsp;; cascade si le périmètre reste simple&nbsp;; tranches avec preuves datées si le besoin bouge encore.</p>
+          <p><strong>Critères de sortie&nbsp;:</strong> chaque exigence a un test associé&nbsp;; la recette est signée par le bureau et la mairie.</p>
+        </div>
+      )}
+      methode={[
+        'Choisir selon la stabilité du besoin.',
+        'Écrire les preuves avant la réalisation.',
+        'Faire signer la recette au bon niveau.',
+      ]}
+    />
   </div>
 );
 

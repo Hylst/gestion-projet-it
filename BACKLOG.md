@@ -42,7 +42,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 5. `RES-004` Politique de sources et dates de vérification.
 6. `QUA-001` Audit WCAG 2.2 AA des pages du lot ; parcours reportés à leur ouverture.
 
-## Lot suivant recommandé
+## Lot P1 livré
 
 1. `ENR-004` Exercices de transfert.
 2. `ENR-005` Glossaire étendu.
@@ -50,6 +50,15 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 4. `RES-002` Fiches outils normalisées.
 5. `RES-005` Grille de comparaison d’outils.
 6. `QUA-002` Parcours clavier et focus.
+
+## Lot suivant recommandé
+
+1. `ENR-006` Journal de projet fictif.
+2. `ENR-008` Revue par les pairs.
+3. `RES-003` Modèles imprimables.
+4. `QUA-003` Budget Lighthouse.
+5. `QUA-004` Vérification des liens documentaires.
+6. `QUA-005` Recherche avec synonymes.
 
 `QUA-001` reste ouvert pour l’audit des parcours à leur ouverture. Les parcours Produit et Cybersécurité restent P1 et ne démarrent qu’après validation du lot P0.
 
@@ -132,17 +141,17 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Vigilance :** ne pas présenter une méthode comme supérieure.
 
 ### ENR-004 Exercices de transfert
-`P1` · `L` · `Candidat`
+`P1` · `L` · `Livré`
 **Résultat :** un exercice supplémentaire par module, proche du fil rouge, avec correction.
 **Acceptation :** ne modifie ni les XP ni le compteur `0/9`; correction accessible et courte.
-**Preuve :** tests de composant et relecture pédagogique.
+**Preuve :** `src/modules/m*/exercice.tsx`, `tests/transfert.test.tsx`, 233 tests.
 **Vigilance :** ne pas dupliquer l’exercice existant.
 
 ### ENR-005 Glossaire étendu
-`P1` · `S` · `Candidat`
+`P1` · `S` · `Livré`
 **Résultat :** vingt termes supplémentaires reliés aux modules et aux parcours.
 **Acceptation :** définitions courtes, uniques, accentuées et liées à une page.
-**Preuve :** tests du glossaire et recherche.
+**Preuve :** `src/lib/glossaire.ts`, `tests/glossaire.test.ts`.
 **Vigilance :** éviter les sigles sans définition.
 
 ### ENR-006 Journal de projet fictif
@@ -153,10 +162,10 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Vigilance :** ne pas créer un second capstone concurrent.
 
 ### ENR-007 Pré-mortem et revue des risques
-`P1` · `S` · `Candidat`
+`P1` · `S` · `Livré`
 **Résultat :** un atelier court pour imaginer les échecs avant de planifier.
 **Acceptation :** exemple fictif, grille de risques et décisions associées.
-**Preuve :** contenu et exercice corrigé.
+**Preuve :** `src/modules/m6-equipe/preMortem.tsx`, `tests/transfert.test.tsx`.
 **Vigilance :** ne pas promettre de prédire les risques.
 
 ### ENR-008 Revue par les pairs
@@ -298,10 +307,10 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Vigilance :** aucun lien d’affiliation, aucun contenu généré non relu.
 
 ### RES-002 Fiches outils normalisées
-`P1` · `M` · `Candidat`
+`P1` · `M` · `Livré`
 **Résultat :** des fiches internes pour les familles d’outils : suivi, documentation, diagrammes, tests, sécurité, accessibilité.
 **Acceptation :** utilité, moment, limites, alternatives, coût d’entrée et critères de sortie.
-**Preuve :** pages internes et tests de charte.
+**Preuve :** `/outils`, `src/lib/outils.ts`, `tests/outils.test.tsx`.
 **Vigilance :** ne pas classer les outils de façon absolue.
 
 ### RES-003 Modèles imprimables
@@ -319,10 +328,10 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Vigilance :** ne pas confondre source officielle et opinion.
 
 ### RES-005 Grille de comparaison d’outils
-`P1` · `S` · `Candidat`
+`P1` · `S` · `Livré`
 **Résultat :** une grille de critères pour choisir un outil sans dogme.
 **Acceptation :** coût, données, intégration, sortie, accessibilité, dépendance.
-**Preuve :** page outil et exercice de choix.
+**Preuve :** grille sur `/outils`, `CRITERES_OUTILS`, `tests/outils.test.tsx`.
 **Vigilance :** ne pas transformer la grille en classement marketing.
 
 ---
@@ -337,10 +346,10 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Vigilance :** ne pas se limiter à Lighthouse.
 
 ### QUA-002 Parcours clavier et focus
-`P1` · `S` · `Candidat`
-**Résultat :** tests de navigation clavier sur les nouveaux labos.
+`P1` · `S` · `Livré`
+**Résultat :** tests de navigation clavier sur les nouveaux parcours et labos.
 **Acceptation :** ordre logique, focus visible, aucune trappe.
-**Preuve :** tests Playwright.
+**Preuve :** smoke `/outils` et lien pré-mortem de M6 ; aucun nouveau labo dans ce lot.
 **Vigilance :** ne pas ajouter de gestionnaire inline.
 
 ### QUA-003 Budget Lighthouse

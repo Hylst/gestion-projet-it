@@ -41,6 +41,27 @@ export const Exercices = () => (
         'Décider avec le commanditaire',
       ]}
     />
+    <ExerciseBlock
+      id="m8-transfert"
+      titre={'Exercice de transfert\u00A0: chiffrer un lot incertain'}
+      enonce={(
+        <div>
+          <p>Le formulaire de contact fictif dépend d’un prestataire qui change d’outil. Écris deux hypothèses, une fourchette et une provision.</p>
+        </div>
+      )}
+      corrige={(
+        <div>
+          <p><strong>Hypothèses&nbsp;:</strong> intégration testée, disponibilité du prestataire, relecture du formulaire.</p>
+          <p><strong>Fourchette&nbsp;:</strong> optimiste, probable, pessimiste, avec les bornes expliquées.</p>
+          <p><strong>Provision&nbsp;:</strong> forte pour l’inconnue reconnue&nbsp;; l’oubli de notice reste hors provision et entre dans le périmètre.</p>
+        </div>
+      )}
+      methode={[
+        'Écrire les hypothèses avant le montant.',
+        'Donner trois points, pas un chiffre seul.',
+        'Garder la provision pour l’inconnu reconnu.',
+      ]}
+    />
   </div>
 );
 

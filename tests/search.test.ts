@@ -75,5 +75,7 @@ describe('search', () => {
     const ressources = searchIndex(index, 'bibliotheque');
     expect(ressources.some(isPageHit)).toBe(true);
     expect(ressources.find(isPageHit)?.path).toBe('/ressources');
+    const outils = searchIndex(index, 'fiches');
+    expect(outils.find(isPageHit)?.path).toBe('/outils');
   });
 });

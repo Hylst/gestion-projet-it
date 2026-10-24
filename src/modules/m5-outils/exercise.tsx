@@ -39,6 +39,27 @@ export const Exercices = () => (
         'Repérer le critère de contrôle avant le déploiement',
       ]}
     />
+    <ExerciseBlock
+      id="m5-transfert"
+      titre={'Exercice de transfert\u00A0: réparer une chaîne CI rouge'}
+      enonce={(
+        <div>
+          <p>Un test fictif échoue une fois sur trois et un secret apparaît dans les logs. Décide quoi retirer, quoi stabiliser et quoi bloquer.</p>
+        </div>
+      )}
+      corrige={(
+        <div>
+          <p><strong>Retirer&nbsp;:</strong> le secret des logs, puis le révoquer et le placer dans un coffre adapté.</p>
+          <p><strong>Stabiliser&nbsp;:</strong> le test instable, ou le supprimer avec une date de retour.</p>
+          <p><strong>Bloquer&nbsp;:</strong> la fusion tant que la chaîne échoue, en gardant la relecture humaine.</p>
+        </div>
+      )}
+      methode={[
+        'Traiter le secret avant le reste.',
+        'Ne pas tolérer une CI rouge.',
+        'Garder une relecture humaine.',
+      ]}
+    />
   </div>
 );
 

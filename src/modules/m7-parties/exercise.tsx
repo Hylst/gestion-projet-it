@@ -62,6 +62,27 @@ export const Exercices = () => (
         'Note la décision et sa suite.',
       ]}
     />
+    <ExerciseBlock
+      id="m7-transfert"
+      titre={'Exercice de transfert\u00A0: décider qui consulte la mairie'}
+      enonce={(
+        <div>
+          <p>La mairie fictive demande une validation supplémentaire. Cartographie son influence, propose un RACI et un seuil d’escalade.</p>
+        </div>
+      )}
+      corrige={(
+        <div>
+          <p><strong>Cartographie&nbsp;:</strong> pouvoir fort, intérêt fort.</p>
+          <p><strong>RACI&nbsp;:</strong> C sur les contenus officiels, I sur les décisions internes, avec le bureau comme A unique.</p>
+          <p><strong>Escalade&nbsp;:</strong> si une condition officielle bloque une étape ou si le planning change de plus de deux semaines.</p>
+        </div>
+      )}
+      methode={[
+        'Qualifier le pouvoir et l’intérêt.',
+        'Un seul A par activité.',
+        'Écrire le seuil d’escalade.',
+      ]}
+    />
   </div>
 );
 

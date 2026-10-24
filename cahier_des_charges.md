@@ -551,7 +551,8 @@ Les sections 3 et 8 décrivent le MVP v1 et restent historiques. L’état livr�
 - Neuf modules avec fiche, démarche, laboratoire, exercice corrigé, quiz et fiche réflexe.
 - Dossier projet en six étapes, sauvegarde locale, export JSON, impression et auto-évaluation.
 - Section IA en cinq pages : introduction, usages, méthodes, outils et gouvernance.
-- Recherche globale, glossaire étendu, sitemap 19 URL et service worker v5.
+- Recherche globale, glossaire étendu, bibliothèque de ressources, fiches outils, sitemap 20 URL et service worker v6.
+- Exercices de transfert dans les neuf modules et pré-mortem dans le module 6.
 - Build publié : `index-BN9HjO3I.js` et `index-o6t1cYmb.css`.
 - CI GitHub Actions sur `main` et les pull requests : lint, typecheck, tests et build.
 - Contrôle manuel : branche, PR, CI verte, fusion. La protection de branche GitHub n’est pas disponible sur l’offre gratuite pour un dépôt privé.

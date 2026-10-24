@@ -40,6 +40,27 @@ export const Exercices = () => (
         'Indicateurs simples pour entretenir la vigilance',
       ]}
     />
+    <ExerciseBlock
+      id="m6-transfert"
+      titre={'Exercice de transfert\u00A0: pré-mortem d’une mise en ligne'}
+      enonce={(
+        <div>
+          <p>Imagine trois échecs de la mise en ligne fictive. Pour chacun, écris un signe précoce, une parade et une décision.</p>
+        </div>
+      )}
+      corrige={(
+        <div>
+          <p><strong>Photos manquantes&nbsp;:</strong> signe à J-5, photos non reçues&nbsp;; parade, jeu local de rechange&nbsp;; décision, reporter la page agenda.</p>
+          <p><strong>Notice absente&nbsp;:</strong> signe, relecture non faite&nbsp;; parade, atelier court&nbsp;; décision, bloquer la mise en ligne.</p>
+          <p><strong>Hébergeur indisponible&nbsp;:</strong> signe, alerte de disponibilité&nbsp;; parade, sauvegarde et contact&nbsp;; décision, activer le plan de reprise.</p>
+        </div>
+      )}
+      methode={[
+        'Imaginer l’échec avant de planifier.',
+        'Nommer un signe observable.',
+        'Associer une parade et une décision.',
+      ]}
+    />
   </div>
 );
 

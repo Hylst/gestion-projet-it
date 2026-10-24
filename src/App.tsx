@@ -7,6 +7,7 @@ import Apropos from './routes/Apropos';
 import Glossaire from './routes/Glossaire';
 import DossierProjet from './routes/DossierProjet';
 import Ressources from './routes/Ressources';
+import Outils from './routes/Outils';
 import { IaHubPage } from './ia/content/Hub';
 import { IaUsagesPage } from './ia/content/Usages';
 import { IaMethodesPage } from './ia/content/Methodes';
@@ -57,6 +58,7 @@ export default function App() {
           <Route path="/a-propos" element={<Apropos />} />
           <Route path="/glossaire" element={<Glossaire />} />
           <Route path="/ressources" element={<Ressources />} />
+          <Route path="/outils" element={<Outils />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

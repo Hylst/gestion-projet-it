@@ -20,6 +20,7 @@ export default function SiteHeader() {
           <NavLink to="/a-propos">À propos</NavLink>
           <NavLink to="/glossaire">Glossaire</NavLink>
           <NavLink to="/ressources">Ressources</NavLink>
+          <NavLink to="/outils">Outils</NavLink>
           <NavLink to="/dossier-projet">Dossier projet</NavLink>
         </nav>
         <div id="header-tools"><SearchBar /> <ProgressHeader /></div>

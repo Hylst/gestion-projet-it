@@ -40,6 +40,27 @@ export const Exercices = () => (
         'Noter le nouveau flottement de la tâche déplacée.',
       ]}
     />
+    <ExerciseBlock
+      id="m2-transfert"
+      titre={'Exercice de transfert\u00A0: replanifier après un retard de photos'}
+      enonce={(
+        <div>
+          <p>Les photos fictives arrivent avec cinq jours de retard. Déplace une seule barre, relis les dépendances et indique la nouvelle chaîne tendue.</p>
+        </div>
+      )}
+      corrige={(
+        <div>
+          <p><strong>Déplacement&nbsp;:</strong> décaler la relecture des contenus, puis l’intégration si elle dépend encore des textes.</p>
+          <p><strong>Chaîne tendue&nbsp;:</strong> contenu, relecture, intégration, recette. Les tests ne bougent pas sans vérifier leur prédécesseur.</p>
+          <p><strong>Message au bureau&nbsp;:</strong> date de mise en ligne décalée de cinq jours, avec la décision de prioriser l’agenda.</p>
+        </div>
+      )}
+      methode={[
+        'Déplacer une barre à la fois.',
+        'Relire prédécesseurs et successeurs.',
+        'Annoncer la nouvelle date avec sa cause.',
+      ]}
+    />
   </div>
 );
 

@@ -41,6 +41,26 @@ export const Exercices = () => (
         'Intègre 1 pratique de qualité (XP)',
       ]}
     />
+    <ExerciseBlock
+      id="m4-transfert"
+      titre={'Exercice de transfert\u00A0: débloquer un flux Kanban'}
+      enonce={(
+        <div>
+          <p>Quatre cartes sont en revue pour une limite de deux. Décris deux actions sans augmenter la limite.</p>
+        </div>
+      )}
+      corrige={(
+        <div>
+          <p><strong>Actions&nbsp;:</strong> finir deux cartes avant d’en ouvrir d’autres, réduire la taille des cartes et organiser une revue courte à deux.</p>
+          <p><strong>Vigilance&nbsp;:</strong> augmenter la limite masque le goulet au lieu de le traiter.</p>
+        </div>
+      )}
+      methode={[
+        'Finir avant d’ouvrir.',
+        'Réduire la taille des cartes.',
+        'Rendre le goulet visible et discutable.',
+      ]}
+    />
   </div>
 );
 

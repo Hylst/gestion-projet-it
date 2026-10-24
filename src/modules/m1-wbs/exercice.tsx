@@ -58,6 +58,27 @@ export const Exercices = () => (
         'Chercher une dépendance oubliée et la nommer.',
       ]}
     />
+    <ExerciseBlock
+      id="m1-transfert"
+      titre={'Exercice de transfert\u00A0: arbitrer un ajout de périmètre'}
+      enonce={(
+        <div>
+          <p>Le bureau fictif demande le paiement en ligne à mi-parcours. Écris la décision, l’impact sur les trois lots et la définition de fini à modifier.</p>
+        </div>
+      )}
+      corrige={(
+        <div>
+          <p><strong>Décision&nbsp;:</strong> refuser pour cette version, ou ouvrir un lot Paiement avec budget, date et responsable.</p>
+          <p><strong>Impact&nbsp;:</strong> Contenu et Réalisation restent inchangés&nbsp;; le nouveau lot ajoute une dépendance prestataire et une recette de paiement.</p>
+          <p><strong>Fin de lot&nbsp;:</strong> paiement testé, remboursement documenté, support formé.</p>
+        </div>
+      )}
+      methode={[
+        'Nommer la décision et son motif.',
+        'Séparer ajout de périmètre et marge d’aléa.',
+        'Mettre à jour la définition de fini.',
+      ]}
+    />
   </div>
 );
 

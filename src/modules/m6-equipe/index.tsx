@@ -7,6 +7,7 @@ import LaboEisenhower from '../../labos/LaboEisenhower';
 import LaboRisques from '../../labos/LaboRisques';
 import { useProgress } from '../../lib/progress';
 import Fiche from './fiche';
+import { PreMortem } from './preMortem';
 import FilRouge from './filRouge';
 import Demarche from './demarche';
 import Exercices from './exercise';
@@ -46,14 +47,16 @@ export const M6Page = () => (
       slug: 'module-6',
       titre: 'Équipe, risques (Eisenhower) et suivi',
       resume: 'Communication, tri urgent important, registre des risques, rétro utile.',
-      motsCles: ['eisenhower', 'risques', 'retro', 'communication', 'indicateurs'],
+      motsCles: ['eisenhower', 'risques', 'retro', 'communication', 'indicateurs', 'pre-mortem'],
     }}
+    extraNav={{ href: '#pre-mortem', label: 'Pré-mortem' }}
   >
     <Reveal><Fiche /></Reveal>
     <Reveal><FilRouge /></Reveal>
     <Reveal><Demarche /></Reveal>
     <Reveal><Labo /></Reveal>
     <Reveal><LaboRisquesBloc /></Reveal>
+    <Reveal><PreMortem /></Reveal>
     <Reveal><Exercices /></Reveal>
     <Reveal><QuizBlock data={quiz} /></Reveal>
     <Reveal><ModuleGuide data={guide} moduleNum={6} /></Reveal>

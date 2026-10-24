@@ -42,6 +42,27 @@ export const Exercices = () => (
         'Un suivi observable',
       ]}
     />
+    <ExerciseBlock
+      id="m9-transfert"
+      titre={'Exercice de transfert\u00A0: relancer une adoption qui stagne'}
+      enonce={(
+        <div>
+          <p>Deux semaines après la formation, les bénévoles fictifs reviennent à l’ancien agenda. Identifie un signe, un frein et deux leviers.</p>
+        </div>
+      )}
+      corrige={(
+        <div>
+          <p><strong>Signe&nbsp;:</strong> saisies anciennes et questions répétées.</p>
+          <p><strong>Frein&nbsp;:</strong> habitude et geste peu pratiqué.</p>
+          <p><strong>Leviers&nbsp;:</strong> relais de proximité et formation courte sur un geste précis, avec un message unique. Mesure&nbsp;: usages observés au jalon.</p>
+        </div>
+      )}
+      methode={[
+        'Lire le signe avant le levier.',
+        'Choisir un geste précis.',
+        'Mesurer l’usage réel, pas la présence.',
+      ]}
+    />
   </div>
 );
 

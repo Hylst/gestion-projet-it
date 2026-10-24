@@ -48,6 +48,35 @@ describe('glossaire', () => {
     expect(TERMES.every((t) => !t.definition.includes('—'))).toBe(true);
   });
 
+  it('contient les vingt termes du lot P1', () => {
+    const attendus = [
+      'Atelier',
+      'Arbre d’opportunités',
+      'Capacité',
+      'Chemin critique',
+      'Coût d’entrée',
+      'Critère de sortie',
+      'Débit',
+      'Déclencheur',
+      'Délai de traversée',
+      'Dépendance fournisseur',
+      'Fiche outil',
+      'Flux',
+      'Indicateur d’adoption',
+      'Modèle de menace',
+      'Plan de reprise',
+      'Pré-mortem',
+      'Propriétaire de risque',
+      'Revue par les pairs',
+      'Sauvegarde',
+      'Secret',
+    ];
+    const noms = TERMES.map((t) => t.terme);
+    for (const terme of attendus) expect(noms, terme).toContain(terme);
+    expect(TERMES.find((t) => t.terme === 'Modèle de menace')?.lien?.to).toBe('/ressources#parcours-cybersecurite');
+    expect(TERMES.find((t) => t.terme === 'Arbre d’opportunités')?.lien?.to).toBe('/ressources#parcours-produit');
+  });
+
   it('contient les dix termes IA et leurs liens', () => {
     const attendus = [
       'Agent',

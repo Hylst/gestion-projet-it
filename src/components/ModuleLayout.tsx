@@ -4,7 +4,7 @@ import { ModuleEnd } from './ModuleEnd';
 import { ModulePicto } from './ModulePicto';
 import type { ModuleMeta } from '../modules/index';
 
-export function ModuleLayout(props: { meta: ModuleMeta; children: React.ReactNode }) {
+export function ModuleLayout(props: { meta: ModuleMeta; children: React.ReactNode; extraNav?: { href: string; label: string } }) {
   return (
     <article className="module-page">
       <SeoHead title={props.meta.titre} description={props.meta.resume} />
@@ -22,6 +22,7 @@ export function ModuleLayout(props: { meta: ModuleMeta; children: React.ReactNod
           <a href="#fil-rouge">Fil rouge</a>
           <a href="#demarche">Démarche</a>
           <a href="#labo">Labo</a>
+          {props.extraNav && <a href={props.extraNav.href}>{props.extraNav.label}</a>}
           <a href="#exercice">Exercice corrigé</a>
           <a href="#quiz">Quiz</a>
           <a href="#guide">Erreurs et décisions</a>

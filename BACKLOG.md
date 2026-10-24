@@ -132,17 +132,17 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Vigilance :** ne pas présenter une méthode comme supérieure.
 
 ### ENR-004 Exercices de transfert
-`P1` · `L` · `Candidat`
+`P1` · `L` · `Livré`
 **Résultat :** un exercice supplémentaire par module, proche du fil rouge, avec correction.
 **Acceptation :** ne modifie ni les XP ni le compteur `0/9`; correction accessible et courte.
-**Preuve :** tests de composant et relecture pédagogique.
+**Preuve :** `src/modules/m*/exercice.tsx`, `tests/transfert.test.tsx`, 233 tests.
 **Vigilance :** ne pas dupliquer l’exercice existant.
 
 ### ENR-005 Glossaire étendu
-`P1` · `S` · `Candidat`
+`P1` · `S` · `Livré`
 **Résultat :** vingt termes supplémentaires reliés aux modules et aux parcours.
 **Acceptation :** définitions courtes, uniques, accentuées et liées à une page.
-**Preuve :** tests du glossaire et recherche.
+**Preuve :** `src/lib/glossaire.ts`, `tests/glossaire.test.ts`.
 **Vigilance :** éviter les sigles sans définition.
 
 ### ENR-006 Journal de projet fictif
@@ -153,10 +153,10 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Vigilance :** ne pas créer un second capstone concurrent.
 
 ### ENR-007 Pré-mortem et revue des risques
-`P1` · `S` · `Candidat`
+`P1` · `S` · `Livré`
 **Résultat :** un atelier court pour imaginer les échecs avant de planifier.
 **Acceptation :** exemple fictif, grille de risques et décisions associées.
-**Preuve :** contenu et exercice corrigé.
+**Preuve :** `src/modules/m6-equipe/preMortem.tsx`, `tests/transfert.test.tsx`.
 **Vigilance :** ne pas promettre de prédire les risques.
 
 ### ENR-008 Revue par les pairs

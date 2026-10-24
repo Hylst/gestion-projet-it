@@ -1,6 +1,6 @@
 # Backlog Gestion de Projet IT
 
-**Version :** 2026-10-23
+**Version :** 2026-10-24
 **Périmètre :** contenu pédagogique, parcours, ressources, outils, qualité et documentation.
 **Source de vérité :** ce backlog ne remplace pas le cahier des charges ni une spec. Il sert à choisir le prochain lot.
 
@@ -51,7 +51,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 5. `RES-005` Grille de comparaison d’outils.
 6. `QUA-002` Parcours clavier et focus.
 
-## Lot suivant recommandé
+## Lot P2 livré
 
 1. `ENR-006` Journal de projet fictif.
 2. `ENR-008` Revue par les pairs.
@@ -60,7 +60,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 5. `QUA-004` Vérification des liens documentaires.
 6. `QUA-005` Recherche avec synonymes.
 
-`QUA-001` reste ouvert pour l’audit des parcours à leur ouverture. Les parcours Produit et Cybersécurité restent P1 et ne démarrent qu’après validation du lot P0.
+`QUA-001` reste ouvert pour l’audit des parcours à leur ouverture. Le prochain lot reste à cadrer après validation du lot P2. Les parcours Produit et Cybersécurité restent P1 et ne démarrent qu’après validation du lot P0.
 
 ---
 
@@ -155,10 +155,10 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Vigilance :** éviter les sigles sans définition.
 
 ### ENR-006 Journal de projet fictif
-`P1` · `M` · `Candidat`
+`P1` · `M` · `Livré`
 **Résultat :** un journal guidé qui traverse les neuf modules et le dossier projet.
 **Acceptation :** chaque entrée a un format court, une décision et une suite.
-**Preuve :** modèle imprimable et test de saisie locale.
+**Preuve :** `/modeles`, `src/lib/journal.ts`, `src/routes/Modeles.tsx`, `tests/modeles.test.tsx` et smoke de saisie locale.
 **Vigilance :** ne pas créer un second capstone concurrent.
 
 ### ENR-007 Pré-mortem et revue des risques
@@ -169,10 +169,10 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Vigilance :** ne pas promettre de prédire les risques.
 
 ### ENR-008 Revue par les pairs
-`P2` · `S` · `Candidat`
+`P2` · `S` · `Livré`
 **Résultat :** une grille de revue courte pour un livrable de projet.
 **Acceptation :** critères observables, ton non défensif, aucune obligation d’outil.
-**Preuve :** modèle imprimable et test de charte.
+**Preuve :** section « Revue par les pairs » de `/modeles`, test de charte et test de rendu.
 **Vigilance :** ne pas transformer la revue en audit de personne.
 
 ---
@@ -314,10 +314,10 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Vigilance :** ne pas classer les outils de façon absolue.
 
 ### RES-003 Modèles imprimables
-`P2` · `M` · `Candidat`
+`P2` · `M` · `Livré`
 **Résultat :** WBS, RACI, registre des risques, plan de recette, journal de décisions et guide d’entretien.
 **Acceptation :** impression lisible, aucun champ inutile, exemple fictif.
-**Preuve :** test d’impression et smoke.
+**Preuve :** six modèles sur `/modeles`, `tests/modeles.test.tsx` et smoke.
 **Vigilance :** ne pas créer de formulaires qui collectent des données.
 
 ### RES-004 Politique de sources et de veille
@@ -342,7 +342,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 `P1` · `M` · `En cours`
 **Résultat :** audit des nouvelles pages et parcours.
 **Acceptation :** contrastes, structure, labels, focus, clavier et messages d’erreur.
-**Preuve :** `docs/accessibilite/audit-2026-10-24.md`, smoke 11/11 et Lighthouse 100 en accessibilité sur `/ressources` et `/module-1`. Les pages du lot sont auditées ; le volet parcours reste à faire à leur ouverture.
+**Preuve :** `docs/accessibilite/audit-2026-10-24.md`, smoke 14/14 et Lighthouse 100 en accessibilité sur les pages contrôlées. Les pages des lots P0, P1 et P2 sont auditées ; le volet parcours reste à faire à leur ouverture.
 **Vigilance :** ne pas se limiter à Lighthouse.
 
 ### QUA-002 Parcours clavier et focus
@@ -353,24 +353,24 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Vigilance :** ne pas ajouter de gestionnaire inline.
 
 ### QUA-003 Budget Lighthouse
-`P2` · `M` · `Candidat`
+`P2` · `M` · `Livré`
 **Résultat :** seuils explicites pour performance, accessibilité et bonnes pratiques.
 **Acceptation :** seuil mobile, page de référence et procédure en cas d’échec.
-**Preuve :** rapport CI ou document.
+**Preuve :** `docs/qualite/lighthouse.md` et mesures du 24 octobre 2026.
 **Vigilance :** le CLI Lighthouse peut sortir en erreur de nettoyage sous Windows.
 
 ### QUA-004 Vérification des liens documentaires
-`P2` · `M` · `Candidat`
-**Résultat :** un contrôle manuel ou scripté des liens de ressources.
-**Acceptation :** liens internes et externes listés, date de vérification.
-**Preuve :** journal de veille.
+`P2` · `M` · `Livré`
+**Résultat :** un contrôle scripté des liens internes et de la cohérence des routes.
+**Acceptation :** liens relatifs, routes et sitemap contrôlés ; les URL externes restent vérifiées manuellement et datées.
+**Preuve :** `scripts/check-liens.mjs`, 32 liens relatifs et 21 routes contrôlés, exécution en CI.
 **Vigilance :** ne pas ajouter de requête réseau au runtime de l’application.
 
 ### QUA-005 Recherche avec synonymes
-`P2` · `M` · `Candidat`
+`P2` · `M` · `Livré`
 **Résultat :** recherche tolérante sur quelques synonymes métier.
 **Acceptation :** résultats pertinents, aucun faux positif massif.
-**Preuve :** tests de recherche.
+**Preuve :** `tests/search.test.ts`, six familles de synonymes.
 **Vigilance :** ne pas dégrader la recherche existante.
 
 ### QUA-006 Stratégie hors ligne

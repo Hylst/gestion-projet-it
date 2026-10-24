@@ -168,15 +168,16 @@ describe('glossaire IA', () => {
 });
 
 describe('sitemap IA', () => {
-  it('contient les cinq routes IA, les ressources et 20 URL uniques', () => {
+  it('contient les cinq routes IA, les ressources et 21 URL uniques', () => {
     const xml = readFileSync('public/sitemap.xml', 'utf8');
     const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-    expect(urls).toHaveLength(20);
-    expect(new Set(urls).size).toBe(20);
+    expect(urls).toHaveLength(21);
+    expect(new Set(urls).size).toBe(21);
     for (const page of IA_PAGES) {
       expect(xml).toContain(`https://hylst.fr/gestion-projet-it${page.path}`);
     }
     expect(xml).toContain('https://hylst.fr/gestion-projet-it/ressources');
     expect(xml).toContain('https://hylst.fr/gestion-projet-it/outils');
+    expect(xml).toContain('https://hylst.fr/gestion-projet-it/modeles');
   });
 });

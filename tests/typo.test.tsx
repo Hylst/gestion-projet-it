@@ -9,6 +9,7 @@ import Glossaire from '../src/routes/Glossaire';
 import DossierProjet from '../src/routes/DossierProjet';
 import Ressources from '../src/routes/Ressources';
 import Outils from '../src/routes/Outils';
+import Modeles from '../src/routes/Modeles';
 import NotFound from '../src/routes/NotFound';
 import SiteHeader from '../src/components/SiteHeader';
 import { MODULES } from '../src/modules/index';
@@ -70,6 +71,7 @@ const PAGES: Array<[string, ReactElement]> = [
   ['dossier-projet', <DossierProjet />],
   ['ressources', <Ressources />],
   ['outils', <Outils />],
+  ['modeles', <Modeles />],
   ['404', <NotFound />],
   ['module-1', <M1Page />],
   ['module-2', <M2Page />],

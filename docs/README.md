@@ -44,7 +44,8 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 
 ## Audits
 
-- [Accessibilité du 24 octobre 2026](accessibilite/audit-2026-10-24.md) : guides, Ressources et outils.
+- [Accessibilité du 24 octobre 2026](accessibilite/audit-2026-10-24.md) : guides, Ressources, outils et modèles.
+- [Budget Lighthouse](qualite/lighthouse.md) : seuils, pages de référence et procédure.
 
 ## Règles
 

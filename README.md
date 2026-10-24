@@ -9,7 +9,7 @@ Application 100 % front, sans compte, sans cookie, sans backend et sans requête
 - 9 modules avec fiche, démarche, laboratoire interactif, exercice corrigé, exercice de transfert, quiz, erreurs fréquentes, point de décision et fiche réflexe.
 - 1 dossier projet en 6 étapes, avec sauvegarde locale, export JSON, impression et auto-évaluation.
 - 5 pages IA : introduction, usages, méthodes, outils et gouvernance.
-- 20 routes publiques, recherche globale, glossaire étendu, bibliothèque de ressources, fiches outils et export de progression.
+- 21 routes publiques, recherche globale avec synonymes, glossaire étendu, bibliothèque de ressources, fiches outils, journal de projet et modèles imprimables.
 - Deux parcours futurs sont cadrés dans le backlog : Produit et Cybersécurité. Ils ne sont pas encore implémentés.
 
 ## Démarrage
@@ -33,6 +33,7 @@ Le serveur de développement Vite affiche l’application avec le préfixe `/ges
 | `npm test` | Tests Vitest |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | Vérification TypeScript |
+| `npm run check:liens` | Liens documentaires et cohérence routes/sitemap |
 | `npm run smoke` | Smoke Playwright, après un preview |
 
 Le smoke utilise le build et un serveur de prévisualisation. Pour un port différent :
@@ -57,6 +58,7 @@ SMOKE_BASE_URL=http://127.0.0.1:4182/gestion-projet-it npm run smoke
 | `/glossaire` | Glossaire |
 | `/ressources` | Bibliothèque de ressources officielles |
 | `/outils` | Fiches outils et grille de comparaison |
+| `/modeles` | Journal de projet, revue par les pairs et modèles imprimables |
 | `/a-propos` | Paternité, licence et confidentialité |
 
 ## Architecture
@@ -96,11 +98,14 @@ Avant une publication :
 1. `npm test`
 2. `npm run lint`
 3. `npm run typecheck`
-4. `npm run build`
-5. smoke Playwright
-6. Lighthouse mobile sur l’accueil et une page représentative
+4. `npm run check:liens`
+5. `npm run build`
+6. smoke Playwright
+7. Lighthouse mobile sur l’accueil et les pages de référence
 
-La CI GitHub Actions exécute l’audit npm, lint, typecheck, tests et build sur `main` et sur les pull requests. Dependabot propose les mises à jour npm et GitHub Actions une fois par semaine.
+Le budget Lighthouse et la procédure de contrôle sont documentés dans [`docs/qualite/lighthouse.md`](docs/qualite/lighthouse.md).
+
+La CI GitHub Actions exécute l’audit npm, lint, typecheck, contrôle des liens, tests et build sur `main` et sur les pull requests. Dependabot propose les mises à jour npm et GitHub Actions une fois par semaine.
 
 ## Contribution
 

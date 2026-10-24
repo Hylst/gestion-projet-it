@@ -54,6 +54,25 @@ export function normaliser(s: string): string {
   return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
 
+const SYNONYMES: ReadonlyArray<readonly string[]> = [
+  ['retard', 'delai', 'planning'],
+  ['budget', 'cout', 'prix', 'chiffrage'],
+  ['equipe', 'team', 'groupe'],
+  ['risque', 'danger', 'alea'],
+  ['changement', 'adoption', 'transformation'],
+  ['ressources', 'sources', 'documents'],
+];
+
+export function etendreRecherche(s: string): string {
+  const mots = new Set(s.split(/[^a-z0-9]+/).filter(Boolean));
+  for (const groupe of SYNONYMES) {
+    if (groupe.some((mot) => mots.has(mot))) {
+      for (const mot of groupe) mots.add(mot);
+    }
+  }
+  return [...mots].join(' ');
+}
+
 export function buildIndex(): SearchHit[] {
   const out: SearchHit[] = [];
   for (const m of MODULES) {
@@ -66,7 +85,7 @@ export function buildIndex(): SearchHit[] {
         section: s.section,
         ancre: s.ancre,
         label: `${s.section}\u00A0: ${m.titre}`,
-        needles: normaliser(`${m.num} ${m.titre} ${m.resume} ${m.motsCles.join(' ')} ${s.section}`),
+        needles: etendreRecherche(normaliser(`${m.num} ${m.titre} ${m.resume} ${m.motsCles.join(' ')} ${s.section}`)),
       });
     }
   }
@@ -79,7 +98,7 @@ export function buildIndex(): SearchHit[] {
         section: section.label,
         ancre: section.id,
         label: `${page.titre}\u00A0: ${section.label}`,
-        needles: normaliser(`${page.titre} ${page.resume} ${(page.motsCles ?? []).join(' ')} ${section.label}`),
+        needles: etendreRecherche(normaliser(`${page.titre} ${page.resume} ${(page.motsCles ?? []).join(' ')} ${section.label}`)),
       });
     }
   }
@@ -90,7 +109,7 @@ export function buildIndex(): SearchHit[] {
     section: 'Bibliothèque',
     ancre: '',
     label: 'Ressources et outils',
-    needles: normaliser('ressources outils bibliotheque sources documents liens'),
+    needles: etendreRecherche(normaliser('ressources outils bibliotheque sources documents liens')),
   });
   out.push({
     type: 'page',
@@ -99,13 +118,22 @@ export function buildIndex(): SearchHit[] {
     section: 'Grille de comparaison',
     ancre: '',
     label: 'Fiches outils',
-    needles: normaliser('fiches outils criteres comparaison suivi documentation diagrammes tests securite accessibilite'),
+    needles: etendreRecherche(normaliser('fiches outils criteres comparaison suivi documentation diagrammes tests securite accessibilite')),
+  });
+  out.push({
+    type: 'page',
+    path: '/modeles',
+    pageTitre: 'Journal et modèles',
+    section: 'Journal, revue et modèles',
+    ancre: '',
+    label: 'Journal et modèles',
+    needles: etendreRecherche(normaliser('journal modeles revue pairs imprimable wbs raci risques recette decisions entretien')),
   });
   return out;
 }
 
 export function searchIndex(index: SearchHit[], q: string): SearchHit[] {
-  const n = normaliser(q.trim());
+  const n = etendreRecherche(normaliser(q.trim()));
   if (!n) return [];
   const mots = n.split(/\s+/);
   return index.filter((h) => mots.every((mot) => h.needles.includes(mot)));

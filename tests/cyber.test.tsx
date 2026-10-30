@@ -8,6 +8,7 @@ import type { ReactElement } from 'react';
 import { CYBER_PAGES, type CyberPageMeta } from '../src/cyber/pages';
 import { CYBER_SOURCES } from '../src/cyber/sources';
 import { CyberLayout } from '../src/cyber/CyberLayout';
+import { CyberHubPage } from '../src/cyber/content/Hub';
 
 afterEach(() => {
   cleanup();
@@ -101,5 +102,14 @@ describe('gabarit cyber', () => {
     const nav = screen.getByRole('navigation', { name: 'Navigation dans le parcours Cybersécurité' });
     expect(nav.querySelector('a[href="/cybersecurite"]')).toBeNull();
     expect(nav.querySelector('a[href="/cybersecurite/menaces"]')).not.toBeNull();
+  });
+});
+
+describe('hub cyber', () => {
+  it('expose les cinq questions et les liens vers les pages', () => {
+    rendre(<CyberHubPage />);
+    expect(document.querySelectorAll('#cinq-questions li')).toHaveLength(5);
+    expect(screen.getByRole('link', { name: 'Menaces et modèle de menace' })).not.toBeNull();
+    expect(screen.getByText('Sur Les Amis du Square, le site stocke des contacts d’adhérents. Le projet identifie les données, les comptes et les sauvegardes avant l’ouverture.')).not.toBeNull();
   });
 });

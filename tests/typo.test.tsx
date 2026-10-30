@@ -34,6 +34,7 @@ import { IaUsagesPage } from '../src/ia/content/Usages';
 import { IaMethodesPage } from '../src/ia/content/Methodes';
 import { IaOutilsPage } from '../src/ia/content/OutilsConfiguration';
 import { IaGouvernancePage } from '../src/ia/content/Gouvernance';
+import { CyberHubPage } from '../src/cyber/content/Hub';
 
 afterEach(cleanup);
 
@@ -98,6 +99,7 @@ const PAGES: Array<[string, ReactElement]> = [
   ['/ia/methodes', <IaMethodesPage />],
   ['/ia/outils-configuration', <IaOutilsPage />],
   ['/ia/gouvernance', <IaGouvernancePage />],
+  ['/cybersecurite', <CyberHubPage />],
 ];
 
 const rendre = (page: ReactElement) =>

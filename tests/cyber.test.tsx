@@ -10,6 +10,7 @@ import { CYBER_SOURCES } from '../src/cyber/sources';
 import { CyberLayout } from '../src/cyber/CyberLayout';
 import { CyberHubPage } from '../src/cyber/content/Hub';
 import { CyberMenacesPage } from '../src/cyber/content/Menaces';
+import { CyberAccesPage } from '../src/cyber/content/Acces';
 
 afterEach(() => {
   cleanup();
@@ -122,5 +123,15 @@ describe('menaces cyber', () => {
     expect(table.querySelectorAll('tbody tr')).toHaveLength(5);
     expect(screen.getByRole('heading', { level: 2, name: 'Construire un modèle de menace' })).not.toBeNull();
     expect(screen.getByText(/Un modèle de menace n’est pas une garantie/)).not.toBeNull();
+  });
+});
+
+describe('acces cyber', () => {
+  it('expose la matrice, les secrets et la revocation', () => {
+    rendre(<CyberAccesPage />);
+    const table = screen.getByRole('table', { name: 'Matrice des accès' });
+    expect(table.querySelectorAll('tbody tr')).toHaveLength(4);
+    expect(screen.getByRole('heading', { level: 2, name: 'Moindre privilège' })).not.toBeNull();
+    expect(screen.getAllByText('Un secret retiré du code doit aussi être révoqué.').length).toBeGreaterThanOrEqual(1);
   });
 });

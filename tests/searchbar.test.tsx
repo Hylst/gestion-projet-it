@@ -26,6 +26,10 @@ function Cible({ num }: { num: number }) {
   );
 }
 
+function CibleCyber() {
+  return (<section id="actifs"><h1>Menaces</h1></section>);
+}
+
 function App() {
   return (
     <MemoryRouter initialEntries={['/module-1']}>
@@ -34,6 +38,7 @@ function App() {
         <Route path="/module-1" element={<Cible num={1} />} />
         <Route path="/module-6" element={<Cible num={6} />} />
         <Route path="/ressources" element={<h1>Ressources et outils</h1>} />
+        <Route path="/cybersecurite/menaces" element={<CibleCyber />} />
       </Routes>
     </MemoryRouter>
   );
@@ -63,5 +68,18 @@ describe('recherche globale', () => {
 
     await waitFor(() => expect(screen.getByRole('heading', { level: 1, name: 'Ressources et outils' })).not.toBeNull());
     expect(scrollIntoView).not.toHaveBeenCalled();
+  });
+
+  it('navigue vers une page cyber et scrolle la section cible', async () => {
+    render(<App />);
+    fireEvent.change(screen.getByLabelText('Rechercher dans le cours'), {
+      target: { value: 'phishing' },
+    });
+    fireEvent.click(screen.getAllByRole('button', { name: /Menaces/ })[0] as HTMLElement);
+
+    await waitFor(() => expect(screen.getByRole('heading', { level: 1, name: 'Menaces' })).not.toBeNull());
+    expect(scrollIntoView).toHaveBeenCalledTimes(1);
+    const cible = scrollIntoView.mock.instances[0] as HTMLElement;
+    expect(cible.id).toBe('actifs');
   });
 });

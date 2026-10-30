@@ -2,9 +2,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { describe, it, expect } from 'vitest';
-import { buildIndex, isIaHit, isModuleHit, isPageHit, searchIndex } from '../src/lib/search';
+import { buildIndex, isCyberHit, isIaHit, isModuleHit, isPageHit, searchIndex } from '../src/lib/search';
 import { MODULES } from '../src/modules/index';
 import { IA_PAGES } from '../src/ia/pages';
+import { CYBER_PAGES } from '../src/cyber/pages';
 
 describe('search', () => {
   const index = buildIndex();
@@ -85,6 +86,25 @@ describe('search', () => {
       expect(searchIndex(index, requete).some((h) => isModuleHit(h) && h.moduleNum === 6)).toBe(true);
     }
     expect(searchIndex(index, 'budget').some((h) => isModuleHit(h) && h.moduleNum === 8)).toBe(true);
+  });
+
+  it('indexe les six pages cyber et leurs sections', () => {
+    const cyber = index.filter(isCyberHit);
+    expect(new Set(cyber.map((h) => h.path))).toEqual(new Set(CYBER_PAGES.map((p) => p.path)));
+    for (const page of CYBER_PAGES) {
+      for (const section of page.sections) {
+        expect(cyber.some((h) => h.path === page.path && h.ancre === section.id)).toBe(true);
+      }
+    }
+  });
+
+  it('trouve les pages cyber par mot cle', () => {
+    const phishing = searchIndex(index, 'phishing');
+    expect(phishing.some((h) => isCyberHit(h) && h.path === '/cybersecurite/menaces')).toBe(true);
+    const ransomware = searchIndex(index, 'ransomware');
+    expect(ransomware.some((h) => isCyberHit(h) && h.path === '/cybersecurite/incident')).toBe(true);
+    const rgpd = searchIndex(index, 'rgpd');
+    expect(rgpd.some((h) => isCyberHit(h) && h.path === '/cybersecurite/donnees')).toBe(true);
   });
 
   it('indexe les guides et la page de ressources', () => {

@@ -6,10 +6,11 @@ import { CRITERES, ETAPES, etatInitialDossier } from '../src/lib/capstone';
 import { DOSSIER_STORAGE_KEY } from '../src/lib/capstoneStorage';
 import { MODULES } from '../src/modules/index';
 import { IA_PAGES } from '../src/ia/pages';
+import { CYBER_PAGES } from '../src/cyber/pages';
 
 const base = process.env.SMOKE_BASE_URL ?? 'http://localhost:4173/gestion-projet-it';
 const baseOrigin = new URL(base).origin;
-const routes = ['/', '/ia', '/ia/usages', '/ia/methodes', '/ia/outils-configuration', '/ia/gouvernance', '/dossier-projet', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/module-8', '/module-9', '/a-propos', '/glossaire', '/ressources', '/outils', '/modeles', '/mentions-legales', '/confidentialite', '/transparence-ia', '/accessibilite'];
+const routes = ['/', '/ia', '/ia/usages', '/ia/methodes', '/ia/outils-configuration', '/ia/gouvernance', '/cybersecurite', '/cybersecurite/menaces', '/cybersecurite/acces', '/cybersecurite/dependances', '/cybersecurite/donnees', '/cybersecurite/incident', '/dossier-projet', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/module-8', '/module-9', '/a-propos', '/glossaire', '/ressources', '/outils', '/modeles', '/mentions-legales', '/confidentialite', '/transparence-ia', '/accessibilite'];
 const routeTitres: Record<string, string> = {
   '/': 'Gérer un projet informatique, pas à pas',
   '/dossier-projet': 'Dossier projet',
@@ -24,6 +25,7 @@ const routeTitres: Record<string, string> = {
   '/accessibilite': 'Accessibilité',
   ...Object.fromEntries(MODULES.map((m) => [`/${m.slug}`, m.titre])),
   ...Object.fromEntries(IA_PAGES.map((p) => [p.path, p.titre])),
+  ...Object.fromEntries(CYBER_PAGES.map((p) => [p.path, p.titre])),
 };
 
 test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 25 routes, zero erreur', async ({ page }) => {
@@ -56,7 +58,7 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 25
     expect(res.status(), a).toBe(200);
   }
   const swBody = await (await page.request.get(`${base}/sw.js`)).text();
-  expect(swBody).toContain("const version = 'gestion-projet-it-v11';");
+  expect(swBody).toContain("const version = 'gestion-projet-it-v12';");
 
   expect(externals).toEqual([]);
   expect(failures).toEqual([]);
@@ -319,5 +321,29 @@ test('section IA : navigation, recherche, glossaire et impression', async ({ pag
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('.ia-checklist')).toBeVisible();
   await expect(page.locator('.ia-sommaire')).toBeHidden();
+  await page.emulateMedia({ media: 'screen' });
+});
+
+test('parcours cyber : navigation, recherche, glossaire et impression', async ({ page }) => {
+  await page.goto(`${base}/`);
+  await page.getByRole('link', { name: 'Sécurité', exact: true }).click();
+  await expect(page).toHaveURL(/\/cybersecurite$/);
+  await expect(page.getByRole('heading', { level: 1, name: 'Cybersécurité et gestion de projet' })).toBeVisible();
+
+  await page.goto(`${base}/cybersecurite`);
+  await page.getByLabel('Rechercher dans le cours').fill('phishing');
+  const resultat = page.getByRole('button', { name: /Menaces/ }).first();
+  await expect(resultat).toBeVisible();
+  await resultat.click();
+  await expect(page).toHaveURL(/\/cybersecurite\/menaces$/);
+  await expect(page.locator('#actifs')).toBeInViewport();
+
+  await page.goto(`${base}/glossaire`);
+  await expect(page.getByText('Phishing', { exact: true })).toBeVisible();
+
+  await page.goto(`${base}/cybersecurite/menaces`);
+  await page.emulateMedia({ media: 'print' });
+  await expect(page.locator('.cyber-checklist')).toBeVisible();
+  await expect(page.locator('.cyber-sommaire')).toBeHidden();
   await page.emulateMedia({ media: 'screen' });
 });

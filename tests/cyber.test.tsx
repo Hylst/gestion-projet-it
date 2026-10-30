@@ -14,6 +14,8 @@ import { CyberAccesPage } from '../src/cyber/content/Acces';
 import { CyberDependancesPage } from '../src/cyber/content/Dependances';
 import { CyberDonneesPage } from '../src/cyber/content/Donnees';
 import { CyberIncidentPage } from '../src/cyber/content/Incident';
+import Accueil from '../src/routes/accueil';
+import { ProgressProvider } from '../src/lib/progress';
 
 afterEach(() => {
   cleanup();
@@ -166,5 +168,22 @@ describe('incident cyber', () => {
     expect(table.querySelectorAll('tbody tr')).toHaveLength(5);
     expect(screen.getByRole('heading', { level: 2, name: 'Reprendre' })).not.toBeNull();
     expect(screen.getAllByText('Une sauvegarde non testée n’est pas une sauvegarde.').length).toBeGreaterThanOrEqual(1);
+  });
+});
+
+describe('accueil cyber', () => {
+  it('expose la section et les cinq pages', () => {
+    render(
+      <ProgressProvider>
+        <MemoryRouter>
+          <Accueil />
+        </MemoryRouter>
+      </ProgressProvider>,
+    );
+    expect(screen.getByRole('heading', { level: 2, name: 'Cybersécurité et gestion de projet' })).not.toBeNull();
+    expect(screen.getByRole('link', { name: 'Ouvrir le parcours Cybersécurité' })).not.toBeNull();
+    for (const page of CYBER_PAGES.slice(1)) {
+      expect(screen.getByRole('link', { name: page.titre })).not.toBeNull();
+    }
   });
 });

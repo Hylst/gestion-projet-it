@@ -49,6 +49,8 @@ describe('en-tete', () => {
       ['/outils', 'Outils'],
       ['/ia', 'IA'],
       ['/ia/usages', 'IA'],
+      ['/cybersecurite', 'Sécurité'],
+      ['/cybersecurite/menaces', 'Sécurité'],
       ['/module-6', null],
     ];
     for (const [route, attendu] of cas) {
@@ -63,5 +65,11 @@ describe('en-tete', () => {
     const { container } = rendu();
     const lien = container.querySelector('nav[aria-label="Navigation principale"] a[href="/ia"]');
     expect(lien?.textContent).toBe('IA');
+  });
+
+  it('expose le lien Securite dans la navigation principale', () => {
+    const { container } = rendu();
+    const lien = container.querySelector('nav[aria-label="Navigation principale"] a[href="/cybersecurite"]');
+    expect(lien?.textContent).toBe('Sécurité');
   });
 });

@@ -20,6 +20,7 @@ export default function SiteHeader() {
         <nav aria-label="Navigation principale">
           <NavLink to="/">Accueil</NavLink>
           <NavLink to="/ia">IA</NavLink>
+          <NavLink to="/cybersecurite">Sécurité</NavLink>
           <NavLink to="/a-propos">À propos</NavLink>
           <NavLink to="/glossaire">Glossaire</NavLink>
           <NavLink to="/ressources">Ressources</NavLink>

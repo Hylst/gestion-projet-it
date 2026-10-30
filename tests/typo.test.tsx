@@ -39,6 +39,7 @@ import { CyberMenacesPage } from '../src/cyber/content/Menaces';
 import { CyberAccesPage } from '../src/cyber/content/Acces';
 import { CyberDependancesPage } from '../src/cyber/content/Dependances';
 import { CyberDonneesPage } from '../src/cyber/content/Donnees';
+import { CyberIncidentPage } from '../src/cyber/content/Incident';
 
 afterEach(cleanup);
 
@@ -108,6 +109,7 @@ const PAGES: Array<[string, ReactElement]> = [
   ['/cybersecurite/acces', <CyberAccesPage />],
   ['/cybersecurite/dependances', <CyberDependancesPage />],
   ['/cybersecurite/donnees', <CyberDonneesPage />],
+  ['/cybersecurite/incident', <CyberIncidentPage />],
 ];
 
 const rendre = (page: ReactElement) =>

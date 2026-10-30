@@ -13,6 +13,7 @@ import { CyberMenacesPage } from '../src/cyber/content/Menaces';
 import { CyberAccesPage } from '../src/cyber/content/Acces';
 import { CyberDependancesPage } from '../src/cyber/content/Dependances';
 import { CyberDonneesPage } from '../src/cyber/content/Donnees';
+import { CyberIncidentPage } from '../src/cyber/content/Incident';
 
 afterEach(() => {
   cleanup();
@@ -155,5 +156,15 @@ describe('donnees cyber', () => {
     expect(table.querySelectorAll('tbody tr')).toHaveLength(5);
     expect(screen.getByRole('heading', { level: 2, name: 'AI Act' })).not.toBeNull();
     expect(screen.getByText(/Ce contenu n’est pas un conseil juridique/)).not.toBeNull();
+  });
+});
+
+describe('incident cyber', () => {
+  it('expose la chronologie, la reprise et la sauvegarde testee', () => {
+    rendre(<CyberIncidentPage />);
+    const table = screen.getByRole('table', { name: 'Chronologie d’incident' });
+    expect(table.querySelectorAll('tbody tr')).toHaveLength(5);
+    expect(screen.getByRole('heading', { level: 2, name: 'Reprendre' })).not.toBeNull();
+    expect(screen.getAllByText('Une sauvegarde non testée n’est pas une sauvegarde.').length).toBeGreaterThanOrEqual(1);
   });
 });

@@ -24,6 +24,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-10-23 | [Enrichissements et backlog](superpowers/specs/2026-10-23-enrichissements-design.md) | Livré | Documentation et cadrage du prochain cycle |
 | 2026-10-24 | [Audit éditorial des neuf modules](superpowers/specs/2026-10-24-audit-editorial-modules.md) | Livré | Manques, doublons et actions par module |
 | 2026-10-24 | [Design éditorial coloré](superpowers/specs/2026-10-24-refonte-editoriale-design.md) | Livré | Couleurs, structure et interactions |
+| 2026-10-30 | [Parcours Cybersécurité](superpowers/specs/2026-10-30-parcours-cybersecurite-design.md) | Proposition | Hub et cinq pages, sans laboratoires |
 
 ## Plans
 

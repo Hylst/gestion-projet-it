@@ -9,6 +9,7 @@ import { CYBER_PAGES, type CyberPageMeta } from '../src/cyber/pages';
 import { CYBER_SOURCES } from '../src/cyber/sources';
 import { CyberLayout } from '../src/cyber/CyberLayout';
 import { CyberHubPage } from '../src/cyber/content/Hub';
+import { CyberMenacesPage } from '../src/cyber/content/Menaces';
 
 afterEach(() => {
   cleanup();
@@ -111,5 +112,15 @@ describe('hub cyber', () => {
     expect(document.querySelectorAll('#cinq-questions li')).toHaveLength(5);
     expect(screen.getByRole('link', { name: 'Menaces et modèle de menace' })).not.toBeNull();
     expect(screen.getByText('Sur Les Amis du Square, le site stocke des contacts d’adhérents. Le projet identifie les données, les comptes et les sauvegardes avant l’ouverture.')).not.toBeNull();
+  });
+});
+
+describe('menaces cyber', () => {
+  it('expose le modele, la surface et les parades', () => {
+    rendre(<CyberMenacesPage />);
+    const table = screen.getByRole('table', { name: 'Modèle de menace' });
+    expect(table.querySelectorAll('tbody tr')).toHaveLength(5);
+    expect(screen.getByRole('heading', { level: 2, name: 'Construire un modèle de menace' })).not.toBeNull();
+    expect(screen.getByText(/Un modèle de menace n’est pas une garantie/)).not.toBeNull();
   });
 });

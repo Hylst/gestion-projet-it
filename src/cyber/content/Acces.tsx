@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Geoffroy Streit
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+import { Link } from 'react-router-dom';
 import { CyberCallout } from '../CyberCallout';
 import { CyberLayout } from '../CyberLayout';
 import { CYBER_PAGES } from '../pages';
@@ -90,6 +91,7 @@ export function CyberAccesPage() {
         <h2>En cas de compromission</h2>
         <p>Le premier réflexe est de réduire l’accès, pas de comprendre toute l’histoire. Révoquer le compte, tourner les secrets concernés, isoler la machine et préserver les traces permet ensuite d’enquêter sans aggraver.</p>
         <p>La communication arrive après la décision de confinement. Elle indique ce qui est connu, ce qui reste à vérifier et qui pilote la suite.</p>
+        <p>Le <Link to="/module-5">module 5</Link> montre, sur le fil rouge, comment un secret exposé se retire et se révoque.</p>
       </section>
     </CyberLayout>
   );

@@ -28,7 +28,7 @@ const routeTitres: Record<string, string> = {
   ...Object.fromEntries(CYBER_PAGES.map((p) => [p.path, p.titre])),
 };
 
-test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 25 routes, zero erreur', async ({ page }) => {
+test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 31 routes, zero erreur', async ({ page }) => {
   const externals: string[] = [];
   const failures: string[] = [];
   const badStatus: string[] = [];

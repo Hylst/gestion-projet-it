@@ -15,6 +15,8 @@ import { CyberDependancesPage } from '../src/cyber/content/Dependances';
 import { CyberDonneesPage } from '../src/cyber/content/Donnees';
 import { CyberIncidentPage } from '../src/cyber/content/Incident';
 import Accueil from '../src/routes/accueil';
+import Accessibilite from '../src/routes/Accessibilite';
+import Ressources from '../src/routes/Ressources';
 import { ProgressProvider } from '../src/lib/progress';
 
 afterEach(() => {
@@ -185,5 +187,15 @@ describe('accueil cyber', () => {
     for (const page of CYBER_PAGES.slice(1)) {
       expect(screen.getByRole('link', { name: page.titre })).not.toBeNull();
     }
+  });
+});
+
+describe('mentions du parcours', () => {
+  it('ne présente plus la cybersécurité comme non ouverte', () => {
+    const accessibilite = rendre(<Accessibilite />).container.textContent ?? '';
+    expect(accessibilite).toContain('Le parcours Cybersécurité a été audité');
+    const ressources = rendre(<Ressources />).container.textContent ?? '';
+    expect(ressources).toContain('Le parcours Cybersécurité est ouvert');
+    expect(ressources).not.toContain('Les pages des parcours Produit et Cybersécurité restent au backlog');
   });
 });

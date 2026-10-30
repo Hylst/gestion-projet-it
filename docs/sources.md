@@ -73,6 +73,9 @@ Vérification du 24 octobre 2026, 24 URL en réponse HTTP 200.
 | Modules 1 à 9 | 18 | 24 octobre 2026 | 18 URL accessibles |
 | Parcours Produit | 3 | 24 octobre 2026 | 3 URL accessibles |
 | Parcours Cybersécurité | 3 | 24 octobre 2026 | 3 URL accessibles |
+| Pages du parcours Cybersécurité | 6 | 30 octobre 2026 | 4 URL en 200, 2 protégées, vérifiées au navigateur |
+
+Vérification complémentaire du 30 octobre 2026 pour les six sources des pages du parcours Cybersécurité : ANSSI, CNIL, OWASP et NIST répondent en HTTP 200. ISO/IEC 27001 répond en 403 au contrôle automatisé et en 200 dans un navigateur. EUR-Lex répond en 202 derrière un pare-feu applicatif ; la page du règlement est rendue dans le navigateur. Aucune source n’est déclarée morte sur la seule foi d’un refus automatisé.
 
 Prochaine revue : 24 octobre 2027, ou avant en cas de changement de version.
 
@@ -80,5 +83,5 @@ Prochaine revue : 24 octobre 2027, ou avant en cas de changement de version.
 
 - La vérification automatisée ne remplace pas une lecture humaine.
 - Une page officielle peut évoluer sans changer d’URL.
-- Les ressources des parcours seront relues à l’ouverture de leurs pages.
+- Les sources du parcours Cybersécurité ont été relues le 30 octobre 2026. Celles du parcours Produit seront relues à son ouverture.
 - Aucun conseil juridique ou comptable personnalisé n’est déduit d’une ressource.

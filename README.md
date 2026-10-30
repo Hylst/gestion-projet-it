@@ -9,9 +9,9 @@ Application 100 % front, sans compte, sans cookie, sans backend et sans requête
 - 9 modules avec fiche, démarche, laboratoire interactif, exercice corrigé, exercice de transfert, quiz, erreurs fréquentes, point de décision et fiche réflexe.
 - 1 dossier projet en 6 étapes, avec sauvegarde locale, export JSON, impression et auto-évaluation.
 - 5 pages IA : introduction, usages, méthodes, outils et gouvernance.
-- 25 routes publiques, recherche globale avec synonymes, glossaire étendu, bibliothèque de ressources, fiches outils, journal de projet, modèles imprimables et pages légales.
+- 31 routes publiques, recherche globale avec synonymes, glossaire étendu, bibliothèque de ressources, fiches outils, journal de projet, modèles imprimables et pages légales.
 - Design éditorial coloré : thèmes par module, cartes de section, sommaire sticky et contenus secondaires dépliables.
-- Deux parcours futurs sont cadrés dans le backlog : Produit et Cybersécurité. Ils ne sont pas encore implémentés.
+- Le parcours Cybersécurité est ouvert avec un hub et cinq pages. Le parcours Produit reste cadré dans le backlog.
 
 ## Démarrage
 
@@ -57,6 +57,12 @@ SMOKE_BASE_URL=http://127.0.0.1:4182/gestion-projet-it npm run smoke
 | `/ia/methodes` | Méthodes et évaluation |
 | `/ia/outils-configuration` | Outils et configuration |
 | `/ia/gouvernance` | Gouvernance et risques |
+| `/cybersecurite` | Introduction à la cybersécurité |
+| `/cybersecurite/menaces` | Menaces et modèle de menace |
+| `/cybersecurite/acces` | Accès, rôles et secrets |
+| `/cybersecurite/dependances` | Dépendances, fournisseurs et chaîne logicielle |
+| `/cybersecurite/donnees` | Données, RGPD et AI Act |
+| `/cybersecurite/incident` | Incident, sauvegarde et reprise |
 | `/glossaire` | Glossaire |
 | `/ressources` | Bibliothèque de ressources officielles |
 | `/outils` | Fiches outils et grille de comparaison |
@@ -73,6 +79,7 @@ SMOKE_BASE_URL=http://127.0.0.1:4182/gestion-projet-it npm run smoke
 src/
   components/       composants partagés et capstone
   ia/               registre, gabarit et contenu IA
+  cyber/            registre, gabarit et contenu Cybersécurité
   labos/            laboratoires SVG interactifs
   lib/              progression, recherche, glossaire, stockage
   modules/          contenu des neuf modules

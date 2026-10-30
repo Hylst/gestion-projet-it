@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Geoffroy Streit
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+import { Link } from 'react-router-dom';
 import { CyberCallout } from '../CyberCallout';
 import { CyberLayout } from '../CyberLayout';
 import { CYBER_PAGES } from '../pages';
@@ -99,6 +100,7 @@ export function CyberDependancesPage() {
         <h2>Veille et réponse</h2>
         <p>La veille suit les avis de sécurité, les versions et les changements de fournisseur. Elle ne consiste pas à lire tous les flux&nbsp;: elle définit une fenêtre de correctif et un responsable pour chaque dépendance critique.</p>
         <p>Quand un avis paraît, la question n’est pas seulement «&nbsp;faut-il mettre à jour&nbsp;?&nbsp;» mais «&nbsp;que faut-il vérifier, tester et communiquer&nbsp;?&nbsp;». La réponse se prépare avec le contact incident du fournisseur.</p>
+        <p>Le <Link to="/module-5">module 5</Link> détaille la chaîne CI, la promotion et le retour arrière.</p>
       </section>
     </CyberLayout>
   );

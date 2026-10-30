@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Geoffroy Streit
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+import { Link } from 'react-router-dom';
 import { CyberCallout } from '../CyberCallout';
 import { CyberLayout } from '../CyberLayout';
 import { CYBER_PAGES } from '../pages';
@@ -72,6 +73,7 @@ export function CyberIncidentPage() {
         <h2>Préparer</h2>
         <p>Un playbook tient en quelques pages&nbsp;: contacts, rôles, premiers gestes, obligations et modèle de communication. Il se teste par un exercice court, au moins une fois par an.</p>
         <p>La préparation inclut les sauvegardes, les accès de secours et les fournisseurs. Un plan non testé reste une intention.</p>
+        <p>Le <Link to="/module-6">module 6</Link> relie la sauvegarde au registre des risques et à leurs déclencheurs.</p>
         <div className="cyber-table-wrap">
           <table>
             <caption>Chronologie d’incident</caption>

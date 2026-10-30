@@ -12,6 +12,7 @@ import { CyberHubPage } from '../src/cyber/content/Hub';
 import { CyberMenacesPage } from '../src/cyber/content/Menaces';
 import { CyberAccesPage } from '../src/cyber/content/Acces';
 import { CyberDependancesPage } from '../src/cyber/content/Dependances';
+import { CyberDonneesPage } from '../src/cyber/content/Donnees';
 
 afterEach(() => {
   cleanup();
@@ -144,5 +145,15 @@ describe('dependances cyber', () => {
     expect(table.querySelectorAll('tbody tr')).toHaveLength(5);
     expect(screen.getByRole('heading', { level: 2, name: 'Chaîne de build et provenance' })).not.toBeNull();
     expect(screen.getByText(/Le test de la panne/)).not.toBeNull();
+  });
+});
+
+describe('donnees cyber', () => {
+  it('expose la classification, le RGPD et l AI Act', () => {
+    rendre(<CyberDonneesPage />);
+    const table = screen.getByRole('table', { name: 'Classification des données' });
+    expect(table.querySelectorAll('tbody tr')).toHaveLength(5);
+    expect(screen.getByRole('heading', { level: 2, name: 'AI Act' })).not.toBeNull();
+    expect(screen.getByText(/Ce contenu n’est pas un conseil juridique/)).not.toBeNull();
   });
 });

@@ -11,6 +11,7 @@ import { CyberLayout } from '../src/cyber/CyberLayout';
 import { CyberHubPage } from '../src/cyber/content/Hub';
 import { CyberMenacesPage } from '../src/cyber/content/Menaces';
 import { CyberAccesPage } from '../src/cyber/content/Acces';
+import { CyberDependancesPage } from '../src/cyber/content/Dependances';
 
 afterEach(() => {
   cleanup();
@@ -133,5 +134,15 @@ describe('acces cyber', () => {
     expect(table.querySelectorAll('tbody tr')).toHaveLength(4);
     expect(screen.getByRole('heading', { level: 2, name: 'Moindre privilège' })).not.toBeNull();
     expect(screen.getAllByText('Un secret retiré du code doit aussi être révoqué.').length).toBeGreaterThanOrEqual(1);
+  });
+});
+
+describe('dependances cyber', () => {
+  it('expose la chaine, les fournisseurs et le plan de sortie', () => {
+    rendre(<CyberDependancesPage />);
+    const table = screen.getByRole('table', { name: 'Dépendances et parades' });
+    expect(table.querySelectorAll('tbody tr')).toHaveLength(5);
+    expect(screen.getByRole('heading', { level: 2, name: 'Chaîne de build et provenance' })).not.toBeNull();
+    expect(screen.getByText(/Le test de la panne/)).not.toBeNull();
   });
 });

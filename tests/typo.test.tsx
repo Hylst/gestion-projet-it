@@ -37,6 +37,7 @@ import { IaGouvernancePage } from '../src/ia/content/Gouvernance';
 import { CyberHubPage } from '../src/cyber/content/Hub';
 import { CyberMenacesPage } from '../src/cyber/content/Menaces';
 import { CyberAccesPage } from '../src/cyber/content/Acces';
+import { CyberDependancesPage } from '../src/cyber/content/Dependances';
 
 afterEach(cleanup);
 
@@ -104,6 +105,7 @@ const PAGES: Array<[string, ReactElement]> = [
   ['/cybersecurite', <CyberHubPage />],
   ['/cybersecurite/menaces', <CyberMenacesPage />],
   ['/cybersecurite/acces', <CyberAccesPage />],
+  ['/cybersecurite/dependances', <CyberDependancesPage />],
 ];
 
 const rendre = (page: ReactElement) =>

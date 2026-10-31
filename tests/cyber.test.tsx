@@ -142,6 +142,8 @@ describe('acces cyber', () => {
     expect(table.querySelectorAll('tbody tr')).toHaveLength(4);
     expect(screen.getByRole('heading', { level: 2, name: 'Moindre privilège' })).not.toBeNull();
     expect(screen.getAllByText('Un secret retiré du code doit aussi être révoqué.').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByRole('heading', { level: 3, name: /Labo\s*:\s*attribuer le droit minimal/ })).not.toBeNull();
+    expect(screen.queryByText(/\+5 XP/)).toBeNull();
   });
 });
 

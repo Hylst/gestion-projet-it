@@ -1,5 +1,27 @@
 # Changelog
 
+## [Non publié]
+
+### Sécurité
+
+- Audit sécurité et CVE du 30 octobre 2026 : aucune vulnérabilité dans l’arbre actif, aucun secret détecté, en-têtes de production vérifiés.
+- CI : actions GitHub épinglées par SHA, identifiants non persistés et audit npm au seuil `moderate`.
+- Documentation : rapport `docs/securite/audit-2026-10-30.md`.
+
+### Parcours Cybersécurité
+
+- Hub et cinq pages : menaces, accès, dépendances, données et incident.
+- Recherche, glossaire étendu, sitemap à 31 URL, service worker v12 et section d’accueil.
+- Sources conformes à la politique et audit d’accessibilité du parcours.
+- Aucun XP, aucune dépendance, aucune requête externe.
+
+### Vérifié
+
+- 42 fichiers de tests, 280 tests.
+- Lint, typecheck, 65 liens relatifs, 31 routes, audit npm à 0 et build.
+- Smoke Playwright : 16/16 sur 31 routes, dont le parcours cyber.
+- Lighthouse mobile local : accueil 100/100/100/100, `/cybersecurite` 99/100/100/100.
+
 ## [1.5.0] - 2026-10-24
 
 ### Design éditorial

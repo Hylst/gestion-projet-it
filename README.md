@@ -9,9 +9,9 @@ Application 100 % front, sans compte, sans cookie, sans backend et sans requête
 - 9 modules avec fiche, démarche, laboratoire interactif, exercice corrigé, exercice de transfert, quiz, erreurs fréquentes, point de décision et fiche réflexe.
 - 1 dossier projet en 6 étapes, avec sauvegarde locale, export JSON, impression et auto-évaluation.
 - 5 pages IA : introduction, usages, méthodes, outils et gouvernance.
-- 25 routes publiques, recherche globale avec synonymes, glossaire étendu, bibliothèque de ressources, fiches outils, journal de projet, modèles imprimables et pages légales.
+- 31 routes publiques, recherche globale avec synonymes, glossaire étendu, bibliothèque de ressources, fiches outils, journal de projet, modèles imprimables et pages légales.
 - Design éditorial coloré : thèmes par module, cartes de section, sommaire sticky et contenus secondaires dépliables.
-- Deux parcours futurs sont cadrés dans le backlog : Produit et Cybersécurité. Ils ne sont pas encore implémentés.
+- Le parcours Cybersécurité est ouvert avec un hub et cinq pages. Le parcours Produit reste cadré dans le backlog.
 
 ## Démarrage
 
@@ -57,6 +57,12 @@ SMOKE_BASE_URL=http://127.0.0.1:4182/gestion-projet-it npm run smoke
 | `/ia/methodes` | Méthodes et évaluation |
 | `/ia/outils-configuration` | Outils et configuration |
 | `/ia/gouvernance` | Gouvernance et risques |
+| `/cybersecurite` | Introduction à la cybersécurité |
+| `/cybersecurite/menaces` | Menaces et modèle de menace |
+| `/cybersecurite/acces` | Accès, rôles et secrets |
+| `/cybersecurite/dependances` | Dépendances, fournisseurs et chaîne logicielle |
+| `/cybersecurite/donnees` | Données, RGPD et AI Act |
+| `/cybersecurite/incident` | Incident, sauvegarde et reprise |
 | `/glossaire` | Glossaire |
 | `/ressources` | Bibliothèque de ressources officielles |
 | `/outils` | Fiches outils et grille de comparaison |
@@ -73,6 +79,7 @@ SMOKE_BASE_URL=http://127.0.0.1:4182/gestion-projet-it npm run smoke
 src/
   components/       composants partagés et capstone
   ia/               registre, gabarit et contenu IA
+  cyber/            registre, gabarit et contenu Cybersécurité
   labos/            laboratoires SVG interactifs
   lib/              progression, recherche, glossaire, stockage
   modules/          contenu des neuf modules
@@ -112,7 +119,7 @@ Avant une publication :
 6. smoke Playwright
 7. Lighthouse mobile sur l’accueil et les pages de référence
 
-Le budget Lighthouse et la procédure de contrôle sont documentés dans [`docs/qualite/lighthouse.md`](docs/qualite/lighthouse.md). Le périmètre du contrôle des liens est décrit dans [`docs/qualite/liens.md`](docs/qualite/liens.md). La checklist de partage est dans [`docs/qualite/partage.md`](docs/qualite/partage.md).
+Le dernier audit sécurité et CVE est documenté dans [`docs/securite/audit-2026-10-30.md`](docs/securite/audit-2026-10-30.md). Le budget Lighthouse et la procédure de contrôle sont documentés dans [`docs/qualite/lighthouse.md`](docs/qualite/lighthouse.md). Le périmètre du contrôle des liens est décrit dans [`docs/qualite/liens.md`](docs/qualite/liens.md). La checklist de partage est dans [`docs/qualite/partage.md`](docs/qualite/partage.md).
 
 La CI GitHub Actions exécute l’audit npm, lint, typecheck, contrôle des liens, tests et build sur `main` et sur les pull requests. Dependabot propose les mises à jour npm et GitHub Actions une fois par semaine.
 
@@ -140,6 +147,7 @@ Ne jamais committer de secret, de clé, de jeton, `node_modules/`, `dist/`, `tes
 - [ARCHITECTURE.md](ARCHITECTURE.md) : stack, routes, données locales et déploiement.
 - [CREDITS.md](CREDITS.md) : auteur, assistance IA et provenance des illustrations.
 - [SECURITY.md](SECURITY.md) : signalement et règles de sécurité.
+- [Audit sécurité et CVE](docs/securite/audit-2026-10-30.md) : dépendances, code, build et en-têtes de production.
 - [CONTRIBUTING.md](CONTRIBUTING.md) : contribution, licence et vérifications.
 - [docs/conformite/](docs/conformite/) : RGPD, AI Act, transferts UK et provenance.
 

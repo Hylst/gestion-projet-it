@@ -15,7 +15,8 @@
 - [ ] Lighthouse performance et accessibilité au moins 90.
 - [ ] Smoke sur les 25 routes.
 - [ ] Aucune requête externe au chargement.
-- [ ] En-têtes CSP, HSTS, nosniff, Referrer et Permissions.
+- [x] Audit sécurité et CVE du 30 octobre 2026 : 0 vulnérabilité, 0 secret, en-têtes vérifiés.
+- [x] En-têtes CSP, HSTS, nosniff, Referrer et Permissions.
 - [ ] Docker resynchronisé et smoke sur la copie Docker.
 - [x] Search Console soumise après déploiement le 24 octobre 2026.
 

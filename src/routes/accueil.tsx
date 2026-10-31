@@ -4,12 +4,14 @@
 import { Link } from 'react-router-dom';
 import { MODULES } from '../modules/index';
 import { IA_PAGES } from '../ia/pages';
+import { CYBER_PAGES } from '../cyber/pages';
 import { ModulePicto } from '../components/ModulePicto';
 import { SeoHead } from '../components/SeoHead';
 import Reveal from '../components/Reveal';
 import { useProgress } from '../lib/progress';
 import '../styles/hero.css';
 import '../styles/ia.css';
+import '../styles/cyber.css';
 
 function Hero() {
   return (
@@ -113,6 +115,22 @@ export default function Accueil() {
           {IA_PAGES.slice(1).map((page) => (
             <div className="module-card" key={page.slug}>
               <span className="module-kicker">Section IA</span>
+              <Link className="titre" to={page.path}>{page.titre}</Link>
+              <p className="resume">{page.resume}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="cyber-accueil theme-cyber" aria-labelledby="cyber-accueil-titre">
+        <h2 id="cyber-accueil-titre">Cybersécurité et gestion de projet</h2>
+        <p>
+          Un parcours autonome pour identifier les actifs, réduire les accès et réagir sans improviser. Aucun XP, aucune obligation de parcours.
+        </p>
+        <p><Link className="btn" to="/cybersecurite">Ouvrir le parcours Cybersécurité</Link></p>
+        <div className="cyber-carte">
+          {CYBER_PAGES.slice(1).map((page) => (
+            <div className="module-card" key={page.slug}>
+              <span className="module-kicker">Parcours Cybersécurité</span>
               <Link className="titre" to={page.path}>{page.titre}</Link>
               <p className="resume">{page.resume}</p>
             </div>

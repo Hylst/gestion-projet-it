@@ -24,6 +24,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-10-23 | [Enrichissements et backlog](superpowers/specs/2026-10-23-enrichissements-design.md) | Livré | Documentation et cadrage du prochain cycle |
 | 2026-10-24 | [Audit éditorial des neuf modules](superpowers/specs/2026-10-24-audit-editorial-modules.md) | Livré | Manques, doublons et actions par module |
 | 2026-10-24 | [Design éditorial coloré](superpowers/specs/2026-10-24-refonte-editoriale-design.md) | Livré | Couleurs, structure et interactions |
+| 2026-10-30 | [Parcours Cybersécurité](superpowers/specs/2026-10-30-parcours-cybersecurite-design.md) | Livré | Hub et cinq pages, sans laboratoires |
 
 ## Plans
 
@@ -41,6 +42,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-10-24 | [Plan enrichissements P2](superpowers/plans/2026-10-24-enrichissements-p2.md) | Livré | Journal, modèles, synonymes et qualité |
 | 2026-10-24 | [Plan partage public 1.4.0](superpowers/plans/2026-10-24-partage-public-1.4.0.md) | Livré | RGPD, AI Act, source publique, partage social |
 | 2026-10-24 | [Plan refonte éditoriale 1.5.0](superpowers/plans/2026-10-24-refonte-editoriale-1.5.0.md) | Livré | Couleurs, cartes, détails et interactions |
+| 2026-10-30 | [Plan parcours Cybersécurité](superpowers/plans/2026-10-30-parcours-cybersecurite.md) | Livré | Hub, cinq pages et intégration |
 
 ## Politique
 
@@ -49,7 +51,9 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 ## Audits
 
 - [Accessibilité du 24 octobre 2026](accessibilite/audit-2026-10-24.md) : guides, Ressources, outils et modèles.
-- [Checklist des futurs parcours](accessibilite/checklist-parcours.md) : audit à l’ouverture de Produit et Cybersécurité.
+- [Accessibilité du parcours Cybersécurité](accessibilite/audit-2026-10-30-parcours-cybersecurite.md) : six routes, clavier, contrastes et Lighthouse.
+- [Audit sécurité et CVE du 30 octobre 2026](securite/audit-2026-10-30.md) : dépendances, code, build, service worker et en-têtes de production.
+- [Checklist des futurs parcours](accessibilite/checklist-parcours.md) : audit à l’ouverture du parcours Produit.
 - [Budget Lighthouse](qualite/lighthouse.md) : seuils, pages de référence et procédure.
 - [Contrôle des liens](qualite/liens.md) : périmètre, limites et journal des vérifications.
 - [Partage public](qualite/partage.md) : checklist avant et après mise en ligne.

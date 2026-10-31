@@ -34,6 +34,12 @@ import { IaUsagesPage } from '../src/ia/content/Usages';
 import { IaMethodesPage } from '../src/ia/content/Methodes';
 import { IaOutilsPage } from '../src/ia/content/OutilsConfiguration';
 import { IaGouvernancePage } from '../src/ia/content/Gouvernance';
+import { CyberHubPage } from '../src/cyber/content/Hub';
+import { CyberMenacesPage } from '../src/cyber/content/Menaces';
+import { CyberAccesPage } from '../src/cyber/content/Acces';
+import { CyberDependancesPage } from '../src/cyber/content/Dependances';
+import { CyberDonneesPage } from '../src/cyber/content/Donnees';
+import { CyberIncidentPage } from '../src/cyber/content/Incident';
 
 afterEach(cleanup);
 
@@ -98,6 +104,12 @@ const PAGES: Array<[string, ReactElement]> = [
   ['/ia/methodes', <IaMethodesPage />],
   ['/ia/outils-configuration', <IaOutilsPage />],
   ['/ia/gouvernance', <IaGouvernancePage />],
+  ['/cybersecurite', <CyberHubPage />],
+  ['/cybersecurite/menaces', <CyberMenacesPage />],
+  ['/cybersecurite/acces', <CyberAccesPage />],
+  ['/cybersecurite/dependances', <CyberDependancesPage />],
+  ['/cybersecurite/donnees', <CyberDonneesPage />],
+  ['/cybersecurite/incident', <CyberIncidentPage />],
 ];
 
 const rendre = (page: ReactElement) =>

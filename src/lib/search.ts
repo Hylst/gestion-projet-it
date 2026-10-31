@@ -3,6 +3,7 @@
 
 import { MODULES } from '../modules/index';
 import { IA_PAGES } from '../ia/pages';
+import { CYBER_PAGES } from '../cyber/pages';
 
 interface SearchHitBase {
   path: string;
@@ -23,12 +24,17 @@ export interface IaSearchHit extends SearchHitBase {
   pageTitre: string;
 }
 
+export interface CyberSearchHit extends SearchHitBase {
+  type: 'cyber';
+  pageTitre: string;
+}
+
 export interface PageSearchHit extends SearchHitBase {
   type: 'page';
   pageTitre: string;
 }
 
-export type SearchHit = ModuleSearchHit | IaSearchHit | PageSearchHit;
+export type SearchHit = ModuleSearchHit | IaSearchHit | CyberSearchHit | PageSearchHit;
 
 export function isModuleHit(hit: SearchHit): hit is ModuleSearchHit {
   return hit.type === 'module';
@@ -36,6 +42,10 @@ export function isModuleHit(hit: SearchHit): hit is ModuleSearchHit {
 
 export function isIaHit(hit: SearchHit): hit is IaSearchHit {
   return hit.type === 'ia';
+}
+
+export function isCyberHit(hit: SearchHit): hit is CyberSearchHit {
+  return hit.type === 'cyber';
 }
 
 export function isPageHit(hit: SearchHit): hit is PageSearchHit {
@@ -94,6 +104,19 @@ export function buildIndex(): SearchHit[] {
     for (const section of page.sections) {
       out.push({
         type: 'ia',
+        path: page.path,
+        pageTitre: page.titreCourt,
+        section: section.label,
+        ancre: section.id,
+        label: `${page.titre}\u00A0: ${section.label}`,
+        needles: normaliser(`${page.titre} ${page.resume} ${(page.motsCles ?? []).join(' ')} ${section.label}`),
+      });
+    }
+  }
+  for (const page of CYBER_PAGES) {
+    for (const section of page.sections) {
+      out.push({
+        type: 'cyber',
         path: page.path,
         pageTitre: page.titreCourt,
         section: section.label,

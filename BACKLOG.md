@@ -29,8 +29,8 @@ Chaque item doit rester compatible avec les non-objectifs du projet. Un item qui
 | Parcours Produit | 8 | 0 | 8 | 0 |
 | Parcours Cybersécurité | 8 | 0 | 8 | 0 |
 | Ressources et outils | 5 | 0 | 4 | 1 |
-| Qualité et plateforme | 8 | 0 | 2 | 6 |
-| **Total** | **44** | **9** | **27** | **8** |
+| Qualité et plateforme | 9 | 1 | 2 | 6 |
+| **Total** | **45** | **10** | **27** | **8** |
 
 ## Lot P0 livré
 
@@ -42,6 +42,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 4. `RES-001` Bibliothèque de ressources officielles.
 5. `RES-004` Politique de sources et dates de vérification.
 6. `QUA-001` Audit WCAG 2.2 AA des pages du lot ; parcours reportés à leur ouverture.
+7. `QUA-009` Audit sécurité et CVE du 30 octobre 2026.
 
 ## Lot P1 livré
 
@@ -51,6 +52,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 4. `RES-002` Fiches outils normalisées.
 5. `RES-005` Grille de comparaison d’outils.
 6. `QUA-002` Parcours clavier et focus.
+7. `CYB-001` à `CYB-006` et `CYB-008` Parcours Cybersécurité, premier lot éditorial.
 
 ## Lot P2 livré
 
@@ -61,7 +63,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 5. `QUA-004` Vérification des liens documentaires.
 6. `QUA-005` Recherche avec synonymes.
 
-`QUA-001` reste ouvert pour l’audit des parcours à leur ouverture. Le prochain lot reste à cadrer après validation du lot P2. Les parcours Produit et Cybersécurité restent P1 et ne démarrent qu’après validation du lot P0.
+`QUA-001` reste ouvert pour le parcours Produit. Le parcours Cybersécurité est livré pour son premier lot éditorial ; les laboratoires `CYB-007` restent au backlog. Le parcours Produit reste P1 et ne démarre qu’après validation du lot P0.
 
 ---
 
@@ -241,59 +243,59 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 ## Parcours Cybersécurité
 
 ### CYB-001 Hub et routes du parcours Cybersécurité
-`P1` · `M` · `Candidat`
+`P1` · `M` · `Livré`
 **Résultat :** un hub et cinq routes autonomes, sans XP.
 **Acceptation :** navigation, SEO, fil d’Ariane et retour au cours fonctionnent.
-**Preuve :** tests de routes, smoke et sitemap.
+**Preuve :** `src/cyber/pages.ts`, `src/cyber/CyberLayout.tsx`, `src/App.tsx`, `tests/cyber.test.tsx`, smoke 16/16.
 **Vigilance :** ne pas modifier le compteur `0/9`.
 
 ### CYB-002 Menaces et modèle de menace
-`P1` · `M` · `Candidat`
+`P1` · `M` · `Livré`
 **Résultat :** une page pour identifier actifs, menaces et parades proportionnées.
 **Acceptation :** exemple fictif, vocabulaire expliqué, aucune promesse de sécurité totale.
-**Preuve :** labo de modèle de menace.
+**Preuve :** `src/cyber/content/Menaces.tsx`, `tests/cyber.test.tsx`.
 **Vigilance :** ne pas donner de conseil d’attaque opérationnel.
 
 ### CYB-003 Accès, rôles et secrets
-`P1` · `M` · `Candidat`
+`P1` · `M` · `Livré`
 **Résultat :** une page sur moindre privilège, comptes, secrets et rotation.
 **Acceptation :** exemple fictif, procédure de retrait et preuve de contrôle.
-**Preuve :** labo de matrice d’accès.
+**Preuve :** `src/cyber/content/Acces.tsx`, `tests/cyber.test.tsx`.
 **Vigilance :** aucun secret réel dans les exemples.
 
 ### CYB-004 Dépendances, fournisseurs et chaîne logicielle
-`P1` · `M` · `Candidat`
+`P1` · `M` · `Livré`
 **Résultat :** une page sur les dépendances, versions, fournisseurs et sortie.
 **Acceptation :** critères de choix, risques de verrouillage et plan de sortie.
-**Preuve :** fiche outil et exercice.
+**Preuve :** `src/cyber/content/Dependances.tsx`, `tests/cyber.test.tsx`.
 **Vigilance :** ne pas cibler un éditeur.
 
 ### CYB-005 Données, RGPD et AI Act
-`P1` · `M` · `Candidat`
+`P1` · `M` · `Livré`
 **Résultat :** une page pour situer données personnelles, base légale, rôles et obligations.
 **Acceptation :** sources officielles datées, distinction information et conseil juridique.
-**Preuve :** sources et test de charte.
+**Preuve :** `src/cyber/content/Donnees.tsx`, `docs/sources.md`, `tests/cyber.test.tsx`.
 **Vigilance :** aucun conseil juridique personnalisé.
 
 ### CYB-006 Incident, sauvegarde et reprise
-`P1` · `M` · `Candidat`
+`P1` · `M` · `Livré`
 **Résultat :** une page sur la détection, la décision, la communication et le retour d’expérience.
 **Acceptation :** chronologie fictive, rôles, preuves et amélioration.
-**Preuve :** labo de chronologie d’incident.
+**Preuve :** `src/cyber/content/Incident.tsx`, `tests/cyber.test.tsx`.
 **Vigilance :** ne pas dramatiser ni promettre une reprise sans test.
 
 ### CYB-007 Labos Cybersécurité
-`P1` · `L` · `Candidat`
+`P1` · `L` · `Candidat` · Second lot
 **Résultat :** trois labos accessibles : modèle de menace, matrice d’accès, chronologie.
 **Acceptation :** clavier, focus, messages d’erreur et validation.
 **Preuve :** tests de composants et smoke.
 **Vigilance :** aucun scénario réel d’attaque.
 
 ### CYB-008 Intégration Cybersécurité
-`P1` · `M` · `Candidat`
+`P1` · `M` · `Livré`
 **Résultat :** recherche, glossaire, sitemap, service worker et accueil reliés au parcours.
 **Acceptation :** zéro requête externe, zéro erreur console.
-**Preuve :** tests et smoke.
+**Preuve :** `src/lib/search.ts`, `src/lib/glossaire.ts`, `public/sitemap.xml`, `public/sw.js`, `tests/search.test.ts`, `tests/sitemap.test.ts`, smoke.
 **Vigilance :** ne pas dupliquer les sources IA.
 
 ---
@@ -343,8 +345,8 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 `P1` · `M` · `En attente`
 **Résultat :** audit des nouvelles pages et parcours.
 **Acceptation :** contrastes, structure, labels, focus, clavier et messages d’erreur.
-**Preuve :** `docs/accessibilite/audit-2026-10-24.md`, smoke 15/15 et Lighthouse 100 en accessibilité sur les pages contrôlées. Les pages des lots P0, P1 et P2 sont auditées ; la checklist des parcours est dans `docs/accessibilite/checklist-parcours.md`.
-**Vigilance :** ne pas se limiter à Lighthouse. Le point reste en attente de l’ouverture des parcours Produit et Cybersécurité.
+**Preuve :** `docs/accessibilite/audit-2026-10-24.md`, `docs/accessibilite/audit-2026-10-30-parcours-cybersecurite.md`, smoke 16/16 et Lighthouse 100 en accessibilité sur les pages contrôlées. Les pages des lots P0, P1 et P2 et le parcours Cybersécurité sont audités ; la checklist des parcours est dans `docs/accessibilite/checklist-parcours.md`.
+**Vigilance :** ne pas se limiter à Lighthouse. Le point reste en attente du parcours Produit.
 
 ### QUA-002 Parcours clavier et focus
 `P1` · `S` · `Livré`
@@ -364,7 +366,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 `P2` · `M` · `Livré`
 **Résultat :** un contrôle scripté des liens internes et de la cohérence des routes.
 **Acceptation :** liens relatifs, routes et sitemap contrôlés ; les URL externes restent vérifiées manuellement et datées.
-**Preuve :** `scripts/check-liens.mjs`, 58 liens relatifs, 25 routes et sitemap strictement cohérent, 24 URL externes en HTTP 200, exécution en CI.
+**Preuve :** `scripts/check-liens.mjs`, 65 liens relatifs, 31 routes et sitemap strictement cohérent, 24 URL externes en HTTP 200, exécution en CI.
 **Vigilance :** ne pas ajouter de requête réseau au runtime de l’application.
 
 ### QUA-005 Recherche avec synonymes
@@ -394,6 +396,13 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Acceptation :** animations désactivables, focus et textes lisibles.
 **Preuve :** audit et test manuel.
 **Vigilance :** ne pas casser les animations existantes.
+
+### QUA-009 Audit sécurité et CVE
+`P0` · `S` · `Livré`
+**Résultat :** un audit daté des dépendances, du code, du build, du service worker et des en-têtes de production.
+**Acceptation :** aucune vulnérabilité critique ou élevée dans l’arbre actif, aucun secret, en-têtes vérifiés et constats priorisés.
+**Preuve :** `docs/securite/audit-2026-10-30.md`, `npm audit` à 0, CI épinglée par SHA et seuil `moderate`.
+**Vigilance :** refaire l’audit à chaque dépendance, parcours ou publication. La copie racine 1.0.0 reste à aligner.
 
 ---
 

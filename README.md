@@ -12,6 +12,7 @@ Application 100 % front, sans compte, sans cookie, sans backend et sans requête
 - 31 routes publiques, recherche globale avec synonymes, glossaire étendu, bibliothèque de ressources, fiches outils, journal de projet, modèles imprimables et pages légales.
 - Design éditorial coloré : thèmes par module, cartes de section, sommaire sticky et contenus secondaires dépliables.
 - Le parcours Cybersécurité est ouvert avec un hub et cinq pages. Le parcours Produit reste cadré dans le backlog.
+- 3 laboratoires cyber intégrés : modèle de menace, matrice d’accès et chronologie d’incident, sans XP.
 
 ## Démarrage
 

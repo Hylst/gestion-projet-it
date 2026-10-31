@@ -130,6 +130,8 @@ describe('menaces cyber', () => {
     expect(table.querySelectorAll('tbody tr')).toHaveLength(5);
     expect(screen.getByRole('heading', { level: 2, name: 'Construire un modèle de menace' })).not.toBeNull();
     expect(screen.getByText(/Un modèle de menace n’est pas une garantie/)).not.toBeNull();
+    expect(screen.getByRole('heading', { level: 3, name: /Labo\s*:\s*associer menaces et parades/ })).not.toBeNull();
+    expect(screen.queryByText(/\+5 XP/)).toBeNull();
   });
 });
 
@@ -140,6 +142,8 @@ describe('acces cyber', () => {
     expect(table.querySelectorAll('tbody tr')).toHaveLength(4);
     expect(screen.getByRole('heading', { level: 2, name: 'Moindre privilège' })).not.toBeNull();
     expect(screen.getAllByText('Un secret retiré du code doit aussi être révoqué.').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByRole('heading', { level: 3, name: /Labo\s*:\s*attribuer le droit minimal/ })).not.toBeNull();
+    expect(screen.queryByText(/\+5 XP/)).toBeNull();
   });
 });
 
@@ -170,6 +174,8 @@ describe('incident cyber', () => {
     expect(table.querySelectorAll('tbody tr')).toHaveLength(5);
     expect(screen.getByRole('heading', { level: 2, name: 'Reprendre' })).not.toBeNull();
     expect(screen.getAllByText('Une sauvegarde non testée n’est pas une sauvegarde.').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByRole('heading', { level: 3, name: /Labo\s*:\s*ordonner la réponse à incident/ })).not.toBeNull();
+    expect(screen.queryByText(/\+5 XP/)).toBeNull();
   });
 });
 

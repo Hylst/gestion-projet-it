@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { Link } from 'react-router-dom';
+import LaboMatriceAcces from '../../labos/LaboMatriceAcces';
 import { CyberCallout } from '../CyberCallout';
 import { CyberLayout } from '../CyberLayout';
 import { CYBER_PAGES } from '../pages';
@@ -85,6 +86,7 @@ export function CyberAccesPage() {
             </tbody>
           </table>
         </div>
+        <LaboMatriceAcces />
       </section>
 
       <section id="compromission">

@@ -130,6 +130,8 @@ describe('menaces cyber', () => {
     expect(table.querySelectorAll('tbody tr')).toHaveLength(5);
     expect(screen.getByRole('heading', { level: 2, name: 'Construire un modèle de menace' })).not.toBeNull();
     expect(screen.getByText(/Un modèle de menace n’est pas une garantie/)).not.toBeNull();
+    expect(screen.getByRole('heading', { level: 3, name: /Labo\s*:\s*associer menaces et parades/ })).not.toBeNull();
+    expect(screen.queryByText(/\+5 XP/)).toBeNull();
   });
 });
 

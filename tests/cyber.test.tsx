@@ -174,6 +174,8 @@ describe('incident cyber', () => {
     expect(table.querySelectorAll('tbody tr')).toHaveLength(5);
     expect(screen.getByRole('heading', { level: 2, name: 'Reprendre' })).not.toBeNull();
     expect(screen.getAllByText('Une sauvegarde non testée n’est pas une sauvegarde.').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByRole('heading', { level: 3, name: /Labo\s*:\s*ordonner la réponse à incident/ })).not.toBeNull();
+    expect(screen.queryByText(/\+5 XP/)).toBeNull();
   });
 });
 

@@ -124,7 +124,7 @@ export default function Accueil() {
       <section className="cyber-accueil theme-cyber" aria-labelledby="cyber-accueil-titre">
         <h2 id="cyber-accueil-titre">Cybersécurité et gestion de projet</h2>
         <p>
-          Un parcours autonome pour identifier les actifs, réduire les accès et réagir sans improviser. Aucun XP, aucune obligation de parcours.
+          Un parcours autonome pour identifier les actifs, réduire les accès et réagir sans improviser. Trois laboratoires permettent de manipuler un modèle de menace, une matrice d’accès et une chronologie d’incident. Aucun XP, aucune obligation de parcours.
         </p>
         <p><Link className="btn" to="/cybersecurite">Ouvrir le parcours Cybersécurité</Link></p>
         <div className="cyber-carte">

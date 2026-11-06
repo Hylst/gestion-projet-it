@@ -19,6 +19,11 @@
 
 - Version `1.6.1` et service worker v14, pour purger les caches du build 1.6.0.
 - Aucun changement de contenu, de route ni de donnée locale.
+- Mise en ligne le 6 novembre 2026 depuis `main` `3b93f01`.
+- Build : `index-CoaE1kCu.js` (309 485 octets, SHA-256 `db469bc6…`), `index-BS_P4AIW.css` (47 725 octets, SHA-256 `6b57e598…`), `index.html` (2 713 octets, SHA-256 `1687dc67…`), `sw.js` v14 (SHA-256 `0371d96f…`). 54 fichiers vérifiés.
+- Production `https://hylst.fr/gestion-projet-it/` : assets en 200, ancien `index-yok6Nm3V.js` en 404, service worker v14 actif et en `no-cache`.
+- Smoke Playwright 18/18 en production, incluant le test de reflow à 320 px.
+- Lighthouse production 1.6.1 : accueil 98/100/100/100, `/module-1` 98/100/100/100.
 
 ### Vérifié
 

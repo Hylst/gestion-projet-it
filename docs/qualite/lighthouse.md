@@ -79,3 +79,12 @@ Mesure mobile sur le build local, premier chargement sans données locales, visi
 | `https://hylst.fr/gestion-projet-it/module-1` | 99 | 100 | 100 | 100 |
 
 Mesure mobile sur la production déployée depuis `main` `4514f93` (commit plateforme `e6875a52`). Ces scores confirment les mesures locales : la performance de l’accueil fluctue entre 98 et 100 selon le réseau et le poste, sans passer sous le seuil de 90. `docs/qualite/partage.md` consigne les autres contrôles de production.
+
+## 8. Production du 6 novembre 2026 (version 1.6.1)
+
+| Page | Performance | Accessibilité | Bonnes pratiques | SEO |
+| --- | ---: | ---: | ---: | ---: |
+| `https://hylst.fr/gestion-projet-it/` | 98 | 100 | 100 | 100 |
+| `https://hylst.fr/gestion-projet-it/module-1` | 98 | 100 | 100 | 100 |
+
+Mesure mobile sur la production déployée depuis `main` `3b93f01`. Les scores confirment le maintien des performances et de l’accessibilité après application du correctif de reflow et montée des dépendances.

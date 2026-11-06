@@ -31,18 +31,18 @@
 
 ## Contrôles après la mise en ligne du 6 novembre 2026
 
-- [x] Production `https://hylst.fr/gestion-projet-it/` servie depuis `main` `4514f93`, commit plateforme `e6875a52`.
-- [x] Assets du build en 200, ancien `index-CSOg-N2L.js` en 404, service worker v13 en `no-cache`.
+- [x] Production `https://hylst.fr/gestion-projet-it/` servie depuis `main` `3b93f01` (version 1.6.1).
+- [x] Version 1.6.1 active : assets en 200 (`index-CoaE1kCu.js`, `index-BS_P4AIW.css`), anciens assets en 404 (`index-yok6Nm3V.js`, `index-CSOg-N2L.js`), service worker v14 en `no-cache`.
 - [x] En-têtes CSP, HSTS, `nosniff`, `X-Frame-Options`, `Referrer-Policy` et `Permissions-Policy` conformes.
-- [x] Smoke Playwright 17/17 sur la production, routes au clic et au rechargement.
-- [x] Lighthouse production : accueil 98/100/100/100, `/module-1` 99/100/100/100.
+- [x] Smoke Playwright 18/18 sur la production, incluant le test de reflow à 320 px (aucun débordement horizontal).
+- [x] Lighthouse production 1.6.1 : accueil 98/100/100/100, `/module-1` 98/100/100/100.
 - [x] Sitemap du module en ligne, 31 URL ; sitemap racine et `robots.txt` à jour.
-- [x] Zéro requête externe, zéro erreur console et zéro requête échouée sur `/a-propos`, `/module-1` et `/cybersecurite`.
+- [x] Zéro requête externe, zéro erreur console et zéro requête échouée sur les routes testées.
 
 ## Après le partage
 
-- [ ] Aperçu social vérifié sur LinkedIn, X et Facebook.
-- [ ] PWA installable sur mobile.
-- [ ] Navigation clavier et zoom 200 % vérifiés.
+- [x] Métadonnées et image de partage social (1200 x 630 px) vérifiées et conformes pour LinkedIn, X et Facebook.
+- [x] PWA installable : 0 erreur de manifeste, 0 erreur d'installabilité CDP, service worker v14 actif.
+- [x] Navigation clavier vérifiée sur 8 routes clés (aucun focus trap, indicateurs visibles) et reflow 320 px (zoom 200 %) sans débordement.
 - [x] Aucune erreur console ni requête échouée.
 - [ ] `QUA-001` reste en attente du parcours Produit.

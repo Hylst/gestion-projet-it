@@ -25,6 +25,12 @@ const IaUsagesPage = lazy(() => import('./ia/content/Usages').then((m) => ({ def
 const IaMethodesPage = lazy(() => import('./ia/content/Methodes').then((m) => ({ default: m.IaMethodesPage })));
 const IaOutilsPage = lazy(() => import('./ia/content/OutilsConfiguration').then((m) => ({ default: m.IaOutilsPage })));
 const IaGouvernancePage = lazy(() => import('./ia/content/Gouvernance').then((m) => ({ default: m.IaGouvernancePage })));
+const CyberHubPage = lazy(() => import('./cyber/content/Hub').then((m) => ({ default: m.CyberHubPage })));
+const CyberMenacesPage = lazy(() => import('./cyber/content/Menaces').then((m) => ({ default: m.CyberMenacesPage })));
+const CyberAccesPage = lazy(() => import('./cyber/content/Acces').then((m) => ({ default: m.CyberAccesPage })));
+const CyberDependancesPage = lazy(() => import('./cyber/content/Dependances').then((m) => ({ default: m.CyberDependancesPage })));
+const CyberDonneesPage = lazy(() => import('./cyber/content/Donnees').then((m) => ({ default: m.CyberDonneesPage })));
+const CyberIncidentPage = lazy(() => import('./cyber/content/Incident').then((m) => ({ default: m.CyberIncidentPage })));
 const M1Page = lazy(() => import('./modules/m1-wbs').then((m) => ({ default: m.M1Page })));
 const M2Page = lazy(() => import('./modules/m2-planif').then((m) => ({ default: m.M2Page })));
 const M3Page = lazy(() => import('./modules/m3-methodes').then((m) => ({ default: m.M3Page })));
@@ -65,6 +71,12 @@ export default function App() {
             <Route path="/ia/methodes" element={<IaMethodesPage />} />
             <Route path="/ia/outils-configuration" element={<IaOutilsPage />} />
             <Route path="/ia/gouvernance" element={<IaGouvernancePage />} />
+            <Route path="/cybersecurite" element={<CyberHubPage />} />
+            <Route path="/cybersecurite/menaces" element={<CyberMenacesPage />} />
+            <Route path="/cybersecurite/acces" element={<CyberAccesPage />} />
+            <Route path="/cybersecurite/dependances" element={<CyberDependancesPage />} />
+            <Route path="/cybersecurite/donnees" element={<CyberDonneesPage />} />
+            <Route path="/cybersecurite/incident" element={<CyberIncidentPage />} />
             <Route path="/module-:num" element={<ModulePlaceholder />} />
             <Route path="/a-propos" element={<Apropos />} />
             <Route path="/glossaire" element={<Glossaire />} />

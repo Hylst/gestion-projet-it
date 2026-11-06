@@ -37,7 +37,7 @@ export default function Accessibilite() {
 
       <section aria-labelledby="limites">
         <h2 id="limites">Limites</h2>
-        <p>Les parcours Produit et Cybersécurité ne sont pas encore ouverts. Leur audit sera réalisé à leur livraison, selon la checklist interne.</p>
+        <p>Le parcours Cybersécurité a été audité le 30 octobre 2026. Le parcours Produit n’est pas encore ouvert&nbsp;; son audit sera réalisé à sa livraison, selon la checklist interne.</p>
         <p>Les sites externes cités dans les ressources ne sont pas contrôlés par l’auteur. Les scores Lighthouse dépendent du poste et du réseau local.</p>
       </section>
 
@@ -47,7 +47,7 @@ export default function Accessibilite() {
         <p>Les demandes sont traitées dans un délai raisonnable, sans promesse de délai contractuel.</p>
       </section>
 
-      <p className="help">Dernière mise à jour&nbsp;: 24 octobre 2026. <Link to="/mentions-legales">Mentions légales</Link></p>
+      <p className="help">Dernière mise à jour&nbsp;: 30 octobre 2026. <Link to="/mentions-legales">Mentions légales</Link></p>
     </article>
   );
 }

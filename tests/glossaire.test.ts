@@ -76,7 +76,7 @@ describe('glossaire', () => {
     ];
     const noms = TERMES.map((t) => t.terme);
     for (const terme of attendus) expect(noms, terme).toContain(terme);
-    expect(TERMES.find((t) => t.terme === 'Modèle de menace')?.lien?.to).toBe('/ressources#parcours-cybersecurite');
+    expect(TERMES.find((t) => t.terme === 'Modèle de menace')?.lien?.to).toBe('/cybersecurite/menaces');
     expect(TERMES.find((t) => t.terme === 'Arbre d’opportunités')?.lien?.to).toBe('/ressources#parcours-produit');
   });
 
@@ -99,5 +99,27 @@ describe('glossaire', () => {
       expect(entree?.lien?.to.startsWith('/ia')).toBe(true);
       expect(entree?.lien?.label.length).toBeGreaterThan(5);
     }
+  });
+
+  it('contient les dix termes cyber et leurs liens', () => {
+    const attendus = [
+      'Authentification multifacteur',
+      'Chiffrement',
+      'Contrôle d’accès',
+      'Défense en profondeur',
+      'Hygiène numérique',
+      'Incident de sécurité',
+      'Moindre privilège',
+      'Phishing',
+      'Rançongiciel',
+      'Surface d’attaque',
+    ];
+    for (const terme of attendus) {
+      const entree = TERMES.find((t) => t.terme === terme);
+      expect(entree, terme).toBeDefined();
+      expect(entree?.lien?.to.startsWith('/cybersecurite')).toBe(true);
+      expect(entree?.lien?.label.length).toBeGreaterThan(5);
+    }
+    expect(TERMES.find((t) => t.terme === 'Modèle de menace')?.lien?.to).toBe('/cybersecurite/menaces');
   });
 });

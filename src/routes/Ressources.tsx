@@ -50,7 +50,7 @@ export default function Ressources() {
       </nav>
       {RESSOURCES_MODULES.map((groupe) => <Groupe key={groupe.id} groupe={groupe} />)}
       {RESSOURCES_PARCOURS.map((groupe) => <Groupe key={groupe.id} groupe={groupe} />)}
-      <p className="help">Les pages des parcours Produit et Cybersécurité restent au backlog. Leurs ressources sont regroupées ici pour préparer leur ouverture.</p>
+      <p className="help">Le parcours Cybersécurité est ouvert. Le parcours Produit reste au backlog. Leurs ressources sont regroupées ici. <Link to="/cybersecurite">Ouvrir le parcours Cybersécurité</Link></p>
     </article>
   );
 }

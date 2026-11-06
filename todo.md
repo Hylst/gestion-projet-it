@@ -124,7 +124,7 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 
 ## 4. Décisions ouvertes
 
-1. **Ordre de fusion** : #26, #27, #28, puis #32, puis ce lot d’audit.
+1. **Ordre de fusion** : #26, #27, #28 et #32 fusionnées sur main (4156790). PR d’audit #33 ouverte, CI verte, fusion dans la foulée.
 2. **Version** : garder `1.5.0` tant que le lot n’est pas publié, puis
    passer à `1.6.0` au moment de la mise en ligne.
 3. **JSON-LD** : la CSP `script-src 'self'` interdit le script inline.
@@ -150,6 +150,6 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
       identiques : 54 fichiers, SHA-256 concordants.
 - [x] Smoke Playwright 17/17 sur la copie Docker servie avec fallback SPA.
 - [x] Commit local du lot source.
-- [ ] Fusion des pull requests empilées.
+- [x] Fusion des pull requests empilées (#26, #27, #28, #32), main à 4156790.
 - [ ] Publication Coolify et contrôle des en-têtes.
 - [ ] Soumission du sitemap après mise en ligne.

@@ -2,7 +2,7 @@
 
 ## [Non publié]
 
-### Audit complet et finitions
+### Audit complet et finitions (PR #33)
 
 - Documentation : ajout de `structure.md`, `features.md` et `todo.md` ; mise à jour de `agents.md`, `README.md`, `ARCHITECTURE.md`, `CREDITS.md` et de l’index `docs/README.md`.
 - Paternité : alias Hylst ajouté au footer, à la page À propos, aux mentions légales, à la transparence IA, aux crédits, au `package.json` et à `index.html`.

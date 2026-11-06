@@ -53,11 +53,15 @@ describe('conformité et partage', () => {
 
   it('publie les métadonnées sociales statiques et l’auteur', () => {
     const html = fs.readFileSync('index.html', 'utf8');
-    expect(html).toContain('name="author" content="Geoffroy Streit"');
+    expect(html).toContain('name="author" content="Geoffroy Streit (Hylst)"');
     expect(html).toContain('rel="canonical"');
     expect(html).toContain('property="og:image"');
+    expect(html).toContain('property="og:image:type"');
+    expect(html).toContain('property="og:image:alt"');
     expect(html).toContain('name="twitter:card"');
+    expect(html).toContain('name="twitter:image:alt"');
     expect(html).toContain('apple-touch-icon');
+    expect(html).toContain('favicon-32.png');
   });
 
   it('fournit les icônes et l’image de partage aux bonnes dimensions', () => {
@@ -66,10 +70,17 @@ describe('conformité et partage', () => {
       return { largeur: buf.readUInt32BE(16), hauteur: buf.readUInt32BE(20) };
     };
     expect(dimensions('public/og-image.png')).toEqual({ largeur: 1200, hauteur: 630 });
+    expect(dimensions('public/favicon-32.png')).toEqual({ largeur: 32, hauteur: 32 });
     expect(dimensions('public/icon-192.png')).toEqual({ largeur: 192, hauteur: 192 });
     expect(dimensions('public/icon-512.png')).toEqual({ largeur: 512, hauteur: 512 });
     expect(dimensions('public/apple-touch-icon.png')).toEqual({ largeur: 180, hauteur: 180 });
-    const manifest = JSON.parse(fs.readFileSync('public/manifest.webmanifest', 'utf8')) as { icons: Array<{ src: string; type: string }> };
+    const manifest = JSON.parse(fs.readFileSync('public/manifest.webmanifest', 'utf8')) as {
+      description?: string;
+      icons: Array<{ src: string; type: string }>;
+      shortcuts?: Array<{ url: string }>;
+    };
+    expect(manifest.description).toContain('16 laboratoires');
+    expect(manifest.shortcuts?.some((raccourci) => raccourci.url.endsWith('/module-1'))).toBe(true);
     expect(manifest.icons.some((icone) => icone.src.endsWith('icon-192.png') && icone.type === 'image/png')).toBe(true);
     expect(manifest.icons.some((icone) => icone.src.endsWith('icon-512.png') && icone.type === 'image/png')).toBe(true);
   });

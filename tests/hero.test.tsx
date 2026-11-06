@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Geoffroy Streit
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+import { readdirSync } from 'node:fs';
 import { describe, it, expect, afterEach } from 'vitest';
 import { cleanup, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
@@ -30,5 +31,18 @@ describe('accueil', () => {
     expect(container.querySelectorAll('.hero-panel svg[aria-hidden="true"]')).toHaveLength(3);
     expect(container.querySelector('a[href="/dossier-projet"]')?.textContent).toBe('Ouvrir le dossier projet');
     expect(container.querySelector('#capstone-cta-titre')?.textContent).toBe('Mettre les méthodes en pratique');
+  });
+
+  it('annonce le nombre réel de laboratoires', () => {
+    const { container } = render(
+      <ProgressProvider>
+        <MemoryRouter>
+          <Accueil />
+        </MemoryRouter>
+      </ProgressProvider>,
+    );
+    const labos = readdirSync('src/labos').filter((fichier) => fichier.endsWith('.tsx'));
+    expect(labos).toHaveLength(16);
+    expect(container.querySelector('.hero-stats')?.textContent).toContain('16 laboratoires');
   });
 });

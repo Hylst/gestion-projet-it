@@ -8,7 +8,7 @@ import { MODULES } from '../src/modules/index';
 import { IA_PAGES } from '../src/ia/pages';
 import { CYBER_PAGES } from '../src/cyber/pages';
 
-const base = process.env.SMOKE_BASE_URL ?? 'http://localhost:4173/gestion-projet-it';
+const base = (process.env.SMOKE_BASE_URL ?? 'http://localhost:4173/gestion-projet-it').replace(/\/+$/, '');
 const baseOrigin = new URL(base).origin;
 const routes = ['/', '/ia', '/ia/usages', '/ia/methodes', '/ia/outils-configuration', '/ia/gouvernance', '/cybersecurite', '/cybersecurite/menaces', '/cybersecurite/acces', '/cybersecurite/dependances', '/cybersecurite/donnees', '/cybersecurite/incident', '/dossier-projet', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/module-8', '/module-9', '/a-propos', '/glossaire', '/ressources', '/outils', '/modeles', '/mentions-legales', '/confidentialite', '/transparence-ia', '/accessibilite'];
 

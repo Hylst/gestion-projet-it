@@ -571,3 +571,18 @@ Le prochain cycle reste cadré dans `BACKLOG.md` :
 - parcours Produit et parcours Cybersécurité, autonomes, sans XP.
 
 Les non-objectifs du projet restent : backend, comptes, cookies, analytics, certification, ressources chargées automatiquement et contenus inventés.
+
+## 19. Addendum 2026-11-06 : état courant
+
+L’addendum du 23 octobre 2026 reste historique. L’état courant du dépôt est le suivant :
+
+- 31 routes publiques, dont 9 modules, 5 pages IA et 6 pages Cybersécurité.
+- 16 laboratoires SVG interactifs : 13 dans les modules et 3 dans le parcours Cybersécurité.
+- Visite de présentation en cinq écrans à la première visite de l’accueil.
+- Sitemap de 31 URL, service worker v12, manifeste PWA avec raccourcis.
+- SEO : canonical par route, Open Graph et Twitter, image de partage 1200 x 630, favicon SVG avec repli PNG.
+- Aucun appel à une API externe ni à une IA au runtime, test dédié.
+- Le parcours Produit reste au backlog.
+
+Les documents `structure.md`, `features.md` et `todo.md` décrivent l’arborescence, l’inventaire fonctionnel et les prochains lots. `agents.md` et `README.md` sont alignés sur cet état.
+

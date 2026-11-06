@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer>
       <p>
-        Gestion de Projet IT. Réalisé par <strong>Geoffroy Streit</strong> avec assistance IA.
+        Gestion de Projet IT. Réalisé par <strong>Geoffroy Streit (Hylst)</strong> avec assistance IA.
         Code et textes assistés par IA. Illustrations générées par IA en local.
         Licence AGPL-3.0-or-later. Aucun compte, aucun cookie, aucune donnée sortante.
       </p>

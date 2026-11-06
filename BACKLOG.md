@@ -1,6 +1,6 @@
 # Backlog Gestion de Projet IT
 
-**Version :** 2026-10-24
+**Version :** 2026-11-06
 **Périmètre :** contenu pédagogique, parcours, ressources, outils, qualité et documentation.
 **Source de vérité :** ce backlog ne remplace pas le cahier des charges ni une spec. Il sert à choisir le prochain lot.
 
@@ -66,6 +66,12 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 
 `QUA-001` reste ouvert pour le parcours Produit. Le parcours Cybersécurité est livré avec ses pages et ses trois laboratoires. Le parcours Produit reste P1 et ne démarre qu’après validation du lot P0.
 
+## Lot d’audit livré
+
+1. `DOC-008` Structure, fonctionnalités et todo.
+2. `QUA-011` SEO, partage social et icônes.
+3. `QUA-012` Garde-fou contre les API externes.
+
 ---
 
 ## Documentation et gouvernance
@@ -118,6 +124,13 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Acceptation :** architecture, raisons, alternatives et conséquences sont explicites.
 **Preuve :** `docs/adr/` ou section dédiée.
 **Vigilance :** ne pas créer de débat de doctrine sur les méthodes.
+
+### DOC-008 Structure, fonctionnalités et todo
+`P1` · `S` · `Livré`
+**Résultat :** trois documents racine qui décrivent l’arborescence, l’inventaire fonctionnel et les lots à faire.
+**Acceptation :** les routes, les données locales, les dépendances et les propositions sont à jour ; les quick wins et les lots de fond sont distincts.
+**Preuve :** `structure.md`, `features.md`, `todo.md`, `npm run check:liens`.
+**Vigilance :** ne pas dupliquer le cahier des charges ni le backlog ; pointer vers la source de vérité.
 
 ---
 
@@ -367,7 +380,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 `P2` · `M` · `Livré`
 **Résultat :** un contrôle scripté des liens internes et de la cohérence des routes.
 **Acceptation :** liens relatifs, routes et sitemap contrôlés ; les URL externes restent vérifiées manuellement et datées.
-**Preuve :** `scripts/check-liens.mjs`, 69 liens relatifs, 31 routes et sitemap strictement cohérent, 24 URL externes en HTTP 200, exécution en CI.
+**Preuve :** `scripts/check-liens.mjs`, 77 liens relatifs, 31 routes et sitemap strictement cohérent, 24 URL externes en HTTP 200, exécution en CI.
 **Vigilance :** ne pas ajouter de requête réseau au runtime de l’application.
 
 ### QUA-005 Recherche avec synonymes
@@ -411,6 +424,20 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Acceptation :** navigation au clavier, Échap, focus rendu au bouton, drapeau local, aucune route ni XP.
 **Preuve :** `src/lib/onboarding.ts`, `src/components/Onboarding.tsx`, `tests/onboarding.test.ts`, `tests/onboarding-render.test.tsx`, smoke et audit d’accessibilité.
 **Vigilance :** ne pas transformer la visite en compte, en collecte ou en étape obligatoire.
+
+### QUA-011 SEO, partage social et icônes
+`P1` · `S` · `Livré`
+**Résultat :** métadonnées sociales complètes, image de partage 1200 x 630, favicon SVG avec repli PNG, manifeste PWA enrichi et sitemap du module dans `robots.txt`.
+**Acceptation :** canonical par route, `og:site_name`, `og:locale`, dimensions et texte alternatif de l’image, aperçu social vérifié.
+**Preuve :** `index.html`, `src/components/SeoHead.tsx`, `public/og-image.png`, `public/favicon-32.png`, `public/manifest.webmanifest`, `tests/seo.test.tsx`, `tests/conformite.test.tsx`.
+**Vigilance :** ne pas ajouter de JSON-LD inline sous CSP `script-src 'self'`.
+
+### QUA-012 Garde-fou contre les API externes
+`P1` · `S` · `Livré`
+**Résultat :** un test interdit les appels réseau et les API d’IA externes dans `src`.
+**Acceptation :** `fetch`, `XMLHttpRequest`, `axios`, `WebSocket`, `EventSource`, `sendBeacon` et les domaines d’API connus sont absents ; le service worker reste same-origin.
+**Preuve :** `tests/aucune-api-externe.test.ts`.
+**Vigilance :** ne pas affaiblir le test pour faire passer une dépendance.
 
 ---
 

@@ -7,7 +7,7 @@ import { SeoHead } from '../components/SeoHead';
 export default function Apropos() {
   return (
     <article className="module-page module-theme-4">
-      <SeoHead title="À propos" description={'Gestion de Projet IT\u00A0: cours interactif réalisé par Geoffroy Streit avec assistance IA, licence AGPL-3.0-or-later, sans compte ni cookie.'} />
+      <SeoHead title="À propos" description={'Gestion de Projet IT\u00A0: cours interactif réalisé par Geoffroy Streit (Hylst) avec assistance IA, licence AGPL-3.0-or-later, sans compte ni cookie.'} />
       <header className="module-head">
         <p className="kicker">Le projet</p>
         <h1>À propos du projet</h1>
@@ -15,7 +15,7 @@ export default function Apropos() {
       </header>
       <section>
         <h2>Paternité</h2>
-        <p>Réalisé par <strong>Geoffroy Streit</strong> avec assistance IA. Le code, les tests et les textes ont été relus et corrigés avant publication. Les illustrations ont été générées par IA en local.</p>
+        <p>Réalisé par <strong>Geoffroy Streit (Hylst)</strong> avec assistance IA. Le code, les tests et les textes ont été relus et corrigés avant publication. Les illustrations ont été générées par IA en local.</p>
         <p>La <Link to="/transparence-ia">page de transparence IA</Link> détaille les outils, les modèles, les limites et l’absence d’IA au runtime.</p>
       </section>
       <section>

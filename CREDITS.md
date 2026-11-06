@@ -1,6 +1,6 @@
 # Crédits et provenance
 
-**Auteur :** Geoffroy Streit
+**Auteur :** Geoffroy Streit (Hylst)
 **Site :** Gestion de Projet IT
 **Licence :** AGPL-3.0-or-later
 
@@ -15,9 +15,10 @@ Les visuels publiés dans cette version sont des SVG inline ou des fichiers SVG 
 - `src/components/ModulePicto.tsx` : pictogrammes des neuf modules.
 - `src/routes/accueil.tsx` : panneaux du hero.
 - `src/labos/LaboWbs.tsx` : décor du laboratoire WBS.
-- `public/favicon.svg`, `public/icon-192.svg`, `public/icon-512.svg` : identité visuelle.
+- `public/favicon.svg`, `public/favicon-32.png`, `public/icon-192.svg`, `public/icon-512.svg` : identité visuelle.
+- `public/og-image.svg` : image de partage, rendue localement en `og-image.png`.
 
-Ces SVG ont été créés avec l’assistance d’un assistant IA local, puis relus et intégrés dans le code. Z-Image-Turbo, modèle local sous licence Apache 2.0, a aussi été utilisé comme outil de création graphique. Aucune image raster générée par Z-Image-Turbo n’est présente dans le build 1.4.0 au moment de la rédaction ; tout ajout futur sera documenté dans `docs/conformite/provenance-illustrations.md`.
+Ces SVG ont été créés avec l’assistance d’un assistant IA local, puis relus et intégrés dans le code. Z-Image-Turbo, modèle local sous licence Apache 2.0, a aussi été utilisé comme outil de création graphique. Aucune image raster générée par Z-Image-Turbo n’est présente dans le build publié au moment de la rédaction ; tout ajout futur sera documenté dans `docs/conformite/provenance-illustrations.md`.
 
 L’image de partage `public/og-image.png` et les icônes PNG sont générées localement à partir des éléments vectoriels du site. Elles ne représentent aucune personne réelle.
 

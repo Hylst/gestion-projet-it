@@ -24,7 +24,16 @@ export function ProgressProvider(props: { children: React.ReactNode }) {
     importJSON: (json) => {
       try {
         const parsed = JSON.parse(json) as Partial<XPState> & { version?: number };
-        if (parsed.version !== 1) return false;
+        const estListe = (v: unknown): v is string[] =>
+          Array.isArray(v) && v.every((x) => typeof x === 'string');
+        if (
+          parsed.version !== 1 ||
+          !estListe(parsed.quizDone) ||
+          !estListe(parsed.laboDone) ||
+          !estListe(parsed.moduleDone)
+        ) {
+          return false;
+        }
         setState((s) => reduireXP(s, { type: 'import', state: parsed }));
         return true;
       } catch {

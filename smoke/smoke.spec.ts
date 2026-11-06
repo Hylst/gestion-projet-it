@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Geoffroy Streit
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import { CRITERES, ETAPES, etatInitialDossier } from '../src/lib/capstone';
 import { DOSSIER_STORAGE_KEY } from '../src/lib/capstoneStorage';
 import { MODULES } from '../src/modules/index';
@@ -11,6 +11,12 @@ import { CYBER_PAGES } from '../src/cyber/pages';
 const base = process.env.SMOKE_BASE_URL ?? 'http://localhost:4173/gestion-projet-it';
 const baseOrigin = new URL(base).origin;
 const routes = ['/', '/ia', '/ia/usages', '/ia/methodes', '/ia/outils-configuration', '/ia/gouvernance', '/cybersecurite', '/cybersecurite/menaces', '/cybersecurite/acces', '/cybersecurite/dependances', '/cybersecurite/donnees', '/cybersecurite/incident', '/dossier-projet', '/module-1', '/module-2', '/module-3', '/module-4', '/module-5', '/module-6', '/module-7', '/module-8', '/module-9', '/a-propos', '/glossaire', '/ressources', '/outils', '/modeles', '/mentions-legales', '/confidentialite', '/transparence-ia', '/accessibilite'];
+
+async function fermerOnboarding(page: Page): Promise<void> {
+  const passer = page.getByRole('button', { name: 'Passer', exact: true });
+  if (await passer.isVisible().catch(() => false)) await passer.click();
+}
+
 const routeTitres: Record<string, string> = {
   '/': 'Gérer un projet informatique, pas à pas',
   '/dossier-projet': 'Dossier projet',
@@ -40,6 +46,7 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 31
   page.on('pageerror', (e) => consoleErrors.push(String(e)));
 
   await page.goto(`${base}/`);
+  await fermerOnboarding(page);
   await page.locator('.module-card .titre', { hasText: 'Cadrer et découper' }).click();
   await expect(page).toHaveURL(/\/module-1$/);
   await expect(page.locator('#contenu h1')).toHaveText('Cadrer et découper (WBS)');
@@ -64,6 +71,49 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 31
   expect(failures).toEqual([]);
   expect(badStatus).toEqual([]);
   expect(consoleErrors).toEqual([]);
+});
+
+test('onboarding : première visite, clavier, fermeture et relecture', async ({ page }) => {
+  const externals: string[] = [];
+  page.on('request', (r) => {
+    const u = new URL(r.url());
+    if (u.protocol.startsWith('http') && u.origin !== baseOrigin) externals.push(r.url());
+  });
+
+  await page.goto(`${base}/`);
+  const dialogue = page.getByRole('dialog');
+  await expect(dialogue).toBeVisible();
+  await expect(dialogue.getByRole('heading', { level: 2, name: 'Bienvenue dans le cours' })).toBeVisible();
+  await expect(dialogue.getByText('Étape 1 sur 5')).toBeVisible();
+  await expect(page.locator('.onboarding-panel')).toBeFocused();
+
+  await page.keyboard.press('ArrowRight');
+  await expect(dialogue.getByText('Étape 2 sur 5')).toBeVisible();
+  await page.keyboard.press('End');
+  await expect(dialogue.getByText('Étape 5 sur 5')).toBeVisible();
+  await expect(dialogue.getByRole('button', { name: 'Terminer' })).toBeVisible();
+
+  await page.keyboard.press('Escape');
+  await expect(dialogue).toHaveCount(0);
+  const drapeau = await page.evaluate(() => localStorage.getItem('gestion-projet-it:onboarding:v1'));
+  expect(JSON.parse(drapeau ?? '{}')).toEqual({ version: 1, vu: true });
+  await expect(page.getByRole('button', { name: 'Revoir la présentation' })).toBeFocused();
+
+  await page.reload();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Revoir la présentation' })).toBeVisible();
+
+  await page.getByRole('button', { name: 'Revoir la présentation' }).click();
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await expect(page.getByText('Étape 1 sur 5')).toBeVisible();
+  await page.getByRole('button', { name: 'Passer', exact: true }).click();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+
+  await page.evaluate(() => localStorage.removeItem('gestion-projet-it:onboarding:v1'));
+  await page.goto(`${base}/glossaire`);
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+
+  expect(externals).toEqual([]);
 });
 
 test('liens internes : routes, ancres et ids valides', async ({ page }) => {
@@ -151,6 +201,7 @@ test('journal : saisie locale et rechargement', async ({ page }) => {
 
 test('mode hors ligne : la page modèles reste disponible', async ({ page, context }) => {
   await page.goto(`${base}/`);
+  await fermerOnboarding(page);
   await page.evaluate(async () => {
     await navigator.serviceWorker.ready;
   });
@@ -291,6 +342,7 @@ test('dossier projet : sauvegarde, synthèse, badge et impression', async ({ pag
 
 test('section IA : navigation, recherche, glossaire et impression', async ({ page }) => {
   await page.goto(`${base}/`);
+  await fermerOnboarding(page);
   await page.getByRole('link', { name: 'IA', exact: true }).click();
   await expect(page).toHaveURL(/\/ia$/);
   await expect(page.getByRole('heading', { level: 1, name: 'Gestion de projet et IA' })).toBeVisible();
@@ -326,6 +378,7 @@ test('section IA : navigation, recherche, glossaire et impression', async ({ pag
 
 test('parcours cyber : navigation, recherche, glossaire et impression', async ({ page }) => {
   await page.goto(`${base}/`);
+  await fermerOnboarding(page);
   await page.getByRole('link', { name: 'Sécurité', exact: true }).click();
   await expect(page).toHaveURL(/\/cybersecurite$/);
   await expect(page.getByRole('heading', { level: 1, name: 'Cybersécurité et gestion de projet' })).toBeVisible();

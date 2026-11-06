@@ -1,19 +1,22 @@
 // SPDX-FileCopyrightText: 2026 Geoffroy Streit
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { MODULES } from '../modules/index';
 import { IA_PAGES } from '../ia/pages';
 import { CYBER_PAGES } from '../cyber/pages';
 import { ModulePicto } from '../components/ModulePicto';
+import Onboarding from '../components/Onboarding';
 import { SeoHead } from '../components/SeoHead';
 import Reveal from '../components/Reveal';
+import { aDejaVuOnboarding, marquerOnboardingVu } from '../lib/onboarding';
 import { useProgress } from '../lib/progress';
 import '../styles/hero.css';
 import '../styles/ia.css';
 import '../styles/cyber.css';
 
-function Hero() {
+function Hero({ actions }: { actions: ReactNode }) {
   return (
     <section className="hero reveal visible">
       <p className="kicker">Cours interactif gratuit, sans compte</p>
@@ -65,17 +68,47 @@ function Hero() {
           <p className="hero-panel-legende">phases et tests en miroir</p>
         </div>
       </div>
-      <p><Link className="btn" to="/module-1">Commencer par le module 1&nbsp;: cadrer et découper</Link></p>
+      <div className="hero-actions">
+        <Link className="btn" to="/module-1">Commencer par le module 1&nbsp;: cadrer et découper</Link>
+        {actions}
+      </div>
     </section>
   );
 }
 
 export default function Accueil() {
   const p = useProgress();
+  const [onboardingOuvert, setOnboardingOuvert] = useState(() => !aDejaVuOnboarding());
+  const boutonRevoirRef = useRef<HTMLButtonElement>(null);
+  const etaitOuvert = useRef(false);
+
+  useEffect(() => {
+    if (onboardingOuvert) {
+      etaitOuvert.current = true;
+      return;
+    }
+    if (etaitOuvert.current) {
+      etaitOuvert.current = false;
+      boutonRevoirRef.current?.focus();
+    }
+  }, [onboardingOuvert]);
+
+  const fermerOnboarding = () => {
+    marquerOnboardingVu();
+    setOnboardingOuvert(false);
+  };
+
   return (
     <div data-testid="page-accueil">
       <SeoHead title={'Gestion de Projet IT\u00A0: Méthodologies et Équipes'} description={'Cours interactif en 9 modules\u00A0: cadrage, WBS, PERT, GANTT, méthodes, agiles, outils CI, risques, communication, budget, changement. Labos manipulables, quiz corrigés, XP.'} />
-      <Hero />
+      <Hero
+        actions={
+          <button ref={boutonRevoirRef} type="button" className="btn secondary" onClick={() => setOnboardingOuvert(true)}>
+            Revoir la présentation
+          </button>
+        }
+      />
+      {onboardingOuvert && <Onboarding onFermer={fermerOnboarding} />}
       {p.xp > 0 && (
         <div className="progression-accueil card" role="status">
           {p.xp}&nbsp;XP, niveau {p.niveau.nom}, {p.moduleDone.length}/{MODULES.length} modules terminés.

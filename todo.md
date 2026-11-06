@@ -160,5 +160,8 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 - [x] Zéro requête externe, zéro erreur console, zéro requête échouée en production.
 - [x] Sitemap du module en ligne, 31 URL ; sitemap racine à jour avec `lastmod 2026-11-06` ; `robots.txt` référence les deux sitemaps.
 - [x] Correctif de reflow de l’accueil (`overflow-x: clip` sur `html` et `body`), test smoke dédié à 320 px, suite à 18/18.
-- [ ] Publication 1.6.1 et contrôles de production.
-- [ ] Soumission Search Console confirmée par l’agent plateforme.
+- [x] Publication 1.6.1 et contrôles de production (assets 200, ancien 1.6.0 404, sw v14, smoke 18/18, Lighthouse 98/100/100/100).
+- [x] Navigation clavier vérifiée sans focus trap et reflow 320 px sans débordement horizontal.
+- [x] Image sociale 1200 x 630 px et métadonnées Open Graph / Twitter Card validées.
+- [x] Installabilité PWA validée par CDP (0 erreur, service worker v14 actif).
+- [ ] Soumission Search Console confirmée par Geoffroy.

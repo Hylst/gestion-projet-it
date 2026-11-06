@@ -1,7 +1,7 @@
 # Checklist d’accessibilité des futurs parcours
 
 **Date :** 24 octobre 2026
-**Statut :** parcours Cybersécurité audité le 30 octobre 2026 ; parcours Produit en attente.
+**Statut :** parcours Cybersécurité et ses laboratoires audités (30 et 31 octobre 2026) ; parcours Produit en attente.
 **Référence :** WCAG 2.2 AA, sans certification.
 
 ## 1. Déclencheur
@@ -49,4 +49,4 @@ Appliquer cette checklist dès qu’une page de parcours est ouverte, avant sa p
 
 ## 7. Décision
 
-Le parcours Cybersécurité est audité et conforme pour le périmètre de son premier lot éditorial. `QUA-001` reste ouvert pour le parcours Produit. Le présent document reste la référence d’audit à son ouverture.
+Le parcours Cybersécurité et ses trois laboratoires sont audités et conformes pour leur périmètre. `QUA-001` reste ouvert pour le parcours Produit. Le présent document reste la référence d’audit à son ouverture.

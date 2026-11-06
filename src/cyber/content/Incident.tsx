@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { Link } from 'react-router-dom';
+import LaboTimelineIncident from '../../labos/LaboTimelineIncident';
 import { CyberCallout } from '../CyberCallout';
 import { CyberLayout } from '../CyberLayout';
 import { CYBER_PAGES } from '../pages';
@@ -89,6 +90,7 @@ export function CyberIncidentPage() {
             </tbody>
           </table>
         </div>
+        <LaboTimelineIncident />
       </section>
     </CyberLayout>
   );

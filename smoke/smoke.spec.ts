@@ -346,4 +346,12 @@ test('parcours cyber : navigation, recherche, glossaire et impression', async ({
   await expect(page.locator('.cyber-checklist')).toBeVisible();
   await expect(page.locator('.cyber-sommaire')).toBeHidden();
   await page.emulateMedia({ media: 'screen' });
+
+  await page.goto(`${base}/cybersecurite/incident`);
+  await page.getByRole('button', { name: 'Monter Détecter et qualifier l’alerte' }).click();
+  await page.getByRole('button', { name: 'Monter Préserver les journaux et les preuves' }).click();
+  await page.getByRole('button', { name: 'Monter Restaurer et tester le service' }).click();
+  await page.getByRole('button', { name: 'Vérifier' }).click();
+  await expect(page.getByText('La chronologie respecte l’ordre détecter, confiner, préserver, décider, restaurer, apprendre.')).toBeVisible();
+  await expect(page.getByText('+5 XP')).toHaveCount(0);
 });

@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Geoffroy Streit
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+import LaboModeleMenace from '../../labos/LaboModeleMenace';
 import { CyberCallout } from '../CyberCallout';
 import { CyberLayout } from '../CyberLayout';
 import { CYBER_PAGES } from '../pages';
@@ -75,6 +76,7 @@ export function CyberMenacesPage() {
             </tbody>
           </table>
         </div>
+        <LaboModeleMenace />
       </section>
 
       <section id="surface">

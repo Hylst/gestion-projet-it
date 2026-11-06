@@ -88,7 +88,7 @@ export function CyberHubPage() {
 
       <section id="suite">
         <h2>La suite du parcours</h2>
-        <p>Cinq pages prolongent ce panorama&nbsp;: les menaces et le modèle de menace, les accès et les secrets, les dépendances et les fournisseurs, les données et le cadre juridique, puis l’incident, la sauvegarde et la reprise.</p>
+        <p>Cinq pages prolongent ce panorama&nbsp;: les menaces et le modèle de menace, les accès et les secrets, les dépendances et les fournisseurs, les données et le cadre juridique, puis l’incident, la sauvegarde et la reprise. Trois laboratoires intégrés permettent de manipuler un modèle de menace, une matrice d’accès et une chronologie d’incident, sans XP.</p>
         <p>Le parcours ne délivre ni certification ni XP. Il propose des repères défensifs, à compléter par la pratique, les sources citées et l’avis d’un professionnel quand le risque le justifie.</p>
       </section>
     </CyberLayout>

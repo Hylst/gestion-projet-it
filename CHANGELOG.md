@@ -11,16 +11,17 @@
 ### Parcours Cybersécurité
 
 - Hub et cinq pages : menaces, accès, dépendances, données et incident.
+- Trois laboratoires intégrés : modèle de menace, matrice d’accès et chronologie d’incident, sans XP.
 - Recherche, glossaire étendu, sitemap à 31 URL, service worker v12 et section d’accueil.
 - Sources conformes à la politique et audit d’accessibilité du parcours.
 - Aucun XP, aucune dépendance, aucune requête externe.
 
 ### Vérifié
 
-- 42 fichiers de tests, 280 tests.
-- Lint, typecheck, 65 liens relatifs, 31 routes, audit npm à 0 et build.
-- Smoke Playwright : 16/16 sur 31 routes, dont le parcours cyber.
-- Lighthouse mobile local : accueil 100/100/100/100, `/cybersecurite` 99/100/100/100.
+- 49 fichiers de tests, 298 tests.
+- Lint, typecheck, 67 liens relatifs, 31 routes, audit npm à 0 et build.
+- Smoke Playwright : 16/16 sur 31 routes, dont le parcours cyber et la chronologie.
+- Lighthouse mobile local : accueil 100/100/100/100, `/cybersecurite`, `/cybersecurite/menaces`, `/cybersecurite/acces` et `/cybersecurite/incident` 99/100/100/100.
 
 ## [1.5.0] - 2026-10-24
 

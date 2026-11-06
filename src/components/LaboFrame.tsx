@@ -15,6 +15,8 @@ export function LaboFrame(props: {
   onVerifier: () => void;
   onReinitialiser: () => void;
   valide: boolean;
+  sansXp?: boolean;
+  messageValide?: string;
   children: React.ReactNode;
 }) {
   const id = `labo-${slug(props.titre)}`;
@@ -43,7 +45,11 @@ export function LaboFrame(props: {
         </button>
         <button type="button" className="btn secondary" onClick={props.onReinitialiser}>Réinitialiser</button>
         <p className="sr-only" role="status" aria-live="polite">{props.etat}</p>
-        {props.valide && <p className="ok" role="status">Labo validé&nbsp;: +5 XP (un seul gain).</p>}
+        {props.valide && (
+          <p className="ok" role="status">
+            {props.messageValide ?? (props.sansXp ? 'Labo terminé.' : 'Labo validé\u00A0: +5 XP (un seul gain).')}
+          </p>
+        )}
       </div>
     </div>
   );

@@ -52,7 +52,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 4. `RES-002` Fiches outils normalisées.
 5. `RES-005` Grille de comparaison d’outils.
 6. `QUA-002` Parcours clavier et focus.
-7. `CYB-001` à `CYB-006` et `CYB-008` Parcours Cybersécurité, premier lot éditorial.
+7. `CYB-001` à `CYB-008` Parcours Cybersécurité, pages et laboratoires.
 
 ## Lot P2 livré
 
@@ -63,7 +63,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 5. `QUA-004` Vérification des liens documentaires.
 6. `QUA-005` Recherche avec synonymes.
 
-`QUA-001` reste ouvert pour le parcours Produit. Le parcours Cybersécurité est livré pour son premier lot éditorial ; les laboratoires `CYB-007` restent au backlog. Le parcours Produit reste P1 et ne démarre qu’après validation du lot P0.
+`QUA-001` reste ouvert pour le parcours Produit. Le parcours Cybersécurité est livré avec ses pages et ses trois laboratoires. Le parcours Produit reste P1 et ne démarre qu’après validation du lot P0.
 
 ---
 
@@ -285,11 +285,11 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Vigilance :** ne pas dramatiser ni promettre une reprise sans test.
 
 ### CYB-007 Labos Cybersécurité
-`P1` · `L` · `Candidat` · Second lot
+`P1` · `L` · `Livré`
 **Résultat :** trois labos accessibles : modèle de menace, matrice d’accès, chronologie.
 **Acceptation :** clavier, focus, messages d’erreur et validation.
-**Preuve :** tests de composants et smoke.
-**Vigilance :** aucun scénario réel d’attaque.
+**Preuve :** `src/labos/LaboModeleMenace.tsx`, `LaboMatriceAcces.tsx`, `LaboTimelineIncident.tsx`, tests de logique et de rendu, smoke.
+**Vigilance :** aucun scénario réel d’attaque, aucun XP.
 
 ### CYB-008 Intégration Cybersécurité
 `P1` · `M` · `Livré`
@@ -345,14 +345,14 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 `P1` · `M` · `En attente`
 **Résultat :** audit des nouvelles pages et parcours.
 **Acceptation :** contrastes, structure, labels, focus, clavier et messages d’erreur.
-**Preuve :** `docs/accessibilite/audit-2026-10-24.md`, `docs/accessibilite/audit-2026-10-30-parcours-cybersecurite.md`, smoke 16/16 et Lighthouse 100 en accessibilité sur les pages contrôlées. Les pages des lots P0, P1 et P2 et le parcours Cybersécurité sont audités ; la checklist des parcours est dans `docs/accessibilite/checklist-parcours.md`.
+**Preuve :** `docs/accessibilite/audit-2026-10-24.md`, `docs/accessibilite/audit-2026-10-30-parcours-cybersecurite.md`, smoke 16/16 et Lighthouse 100 en accessibilité sur les pages contrôlées. Les pages des lots P0, P1 et P2, le parcours Cybersécurité et ses trois laboratoires sont audités ; la checklist des parcours est dans `docs/accessibilite/checklist-parcours.md`.
 **Vigilance :** ne pas se limiter à Lighthouse. Le point reste en attente du parcours Produit.
 
 ### QUA-002 Parcours clavier et focus
 `P1` · `S` · `Livré`
 **Résultat :** tests de navigation clavier sur les nouveaux parcours et labos.
 **Acceptation :** ordre logique, focus visible, aucune trappe.
-**Preuve :** smoke `/outils` et lien pré-mortem de M6 ; aucun nouveau labo dans ce lot.
+**Preuve :** smoke `/outils`, lien pré-mortem de M6 et trois laboratoires cyber au clavier.
 **Vigilance :** ne pas ajouter de gestionnaire inline.
 
 ### QUA-003 Budget Lighthouse
@@ -366,7 +366,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 `P2` · `M` · `Livré`
 **Résultat :** un contrôle scripté des liens internes et de la cohérence des routes.
 **Acceptation :** liens relatifs, routes et sitemap contrôlés ; les URL externes restent vérifiées manuellement et datées.
-**Preuve :** `scripts/check-liens.mjs`, 65 liens relatifs, 31 routes et sitemap strictement cohérent, 24 URL externes en HTTP 200, exécution en CI.
+**Preuve :** `scripts/check-liens.mjs`, 67 liens relatifs, 31 routes et sitemap strictement cohérent, 24 URL externes en HTTP 200, exécution en CI.
 **Vigilance :** ne pas ajouter de requête réseau au runtime de l’application.
 
 ### QUA-005 Recherche avec synonymes

@@ -29,10 +29,20 @@
 - [x] Docker resynchronisé et smoke 17/17 sur la copie Docker, 54 empreintes SHA-256 identiques.
 - [x] Search Console soumise après déploiement le 24 octobre 2026.
 
+## Contrôles après la mise en ligne du 6 novembre 2026
+
+- [x] Production `https://hylst.fr/gestion-projet-it/` servie depuis `main` `4514f93`, commit plateforme `e6875a52`.
+- [x] Assets du build en 200, ancien `index-CSOg-N2L.js` en 404, service worker v13 en `no-cache`.
+- [x] En-têtes CSP, HSTS, `nosniff`, `X-Frame-Options`, `Referrer-Policy` et `Permissions-Policy` conformes.
+- [x] Smoke Playwright 17/17 sur la production, routes au clic et au rechargement.
+- [x] Lighthouse production : accueil 98/100/100/100, `/module-1` 99/100/100/100.
+- [x] Sitemap du module en ligne, 31 URL ; sitemap racine et `robots.txt` à jour.
+- [x] Zéro requête externe, zéro erreur console et zéro requête échouée sur `/a-propos`, `/module-1` et `/cybersecurite`.
+
 ## Après le partage
 
 - [ ] Aperçu social vérifié sur LinkedIn, X et Facebook.
 - [ ] PWA installable sur mobile.
 - [ ] Navigation clavier et zoom 200 % vérifiés.
-- [ ] Aucune erreur console ni requête échouée.
+- [x] Aucune erreur console ni requête échouée.
 - [ ] `QUA-001` reste en attente du parcours Produit.

@@ -48,6 +48,15 @@
 - Lighthouse mobile local du 6 novembre 2026 : accueil 98 à 100 en performance et 100 en accessibilité, bonnes pratiques et SEO ; `/module-1` 99/100/100/100. Les pages cyber mesurées le 31 octobre restent à 99/100/100/100, sans changement de structure.
 - Aucun appel d’API externe dans `src` ; service worker limité au cache same-origin.
 
+### Publication
+
+- Mise en ligne le 6 novembre 2026 depuis `main` `4514f93`, commit plateforme `e6875a52`, changelog plateforme `[2.18.65]`.
+- Build : `index-yok6Nm3V.js` (309 485 octets, SHA-256 `2b0372e6…`), `index-rv1N5lIb.css` (47 693 octets, SHA-256 `a2c0c157…`), `index.html` (2 713 octets, SHA-256 `9912b6fd…`), `sw.js` v13 (SHA-256 `85e304ef…`). 54 fichiers vérifiés.
+- Production `https://hylst.fr/gestion-projet-it/` : assets en 200, ancien `index-CSOg-N2L.js` en 404, service worker et HTML en `no-cache`.
+- En-têtes conformes : CSP stricte, HSTS, `nosniff`, `X-Frame-Options: SAMEORIGIN`, `Referrer-Policy`, `Permissions-Policy`.
+- Smoke Playwright 17/17, sitemap du module à 31 URL, sitemap racine à jour, zéro requête externe, zéro erreur console.
+- Lighthouse production : accueil 98/100/100/100, `/module-1` 99/100/100/100.
+
 ## [1.5.0] - 2026-10-24
 
 ### Design éditorial

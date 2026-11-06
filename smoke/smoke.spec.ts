@@ -133,7 +133,7 @@ test('liens internes : routes, ancres et ids valides', async ({ page }) => {
     })));
 
     for (const link of links) {
-      if (!link.href || link.href.startsWith('http')) continue;
+      if (!link.href || link.href.startsWith('http') || link.href.startsWith('mailto:')) continue;
       if (link.href.startsWith('#')) {
         const id = link.href.slice(1);
         if (!id || !ids.includes(id)) broken.push(`${route} -> ${link.href} (${link.text})`);

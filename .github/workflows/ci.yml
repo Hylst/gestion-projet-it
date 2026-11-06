@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main, feat/parcours-cybersecurite]
+    branches: [main, feat/parcours-cybersecurite, feat/labos-cybersecurite]
 
 permissions:
   contents: read

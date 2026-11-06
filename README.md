@@ -13,6 +13,7 @@ Application 100 % front, sans compte, sans cookie, sans backend et sans requête
 - Design éditorial coloré : thèmes par module, cartes de section, sommaire sticky et contenus secondaires dépliables.
 - Le parcours Cybersécurité est ouvert avec un hub et cinq pages. Le parcours Produit reste cadré dans le backlog.
 - 3 laboratoires cyber intégrés : modèle de menace, matrice d’accès et chronologie d’incident, sans XP.
+- Visite de présentation en cinq écrans à la première arrivée sur l’accueil, relançable par « Revoir la présentation ».
 
 ## Démarrage
 
@@ -102,6 +103,7 @@ Le routeur utilise `basename="/gestion-projet-it/"`. Le build utilise `--base=/g
 - Progression dans `localStorage` avec le préfixe `gestion-projet-it:`.
 - Dossier projet dans `gestion-projet-it:dossier-projet:v1`.
 - Journal et modèles dans `gestion-projet-it:journal:v1`.
+- Visite de présentation dans `gestion-projet-it:onboarding:v1`, sous forme de drapeau de première visite.
 - Export JSON côté navigateur.
 - Aucune ressource distante, fonte distante, image distante ou requête réseau au chargement.
 - Les liens de sources externes ne s’ouvrent qu’après une action de l’utilisateur.

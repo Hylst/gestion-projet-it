@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.6.1] - 2026-11-06
+
+### Correctif
+
+- Reflow : `overflow-x: clip` sur `html` et `body` pour empêcher le halo du hero de créer un défilement horizontal à 320 px, en zoom 200 % ou sur petit écran.
+- Smoke : test `reflow` sur six pages à 320 px, largeur du document bornée et `scrollX` à 0 après tentative de défilement. Suite à 18/18.
+
+### Dépendances
+
+- `react-router-dom` 7.18.4 vers 7.18.5 (PR #29).
+- `vitest` 5.0.5 vers 5.1.0 (PR #31, développement).
+- `@types/node` 26.6.5 vers 26.6.6 (PR #30, développement).
+- `typescript-eslint` 8.72.0 vers 8.72.1 (PR #25, développement).
+- TypeScript 7.0.2 : PR #24 fermée, migration majeure reportée à un lot dédié.
+
+### Publication
+
+- Version `1.6.1` et service worker v14, pour purger les caches du build 1.6.0.
+- Aucun changement de contenu, de route ni de donnée locale.
+
+### Vérifié
+
+- 52 fichiers de tests, 320 tests.
+- Lint, typecheck, 77 liens relatifs, 31 routes, sitemap cohérent.
+- Build et smoke Playwright : 18/18, dont le test de reflow.
+
 ## [1.6.0] - 2026-11-06
 
 ### Audit complet et finitions (PR #33)

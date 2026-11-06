@@ -125,7 +125,7 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 ## 4. Décisions ouvertes
 
 1. **Ordre de fusion** : #26, #27, #28 et #32 fusionnées sur main (4156790), puis PR d’audit #33 (76cf64a) et PR de publication #34 (4514f93).
-2. **Version** : `1.6.0` publiée le 6 novembre 2026, après fusion de la PR #33 et bump du service worker en v13.
+2. **Version** : `1.6.0` publiée le 6 novembre 2026 (PR #34), puis `1.6.1` pour le correctif de reflow et les mises à jour de dépendances.
 3. **JSON-LD** : la CSP `script-src 'self'` interdit le script inline.
    Privilégier les microdonnées HTML ou une politique de hachage explicite.
 4. **Références Google** : conserver Gmail, Vertex AI et Search Console
@@ -159,4 +159,6 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 - [x] Lighthouse production : accueil 98/100/100/100, `/module-1` 99/100/100/100.
 - [x] Zéro requête externe, zéro erreur console, zéro requête échouée en production.
 - [x] Sitemap du module en ligne, 31 URL ; sitemap racine à jour avec `lastmod 2026-11-06` ; `robots.txt` référence les deux sitemaps.
+- [x] Correctif de reflow de l’accueil (`overflow-x: clip` sur `html` et `body`), test smoke dédié à 320 px, suite à 18/18.
+- [ ] Publication 1.6.1 et contrôles de production.
 - [ ] Soumission Search Console confirmée par l’agent plateforme.

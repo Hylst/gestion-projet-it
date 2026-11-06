@@ -18,3 +18,8 @@
 - Aucune ressource distante au chargement.
 - `npm audit` et GitGuardian avant publication.
 - Les signalements sont traités dans un délai raisonnable, sans promesse de prime.
+
+## Vérifications
+
+- Dernier audit : 30 octobre 2026, version 1.5.0. `npm audit` à 0, aucun secret détecté, en-têtes de production vérifiés. Détail dans [`docs/securite/audit-2026-10-30.md`](docs/securite/audit-2026-10-30.md).
+- Revue au minimum trimestrielle, avant chaque publication et après toute nouvelle dépendance ou fonction exposée.

@@ -112,7 +112,7 @@ Avant une publication :
 6. smoke Playwright
 7. Lighthouse mobile sur l’accueil et les pages de référence
 
-Le budget Lighthouse et la procédure de contrôle sont documentés dans [`docs/qualite/lighthouse.md`](docs/qualite/lighthouse.md). Le périmètre du contrôle des liens est décrit dans [`docs/qualite/liens.md`](docs/qualite/liens.md). La checklist de partage est dans [`docs/qualite/partage.md`](docs/qualite/partage.md).
+Le dernier audit sécurité et CVE est documenté dans [`docs/securite/audit-2026-10-30.md`](docs/securite/audit-2026-10-30.md). Le budget Lighthouse et la procédure de contrôle sont documentés dans [`docs/qualite/lighthouse.md`](docs/qualite/lighthouse.md). Le périmètre du contrôle des liens est décrit dans [`docs/qualite/liens.md`](docs/qualite/liens.md). La checklist de partage est dans [`docs/qualite/partage.md`](docs/qualite/partage.md).
 
 La CI GitHub Actions exécute l’audit npm, lint, typecheck, contrôle des liens, tests et build sur `main` et sur les pull requests. Dependabot propose les mises à jour npm et GitHub Actions une fois par semaine.
 
@@ -140,6 +140,7 @@ Ne jamais committer de secret, de clé, de jeton, `node_modules/`, `dist/`, `tes
 - [ARCHITECTURE.md](ARCHITECTURE.md) : stack, routes, données locales et déploiement.
 - [CREDITS.md](CREDITS.md) : auteur, assistance IA et provenance des illustrations.
 - [SECURITY.md](SECURITY.md) : signalement et règles de sécurité.
+- [Audit sécurité et CVE](docs/securite/audit-2026-10-30.md) : dépendances, code, build et en-têtes de production.
 - [CONTRIBUTING.md](CONTRIBUTING.md) : contribution, licence et vérifications.
 - [docs/conformite/](docs/conformite/) : RGPD, AI Act, transferts UK et provenance.
 

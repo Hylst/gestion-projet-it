@@ -29,8 +29,8 @@ Chaque item doit rester compatible avec les non-objectifs du projet. Un item qui
 | Parcours Produit | 8 | 0 | 8 | 0 |
 | Parcours Cybersécurité | 8 | 0 | 8 | 0 |
 | Ressources et outils | 5 | 0 | 4 | 1 |
-| Qualité et plateforme | 8 | 0 | 2 | 6 |
-| **Total** | **44** | **9** | **27** | **8** |
+| Qualité et plateforme | 9 | 1 | 2 | 6 |
+| **Total** | **45** | **10** | **27** | **8** |
 
 ## Lot P0 livré
 
@@ -42,6 +42,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 4. `RES-001` Bibliothèque de ressources officielles.
 5. `RES-004` Politique de sources et dates de vérification.
 6. `QUA-001` Audit WCAG 2.2 AA des pages du lot ; parcours reportés à leur ouverture.
+7. `QUA-009` Audit sécurité et CVE du 30 octobre 2026.
 
 ## Lot P1 livré
 
@@ -394,6 +395,13 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Acceptation :** animations désactivables, focus et textes lisibles.
 **Preuve :** audit et test manuel.
 **Vigilance :** ne pas casser les animations existantes.
+
+### QUA-009 Audit sécurité et CVE
+`P0` · `S` · `Livré`
+**Résultat :** un audit daté des dépendances, du code, du build, du service worker et des en-têtes de production.
+**Acceptation :** aucune vulnérabilité critique ou élevée dans l’arbre actif, aucun secret, en-têtes vérifiés et constats priorisés.
+**Preuve :** `docs/securite/audit-2026-10-30.md`, `npm audit` à 0, CI épinglée par SHA et seuil `moderate`.
+**Vigilance :** refaire l’audit à chaque dépendance, parcours ou publication. La copie racine 1.0.0 reste à aligner.
 
 ---
 

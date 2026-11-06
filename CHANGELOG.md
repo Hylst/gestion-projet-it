@@ -1,5 +1,13 @@
 # Changelog
 
+## [Non publié]
+
+### Sécurité
+
+- Audit sécurité et CVE du 30 octobre 2026 : aucune vulnérabilité dans l’arbre actif, aucun secret détecté, en-têtes de production vérifiés.
+- CI : actions GitHub épinglées par SHA, identifiants non persistés et audit npm au seuil `moderate`.
+- Documentation : rapport `docs/securite/audit-2026-10-30.md`.
+
 ## [1.5.0] - 2026-10-24
 
 ### Design éditorial

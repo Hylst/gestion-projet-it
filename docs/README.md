@@ -50,6 +50,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 
 - [Accessibilité du 24 octobre 2026](accessibilite/audit-2026-10-24.md) : guides, Ressources, outils et modèles.
 - [Checklist des futurs parcours](accessibilite/checklist-parcours.md) : audit à l’ouverture de Produit et Cybersécurité.
+- [Audit sécurité et CVE du 30 octobre 2026](securite/audit-2026-10-30.md) : dépendances, code, build, service worker et en-têtes de production.
 - [Budget Lighthouse](qualite/lighthouse.md) : seuils, pages de référence et procédure.
 - [Contrôle des liens](qualite/liens.md) : périmètre, limites et journal des vérifications.
 - [Partage public](qualite/partage.md) : checklist avant et après mise en ligne.

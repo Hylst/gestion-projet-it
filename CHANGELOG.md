@@ -5,6 +5,7 @@
 ### Sécurité
 
 - Audit sécurité et CVE du 30 octobre 2026 : aucune vulnérabilité dans l’arbre actif, aucun secret détecté, en-têtes de production vérifiés.
+- Override `minimatch` 11.0.5 pour corriger l’avis GHSA-g3hv-75wg-m249 dans l’outillage ESLint, sans dépendance runtime.
 - CI : actions GitHub épinglées par SHA, identifiants non persistés et audit npm au seuil `moderate`.
 - Documentation : rapport `docs/securite/audit-2026-10-30.md`.
 

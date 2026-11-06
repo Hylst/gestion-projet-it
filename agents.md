@@ -70,7 +70,7 @@ puis ce fichier, puis les conventions du dépôt de déploiement.
 ## Git et GitHub
 
 - Branche de travail, pull request, CI verte, fusion manuelle.
-- Ordre de fusion en attente : #26, #27, #28, puis #32.
+- Lots fusionnés : #26, #27, #28, #32, puis audit #33 et publication #34 (main `4514f93`, CI verte).
 - La protection de branche GitHub n’est pas disponible sur l’offre
   gratuite pour un dépôt privé. La règle PR + CI reste obligatoire par
   convention.

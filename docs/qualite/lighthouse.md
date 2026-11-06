@@ -70,3 +70,12 @@ Mesures de production après déploiement de la version 1.5.0 : accueil 98 en pe
 | `/module-1` | 99 | 100 | 100 | 100 |
 
 Mesure mobile sur le build local, premier chargement sans données locales, visite de présentation affichée par-dessus l’accueil. Un second passage après rebase sur `main` donne 98 en performance sur l’accueil et 99 sur `/module-1`, avec 100 en accessibilité, bonnes pratiques et SEO. La performance de l’accueil varie de 98 à 100 selon les runs, au-dessus du seuil de 90.
+
+## 7. Production du 6 novembre 2026 (version 1.6.0)
+
+| Page | Performance | Accessibilité | Bonnes pratiques | SEO |
+| --- | ---: | ---: | ---: | ---: |
+| `https://hylst.fr/gestion-projet-it/` | 98 | 100 | 100 | 100 |
+| `https://hylst.fr/gestion-projet-it/module-1` | 99 | 100 | 100 | 100 |
+
+Mesure mobile sur la production déployée depuis `main` `4514f93` (commit plateforme `e6875a52`). Ces scores confirment les mesures locales : la performance de l’accueil fluctue entre 98 et 100 selon le réseau et le poste, sans passer sous le seuil de 90. `docs/qualite/partage.md` consigne les autres contrôles de production.

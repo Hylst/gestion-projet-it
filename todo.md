@@ -124,7 +124,7 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 
 ## 4. Décisions ouvertes
 
-1. **Ordre de fusion** : #26, #27, #28 et #32 fusionnées sur main (4156790). PR d’audit #33 ouverte, CI verte, fusion dans la foulée.
+1. **Ordre de fusion** : #26, #27, #28 et #32 fusionnées sur main (4156790), puis PR d’audit #33 (76cf64a) et PR de publication #34 (4514f93).
 2. **Version** : `1.6.0` publiée le 6 novembre 2026, après fusion de la PR #33 et bump du service worker en v13.
 3. **JSON-LD** : la CSP `script-src 'self'` interdit le script inline.
    Privilégier les microdonnées HTML ou une politique de hachage explicite.
@@ -150,5 +150,13 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 - [x] Smoke Playwright 17/17 sur la copie Docker servie avec fallback SPA.
 - [x] Commit local du lot source.
 - [x] Fusion des pull requests empilées (#26, #27, #28, #32), main à 4156790.
-- [ ] Publication Coolify et contrôle des en-têtes.
-- [ ] Soumission du sitemap après mise en ligne.
+- [x] Fusion de la PR d’audit #33, main à 76cf64a, CI verte.
+- [x] Fusion de la PR de publication #34, main à 4514f93, CI verte.
+- [x] Publication Coolify le 6 novembre 2026 depuis `4514f93` : commit plateforme `e6875a52`, 54 fichiers, assets 200, ancien `index-CSOg-N2L.js` en 404.
+- [x] Service worker v13 servi en `no-cache`, HTML en `no-cache`, assets hashés en `immutable`.
+- [x] En-têtes de production conformes : CSP stricte (`style-src 'unsafe-inline'`), HSTS, `nosniff`, `X-Frame-Options: SAMEORIGIN`, `Referrer-Policy`, `Permissions-Policy`.
+- [x] Smoke Playwright 17/17 sur `https://hylst.fr/gestion-projet-it`.
+- [x] Lighthouse production : accueil 98/100/100/100, `/module-1` 99/100/100/100.
+- [x] Zéro requête externe, zéro erreur console, zéro requête échouée en production.
+- [x] Sitemap du module en ligne, 31 URL ; sitemap racine à jour avec `lastmod 2026-11-06` ; `robots.txt` référence les deux sitemaps.
+- [ ] Soumission Search Console confirmée par l’agent plateforme.

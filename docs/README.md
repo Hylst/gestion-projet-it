@@ -26,6 +26,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-10-24 | [Design éditorial coloré](superpowers/specs/2026-10-24-refonte-editoriale-design.md) | Livré | Couleurs, structure et interactions |
 | 2026-10-30 | [Parcours Cybersécurité](superpowers/specs/2026-10-30-parcours-cybersecurite-design.md) | Livré | Hub et cinq pages |
 | 2026-10-31 | [Laboratoires Cybersécurité](superpowers/specs/2026-10-31-labos-cybersecurite-design.md) | Livré | Trois laboratoires sans XP |
+| 2026-11-06 | [Onboarding du cours](superpowers/specs/2026-11-06-onboarding-design.md) | Livré | Cinq écrans, première visite et relecture |
 
 ## Plans
 
@@ -54,6 +55,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 
 - [Accessibilité du 24 octobre 2026](accessibilite/audit-2026-10-24.md) : guides, Ressources, outils et modèles.
 - [Accessibilité du parcours Cybersécurité](accessibilite/audit-2026-10-30-parcours-cybersecurite.md) : six routes, trois laboratoires, clavier, contrastes et Lighthouse.
+- [Accessibilité de la visite de présentation](accessibilite/audit-2026-11-06-onboarding.md) : dialogue, clavier, focus, mouvement réduit et impression.
 - [Audit sécurité et CVE du 30 octobre 2026](securite/audit-2026-10-30.md) : dépendances, code, build, service worker et en-têtes de production.
 - [Checklist des futurs parcours](accessibilite/checklist-parcours.md) : audit à l’ouverture du parcours Produit.
 - [Budget Lighthouse](qualite/lighthouse.md) : seuils, pages de référence et procédure.

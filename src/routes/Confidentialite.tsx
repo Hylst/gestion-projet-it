@@ -32,8 +32,8 @@ export default function Confidentialite() {
         <p>Si vous écrivez à l’adresse de contact, votre adresse email et le contenu du message servent uniquement à répondre à votre demande. Les messages sont conservés douze mois après le dernier échange, puis supprimés.</p>
         <p>La messagerie est fournie par Google. Le mécanisme de transfert applicable est celui prévu par Google pour Gmail.</p>
         <h3>Stockage local</h3>
-        <p>Les fonctionnalités de progression, de quiz, de laboratoires, de dossier projet et de journal conservent des données dans le navigateur, sous le préfixe <code>gestion-projet-it:</code>.</p>
-        <p>Les entrées comprennent la progression, les réponses de quiz, les laboratoires terminés, les modules terminés, le dossier projet et le journal. Ces données ne sont jamais transmises au serveur. Vous pouvez les effacer en supprimant les données du site dans votre navigateur.</p>
+        <p>Les fonctionnalités de progression, de quiz, de laboratoires, de dossier projet, de journal et de présentation conservent des données dans le navigateur, sous le préfixe <code>gestion-projet-it:</code>.</p>
+        <p>Les entrées comprennent la progression, les réponses de quiz, les laboratoires terminés, les modules terminés, le dossier projet, le journal et l’état de la visite de présentation. Ces données ne sont jamais transmises au serveur. Vous pouvez les effacer en supprimant les données du site dans votre navigateur.</p>
       </section>
 
       <section aria-labelledby="cookies">

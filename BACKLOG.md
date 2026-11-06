@@ -29,8 +29,8 @@ Chaque item doit rester compatible avec les non-objectifs du projet. Un item qui
 | Parcours Produit | 8 | 0 | 8 | 0 |
 | Parcours Cybersécurité | 8 | 0 | 8 | 0 |
 | Ressources et outils | 5 | 0 | 4 | 1 |
-| Qualité et plateforme | 9 | 1 | 2 | 6 |
-| **Total** | **45** | **10** | **27** | **8** |
+| Qualité et plateforme | 10 | 1 | 3 | 6 |
+| **Total** | **46** | **10** | **28** | **8** |
 
 ## Lot P0 livré
 
@@ -53,6 +53,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 5. `RES-005` Grille de comparaison d’outils.
 6. `QUA-002` Parcours clavier et focus.
 7. `CYB-001` à `CYB-008` Parcours Cybersécurité, pages et laboratoires.
+8. `QUA-010` Visite de présentation de l’accueil.
 
 ## Lot P2 livré
 
@@ -246,7 +247,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 `P1` · `M` · `Livré`
 **Résultat :** un hub et cinq routes autonomes, sans XP.
 **Acceptation :** navigation, SEO, fil d’Ariane et retour au cours fonctionnent.
-**Preuve :** `src/cyber/pages.ts`, `src/cyber/CyberLayout.tsx`, `src/App.tsx`, `tests/cyber.test.tsx`, smoke 16/16.
+**Preuve :** `src/cyber/pages.ts`, `src/cyber/CyberLayout.tsx`, `src/App.tsx`, `tests/cyber.test.tsx`, smoke 17/17.
 **Vigilance :** ne pas modifier le compteur `0/9`.
 
 ### CYB-002 Menaces et modèle de menace
@@ -345,7 +346,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 `P1` · `M` · `En attente`
 **Résultat :** audit des nouvelles pages et parcours.
 **Acceptation :** contrastes, structure, labels, focus, clavier et messages d’erreur.
-**Preuve :** `docs/accessibilite/audit-2026-10-24.md`, `docs/accessibilite/audit-2026-10-30-parcours-cybersecurite.md`, smoke 16/16 et Lighthouse 100 en accessibilité sur les pages contrôlées. Les pages des lots P0, P1 et P2, le parcours Cybersécurité et ses trois laboratoires sont audités ; la checklist des parcours est dans `docs/accessibilite/checklist-parcours.md`.
+**Preuve :** `docs/accessibilite/audit-2026-10-24.md`, `docs/accessibilite/audit-2026-10-30-parcours-cybersecurite.md`, `docs/accessibilite/audit-2026-11-06-onboarding.md`, smoke 17/17 et Lighthouse 100 en accessibilité sur les pages contrôlées. Les pages des lots P0, P1 et P2, le parcours Cybersécurité, ses trois laboratoires et la visite de présentation sont audités ; la checklist des parcours est dans `docs/accessibilite/checklist-parcours.md`.
 **Vigilance :** ne pas se limiter à Lighthouse. Le point reste en attente du parcours Produit.
 
 ### QUA-002 Parcours clavier et focus
@@ -366,7 +367,7 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 `P2` · `M` · `Livré`
 **Résultat :** un contrôle scripté des liens internes et de la cohérence des routes.
 **Acceptation :** liens relatifs, routes et sitemap contrôlés ; les URL externes restent vérifiées manuellement et datées.
-**Preuve :** `scripts/check-liens.mjs`, 67 liens relatifs, 31 routes et sitemap strictement cohérent, 24 URL externes en HTTP 200, exécution en CI.
+**Preuve :** `scripts/check-liens.mjs`, 69 liens relatifs, 31 routes et sitemap strictement cohérent, 24 URL externes en HTTP 200, exécution en CI.
 **Vigilance :** ne pas ajouter de requête réseau au runtime de l’application.
 
 ### QUA-005 Recherche avec synonymes
@@ -403,6 +404,13 @@ Le premier lot de contenu est livré au 24 octobre 2026 :
 **Acceptation :** aucune vulnérabilité critique ou élevée dans l’arbre actif, aucun secret, en-têtes vérifiés et constats priorisés.
 **Preuve :** `docs/securite/audit-2026-10-30.md`, `npm audit` à 0, CI épinglée par SHA et seuil `moderate`.
 **Vigilance :** refaire l’audit à chaque dépendance, parcours ou publication. La copie racine 1.0.0 reste à aligner.
+
+### QUA-010 Visite de présentation
+`P1` · `S` · `Livré`
+**Résultat :** cinq écrans de bienvenue ouverts à la première visite de l’accueil, relançables depuis le hero.
+**Acceptation :** navigation au clavier, Échap, focus rendu au bouton, drapeau local, aucune route ni XP.
+**Preuve :** `src/lib/onboarding.ts`, `src/components/Onboarding.tsx`, `tests/onboarding.test.ts`, `tests/onboarding-render.test.tsx`, smoke et audit d’accessibilité.
+**Vigilance :** ne pas transformer la visite en compte, en collecte ou en étape obligatoire.
 
 ---
 

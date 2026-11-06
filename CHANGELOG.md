@@ -16,12 +16,19 @@
 - Sources conformes à la politique et audit d’accessibilité du parcours.
 - Aucun XP, aucune dépendance, aucune requête externe.
 
+### Visite de présentation
+
+- Visite en cinq écrans ouverte automatiquement à la première arrivée sur l’accueil.
+- Navigation au clavier, points d’étape, fermeture par Échap ou « Passer » et relecture depuis le hero.
+- Drapeau local `gestion-projet-it:onboarding:v1`, sans XP, sans cookie et sans requête externe.
+- Aucune nouvelle route, aucun changement de sitemap ni de service worker.
+
 ### Vérifié
 
-- 49 fichiers de tests, 298 tests.
-- Lint, typecheck, 67 liens relatifs, 31 routes, audit npm à 0 et build.
-- Smoke Playwright : 16/16 sur 31 routes, dont le parcours cyber et la chronologie.
-- Lighthouse mobile local : accueil 100/100/100/100, `/cybersecurite`, `/cybersecurite/menaces`, `/cybersecurite/acces` et `/cybersecurite/incident` 99/100/100/100.
+- 51 fichiers de tests, 314 tests.
+- Lint, typecheck, 69 liens relatifs, 31 routes, audit npm à 0 et build.
+- Smoke Playwright : 17/17 sur 31 routes, dont la visite de présentation, le parcours cyber et la chronologie.
+- Lighthouse mobile local : accueil 100/100/100/100 avec la visite ouverte, `/cybersecurite`, `/cybersecurite/menaces`, `/cybersecurite/acces` et `/cybersecurite/incident` 99/100/100/100.
 
 ## [1.5.0] - 2026-10-24
 

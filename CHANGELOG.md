@@ -1,6 +1,6 @@
 # Changelog
 
-## [Non publié]
+## [1.6.0] - 2026-11-06
 
 ### Audit complet et finitions (PR #33)
 
@@ -14,6 +14,7 @@
 - Sécurité : test `aucune-api-externe` qui interdit `fetch`, `XMLHttpRequest`, `axios`, `WebSocket`, `EventSource`, `sendBeacon` et les API d’IA externes dans `src`.
 - Documentation obsolète corrigée : 25 routes, 15 tests smoke, 292 kB, version 1.4.0, 21 routes et 58 liens.
 - Hygiène : `.gitignore` complété pour les environnements, la couverture, les caches et les fichiers système.
+- Publication : version `1.6.0` et service worker v13, pour purger les caches du build précédent.
 
 ### Sécurité
 

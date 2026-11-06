@@ -408,3 +408,22 @@ test('parcours cyber : navigation, recherche, glossaire et impression', async ({
   await expect(page.getByText('La chronologie respecte l’ordre détecter, confiner, préserver, décider, restaurer, apprendre.')).toBeVisible();
   await expect(page.getByText('+5 XP')).toHaveCount(0);
 });
+
+test('reflow : aucune page ne deborde horizontalement a 320 px', async ({ page }) => {
+  const pages = ['/', '/module-1', '/cybersecurite', '/dossier-projet', '/modeles', '/a-propos'];
+  await page.setViewportSize({ width: 320, height: 640 });
+  for (const r of pages) {
+    await page.goto(`${base}${r}`);
+    await fermerOnboarding(page);
+    const mesures = await page.evaluate(() => {
+      window.scrollTo(100, 0);
+      return {
+        viewport: window.innerWidth,
+        document: document.documentElement.scrollWidth,
+        scrollX: window.scrollX,
+      };
+    });
+    expect(mesures.document, `${r} deborde horizontalement`).toBeLessThanOrEqual(mesures.viewport + 1);
+    expect(mesures.scrollX, `${r} defile horizontalement`).toBe(0);
+  }
+});

@@ -32,10 +32,11 @@
 .module-picto .picto-calm { fill: var(--c-calm); }
 .module-picto .picto-plat { stroke: none; }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
   margin: 0;
+  overflow-x: clip;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   background: var(--c-bg);
   color: var(--c-ink);

@@ -4,6 +4,8 @@ Cours interactif en français pour apprendre à conduire un projet informatique 
 
 Application 100 % front, sans compte, sans cookie, sans backend et sans requête externe au chargement. La progression reste dans le navigateur.
 
+Créé par **Geoffroy Streit**, alias **Hylst**. Licence AGPL-3.0-or-later.
+
 ## État actuel
 
 - 9 modules avec fiche, démarche, laboratoire interactif, exercice corrigé, exercice de transfert, quiz, erreurs fréquentes, point de décision et fiche réflexe.
@@ -12,8 +14,10 @@ Application 100 % front, sans compte, sans cookie, sans backend et sans requête
 - 31 routes publiques, recherche globale avec synonymes, glossaire étendu, bibliothèque de ressources, fiches outils, journal de projet, modèles imprimables et pages légales.
 - Design éditorial coloré : thèmes par module, cartes de section, sommaire sticky et contenus secondaires dépliables.
 - Le parcours Cybersécurité est ouvert avec un hub et cinq pages. Le parcours Produit reste cadré dans le backlog.
-- 3 laboratoires cyber intégrés : modèle de menace, matrice d’accès et chronologie d’incident, sans XP.
+- 16 laboratoires SVG interactifs : 13 dans les modules et 3 dans le parcours Cybersécurité.
 - Visite de présentation en cinq écrans à la première arrivée sur l’accueil, relançable par « Revoir la présentation ».
+- SEO et partage : 31 URL dans le sitemap, canonical par route, Open Graph et Twitter, image sociale 1200 x 630, favicon SVG avec repli PNG, manifeste PWA.
+- Aucun appel à une API externe ni à une IA au runtime, verrouillé par un test dédié.
 
 ## Démarrage
 
@@ -110,6 +114,45 @@ Le routeur utilise `basename="/gestion-projet-it/"`. Le build utilise `--base=/g
 - Les journaux Nginx, les emails et les droits RGPD sont détaillés dans [`docs/conformite/registre-traitements.md`](docs/conformite/registre-traitements.md) et sur `/confidentialite`.
 - Aucune IA n’est exécutée au chargement ; l’assistance IA porte sur la création du code, des textes et des illustrations.
 
+## SEO, partage et PWA
+
+- 31 routes publiques dans `public/sitemap.xml`, aucune URL en double.
+- `public/robots.txt` déclare le sitemap racine et le sitemap du module.
+- `SeoHead` met à jour le titre, la description, le canonical, `og:url`,
+  `og:title`, `og:description` et les cartes Twitter à chaque navigation.
+- `index.html` porte les métadonnées complètes : nom du site, locale,
+  dimensions et type de l’image, texte alternatif.
+- `public/og-image.svg` est rendu localement en `og-image.png` par
+  `npm run images`, sans service externe.
+- Le favicon SVG est complété par `favicon-32.png`. Les icônes PWA et
+  Apple Touch sont régénérées par le même script.
+- Le manifeste déclare le scope `/gestion-projet-it/`, la description,
+  les catégories et des raccourcis vers le module 1, le dossier projet et
+  la cybersécurité.
+- Pas de JSON-LD inline : la CSP `script-src 'self'` l’interdit.
+
+## Déploiement
+
+Le build cible un conteneur Nginx statique géré par Coolify :
+
+```bash
+npm ci
+npm run build
+```
+
+Copier `dist/` dans `Docker/gestion-projet-it/`, puis vérifier les
+empreintes SHA-256 entre les deux dossiers. La location Nginx doit
+assurer le fallback SPA :
+
+```nginx
+location /gestion-projet-it/ {
+    try_files $uri $uri/ /gestion-projet-it/index.html;
+}
+```
+
+Le service worker doit être servi avec `Cache-Control: no-cache`. Les
+fichiers `.md`, `.env` et les dotfiles sont bloqués.
+
 ## Qualité
 
 Avant une publication :
@@ -123,6 +166,8 @@ Avant une publication :
 7. Lighthouse mobile sur l’accueil et les pages de référence
 
 Le dernier audit sécurité et CVE est documenté dans [`docs/securite/audit-2026-10-30.md`](docs/securite/audit-2026-10-30.md). Le budget Lighthouse et la procédure de contrôle sont documentés dans [`docs/qualite/lighthouse.md`](docs/qualite/lighthouse.md). Le périmètre du contrôle des liens est décrit dans [`docs/qualite/liens.md`](docs/qualite/liens.md). La checklist de partage est dans [`docs/qualite/partage.md`](docs/qualite/partage.md).
+
+Le test [`tests/aucune-api-externe.test.ts`](tests/aucune-api-externe.test.ts) vérifie qu’aucun `fetch`, `XMLHttpRequest`, `axios`, `WebSocket`, `EventSource` ou service d’IA externe n’est appelé depuis `src`. Le service worker reste limité au cache same-origin du module.
 
 La CI GitHub Actions exécute l’audit npm, lint, typecheck, contrôle des liens, tests et build sur `main` et sur les pull requests. Dependabot propose les mises à jour npm et GitHub Actions une fois par semaine.
 
@@ -143,6 +188,9 @@ Ne jamais committer de secret, de clé, de jeton, `node_modules/`, `dist/`, `tes
 
 - [BACKLOG.md](BACKLOG.md) : priorités et prochains lots.
 - [CHANGELOG.md](CHANGELOG.md) : état publié et vérifications.
+- [structure.md](structure.md) : arborescence, routes, données et dépendances.
+- [features.md](features.md) : inventaire et propositions de fonctionnalités.
+- [todo.md](todo.md) : quick wins, écarts corrigés et lots de fond.
 - [docs/README.md](docs/README.md) : index des specs et plans.
 - [docs/sources.md](docs/sources.md) : politique de sources et de veille.
 - [cahier_des_charges.md](cahier_des_charges.md) : vision et contraintes durables.
@@ -156,6 +204,6 @@ Ne jamais committer de secret, de clé, de jeton, `node_modules/`, `dist/`, `tes
 
 ## Licence
 
-AGPL-3.0-or-later. Réalisé par Geoffroy Streit avec assistance IA. Le code et les textes sont documentés dans le dépôt public. Les illustrations sont générées par IA en local et décrites dans `CREDITS.md`.
+AGPL-3.0-or-later. Réalisé par **Geoffroy Streit (Hylst)** avec assistance IA. Le code et les textes sont documentés dans le dépôt public. Les illustrations sont générées par IA en local et décrites dans `CREDITS.md`.
 
 Hébergement : Hostinger International Limited, serveur au Royaume-Uni, Coolify et Nginx statique.

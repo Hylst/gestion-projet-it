@@ -30,7 +30,14 @@ describe('seo', () => {
     expect(sel('property', 'og:url')?.getAttribute('content')).toBe('http://localhost/gestion-projet-it/');
     expect((document.querySelector('link[rel="canonical"]') as HTMLLinkElement).href).toBe('http://localhost/gestion-projet-it/');
     expect(sel('property', 'og:image')?.getAttribute('content')).toBe('https://hylst.fr/gestion-projet-it/og-image.png');
+    expect(sel('property', 'og:site_name')?.getAttribute('content')).toBe('Gestion de Projet IT');
+    expect(sel('property', 'og:locale')?.getAttribute('content')).toBe('fr_FR');
+    expect(sel('property', 'og:image:width')?.getAttribute('content')).toBe('1200');
+    expect(sel('property', 'og:image:height')?.getAttribute('content')).toBe('630');
+    expect(sel('property', 'og:image:type')?.getAttribute('content')).toBe('image/png');
+    expect(sel('property', 'og:image:alt')?.getAttribute('content')).toBe('Aperçu de Accueil');
     expect(sel('name', 'twitter:image')?.getAttribute('content')).toBe('https://hylst.fr/gestion-projet-it/og-image.png');
+    expect(sel('name', 'twitter:image:alt')?.getAttribute('content')).toBe('Aperçu de Accueil');
   });
   it('SeoHead ne duplique pas la marque quand le titre la contient deja', () => {
     window.history.replaceState({}, '', '/gestion-projet-it/');

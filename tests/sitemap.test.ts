@@ -20,4 +20,10 @@ describe('sitemap', () => {
       expect(urls).toContain(`https://hylst.fr/gestion-projet-it${page.path}`);
     }
   });
+
+  it('déclare les deux sitemaps dans robots.txt', () => {
+    const robots = readFileSync('public/robots.txt', 'utf8');
+    expect(robots).toContain('Sitemap: https://hylst.fr/sitemap.xml');
+    expect(robots).toContain('Sitemap: https://hylst.fr/gestion-projet-it/sitemap.xml');
+  });
 });

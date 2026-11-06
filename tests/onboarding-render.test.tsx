@@ -30,6 +30,9 @@ describe('onboarding', () => {
     expect(screen.getByRole('heading', { level: 2, name: ONBOARDING_SLIDES[0]?.titre })).not.toBeNull();
     expect(screen.getByText('Étape 1 sur 5')).not.toBeNull();
     expect(dialogue().getAttribute('aria-modal')).toBe('true');
+    expect(dialogue().getAttribute('aria-describedby')).toBe('onboarding-description');
+    expect(document.getElementById('onboarding-description')?.textContent).toBe(ONBOARDING_SLIDES[0]?.texte);
+    expect(document.querySelector('.onboarding-body')?.getAttribute('aria-live')).toBe('polite');
   });
 
   it('ne rouvre pas la visite si elle a deja ete vue', () => {

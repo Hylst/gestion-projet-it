@@ -19,14 +19,14 @@ export default function TransparenceIA() {
 
       <section aria-labelledby="auteur">
         <h2 id="auteur">Auteur et assistance</h2>
-        <p>Le site est réalisé par <strong>Geoffroy Streit</strong>. Le code, les tests et les textes ont été produits avec l’assistance d’outils d’intelligence artificielle, puis relus, corrigés et testés.</p>
+        <p>Le site est réalisé par <strong>Geoffroy Streit (Hylst)</strong>. Le code, les tests et les textes ont été produits avec l’assistance d’outils d’intelligence artificielle, puis relus, corrigés et testés.</p>
         <p>Les choix éditoriaux, les sources et la validation finale restent sous la responsabilité de l’auteur.</p>
       </section>
 
       <section aria-labelledby="illustrations">
         <h2 id="illustrations">Illustrations</h2>
         <p>Les pictogrammes, les panneaux du hero et les décors SVG ont été créés avec un assistant IA local, puis relus et intégrés dans le code.</p>
-        <p><strong>Z-Image-Turbo</strong>, modèle local sous licence Apache 2.0, a aussi été utilisé comme outil de création graphique. Aucune image raster générée par ce modèle n’est présente dans la version 1.4.0.</p>
+        <p><strong>Z-Image-Turbo</strong>, modèle local sous licence Apache 2.0, a aussi été utilisé comme outil de création graphique. Aucune image raster générée par ce modèle n’est présente dans le build publié.</p>
         <p>Aucune illustration ne représente une personne réelle. Aucun contenu ne constitue un deepfake. Aucune donnée personnelle n’a été utilisée dans les prompts.</p>
         <p>L’image de partage et les icônes PNG sont générées localement à partir des éléments vectoriels du site.</p>
       </section>
@@ -49,7 +49,7 @@ export default function TransparenceIA() {
         <p>Une erreur ou une question peut être signalée à <a href="mailto:geoffroy.streit@gmail.com">geoffroy.streit@gmail.com</a>.</p>
       </section>
 
-      <p className="help">Dernière mise à jour&nbsp;: 24 octobre 2026. <Link to="/mentions-legales">Mentions légales</Link></p>
+      <p className="help">Dernière mise à jour&nbsp;: 6 novembre 2026. <Link to="/mentions-legales">Mentions légales</Link></p>
     </article>
   );
 }

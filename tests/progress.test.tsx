@@ -37,6 +37,8 @@ describe('progress provider', () => {
   it('importJSON rejette un JSON invalide en retournant false', () => {
     const { result } = renderHook(() => useProgress(), { wrapper: ProgressProvider });
     expect(result.current.importJSON('not-json')).toBe(false);
+    expect(result.current.importJSON('{"version":1}')).toBe(false);
+    expect(result.current.importJSON('{"version":2,"xp":10,"quizDone":[],"laboDone":[],"moduleDone":[]}')).toBe(false);
   });
 
   it('niveau suit l XP', () => {

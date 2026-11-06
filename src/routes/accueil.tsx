@@ -24,7 +24,7 @@ function Hero({ actions }: { actions: ReactNode }) {
       <p className="accroche">Cadrer, découper, planifier, choisir sa méthode, outiller et animer l’équipe&nbsp;: 9 modules courts avec labos manipulables, exercices corrigés et quiz, sur un fil rouge fictif.</p>
       <ul className="hero-stats" aria-label="Le cours en bref">
         <li><strong>9</strong> modules</li>
-        <li><strong>11</strong> laboratoires</li>
+        <li><strong>16</strong> laboratoires</li>
         <li><strong>6</strong> étapes de dossier projet</li>
         <li><strong>0</strong> compte ou cookie</li>
       </ul>

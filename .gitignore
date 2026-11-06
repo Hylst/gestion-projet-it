@@ -2,5 +2,21 @@ node_modules/
 dist/
 test-results/
 playwright-report/
+coverage/
+lighthouse-report/
 *.log
 .superpowers/
+.vite/
+*.tsbuildinfo
+
+# Environnements et secrets locaux
+.env
+.env.*
+!.env.example
+
+# Systèmes de fichiers et éditeurs
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/

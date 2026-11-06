@@ -2,6 +2,19 @@
 
 ## [Non publié]
 
+### Audit complet et finitions
+
+- Documentation : ajout de `structure.md`, `features.md` et `todo.md` ; mise à jour de `agents.md`, `README.md`, `ARCHITECTURE.md`, `CREDITS.md` et de l’index `docs/README.md`.
+- Paternité : alias Hylst ajouté au footer, à la page À propos, aux mentions légales, à la transparence IA, aux crédits, au `package.json` et à `index.html`.
+- SEO : métadonnées Open Graph complètes côté client, dimensions et type de l’image, textes alternatifs, sitemap du module dans `robots.txt`.
+- Partage : image sociale 1200 x 630 redessinée, favicon SVG avec repli PNG 32, icônes PWA et Apple Touch régénérées localement.
+- PWA : manifeste enrichi avec description, catégories et trois raccourcis.
+- Accessibilité : import de progression avec bouton explicite, message d’état, validation renforcée et remise à zéro du champ ; contenu de la visite annoncé aux lecteurs d’écran.
+- Contenu : compteur du hero corrigé à 16 laboratoires, avec test de cohérence.
+- Sécurité : test `aucune-api-externe` qui interdit `fetch`, `XMLHttpRequest`, `axios`, `WebSocket`, `EventSource`, `sendBeacon` et les API d’IA externes dans `src`.
+- Documentation obsolète corrigée : 25 routes, 15 tests smoke, 292 kB, version 1.4.0, 21 routes et 58 liens.
+- Hygiène : `.gitignore` complété pour les environnements, la couverture, les caches et les fichiers système.
+
 ### Sécurité
 
 - Audit sécurité et CVE du 30 octobre 2026 : aucune vulnérabilité dans l’arbre actif, aucun secret détecté, en-têtes de production vérifiés.
@@ -26,10 +39,13 @@
 
 ### Vérifié
 
-- 51 fichiers de tests, 314 tests.
-- Lint, typecheck, 69 liens relatifs, 31 routes, audit npm à 0 et build.
+- 52 fichiers de tests, 320 tests.
+- Lint, typecheck, 77 liens relatifs, 31 routes, audit npm à 0 et build.
+- Bundle initial : 309,48 kB minifiés, 96,94 kB gzip ; CSS 47,69 kB, 9,55 kB gzip.
 - Smoke Playwright : 17/17 sur 31 routes, dont la visite de présentation, le parcours cyber et la chronologie.
-- Lighthouse mobile local : accueil 100/100/100/100 avec la visite ouverte, `/cybersecurite`, `/cybersecurite/menaces`, `/cybersecurite/acces` et `/cybersecurite/incident` 99/100/100/100.
+- Docker : build synchronisé, 54 fichiers aux empreintes SHA-256 identiques, smoke 17/17 sur la copie servie avec fallback SPA.
+- Lighthouse mobile local du 6 novembre 2026 : accueil 98 à 100 en performance et 100 en accessibilité, bonnes pratiques et SEO ; `/module-1` 99/100/100/100. Les pages cyber mesurées le 31 octobre restent à 99/100/100/100, sans changement de structure.
+- Aucun appel d’API externe dans `src` ; service worker limité au cache same-origin.
 
 ## [1.5.0] - 2026-10-24
 

@@ -21,6 +21,7 @@ async function rendre(svg, largeur, hauteur, sortie) {
 }
 
 await rendre('public/og-image.svg', 1200, 630, 'public/og-image.png');
+await rendre('public/favicon.svg', 32, 32, 'public/favicon-32.png');
 await rendre('public/icon-192.svg', 192, 192, 'public/icon-192.png');
 await rendre('public/icon-512.svg', 512, 512, 'public/icon-512.png');
 await rendre('public/icon-512.svg', 180, 180, 'public/apple-touch-icon.png');

@@ -157,6 +157,7 @@ export default function Onboarding({ onFermer }: OnboardingProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="onboarding-titre"
+        aria-describedby="onboarding-description"
         ref={panelRef}
         tabIndex={-1}
         onKeyDown={surTouche}
@@ -167,14 +168,14 @@ export default function Onboarding({ onFermer }: OnboardingProps) {
           </svg>
         </button>
 
-        <div className="onboarding-body">
-          <p className="onboarding-progress" aria-live="polite">Étape {index + 1} sur {total}</p>
+        <div className="onboarding-body" aria-live="polite" aria-atomic="true">
+          <p className="onboarding-progress">Étape {index + 1} sur {total}</p>
           <div className="onboarding-slide" key={slide.id}>
             <Picto icone={slide.icone} />
             <div>
               <p className="onboarding-kicker">Visite du cours</p>
               <h2 id="onboarding-titre">{slide.titre}</h2>
-              <p className="onboarding-texte">{slide.texte}</p>
+              <p id="onboarding-description" className="onboarding-texte">{slide.texte}</p>
               <ul className="onboarding-points">
                 {slide.points.map((point) => <li key={point}>{point}</li>)}
               </ul>

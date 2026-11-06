@@ -1,8 +1,8 @@
 # Analyse AI Act
 
 **Règlement :** (UE) 2024/1689
-**Date :** 24 octobre 2026
-**Périmètre :** site Gestion de Projet IT, version 1.4.0
+**Date :** 6 novembre 2026
+**Périmètre :** site Gestion de Projet IT, build publié au 6 novembre 2026
 
 ## 1. Qualification
 

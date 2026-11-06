@@ -67,5 +67,6 @@ Mesures de production après déploiement de la version 1.5.0 : accueil 98 en pe
 | Page | Performance | Accessibilité | Bonnes pratiques | SEO |
 | --- | ---: | ---: | ---: | ---: |
 | `/` avec visite de présentation ouverte | 100 | 100 | 100 | 100 |
+| `/module-1` | 99 | 100 | 100 | 100 |
 
-Mesure mobile sur le build local, premier chargement sans données locales, visite de présentation affichée par-dessus l’accueil.
+Mesure mobile sur le build local, premier chargement sans données locales, visite de présentation affichée par-dessus l’accueil. Un second passage après rebase sur `main` donne 98 en performance sur l’accueil et 99 sur `/module-1`, avec 100 en accessibilité, bonnes pratiques et SEO. La performance de l’accueil varie de 98 à 100 selon les runs, au-dessus du seuil de 90.

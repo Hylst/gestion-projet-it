@@ -1,0 +1,149 @@
+/* SPDX-FileCopyrightText: 2026 Geoffroy Streit
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+.schema-pedagogique {
+  margin: 1.5rem 0;
+  padding: 1rem 1.1rem 0.9rem;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-sm);
+  background: var(--c-surface-2);
+  overflow-x: clip;
+}
+
+.schema-legende {
+  margin-bottom: 0.6rem;
+}
+
+.schema-titre {
+  margin: 0 0 0.2rem;
+  color: var(--c-ink);
+  font-weight: 650;
+}
+
+.schema-aide {
+  margin: 0;
+  color: var(--c-muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.schema-svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.schema-pair {
+  cursor: pointer;
+  outline: none;
+}
+
+.schema-node {
+  fill: var(--c-surface);
+  stroke: var(--c-line);
+  stroke-width: 1.4;
+  transition: fill 140ms ease, stroke 140ms ease;
+}
+
+.schema-node-label {
+  fill: var(--c-ink);
+  font-size: 13px;
+  font-weight: 600;
+  transition: fill 140ms ease;
+}
+
+.schema-link {
+  stroke: var(--accent-line);
+  stroke-width: 1.4;
+  stroke-dasharray: 4 4;
+  transition: stroke 140ms ease;
+}
+
+.schema-pair.is-hot .schema-node {
+  fill: var(--accent-soft);
+  stroke: var(--accent);
+}
+
+.schema-pair.is-hot .schema-node-label {
+  fill: var(--accent-ink);
+}
+
+.schema-pair.is-hot .schema-link {
+  stroke: var(--accent);
+}
+
+.schema-pair.is-active .schema-node {
+  fill: var(--accent);
+  stroke: var(--accent-ink);
+}
+
+.schema-pair.is-active .schema-node-label {
+  fill: #ffffff;
+}
+
+.schema-pair.is-active .schema-link {
+  stroke: var(--accent);
+  stroke-dasharray: none;
+}
+
+.schema-pair:focus-visible .schema-node {
+  stroke: var(--accent-ink);
+  stroke-width: 2.6;
+}
+
+.schema-explication {
+  margin-top: 0.85rem;
+  padding: 0.7rem 0.85rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 0.5rem 0.5rem 0;
+  background: var(--accent-wash);
+  min-height: 7.5rem;
+}
+
+.schema-explication p {
+  margin: 0 0 0.35rem;
+  line-height: 1.5;
+}
+
+.schema-explication p:last-child {
+  margin-bottom: 0;
+}
+
+.schema-explication-titre {
+  color: var(--c-ink);
+  font-weight: 650;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .schema-node,
+  .schema-node-label,
+  .schema-link {
+    transition: none;
+  }
+}
+
+@media print {
+  .schema-pedagogique {
+    break-inside: avoid;
+    background: #ffffff;
+  }
+
+  .schema-pair.is-active .schema-node,
+  .schema-pair.is-hot .schema-node {
+    fill: #ffffff;
+    stroke: #000000;
+  }
+
+  .schema-pair.is-active .schema-node-label,
+  .schema-pair.is-hot .schema-node-label {
+    fill: #000000;
+  }
+
+  .schema-pair.is-active .schema-link,
+  .schema-pair.is-hot .schema-link {
+    stroke: #000000;
+  }
+}

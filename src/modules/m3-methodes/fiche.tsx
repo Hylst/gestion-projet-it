@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { Terme } from '../../components/Terme';
+import { SchemaCycleV } from '../../components/schemas/SchemaCycleV';
 
 export const Fiche = () => (
   <section id="fiche" aria-labelledby="fiche-t">
@@ -12,6 +13,7 @@ export const Fiche = () => (
     <p><strong>À quoi ça sert.</strong> Ordonner un travail en phases simples avec jalons, quand le besoin est stable et les contraintes connues. Le cycle en V prévoit des tests préparés à l’avance en face de chaque conception.</p>
     <p><strong>Quand l’utiliser.</strong> La cascade convient quand le besoin est stable, le périmètre petit et les contraintes connues. Le cycle en V convient quand des traces et des tests sont attendus à chaque niveau.</p>
     <p><strong>Avantages.</strong> Lisibilité, jalons clairs, documents de référence par phase.</p>
+    <SchemaCycleV />
     <p><strong><Terme id="critere-d-acceptation">Critères d’acceptation</Terme>.</strong> Un critère est observable et testable&nbsp;: un bénévole crée un événement avec un titre, une date et un lieu&nbsp;; l’événement apparaît dans la liste&nbsp;; un champ manquant affiche un message explicite. Les critères se discutent avant la réalisation, avec les parties prenantes. <strong><Terme id="definition-de-pret">Définition de prêt</Terme>.</strong> Elle dit quand une tâche est assez claire pour commencer. <strong><Terme id="definition-de-fini">Définition de fini</Terme>.</strong> Elle dit quand elle est vraiment terminée.</p>
     <p><strong><Terme id="recette">Recette</Terme> et <Terme id="non-regression">non-régression</Terme>.</strong> La recette vérifie avec les parties prenantes que le résultat répond aux critères. La non-régression vérifie qu’un changement ne casse pas ce qui fonctionnait déjà. Un plan de test court suffit&nbsp;: quoi, qui, quand, quelle preuve.</p>
     <p><strong>Limite qualité.</strong> Une recette découverte à la fin ne rattrape pas un besoin flou&nbsp;; les critères se discutent tôt. La qualité n’est pas un document de plus, c’est une décision sur ce qui compte.</p>

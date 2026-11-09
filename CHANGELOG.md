@@ -1,6 +1,6 @@
 # Changelog
 
-## [Non publié]
+## [1.7.0] - 2026-11-09
 
 ### Pédagogie et fil conducteur junior
 
@@ -10,6 +10,7 @@
 - Bases informatiques : intégration dans le glossaire et en infobulles des notions de dépôt (repository), serveur, API et navigateur.
 - Continuité du parcours (`ModulePager`) : transition logique et lien direct vers le module suivant, avec renvoi vers le dossier projet à la fin du module 9.
 - Sommaires complets : le sommaire sticky de chaque module référence désormais l’intégralité de ses sections (comparateur, laboratoires secondaires, pré-mortem).
+- Publication : version `1.7.0` et service worker v15, pour purger les caches du build précédent.
 - Vérifications : 344 tests unitaires (54 fichiers), typographie stricte validée, suite smoke Playwright portée à 19/19 avec test dédié de l’infobulle et du reflow.
 
 ## [1.6.1] - 2026-11-06

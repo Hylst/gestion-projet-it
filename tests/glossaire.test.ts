@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { describe, it, expect } from 'vitest';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 import { TERMES, slugTexte, slugTerme, trouverTerme } from '../src/lib/glossaire';
 
 describe('glossaire', () => {
@@ -185,5 +187,27 @@ describe('glossaire', () => {
   it('les ancres des termes sont uniques', () => {
     const ancres = TERMES.map((t) => slugTerme(t));
     expect(new Set(ancres).size).toBe(ancres.length);
+  });
+
+  it('chaque infobulle Terme pointe vers un terme connu', () => {
+    const ids = new Set<string>();
+    const parcourir = (dossier: string) => {
+      for (const entree of readdirSync(dossier, { withFileTypes: true })) {
+        const chemin = join(dossier, entree.name);
+        if (entree.isDirectory()) {
+          parcourir(chemin);
+        } else if (entree.name.endsWith('.tsx')) {
+          const contenu = readFileSync(chemin, 'utf8');
+          for (const correspondance of contenu.matchAll(/<Terme\s+id="([^"]+)"/g)) {
+            if (correspondance[1]) ids.add(correspondance[1]);
+          }
+        }
+      }
+    };
+    parcourir('src');
+    expect(ids.size).toBeGreaterThan(20);
+    for (const id of ids) {
+      expect(trouverTerme(id), `Terme inconnu\u00A0: ${id}`).toBeDefined();
+    }
   });
 });

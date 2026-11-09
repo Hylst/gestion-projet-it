@@ -5,6 +5,7 @@ import { IaCallout } from '../IaCallout';
 import { IaLayout } from '../IaLayout';
 import { IA_PAGES } from '../pages';
 import { SOURCES } from '../sources';
+import { Terme } from '../../components/Terme';
 
 export function IaOutilsPage() {
   const meta = IA_PAGES[3];
@@ -84,9 +85,9 @@ export function IaOutilsPage() {
 
       <section id="environnement">
         <h2>Environnement de travail</h2>
-        <p>L’environnement compte autant que le modèle. Il détermine ce que l’outil voit, ce qu’il peut faire et ce qu’il reste comme trace.</p>
+        <p>L’<Terme id="environnement">environnement</Terme> compte autant que le modèle. Il détermine ce que l’outil voit, ce qu’il peut faire et ce qu’il reste comme trace.</p>
         <h3>Local, navigateur, API</h3>
-        <p>Un modèle local tourne sur la machine, sans appel sortant, mais consomme des ressources et demande un suivi des mises à jour. Un outil dans le navigateur est immédiat à utiliser et dépend d’un compte et d’une connexion. Une API s’intègre dans un script ou un service&nbsp;; elle exige une clé, un quota et une gestion des erreurs. Ces trois modes ne présentent pas les mêmes garanties de confidentialité ni de disponibilité.</p>
+        <p>Un modèle local tourne sur la machine, sans appel sortant, mais consomme des ressources et demande un suivi des mises à jour. Un outil dans le navigateur est immédiat à utiliser et dépend d’un compte et d’une connexion. Une <Terme id="api">API</Terme> s’intègre dans un script ou un service&nbsp;; elle exige une clé, un quota et une gestion des erreurs. Ces trois modes ne présentent pas les mêmes garanties de confidentialité ni de disponibilité.</p>
         <h3>Un espace de travail séparé</h3>
         <p>Un dossier de projet dédié évite de mélanger les essais et les livrables&nbsp;: les prompts, les sources, les sorties et le journal s’y rangent par date et par version. Le journal note ce qui a été demandé, ce qui a été obtenu et ce qui a été validé, pour permettre une reprise par une autre personne.</p>
         <h3>Compte, siège et données</h3>
@@ -169,9 +170,9 @@ export function IaOutilsPage() {
             <strong>Personnel.</strong> Le contenu identifie une personne, directement ou par recoupement.
           </li>
         </ul>
-        <p>Ne jamais coller de secret&nbsp;: clé d’API, mot de passe, jeton ou extrait de base clients. Anonymisez ou pseudonymisez les données personnelles avant de les confier à un outil, et vérifiez que le résultat ne permet pas de retrouver une personne.</p>
+        <p>Ne jamais coller de secret&nbsp;: clé d’API, mot de passe, jeton ou extrait de base clients. Anonymisez ou pseudonymisez les <Terme id="donnee-personnelle">données personnelles</Terme> avant de les confier à un outil, et vérifiez que le résultat ne permet pas de retrouver une personne.</p>
         <p>Vérifiez la rétention et le partage&nbsp;: durée de conservation, destinataires, réutilisation éventuelle pour l’entraînement et procédure de suppression. Ces réponses figurent dans le contrat ou la documentation du fournisseur, pas dans une promesse orale.</p>
-        <p><strong>Un modèle local n’est pas anonyme par nature.</strong> Il déplace le traitement sur la machine, sans supprimer les données ni les traces. Les fichiers d’essai, les journaux et les sauvegardes demandent le même soin.</p>
+        <p><strong>Un modèle local n’est pas anonyme par nature.</strong> Il déplace le traitement sur la machine, sans supprimer les données ni les traces. Les fichiers d’essai, les journaux et les <Terme id="sauvegarde">sauvegardes</Terme> demandent le même soin.</p>
         <p>Vérifiez qui administre le compte et où sont les données. Un compte personnel utilisé pour un projet professionnel laisse à l’organisation une visibilité limitée sur les accès, les exports et les départs.</p>
       </section>
 

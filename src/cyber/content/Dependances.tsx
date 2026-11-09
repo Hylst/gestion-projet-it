@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { Link } from 'react-router-dom';
+import { Terme } from '../../components/Terme';
 import { CyberCallout } from '../CyberCallout';
 import { CyberLayout } from '../CyberLayout';
 import { CYBER_PAGES } from '../pages';
@@ -33,7 +34,7 @@ export function CyberDependancesPage() {
     >
       <section id="cartographie">
         <h2>Cartographier les dépendances</h2>
-        <p>Une dépendance est tout ce dont le projet a besoin pour fonctionner&nbsp;: bibliothèque, service, hébergeur, prestataire, outil de build. La carte distingue ce qui est direct de ce qui arrive par transitivité.</p>
+        <p>Une <Terme id="dependance">dépendance</Terme> est tout ce dont le projet a besoin pour fonctionner&nbsp;: bibliothèque, service, hébergeur, prestataire, outil de build. La carte distingue ce qui est direct de ce qui arrive par transitivité.</p>
         <ul>
           <li>Dépendances directes&nbsp;: ce que le projet déclare et utilise.</li>
           <li>Dépendances transitives&nbsp;: ce que les dépendances embarquent à leur tour.</li>
@@ -51,7 +52,7 @@ export function CyberDependancesPage() {
 
       <section id="fournisseurs">
         <h2>Fournisseurs et contrats</h2>
-        <p>Un fournisseur ne se résume pas à son prix. Le projet vérifie l’usage des données, la rétention, la localisation, les sous-traitants, la sécurité et la sortie.</p>
+        <p>Un fournisseur ne se résume pas à son prix. La <Terme id="dependance-fournisseur">dépendance fournisseur</Terme> se mesure à l’usage des données, à la rétention, à la localisation, aux sous-traitants, à la sécurité et à la sortie.</p>
         <ul>
           <li>Quelles données sont confiées et pour quelle finalité&nbsp;?</li>
           <li>Combien de temps sont-elles conservées&nbsp;?</li>
@@ -63,7 +64,7 @@ export function CyberDependancesPage() {
 
       <section id="chaine">
         <h2>Chaîne de build et provenance</h2>
-        <p>La chaîne de build transforme le code en artefact livré. Si elle est compromise, les contrôles du code ne suffisent plus. Les permissions, les secrets et les actions tierces se limitent au nécessaire.</p>
+        <p>La <Terme id="chaine-ci">chaîne de build</Terme> transforme le code en artefact livré. Si elle est compromise, les contrôles du code ne suffisent plus. Les permissions, les secrets et les actions tierces se limitent au nécessaire.</p>
         <ul>
           <li>Permissions minimales pour le jeton de build.</li>
           <li>Actions tierces épinglées et relues.</li>
@@ -75,7 +76,7 @@ export function CyberDependancesPage() {
 
       <section id="sortie">
         <h2>Plan de sortie</h2>
-        <p>Un plan de sortie décrit comment récupérer les données, remplacer le service et tenir le délai. Il se prépare avant la signature, pas le jour de la résiliation.</p>
+        <p>Un plan de sortie décrit comment récupérer les données, remplacer le service et tenir le délai. Il se prépare avant la signature, pas le jour de la résiliation. Le <Terme id="plan-de-reprise">plan de reprise</Terme> traite la panne, le plan de sortie traite le départ.</p>
         <CyberCallout titre="Le test de la panne" variante="limite">
           <p>Si le fournisseur disparaît demain, que reste-t-il&nbsp;? Les sources, les décisions et les compétences de l’équipe.</p>
         </CyberCallout>

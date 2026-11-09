@@ -34,7 +34,7 @@ export function IaMethodesPage() {
     >
       <section id="prompt">
         <h2>Du besoin au prompt</h2>
-        <p>Un prompt utile ne commence pas par une formule magique. Il décrit un besoin que l’équipe peut vérifier.</p>
+        <p>Un <Terme id="prompt">prompt</Terme> utile ne commence pas par une formule magique. Il décrit un besoin que l’équipe peut vérifier.</p>
         <ol>
           <li>
             <strong>Rôle.</strong> Le rôle attendu de l’assistant&nbsp;: relire, résumer, proposer des tests ou préparer une trame.
@@ -43,7 +43,7 @@ export function IaMethodesPage() {
             <strong>Objectif.</strong> Le résultat à produire, en une phrase. Un objectif flou produit une sortie floue.
           </li>
           <li>
-            <strong>Contexte.</strong> Les faits, les contraintes et les documents utiles, sans données sensibles inutiles.
+            <strong><Terme id="contexte">Contexte</Terme>.</strong> Les faits, les contraintes et les documents utiles, sans données sensibles inutiles.
           </li>
           <li>
             <strong>Contraintes.</strong> Le périmètre, les règles à respecter et ce que la réponse ne doit pas faire.
@@ -95,7 +95,7 @@ export function IaMethodesPage() {
 
       <section id="evaluation">
         <h2>Évaluation et jeu de test</h2>
-        <p>Évaluez sur un jeu de 10 à 30 cas représentatifs du travail réel, pas sur une démonstration choisie. Le jeu inclut des cas simples, des cas limites et au moins un cas où l’outil devrait refuser ou demander une précision.</p>
+        <p>Évaluez sur un <Terme id="jeu-de-test">jeu de test</Terme> de 10 à 30 cas représentatifs du travail réel, pas sur une démonstration choisie. Le jeu inclut des cas simples, des cas limites et au moins un cas où l’outil devrait refuser ou demander une précision.</p>
         <p>Les critères restent séparés&nbsp;: exactitude, complétude, format, ton, sécurité. Une relecture à l’aveugle, sans savoir quelle version a produit quelle sortie, limite les biais. Tenez un journal des corrections et mesurez le temps gagné comme le temps de reprise.</p>
         <p>Ne résumez pas la qualité à une note unique. Un score global masque les écarts&nbsp;: une sortie rapide mais fausse n’est pas un progrès.</p>
         <div className="ia-table-wrap">
@@ -141,7 +141,7 @@ export function IaMethodesPage() {
 
       <section id="agents">
         <h2>Agents et automatisations</h2>
-        <p>Un agent est un système qui enchaîne des étapes&nbsp;: lire des documents, appeler un outil, préparer une action, parfois écrire dans un service. Cette autonomie change le niveau de contrôle nécessaire.</p>
+        <p>Un <Terme id="agent">agent</Terme> est un système qui enchaîne des étapes&nbsp;: lire des documents, appeler un outil, préparer une action, parfois écrire dans un service. Cette autonomie change le niveau de contrôle nécessaire.</p>
         <ul>
           <li>
             <strong>Lecture et écriture.</strong> Lire un fichier ou interroger une base n’a pas le même risque qu’envoyer un message, modifier un ticket ou supprimer un document.
@@ -156,7 +156,7 @@ export function IaMethodesPage() {
             <strong>Journal.</strong> Chaque appel, chaque décision et chaque résultat restent traçables.
           </li>
           <li>
-            <strong>Validation humaine.</strong> Une action irréversible attend un accord explicite.
+            <strong><Terme id="human-in-the-loop">Validation humaine</Terme>.</strong> Une action irréversible attend un accord explicite.
           </li>
         </ul>
         <p><strong>Un agent sans permission ni supervision est un risque.</strong></p>

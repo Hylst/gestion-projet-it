@@ -39,6 +39,13 @@ describe('registre IA', () => {
     for (const p of IA_PAGES) {
       expect(p.path.startsWith('/ia')).toBe(true);
       expect(p.description.length).toBeLessThan(160);
+      expect(p.pourquoi.length).toBeGreaterThan(80);
+      expect(p.objectifs).toHaveLength(3);
+      for (const objectif of p.objectifs) expect(objectif.length).toBeGreaterThan(30);
+      expect(p.filRouge.length).toBeGreaterThan(40);
+      expect(p.temps.lecture).toMatch(/^\d+\u00A0min$/);
+      expect(p.temps.pratique).toMatch(/^\d+\u00A0min$/);
+      expect(p.temps.activite.length).toBeGreaterThan(5);
       expect(p.sections.length).toBeGreaterThanOrEqual(5);
       expect(new Set(p.sections.map((s) => s.id)).size).toBe(p.sections.length);
     }
@@ -73,6 +80,14 @@ describe('gabarit IA', () => {
     }
     expect(screen.getByRole('heading', { level: 2, name: 'À retenir' })).not.toBeNull();
     expect(screen.getByRole('heading', { level: 2, name: 'Checklist' })).not.toBeNull();
+    const intro = container.querySelector('.parcours-intro');
+    expect(intro).not.toBeNull();
+    const bloc = within(intro as HTMLElement);
+    expect(bloc.getByRole('heading', { level: 2, name: /Pourquoi cette page/ })).not.toBeNull();
+    for (const objectif of meta.objectifs) expect(bloc.getByText(objectif)).not.toBeNull();
+    expect(bloc.getByText(meta.filRouge)).not.toBeNull();
+    expect(bloc.getByText(/Temps estimé/)).not.toBeNull();
+    expect(container.querySelectorAll('.terme-brut')).toHaveLength(0);
     expect(screen.getByText('Veille arrêtée en octobre 2026.')).not.toBeNull();
     const sources = Array.from(container.querySelectorAll('.ia-sources a'));
     expect(sources).toHaveLength(3);
@@ -100,7 +115,11 @@ describe('hub IA', () => {
     rendre(<IaHubPage />);
     expect(document.querySelectorAll('#cinq-questions li')).toHaveLength(5);
     expect(screen.getByRole('link', { name: 'Usages de l’IA par phase de projet' })).not.toBeNull();
-    expect(screen.getByText('Sur Les Amis du Square, l’IA peut préparer un brouillon de note de cadrage. Le bureau de l’association valide le besoin, le périmètre et les critères de réussite.')).not.toBeNull();
+    const intro = document.querySelector('.parcours-intro');
+    expect(intro).not.toBeNull();
+    expect(within(intro as HTMLElement).getByText('Sur Les Amis du Square, l’IA peut préparer un brouillon de note de cadrage. Le bureau de l’association valide le besoin, le périmètre et les critères de réussite.')).not.toBeNull();
+    expect(document.querySelectorAll('.section-chapeau')).toHaveLength(4);
+    expect(document.querySelectorAll('.terme-brut')).toHaveLength(0);
   });
 });
 
@@ -111,6 +130,7 @@ describe('usages IA', () => {
     expect(table.querySelectorAll('tbody tr')).toHaveLength(6);
     expect(screen.getByText('Faux réalisme')).not.toBeNull();
     expect(screen.getByRole('heading', { level: 2, name: 'Ce qui reste humain' })).not.toBeNull();
+    expect(document.querySelectorAll('.terme-brut')).toHaveLength(0);
   });
 });
 
@@ -120,6 +140,7 @@ describe('methodes IA', () => {
     expect(screen.getByRole('heading', { level: 2, name: 'Recherche documentaire et RAG' })).not.toBeNull();
     expect(screen.getByRole('heading', { level: 2, name: 'Agents et automatisations' })).not.toBeNull();
     expect(screen.getByText(/Un agent sans permission ni supervision est un risque\./)).not.toBeNull();
+    expect(document.querySelectorAll('.terme-brut')).toHaveLength(0);
   });
 });
 
@@ -132,6 +153,7 @@ describe('outils IA', () => {
     expect(parametres.querySelectorAll('tbody tr')).toHaveLength(7);
     expect(screen.getByRole('heading', { level: 2, name: 'Checklist de configuration' })).not.toBeNull();
     expect(within(categories).getByText(/Ollama/)).not.toBeNull();
+    expect(document.querySelectorAll('.terme-brut')).toHaveLength(0);
   });
 });
 
@@ -141,6 +163,7 @@ describe('gouvernance IA', () => {
     expect(screen.getByText(/Ce contenu n’est pas un conseil juridique/)).not.toBeNull();
     expect(screen.getAllByText(/AI Act/).length).toBeGreaterThan(0);
     expect(screen.getByRole('heading', { level: 2, name: 'Sécurité et propriété intellectuelle' })).not.toBeNull();
+    expect(document.querySelectorAll('.terme-brut')).toHaveLength(0);
   });
 });
 

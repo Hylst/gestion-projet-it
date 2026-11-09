@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { Link } from 'react-router-dom';
+import { Terme } from '../../components/Terme';
 import LaboTimelineIncident from '../../labos/LaboTimelineIncident';
 import { CyberCallout } from '../CyberCallout';
 import { CyberLayout } from '../CyberLayout';
@@ -34,7 +35,7 @@ export function CyberIncidentPage() {
     >
       <section id="detecter">
         <h2>Détecter et qualifier</h2>
-        <p>Un incident peut se signaler par une alerte, une panne, un comportement anormal ou l’appel d’un tiers. La première étape consiste à ouvrir une trace et à qualifier la gravité, le périmètre et les données concernées.</p>
+        <p>Un <Terme id="incident-de-securite">incident de sécurité</Terme> peut se signaler par une alerte, une panne, un comportement anormal ou l’appel d’un tiers. La première étape consiste à ouvrir une trace et à qualifier la gravité, le périmètre et les données concernées.</p>
         <p>La qualification n’attend pas la certitude. Elle note ce qui est connu, ce qui reste à vérifier et qui pilote. Une alerte mal comprise vaut mieux qu’une alerte ignorée.</p>
       </section>
 
@@ -57,7 +58,7 @@ export function CyberIncidentPage() {
 
       <section id="reprendre">
         <h2>Reprendre</h2>
-        <p>La reprise s’appuie sur des sauvegardes testées, pas sur une copie supposée bonne. Elle définit un objectif de délai et un objectif de perte de données, puis restaure le service le plus important en premier.</p>
+        <p>La reprise s’appuie sur des <Terme id="sauvegarde">sauvegardes</Terme> testées, pas sur une copie supposée bonne. Elle définit un objectif de délai et un objectif de perte de données, puis restaure le service le plus important en premier.</p>
         <p>Une restauration se valide par des tests fonctionnels et par un contrôle des accès. Le retour à la normale se documente, même s’il est partiel.</p>
         <CyberCallout titre="Sauvegarde" variante="limite">
           <p>Une sauvegarde non testée n’est pas une sauvegarde.</p>
@@ -72,7 +73,7 @@ export function CyberIncidentPage() {
 
       <section id="preparer">
         <h2>Préparer</h2>
-        <p>Un playbook tient en quelques pages&nbsp;: contacts, rôles, premiers gestes, obligations et modèle de communication. Il se teste par un exercice court, au moins une fois par an.</p>
+        <p>Un playbook tient en quelques pages&nbsp;: contacts, rôles, premiers gestes, obligations et modèle de communication. Le <Terme id="plan-de-reprise">plan de reprise</Terme> fixe les priorités de restauration et les seuils acceptables. L’ensemble se teste par un exercice court, au moins une fois par an.</p>
         <p>La préparation inclut les sauvegardes, les accès de secours et les fournisseurs. Un plan non testé reste une intention.</p>
         <p>Le <Link to="/module-6">module 6</Link> relie la sauvegarde au registre des risques et à leurs déclencheurs.</p>
         <div className="cyber-table-wrap">

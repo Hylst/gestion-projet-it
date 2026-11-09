@@ -5,6 +5,7 @@ import { IaCallout } from '../IaCallout';
 import { IaLayout } from '../IaLayout';
 import { IA_PAGES } from '../pages';
 import { SOURCES } from '../sources';
+import { Terme } from '../../components/Terme';
 
 export function IaUsagesPage() {
   const meta = IA_PAGES[1];
@@ -32,7 +33,7 @@ export function IaUsagesPage() {
     >
       <section id="cadrage">
         <h2>Cadrage et besoin</h2>
-        <p>Le cadrage fixe le besoin et le périmètre. L’IA peut aider à poser les bonnes questions, à condition que le commanditaire confirme ce qui est retenu.</p>
+        <p>Le cadrage fixe le besoin et le <Terme id="perimetre">périmètre</Terme>. L’IA peut aider à poser les bonnes questions, à condition que le commanditaire confirme ce qui est retenu.</p>
         <h3>Usages utiles</h3>
         <ul>
           <li>Préparer les questions à poser aux parties prenantes.</li>
@@ -52,7 +53,7 @@ export function IaUsagesPage() {
         <p>La planification traduit le besoin en tâches, en charges et en dépendances. L’IA propose une matière à corriger, pas un planning validé.</p>
         <h3>Usages utiles</h3>
         <ul>
-          <li>Proposer un découpage WBS à partir du périmètre validé.</li>
+          <li>Proposer un découpage <Terme id="wbs">WBS</Terme> à partir du périmètre validé.</li>
           <li>Chercher des oublis dans les lots et les dépendances.</li>
           <li>Explorer des scénarios de planning sous contraintes.</li>
         </ul>
@@ -83,7 +84,7 @@ export function IaUsagesPage() {
 
       <section id="qualite">
         <h2>Qualité et tests</h2>
-        <p>Les tests se définissent à partir des critères d’acceptation. L’IA peut proposer des cas, mais seule l’exécution réelle confirme le comportement.</p>
+        <p>Les tests se définissent à partir des <Terme id="critere-acceptation">critères d’acceptation</Terme>. L’IA peut proposer des cas, mais seule l’exécution réelle confirme le comportement.</p>
         <h3>Usages utiles</h3>
         <ul>
           <li>Générer des cas de test à partir des critères d’acceptation.</li>
@@ -149,7 +150,7 @@ export function IaUsagesPage() {
               <tr>
                 <th scope="row">Qualité</th>
                 <td>Générer des cas de test, chercher des cas limites</td>
-                <td>Jeu de test</td>
+                <td><Terme id="jeu-de-test">Jeu de test</Terme></td>
                 <td>Exécuter les tests, comparer</td>
               </tr>
               <tr>

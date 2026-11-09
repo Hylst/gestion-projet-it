@@ -5,6 +5,7 @@ import { IaCallout } from '../IaCallout';
 import { IaLayout } from '../IaLayout';
 import { IA_PAGES } from '../pages';
 import { SOURCES } from '../sources';
+import { Terme } from '../../components/Terme';
 
 export function IaGouvernancePage() {
   const meta = IA_PAGES[4];
@@ -58,8 +59,8 @@ export function IaGouvernancePage() {
 
       <section id="droit">
         <h2>Droit, données et AI Act</h2>
-        <p>Un traitement de données personnelles suppose une finalité définie avant la collecte, la minimisation des données, une durée de conservation fixée et le respect des droits des personnes. Ces principes du RGPD s’appliquent aussi quand un outil d’IA intervient&nbsp;: l’outil ne crée pas une exception.</p>
-        <p>Le règlement européen sur l’intelligence artificielle, ou AI Act, se lit par niveaux de risque. Les pratiques interdites sont écartées sans discussion. Les systèmes à haut risque imposent une documentation, une surveillance et des contrôles renforcés. Les obligations de transparence concernent notamment les contenus générés et les interactions avec une machine. Les usages à risque limité ou minimal demandent surtout de l’information et de la vigilance.</p>
+        <p>Un traitement de données personnelles suppose une finalité définie avant la collecte, la minimisation des données, une durée de conservation fixée et le respect des droits des personnes. Ces principes du <Terme id="rgpd">RGPD</Terme> s’appliquent aussi quand un outil d’IA intervient&nbsp;: l’outil ne crée pas une exception.</p>
+        <p>Le règlement européen sur l’intelligence artificielle, ou <Terme id="ai-act">AI Act</Terme>, se lit par niveaux de risque. Les pratiques interdites sont écartées sans discussion. Les systèmes à haut risque imposent une documentation, une surveillance et des contrôles renforcés. Les obligations de transparence concernent notamment les contenus générés et les interactions avec une machine. Les usages à risque limité ou minimal demandent surtout de l’information et de la vigilance.</p>
         <p>Les rôles se distinguent. Le fournisseur met le système sur le marché et répond de sa conception, de sa documentation et de ses performances annoncées. Le déployeur, souvent l’organisation qui utilise l’outil, répond de son usage&nbsp;: finalité, données, information des personnes et surveillance. Un même acteur peut cumuler les deux rôles.</p>
         <p>Les textes évoluent et les situations particulières demandent une analyse. Ce contenu n’est pas un conseil juridique. Pour un cas réel, consulter un juriste ou le référent données.</p>
       </section>
@@ -106,7 +107,7 @@ export function IaGouvernancePage() {
             </tbody>
           </table>
         </div>
-        <p>Chaque risque reçoit un responsable et une parade vérifiable. La qualité ne se décrète pas&nbsp;: elle se mesure sur des cas réels, avec un critère de sortie écrit avant l’essai.</p>
+        <p>Chaque risque reçoit un responsable et une parade vérifiable. Une <Terme id="hallucination">hallucination</Terme> se traite par une source obligatoire et une relecture, pas par une consigne plus longue. La qualité ne se décrète pas&nbsp;: elle se mesure sur des cas réels, avec un critère de sortie écrit avant l’essai.</p>
       </section>
 
       <section id="propriete">
@@ -115,14 +116,14 @@ export function IaGouvernancePage() {
         <p>Les droits sur les sorties varient selon le service et le pays. Une sortie peut être réutilisable, discutable ou proche d’une œuvre existante. Vérifiez les droits et la licence avant de publier un texte, une image ou un extrait de code généré.</p>
         <p>Les licences de code méritent la même attention. Un assistant peut proposer un extrait soumis à une licence incompatible avec le projet, ou reprendre un fragment protégé. La revue de code reste obligatoire, avec la provenance et la licence quand elles sont connues.</p>
         <p>L’information confidentielle ne se confie pas à un outil sans cadre. Une note interne, un contrat ou une donnée client peuvent ressortir dans une réponse ou dans les journaux du service. Classez le contenu avant de l’utiliser.</p>
-        <p>L’injection de prompt consiste à glisser une instruction dans un document ou une page lue par l’assistant, pour détourner sa consigne. Une fuite de données peut suivre&nbsp;: l’outil révèle un extrait, un chemin ou une information d’un autre contexte. Traitez toute source externe comme non fiable et limitez les accès de l’outil.</p>
+        <p>L’injection de <Terme id="prompt">prompt</Terme> consiste à glisser une instruction dans un document ou une page lue par l’assistant, pour détourner sa consigne. Une fuite de données peut suivre&nbsp;: l’outil révèle un extrait, un chemin ou une information d’un autre contexte. Traitez toute source externe comme non fiable et limitez les accès de l’outil.</p>
         <p><strong>Ne pas coller de secret.</strong></p>
         <p>Clé d’API, mot de passe, jeton et extrait de base clients restent hors des prompts et des pièces jointes. Si un secret a été exposé, révoquez-le et consignez l’incident.</p>
       </section>
 
       <section id="fournisseurs">
         <h2>Fournisseurs et dépendance</h2>
-        <p>La due diligence d’un fournisseur tient en six questions&nbsp;: usage des données, durée de rétention, localisation, sous-traitants, mesures de sécurité et conditions de sortie. Une réponse orale ne suffit pas&nbsp;; demandez la documentation et gardez-la avec le dossier du projet.</p>
+        <p>La due diligence d’un fournisseur tient en six questions&nbsp;: usage des données, durée de rétention, localisation, sous-traitants, mesures de sécurité et conditions de sortie. Une réponse orale ne suffit pas&nbsp;; demandez la documentation et gardez-la avec le dossier du projet. La <Terme id="dependance-fournisseur">dépendance fournisseur</Terme> se prépare avant la signature, pas au moment de la renégociation.</p>
         <p>Le contrat fixe les responsabilités, les niveaux de service, la notification des incidents et la restitution des données. Nommez un administrateur, imposez une authentification forte et vérifiez les journaux d’accès. Un compte partagé efface la trace des actions.</p>
         <p>Évitez le fournisseur unique pour une fonction critique. Un second outil, un export régulier ou une solution locale offrent une porte de sortie quand le service change de conditions, augmente ses prix ou s’interrompt.</p>
         <p>Comparez local et cloud sur les mêmes critères&nbsp;: données, coût total, compétences, disponibilité et traçabilité. Un modèle local réduit les appels sortants mais demande du matériel, des mises à jour et une surveillance des fichiers. Un service cloud simplifie l’accès mais déplace la confiance vers un tiers.</p>

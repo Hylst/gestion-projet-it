@@ -11,6 +11,7 @@ export interface ModuleMeta {
   num: number;
   slug: string;
   titre: string;
+  navLabel: string;
   resume: string;
   motsCles: string[];
   avenir?: boolean;
@@ -27,6 +28,7 @@ export const MODULES: ModuleMeta[] = [
     num: 1,
     slug: 'module-1',
     titre: 'Cadrer et découper (WBS)',
+    navLabel: 'Cadrer et découper',
     resume: 'Besoin, périmètre dedans dehors, WBS (OTP en français) en 3 lots, jalons, définition de fini.',
     motsCles: ['wbs', 'otp', 'sdp', 'cadrage', 'perimetre', 'lots', 'jalons', 'decoupage'],
     pourquoi: 'Sans cadrage explicite, un projet dérive dès les premières semaines\u00A0: chacun imagine ce qui lui plaît et personne ne s’accorde sur ce qui sera réellement livré. Le découpage en lots de livrables évite l’effet tunnel et protège l’équipe contre les ajouts imprévus.',
@@ -44,6 +46,7 @@ export const MODULES: ModuleMeta[] = [
     num: 2,
     slug: 'module-2',
     titre: 'Planifier\u00A0: PERT et GANTT',
+    navLabel: 'Planifier',
     resume: 'Ordonner les tâches, dépendances, chaîne tendue, barres et jalons sous les yeux.',
     motsCles: ['pert', 'gantt', 'planning', 'dependances', 'chaine tendue', 'jalons'],
     pourquoi: 'Lister les tâches ne suffit pas\u00A0: certaines ne peuvent démarrer avant d’autres et tout retard sur le chemin critique décale la fin du projet. La planification permet de visualiser les dépendances et d’anticiper les goulots d’étranglement.',
@@ -61,6 +64,7 @@ export const MODULES: ModuleMeta[] = [
     num: 3,
     slug: 'module-3',
     titre: 'Cycle en V, cascade et choix de méthode',
+    navLabel: 'Méthodes',
     resume: 'Phases, tests en miroir du V, cascade simple, critères d’acceptation, recette, comparateur sans dogme.',
     motsCles: ['cycle en v', 'waterfall', 'cascade', 'methodes', 'comparateur', 'phases', 'qualite', 'recette', 'acceptation', 'non regression'],
     pourquoi: 'Chaque organisation a sa culture et ses contraintes\u00A0: imposer une méthode sans comprendre son rôle conduit à l’échec. Comprendre la cascade et le cycle en V permet de choisir l’organisation adaptée au niveau de certitude du besoin.',
@@ -78,6 +82,7 @@ export const MODULES: ModuleMeta[] = [
     num: 4,
     slug: 'module-4',
     titre: 'Agiles\u00A0: Scrum, Kanban, Lean, XP',
+    navLabel: 'Agiles',
     resume: 'Backlog, rituels, limites de WIP, petits lots, qualité du code.',
     motsCles: ['scrum', 'kanban', 'wip', 'lean', 'xp', 'backlog', 'poker planning', 'user stories'],
     pourquoi: 'Quand le besoin évolue vite, figer un planning sur six mois devient contre-productif. Les approches agiles permettent d’avancer par petits incréments, de limiter le travail en cours et de vérifier la qualité en continu.',
@@ -95,6 +100,7 @@ export const MODULES: ModuleMeta[] = [
     num: 5,
     slug: 'module-5',
     titre: 'Outils\u00A0: suivi, CI/CD et environnements',
+    navLabel: 'Outils et CI/CD',
     resume: 'Suivi partagé, chaîne CI, environnements reproductibles, sans tutoriel opératoire.',
     motsCles: ['suivi', 'ci', 'cd', 'docker', 'jira', 'github projects', 'environnement'],
     pourquoi: 'Un outil n’est pas une méthode\u00A0: sans accord d’équipe, un logiciel de suivi devient un registre vide. Savoir choisir des outils adaptés, automatiser les tests et isoler les environnements garantit la sérénité technique.',
@@ -112,6 +118,7 @@ export const MODULES: ModuleMeta[] = [
     num: 6,
     slug: 'module-6',
     titre: 'Équipe, risques (Eisenhower) et suivi',
+    navLabel: 'Équipe et risques',
     resume: 'Communication, tri urgent important, registre des risques, rétro utile.',
     motsCles: ['eisenhower', 'risques', 'retro', 'communication', 'indicateurs', 'pre-mortem'],
     pourquoi: 'Les projets échouent rarement par manque d’outils, mais souvent par manque de communication ou par surcharge face aux imprévus. Savoir prioriser ses tâches et tenir un registre de risques protège le moral de l’équipe et la livraison.',
@@ -129,6 +136,7 @@ export const MODULES: ModuleMeta[] = [
     num: 7,
     slug: 'module-7',
     titre: 'Parties prenantes et communication',
+    navLabel: 'Parties prenantes',
     resume: 'Cartographier, clarifier les rôles et les décisions, choisir les canaux, animer un rituel court et ajuster après les retours.',
     motsCles: ['parties prenantes', 'communication', 'cartographie', 'canaux', 'rituels', 'raci', 'gouvernance', 'decisions', 'escalade'],
     pourquoi: 'Ignorer un décideur ou mal informer les utilisateurs finaux crée des blocages tardifs très coûteux. Cartographier les influences et clarifier qui décide de quoi via une matrice RACI désamorce les conflits de pouvoir.',
@@ -146,6 +154,7 @@ export const MODULES: ModuleMeta[] = [
     num: 8,
     slug: 'module-8',
     titre: 'Budget et chiffrage',
+    navLabel: 'Budget',
     resume: 'Estimer par lots, poser des hypothèses, prévoir une marge d’aléa et suivre les écarts.',
     motsCles: ['budget', 'chiffrage', 'estimation', 'marge', 'alea', 'ecarts'],
     pourquoi: 'Un chiffrage donné au hasard engage une équipe sur des promesses impossibles à tenir. Découper en lots, poser des hypothèses écrites et prévoir une provision d’aléa explicite permet de discuter sereinement des dérives éventuelles.',
@@ -163,6 +172,7 @@ export const MODULES: ModuleMeta[] = [
     num: 9,
     slug: 'module-9',
     titre: 'Conduite du changement',
+    navLabel: 'Changement',
     resume: 'Lire les freins, choisir des relais, former court et ajuster les messages.',
     motsCles: ['changement', 'adoption', 'freins', 'relais', 'formation'],
     pourquoi: 'Déployer un logiciel ne suffit pas à changer les habitudes\u00A0: la résistance au changement est une réaction normale face à une perte de repères. Accompagner les personnes avec des relais et des formations courtes garantit l’adoption réelle.',

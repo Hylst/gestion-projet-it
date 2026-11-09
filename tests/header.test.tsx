@@ -5,6 +5,7 @@ import { describe, it, expect, afterEach } from 'vitest';
 import { cleanup, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import SiteHeader from '../src/components/SiteHeader';
+import { MODULES } from '../src/modules/index';
 import { ProgressProvider } from '../src/lib/progress';
 
 afterEach(cleanup);
@@ -71,5 +72,19 @@ describe('en-tete', () => {
     const { container } = rendu();
     const lien = container.querySelector('nav[aria-label="Navigation principale"] a[href="/cybersecurite"]');
     expect(lien?.textContent).toBe('Sécurité');
+  });
+
+  it('chaque module expose un libellé court pour le menu', () => {
+    expect(MODULES.map((m) => m.navLabel)).toEqual([
+      'Cadrer et découper',
+      'Planifier',
+      'Méthodes',
+      'Agiles',
+      'Outils et CI/CD',
+      'Équipe et risques',
+      'Parties prenantes',
+      'Budget',
+      'Changement',
+    ]);
   });
 });

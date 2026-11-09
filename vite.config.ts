@@ -12,6 +12,6 @@ export default defineConfig({
     environmentOptions: { jsdom: { url: 'http://localhost/' } },
     globals: false,
     setupFiles: ['./tests/setup.ts'],
-    exclude: [...configDefaults.exclude, 'smoke/**', 'playwright-report/**', 'test-results/**'],
+    exclude: [...configDefaults.exclude, '.worktrees/**', 'smoke/**', 'playwright-report/**', 'test-results/**'],
   },
 } as import('vitest/config').UserConfig);

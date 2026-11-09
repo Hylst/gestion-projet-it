@@ -8,6 +8,7 @@ type Phase = {
   action: string;
   titre: string;
   posture: string;
+  centre: number;
 };
 
 const PHASES: Phase[] = [
@@ -17,6 +18,7 @@ const PHASES: Phase[] = [
     titre: 'Phase 1\u00A0: Choc',
     posture:
       'Accueillir les réactions sans juger, écouter les inquiétudes du terrain.',
+    centre: 80,
   },
   {
     nom: 'Résistance',
@@ -24,6 +26,7 @@ const PHASES: Phase[] = [
     titre: 'Phase 2\u00A0: Résistance',
     posture:
       'Réexpliquer le sens du projet, montrer les bénéfices concrets et clarifier les étapes.',
+    centre: 240,
   },
   {
     nom: 'Acceptation',
@@ -31,6 +34,7 @@ const PHASES: Phase[] = [
     titre: 'Phase 3\u00A0: Acceptation',
     posture:
       'Proposer des formations courtes et pratiques, valoriser les relais et les premières réussites.',
+    centre: 400,
   },
   {
     nom: 'Appropriation',
@@ -38,24 +42,21 @@ const PHASES: Phase[] = [
     titre: 'Phase 4\u00A0: Appropriation',
     posture:
       'Ancrer les bonnes pratiques, mettre à jour la documentation et célébrer l’aboutissement.',
+    centre: 560,
   },
 ];
 
-const CENTRES = [80, 240, 400, 560];
 const COURBE = 'M30 196 C120 240 180 230 240 180 S380 75 610 55';
 
 export const SchemaCourbeAdoption = () => {
   const uid = useId().replace(/:/g, '');
-  const [selection, setSelection] = useState(0);
-  const [survol, setSurvol] = useState<number | null>(null);
-  const phase = PHASES[selection];
+  const [selection, setSelection] = useState<Phase>(PHASES[0]!);
+  const [survol, setSurvol] = useState<Phase | null>(null);
 
-  const activer = (index: number) => setSelection(index);
-
-  const surTouche = (event: React.KeyboardEvent<SVGGElement>, index: number) => {
+  const surTouche = (event: React.KeyboardEvent<SVGGElement>, phase: Phase) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
-      activer(index);
+      setSelection(phase);
     }
   };
 
@@ -79,8 +80,8 @@ export const SchemaCourbeAdoption = () => {
         </title>
 
         {PHASES.map((p, index) => {
-          const actif = selection === index;
-          const chaud = survol === index;
+          const actif = selection === p;
+          const chaud = survol === p;
 
           return (
             <g
@@ -89,12 +90,13 @@ export const SchemaCourbeAdoption = () => {
               role="button"
               tabIndex={0}
               aria-pressed={actif}
+              aria-controls={`${uid}-explication`}
               aria-label={`Phase ${index + 1}, ${p.nom}, action ${p.action}`}
-              onClick={() => activer(index)}
-              onKeyDown={(event) => surTouche(event, index)}
-              onMouseEnter={() => setSurvol(index)}
+              onClick={() => setSelection(p)}
+              onKeyDown={(event) => surTouche(event, p)}
+              onMouseEnter={() => setSurvol(p)}
               onMouseLeave={() => setSurvol(null)}
-              onFocus={() => setSurvol(index)}
+              onFocus={() => setSurvol(p)}
               onBlur={() => setSurvol(null)}
             >
               <rect
@@ -104,10 +106,10 @@ export const SchemaCourbeAdoption = () => {
                 width={160}
                 height={200}
               />
-              <text className="schema-phase" x={CENTRES[index]} y={46} textAnchor="middle">
+              <text className="schema-phase" x={p.centre} y={46} textAnchor="middle">
                 {p.nom}
               </text>
-              <text className="schema-action" x={CENTRES[index]} y={64} textAnchor="middle">
+              <text className="schema-action" x={p.centre} y={64} textAnchor="middle">
                 {p.action}
               </text>
             </g>
@@ -135,13 +137,13 @@ export const SchemaCourbeAdoption = () => {
         </text>
       </svg>
 
-      <div className="schema-explication" aria-live="polite">
-        <p className="schema-explication-titre">{phase.titre}</p>
+      <div className="schema-explication" id={`${uid}-explication`} aria-live="polite">
+        <p className="schema-explication-titre">{selection.titre}</p>
         <p>
-          <strong>Posture du chef de projet.</strong> {phase.posture}
+          <strong>Posture du chef de projet.</strong> {selection.posture}
         </p>
         <p>
-          <strong>Action clé.</strong> {phase.action.charAt(0).toUpperCase() + phase.action.slice(1)}.
+          <strong>Action clé.</strong> {selection.action.charAt(0).toUpperCase() + selection.action.slice(1)}.
         </p>
       </div>
     </figure>

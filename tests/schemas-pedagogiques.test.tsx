@@ -23,7 +23,7 @@ describe('SchemaCycleV (Module 3)', () => {
     expect(screen.getByText(/La conformité avec les attentes initiales des usagers/i)).toBeTruthy();
 
     const boutons = screen.getAllByRole('button');
-    fireEvent.click(boutons[3]); // Code <-> Tests unitaires
+    fireEvent.click(boutons[3]!); // Code <-> Tests unitaires
     expect(screen.getByText(/Réalisation \(Code\) \u2194 Tests unitaires/i)).toBeTruthy();
     expect(screen.getByText(/Le bon fonctionnement individuel de chaque fonction/i)).toBeTruthy();
   });
@@ -31,13 +31,23 @@ describe('SchemaCycleV (Module 3)', () => {
   it('gère l activation au clavier avec Entrée et Espace', () => {
     render(<SchemaCycleV />);
     const boutons = screen.getAllByRole('button');
-    fireEvent.keyDown(boutons[1], { key: 'Enter' });
+    fireEvent.keyDown(boutons[1]!, { key: 'Enter' });
     expect(screen.getByText(/Conception globale \u2194 Tests système/i)).toBeTruthy();
 
-    fireEvent.keyDown(boutons[2], { key: ' ' });
+    fireEvent.keyDown(boutons[2]!, { key: ' ' });
     expect(screen.getByText(/Conception détaillée \u2194 Tests d’intégration/i)).toBeTruthy();
   });
 });
+  it('relie chaque contrôle à l encart d explication annoncé', () => {
+    render(<SchemaCycleV />);
+    const panneau = document.querySelector('.schema-explication');
+    expect(panneau?.getAttribute('aria-live')).toBe('polite');
+    expect(panneau?.id).toBeTruthy();
+    for (const bouton of screen.getAllByRole('button')) {
+      expect(bouton.getAttribute('aria-controls')).toBe(panneau?.id);
+    }
+  });
+
 
 describe('SchemaCircuitDemande (Module 5)', () => {
   it('rend le circuit avec ses 6 étapes et ses boucles de retour', () => {
@@ -52,11 +62,21 @@ describe('SchemaCircuitDemande (Module 5)', () => {
     expect(screen.getByText(/Clarifier la valeur attendue et les critères d’acceptation/i)).toBeTruthy();
 
     const boutons = screen.getAllByRole('button');
-    fireEvent.click(boutons[3]); // CI
+    fireEvent.click(boutons[3]!); // CI
     expect(screen.getByText(/Étape 4\s*: CI \(Intégration continue\)/i)).toBeTruthy();
     expect(screen.getByText(/Branche bloquée tant que la CI n’est pas verte/i)).toBeTruthy();
   });
 });
+  it('relie chaque contrôle à l encart d explication annoncé', () => {
+    render(<SchemaCircuitDemande />);
+    const panneau = document.querySelector('.schema-explication');
+    expect(panneau?.getAttribute('aria-live')).toBe('polite');
+    expect(panneau?.id).toBeTruthy();
+    for (const bouton of screen.getAllByRole('button')) {
+      expect(bouton.getAttribute('aria-controls')).toBe(panneau?.id);
+    }
+  });
+
 
 describe('SchemaCourbeAdoption (Module 9)', () => {
   it('rend la courbe d adoption avec les 4 phases et leurs actions', () => {
@@ -71,8 +91,18 @@ describe('SchemaCourbeAdoption (Module 9)', () => {
     expect(screen.getByText(/Accueillir les réactions sans juger/i)).toBeTruthy();
 
     const boutons = screen.getAllByRole('button');
-    fireEvent.click(boutons[1]); // Résistance
+    fireEvent.click(boutons[1]!); // Résistance
     expect(screen.getByText(/Phase 2\s*: Résistance/i)).toBeTruthy();
     expect(screen.getByText(/Réexpliquer le sens du projet/i)).toBeTruthy();
   });
 });
+  it('relie chaque contrôle à l encart d explication annoncé', () => {
+    render(<SchemaCourbeAdoption />);
+    const panneau = document.querySelector('.schema-explication');
+    expect(panneau?.getAttribute('aria-live')).toBe('polite');
+    expect(panneau?.id).toBeTruthy();
+    for (const bouton of screen.getAllByRole('button')) {
+      expect(bouton.getAttribute('aria-controls')).toBe(panneau?.id);
+    }
+  });
+

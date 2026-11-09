@@ -10,6 +10,8 @@
 
 **Spec:** `docs/superpowers/specs/2026-11-09-pedagogie-intros-infobulles-design.md`
 
+**Statut :** livré le 9 novembre 2026, avec les compléments de recherche globale et de liens du dossier projet.
+
 ## Global Constraints
 
 - Licence AGPL-3.0-or-later, 100 % front-end, zéro requête externe, zéro cookie, zéro appel réseau runtime.

@@ -1,6 +1,6 @@
 # Contrôle des liens
 
-**Date :** 6 novembre 2026
+**Date :** 9 novembre 2026
 **Commande :** `npm run check:liens`
 **Exécution :** locale et CI GitHub Actions.
 
@@ -41,3 +41,16 @@ lien mort.
 | Routes publiques | 31 |
 | URL du sitemap | 31, aucune en double |
 | URL externes | 24 sur 24 en HTTP 200 |
+
+## 5. Résultat du 9 novembre 2026
+
+| Contrôle | Résultat |
+| --- | --- |
+| Liens Markdown relatifs | 79 contrôlés, 0 cassé |
+| Routes publiques | 31 |
+| URL du sitemap | 31, aucune en double |
+| URL externes | 24 sur 24 en HTTP 200, contrôle du 24 octobre 2026 |
+
+Le cycle pédagogique du 9 novembre 2026 n’ajoute ni route ni lien externe.
+Les ancres du glossaire et le lien de révision du dossier projet vers les
+modules passent le contrôle des liens relatifs et le smoke Playwright.

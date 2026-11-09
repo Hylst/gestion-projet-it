@@ -30,6 +30,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-10-30 | [Parcours Cybersécurité](superpowers/specs/2026-10-30-parcours-cybersecurite-design.md) | Livré | Hub et cinq pages |
 | 2026-10-31 | [Laboratoires Cybersécurité](superpowers/specs/2026-10-31-labos-cybersecurite-design.md) | Livré | Trois laboratoires sans XP |
 | 2026-11-06 | [Onboarding du cours](superpowers/specs/2026-11-06-onboarding-design.md) | Livré | Cinq écrans, première visite et relecture |
+| 2026-11-09 | [Refonte pédagogique](superpowers/specs/2026-11-09-pedagogie-intros-infobulles-design.md) | Livré | Intros, infobulles, glossaire et dossier projet |
 
 ## Plans
 
@@ -49,6 +50,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-10-24 | [Plan refonte éditoriale 1.5.0](superpowers/plans/2026-10-24-refonte-editoriale-1.5.0.md) | Livré | Couleurs, cartes, détails et interactions |
 | 2026-10-30 | [Plan parcours Cybersécurité](superpowers/plans/2026-10-30-parcours-cybersecurite.md) | Livré | Hub, cinq pages et intégration |
 | 2026-10-31 | [Plan laboratoires Cybersécurité](superpowers/plans/2026-10-31-labos-cybersecurite.md) | Livré | Modèle de menace, accès et chronologie |
+| 2026-11-09 | [Plan refonte pédagogique](superpowers/plans/2026-11-09-pedagogie-intros-infobulles.md) | Livré | Modules, glossaire, parcours IA et cyber |
 
 ## Politique
 

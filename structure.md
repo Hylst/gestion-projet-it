@@ -1,7 +1,7 @@
 # Structure du projet
 
 Document de lecture du dépôt source. Il décrit l’organisation réelle au
-6 novembre 2026, sans remplacer le cahier des charges ni `ARCHITECTURE.md`.
+9 novembre 2026, sans remplacer le cahier des charges ni `ARCHITECTURE.md`.
 
 ## 1. Vue d’ensemble
 
@@ -39,7 +39,7 @@ gestion-projet-it/
   src/
     main.tsx                  point d’entrée, provider de progression, SW
     App.tsx                   routeur et découpage différé des pages
-    components/               composants partagés (Terme, ModuleIntro, ModulePager, Layouts)
+    components/               composants partagés (ParcoursIntro, Terme, ModuleIntro, ModulePager, Layouts)
       capstone/               étapes du dossier projet
     modules/                  contenu des neuf modules
     ia/                       registre, gabarit et cinq pages IA
@@ -124,6 +124,11 @@ content/       une page par route
 Ils sont autonomes : aucun XP, aucun compteur de modules, aucune
 obligation de parcours. Leurs laboratoires sont intégrés aux pages et ne
 créent pas de route supplémentaire.
+
+`ParcoursIntro` ouvre chaque page des deux parcours avec la raison de la
+page, trois objectifs, le rappel du fil rouge et le temps estimé. Le
+glossaire est indexé par la recherche globale, avec une ancre stable par
+terme et un classement des correspondances exactes avant les modules.
 
 ## 6. Données locales
 

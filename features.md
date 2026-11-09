@@ -1,6 +1,6 @@
 # Fonctionnalités
 
-Inventaire des fonctionnalités livrées au 6 novembre 2026, puis
+Inventaire des fonctionnalités livrées au 9 novembre 2026, puis
 propositions classées par identifiant. Les propositions sont reprises
 dans `todo.md` avec leur priorité.
 
@@ -35,7 +35,9 @@ dans `todo.md` avec leur priorité.
 ### 1.4 Recherche et références
 
 - Recherche globale avec synonymes et navigation clavier.
-- Glossaire étendu, relié aux modules et aux parcours.
+- Glossaire étendu, relié aux modules et aux parcours, indexé dans la
+  recherche globale avec une ancre stable par terme et un classement des
+  correspondances exactes avant les modules.
 - Bibliothèque de ressources officielles, avec organisme, date, usage et
   limites.
 - Fiches outils et grille de comparaison.
@@ -70,6 +72,11 @@ dans `todo.md` avec leur priorité.
   incluant les bases informatiques (dépôt, serveur, API, navigateur).
 - Navigation de continuité (`ModulePager`) entre modules avec phrases de
   transition explicites et renvoi vers le dossier projet en clôture.
+- Introduction de parcours (`ParcoursIntro`) sur les cinq pages IA et les
+  six pages cyber : raison de la page, trois objectifs, rappel du fil
+  rouge et temps estimé.
+- Lien de révision dans le dossier projet : chaque étape renvoie au
+  module du cours qui la traite.
 - Sommaires exhaustifs de modules représentant l’ensemble des ateliers
   et comparateurs.
 - Mode hors ligne via service worker et page `offline.html`.

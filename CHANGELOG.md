@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.10.1] - 2026-11-10
+
+### Correctifs d’ancrage et d’espacement
+
+- Ancres des modules, de l’IA et de la cyber : la marge de défilement utilise la hauteur réelle du sommaire sticky, y compris lorsqu’il passe sur plusieurs lignes.
+- Le sommaire de module ne crée plus de barre de défilement horizontale et les liens passent à la ligne quand la largeur manque.
+- Ajout de tests smoke sur les cibles des modules, de l’IA et de la cyber à 1280 px et 320 px.
+- Vérifications : 56 fichiers, 371 tests, lint, typecheck, 83 liens relatifs, 31 routes, build de production et smoke Playwright 27/27.
+- Release préparée : version `1.10.1` et service worker v19, pour purger les caches du build précédent.
+- Build : `index-C1oCShwP.js` (349 156 octets, SHA-256 `c3251f8f…`), `index-Dl1zyipv.css` (56 338 octets, SHA-256 `3a31e649…`), `index.html` (2 713 octets, SHA-256 `131288c8…`), `sw.js` v19 (1 443 octets, SHA-256 `788a3bcb…`). 56 fichiers vérifiés.
+- Lighthouse local avant publication : accueil 100/100/100/100, `/module-1` 98/100/100/100, `/module-3` 98/100/100/100, `/ia/usages` 99/100/100/100, `/cybersecurite/acces` 99/100/100/100.
+
 ## [1.10.0] - 2026-11-09
 
 ### Schémas pédagogiques interactifs

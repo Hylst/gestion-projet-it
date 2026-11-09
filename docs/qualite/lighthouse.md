@@ -126,3 +126,15 @@ Mesure mobile sur le build local 1.10.0, preview sur le port 4182. Les trois pag
 | `https://hylst.fr/gestion-projet-it/module-9` | 94 | 100 | 100 | 100 |
 
 Mesure mobile sur la production déployée depuis `main` `6b93318` (commit plateforme `994fd799`). Un premier passage de l’accueil à 86 en performance a été repris et confirmé à 97, au-dessus du seuil de 90. Les trois modules portant les schémas restent à 100 en accessibilité, bonnes pratiques et SEO.
+
+## 13. Build local du 10 novembre 2026 (version 1.10.1)
+
+| Page | Performance | Accessibilité | Bonnes pratiques | SEO |
+| --- | ---: | ---: | ---: | ---: |
+| `/` | 100 | 100 | 100 | 100 |
+| `/module-1` | 98 | 100 | 100 | 100 |
+| `/module-3` | 98 | 100 | 100 | 100 |
+| `/ia/usages` | 99 | 100 | 100 | 100 |
+| `/cybersecurite/acces` | 99 | 100 | 100 | 100 |
+
+Mesure mobile sur le build local 1.10.1, preview sur le port 4185. Les pages de référence couvrent l’accueil, un module, une page IA et une page cyber après le correctif des marges d’ancrage. Tous les scores restent au-dessus des seuils de 90.

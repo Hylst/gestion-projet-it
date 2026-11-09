@@ -10,7 +10,7 @@
 - SVG inline uniquement, aucune requête réseau, aucune dépendance ajoutée, `prefers-reduced-motion` respecté et aucun débordement à 320 px.
 - Vérifications : 56 fichiers, 371 tests, lint, typecheck, 83 liens relatifs, 31 routes, build de production et smoke Playwright 25/25.
 - Release préparée : version `1.10.0` et service worker v18, pour purger les caches du build précédent.
-- Build : `index-ZXQw16Jv.js` (349 156 octets, SHA-256 `7070540b…`), `index-DA40NmzD.css` (56 425 octets, SHA-256 `c201f8f4…`), `index.html` (2 713 octets, SHA-256 `2e61185e…`), `sw.js` v18 (1 405 octets, SHA-256 `03cf0739…`). 56 fichiers vérifiés.
+- Build : `index-ZXQw16Jv.js` (349 156 octets, SHA-256 `7070540b…`), `index-DA40NmzD.css` (56 425 octets, SHA-256 `c201f8f4…`), `index.html` (2 713 octets, SHA-256 `2e61185e…`), `sw.js` v18 (1 443 octets, SHA-256 `30169b36…`). 56 fichiers vérifiés.
 - Lighthouse local avant publication : accueil 95/100/100/100, `/module-3` 98/100/100/100, `/module-5` 97/100/100/100, `/module-9` 96/100/100/100.
 
 ## [1.9.0] - 2026-11-09

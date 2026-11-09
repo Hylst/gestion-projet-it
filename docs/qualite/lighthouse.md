@@ -115,3 +115,14 @@ Mesure mobile sur la production déployée depuis `main` `feb571b`. Les scores c
 | `/module-9` | 96 | 100 | 100 | 100 |
 
 Mesure mobile sur le build local 1.10.0, preview sur le port 4182. Les trois pages portant les nouveaux schémas SVG sont ajoutées aux pages de référence. Les scores restent au-dessus des seuils de 90. La mesure de production sera consignée après le déploiement.
+
+## 12. Production du 10 novembre 2026 (version 1.10.0)
+
+| Page | Performance | Accessibilité | Bonnes pratiques | SEO |
+| --- | ---: | ---: | ---: | ---: |
+| `https://hylst.fr/gestion-projet-it/` | 97 | 100 | 100 | 100 |
+| `https://hylst.fr/gestion-projet-it/module-3` | 93 | 100 | 100 | 100 |
+| `https://hylst.fr/gestion-projet-it/module-5` | 94 | 100 | 100 | 100 |
+| `https://hylst.fr/gestion-projet-it/module-9` | 94 | 100 | 100 | 100 |
+
+Mesure mobile sur la production déployée depuis `main` `6b93318` (commit plateforme `994fd799`). Un premier passage de l’accueil à 86 en performance a été repris et confirmé à 97, au-dessus du seuil de 90. Les trois modules portant les schémas restent à 100 en accessibilité, bonnes pratiques et SEO.

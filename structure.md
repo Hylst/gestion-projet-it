@@ -41,6 +41,7 @@ gestion-projet-it/
     App.tsx                   routeur et découpage différé des pages
     components/               composants partagés (ParcoursIntro, Terme, ModuleIntro, ModulePager, Layouts)
       capstone/               étapes du dossier projet
+      schemas/                trois schémas pédagogiques SVG interactifs
     modules/                  contenu des neuf modules
     ia/                       registre, gabarit et cinq pages IA
     cyber/                    registre, gabarit et six pages Cybersécurité

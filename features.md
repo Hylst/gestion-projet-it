@@ -80,6 +80,7 @@ dans `todo.md` avec leur priorité.
 - Sommaires exhaustifs de modules représentant l’ensemble des ateliers
   et comparateurs.
 - Mode hors ligne via service worker et page `offline.html`.
+- Trois schémas SVG interactifs dans les fiches des modules 3, 5 et 9 : cycle en V, circuit d’une demande et courbe d’adoption, avec sélection au clic, au survol et au clavier, encart annoncé et mouvement réduit.
 
 ### 1.8 SEO, partage et PWA
 

@@ -614,6 +614,7 @@ const normaliser = (s: string): string =>
 export function trouverTerme(idOuNom: string): Terme | undefined {
   if (!idOuNom) return undefined;
   const cible = normaliser(idOuNom);
+  if (!cible) return undefined;
   return TERMES.find((t) => {
     if (normaliser(t.terme) === cible) return true;
     if (t.sigle && normaliser(t.sigle) === cible) return true;

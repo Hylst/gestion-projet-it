@@ -19,9 +19,8 @@ describe('Terme (composant infobulle accessible)', () => {
     const trigger = screen.getByRole('button', { name: /WBS/i });
     expect(trigger).toBeDefined();
     expect(trigger.getAttribute('aria-expanded')).toBe('false');
-    const describedby = trigger.getAttribute('aria-describedby');
-    expect(describedby).toBeTruthy();
-    expect(document.getElementById(describedby as string)).toBeNull();
+    // Pas d'aria-describedby orphelin quand l'infobulle est fermée
+    expect(trigger.getAttribute('aria-describedby')).toBeNull();
   });
 
   it('ouvre l’infobulle au clic et affiche la définition, le sigle et le lien glossaire', () => {
@@ -35,16 +34,23 @@ describe('Terme (composant infobulle accessible)', () => {
     fireEvent.click(trigger);
 
     expect(trigger.getAttribute('aria-expanded')).toBe('true');
+    const describedby = trigger.getAttribute('aria-describedby');
+    expect(describedby).toBeTruthy();
+
     const tooltip = screen.getByRole('tooltip');
     expect(tooltip).toBeDefined();
+    expect(tooltip.id).toBe(describedby);
     expect(tooltip.textContent).toContain('Work Breakdown Structure');
     expect(tooltip.textContent).toContain('Découpage hiérarchique');
+
+    // Valide que le tooltip n'embarque pas de paragraphe <p> afin d'être valide dans les titres
+    expect(tooltip.querySelector('p')).toBeNull();
 
     const lien = screen.getByRole('link', { name: /Voir dans le glossaire/i });
     expect(lien.getAttribute('href')).toContain('/glossaire#wbs');
   });
 
-  it('se ferme lors de l’appui sur la touche Échap', () => {
+  it('se ferme lors de l’appui sur la touche Échap et rend le focus au déclencheur', () => {
     render(
       <MemoryRouter>
         <p>Le <Terme id="wbs">WBS</Terme> découpe les livrables.</p>
@@ -55,9 +61,17 @@ describe('Terme (composant infobulle accessible)', () => {
     fireEvent.click(trigger);
     expect(screen.queryByRole('tooltip')).not.toBeNull();
 
+    // L'utilisateur navigue jusqu'au lien
+    const lien = screen.getByRole('link', { name: /Voir dans le glossaire/i });
+    lien.focus();
+    expect(document.activeElement).toBe(lien);
+
+    // Appui sur Échap
     fireEvent.keyDown(document, { key: 'Escape' });
     expect(screen.queryByRole('tooltip')).toBeNull();
     expect(trigger.getAttribute('aria-expanded')).toBe('false');
+    // Le focus doit revenir sur le bouton déclencheur (WCAG 2.4.3)
+    expect(document.activeElement).toBe(trigger);
   });
 
   it('se ferme lors d’un clic en dehors', () => {

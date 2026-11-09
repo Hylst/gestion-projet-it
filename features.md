@@ -74,7 +74,7 @@ dans `todo.md` avec leur priorité.
   et comparateurs.
 - Mode hors ligne via service worker et page `offline.html`.
 
-### 1.7 SEO, partage et PWA
+### 1.8 SEO, partage et PWA
 
 - 31 routes publiques dans le sitemap.
 - Canonical et `og:url` par route, sans query ni fragment.

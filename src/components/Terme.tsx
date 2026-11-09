@@ -25,6 +25,7 @@ export function Terme({ id, terme, children }: TermeProps) {
   const rawId = useId();
   const tooltipId = 'terme-' + rawId.replace(/[:]/g, '');
   const wrapperRef = useRef<HTMLSpanElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   const query = id ?? terme ?? (typeof children === 'string' ? children : '');
   const donnees = trouverTerme(query);
@@ -36,6 +37,7 @@ export function Terme({ id, terme, children }: TermeProps) {
       if (e.key === 'Escape') {
         e.preventDefault();
         setOuvert(false);
+        triggerRef.current?.focus();
       }
     };
 
@@ -64,10 +66,11 @@ export function Terme({ id, terme, children }: TermeProps) {
   return (
     <span className="terme-wrapper" ref={wrapperRef}>
       <button
+        ref={triggerRef}
         type="button"
         className="terme-trigger"
         aria-expanded={ouvert}
-        aria-describedby={tooltipId}
+        aria-describedby={ouvert ? tooltipId : undefined}
         onClick={() => setOuvert((v) => !v)}
       >
         {children ?? donnees.sigle ?? donnees.terme}
@@ -80,7 +83,7 @@ export function Terme({ id, terme, children }: TermeProps) {
               <span className="terme-developpe">&nbsp;({donnees.developpe})</span>
             )}
           </strong>
-          <p className="terme-def">{donnees.definition}</p>
+          <span className="terme-def">{donnees.definition}</span>
           <Link
             to={cibleGlossaire}
             className="terme-lien"

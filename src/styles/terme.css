@@ -77,6 +77,7 @@
 }
 
 .terme-def {
+  display: block;
   margin: 0 0 0.45rem;
   color: var(--c-ink);
 }
@@ -95,14 +96,22 @@
   color: #1e40af;
 }
 
+/* Sur petit écran / mobile : affichage en fiche basse fixe pour éviter tout rognage */
 @media (max-width: 480px) {
   .terme-tooltip {
-    left: 0;
-    transform: none;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    width: auto;
     max-width: calc(100vw - 2rem);
-  }
-  .terme-tooltip::after {
-    left: 1.5rem;
     transform: none;
+    border-radius: var(--radius);
+    z-index: 100;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .terme-tooltip::after {
+    display: none;
   }
 }

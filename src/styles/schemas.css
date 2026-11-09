@@ -147,3 +147,76 @@
     stroke: #000000;
   }
 }
+
+.schema-node-sub {
+  fill: var(--c-muted);
+  font-size: 10.5px;
+  transition: fill 140ms ease;
+}
+
+.schema-pair.is-hot .schema-node-sub {
+  fill: var(--accent-ink);
+}
+
+.schema-pair.is-active .schema-node-sub {
+  fill: #ffffff;
+}
+
+.schema-flux {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  stroke-dasharray: 6 5;
+  animation: schema-flux 1.1s linear infinite;
+}
+
+.schema-fleche {
+  fill: var(--c-muted);
+}
+
+.schema-retour {
+  fill: none;
+  stroke: var(--c-muted);
+  stroke-width: 1.3;
+  stroke-dasharray: 4 5;
+  opacity: 0.8;
+}
+
+.schema-retour-label {
+  fill: var(--c-muted);
+  font-size: 11px;
+}
+
+@keyframes schema-flux {
+  to {
+    stroke-dashoffset: -22;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .schema-flux {
+    animation: none;
+  }
+
+  .schema-node-sub {
+    transition: none;
+  }
+}
+
+@media print {
+  .schema-node-sub,
+  .schema-retour-label {
+    fill: #000000;
+  }
+
+  .schema-flux,
+  .schema-retour {
+    stroke: #000000;
+    animation: none;
+    opacity: 1;
+  }
+
+  .schema-fleche {
+    fill: #000000;
+  }
+}

@@ -133,7 +133,7 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 ## 4. Décisions ouvertes
 
 1. **Ordre de fusion** : #26, #27, #28 et #32 fusionnées sur main (4156790), puis PR d’audit #33 (76cf64a), PR de publication #34 (4514f93), PR #41 (98ac4c9), PR #42 (3876d28) et PR #43 (3353f22).
-2. **Version** : `1.8.0` publiée le 9 novembre 2026 depuis `main` `b2319ef`, avec les lots #41 à #44, le service worker v16, un build de 56 fichiers, un smoke 21/21 et des contrôles de production sans anomalie.
+2. **Version** : `1.10.0` préparée le 9 novembre 2026 depuis `main`, avec les schémas pédagogiques interactifs, le service worker v18 et un smoke 25/25. La `1.9.0` a été publiée le 9 novembre 2026 depuis `3174eef` avec le service worker v17.
 3. **JSON-LD** : la CSP `script-src 'self'` interdit le script inline.
    Privilégier les microdonnées HTML ou une politique de hachage explicite.
 4. **Références Google** : conserver Gmail, Vertex AI et Search Console
@@ -183,4 +183,7 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 - [x] Release 1.8.0 préparée : version et service worker v16, build de 56 fichiers, smoke Playwright 21/21, Lighthouse local 99/100/100/100 sur l’accueil et `/module-1`.
 - [x] Publication 1.8.0 : copie Docker identique au build, service worker v16, `main` `b2319ef` et commit plateforme `7a934d80`.
 - [x] Contrôles de production 1.8.0 : assets 200, anciens assets 404, `verifier-prod.sh --full` 31 pages et 0 anomalie, smoke Playwright 21/21, Lighthouse accueil et `/module-1` 98/100/100/100.
+- [x] Publication 1.9.0 : menu des 17 sections, 31 routes, service worker v17, smoke 24/24, Lighthouse accueil 96/100/100/100.
+- [x] Trois schémas pédagogiques interactifs dans les modules 3, 5 et 9 : 371 tests, smoke 25/25, mouvement réduit, impression et reflow à 320 px vérifiés.
+- [x] Release 1.10.0 préparée : version et service worker v18, build de 56 fichiers, smoke 25/25, Lighthouse local accueil 95/100/100/100 et modules 3, 5 et 9 entre 96 et 98 en performance.
 - [ ] Soumission Search Console confirmée par Geoffroy.

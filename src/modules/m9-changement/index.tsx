@@ -15,6 +15,7 @@ import Exercices from './exercise';
 import { quiz } from './quiz';
 import { guide } from './guide';
 import { items } from './ficheReflexe';
+import { moduleMetaByNum } from '../../modules/index';
 
 const Labo = () => {
   const p = useProgress();
@@ -28,17 +29,10 @@ const Labo = () => {
   );
 };
 
+const meta = moduleMetaByNum(9)!;
+
 export const M9Page = () => (
-  <ModuleLayout
-    meta={{
-      id: 'm9-changement',
-      num: 9,
-      slug: 'module-9',
-      titre: 'Conduite du changement',
-      resume: 'Lire les freins, choisir des relais, former court et ajuster les messages.',
-      motsCles: ['changement', 'adoption', 'freins', 'relais', 'formation'],
-    }}
-  >
+  <ModuleLayout meta={meta}>
     <Reveal><Fiche /></Reveal>
     <Reveal><FilRouge /></Reveal>
     <Reveal><Demarche /></Reveal>

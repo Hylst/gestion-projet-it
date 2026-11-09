@@ -15,6 +15,7 @@ import Exercices from './exercise';
 import { quiz } from './quiz';
 import { guide } from './guide';
 import { items } from './ficheReflexe';
+import { moduleMetaByNum } from '../../modules/index';
 
 const Labo = () => {
   const p = useProgress();
@@ -28,17 +29,10 @@ const Labo = () => {
   );
 };
 
+const meta = moduleMetaByNum(2)!;
+
 export const M2Page = () => (
-  <ModuleLayout
-    meta={{
-      id: 'm2-planif',
-      num: 2,
-      slug: 'module-2',
-      titre: 'Planifier\u00A0: PERT et GANTT',
-      resume: 'Ordonner les tâches, dépendances, chaîne tendue, barres et jalons sous les yeux.',
-      motsCles: ['pert', 'gantt', 'planning', 'dependances', 'chaine tendue', 'jalons'],
-    }}
-  >
+  <ModuleLayout meta={meta}>
     <Reveal><Fiche /></Reveal>
     <Reveal><FilRouge /></Reveal>
     <Reveal><Demarche /></Reveal>

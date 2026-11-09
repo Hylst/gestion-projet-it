@@ -16,6 +16,7 @@ import Exercices from './exercise';
 import { quiz } from './quiz';
 import { guide } from './guide';
 import { items } from './ficheReflexe';
+import { moduleMetaByNum } from '../../modules/index';
 
 const Labo = () => {
   const p = useProgress();
@@ -29,17 +30,21 @@ const Labo = () => {
   );
 };
 
+const meta = moduleMetaByNum(3)!;
+const sections = [
+  { id: 'fiche', label: 'Fiche' },
+  { id: 'fil-rouge', label: 'Fil rouge' },
+  { id: 'demarche', label: 'Démarche' },
+  { id: 'labo', label: 'Labo' },
+  { id: 'comparateur', label: 'Comparateur' },
+  { id: 'exercice', label: 'Exercice corrigé' },
+  { id: 'quiz', label: 'Quiz' },
+  { id: 'guide', label: 'Erreurs et décisions' },
+  { id: 'reflexe', label: 'Fiche réflexe' },
+];
+
 export const M3Page = () => (
-  <ModuleLayout
-    meta={{
-      id: 'm3-methodes',
-      num: 3,
-      slug: 'module-3',
-      titre: 'Cycle en V, cascade et choix de méthode',
-      resume: 'Phases, tests en miroir du V, cascade simple, critères d’acceptation, recette, comparateur sans dogme.',
-      motsCles: ['cycle en v', 'waterfall', 'cascade', 'methodes', 'comparateur', 'phases', 'qualite', 'recette', 'acceptation', 'non regression'],
-    }}
-  >
+  <ModuleLayout meta={meta} sections={sections}>
     <Reveal><Fiche /></Reveal>
     <Reveal><FilRouge /></Reveal>
     <Reveal><Demarche /></Reveal>

@@ -15,6 +15,7 @@ import Exercices from './exercise';
 import { quiz } from './quiz';
 import { guide } from './guide';
 import { items } from './ficheReflexe';
+import { moduleMetaByNum } from '../../modules/index';
 
 const Labo = () => {
   const p = useProgress();
@@ -28,17 +29,10 @@ const Labo = () => {
   );
 };
 
+const meta = moduleMetaByNum(8)!;
+
 export const M8Page = () => (
-  <ModuleLayout
-    meta={{
-      id: 'm8-budget',
-      num: 8,
-      slug: 'module-8',
-      titre: 'Budget et chiffrage',
-      resume: 'Estimer par lots, poser des hypothèses, prévoir une marge d’aléa et suivre les écarts.',
-      motsCles: ['budget', 'chiffrage', 'estimation', 'marge', 'alea', 'ecarts'],
-    }}
-  >
+  <ModuleLayout meta={meta}>
     <Reveal><Fiche /></Reveal>
     <Reveal><FilRouge /></Reveal>
     <Reveal><Demarche /></Reveal>

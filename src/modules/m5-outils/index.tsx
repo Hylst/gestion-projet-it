@@ -16,6 +16,7 @@ import Exercices from './exercise';
 import { quiz } from './quiz';
 import { guide } from './guide';
 import { items } from './ficheReflexe';
+import { moduleMetaByNum } from '../../modules/index';
 
 const Labo = () => {
   const p = useProgress();
@@ -41,17 +42,21 @@ const LaboChaine = () => {
   );
 };
 
+const meta = moduleMetaByNum(5)!;
+const sections = [
+  { id: 'fiche', label: 'Fiche' },
+  { id: 'fil-rouge', label: 'Fil rouge' },
+  { id: 'demarche', label: 'Démarche' },
+  { id: 'labo', label: 'Sélecteur d’outil' },
+  { id: 'labo-chaine', label: 'Chaîne CI' },
+  { id: 'exercice', label: 'Exercice corrigé' },
+  { id: 'quiz', label: 'Quiz' },
+  { id: 'guide', label: 'Erreurs et décisions' },
+  { id: 'reflexe', label: 'Fiche réflexe' },
+];
+
 export const M5Page = () => (
-  <ModuleLayout
-    meta={{
-      id: 'm5-outils',
-      num: 5,
-      slug: 'module-5',
-      titre: 'Outils\u00A0: suivi, CI/CD et environnements',
-      resume: 'Suivi partagé, chaîne CI, environnements reproductibles, sans tutoriel opératoire.',
-      motsCles: ['suivi', 'ci', 'cd', 'docker', 'jira', 'github projects', 'environnement'],
-    }}
-  >
+  <ModuleLayout meta={meta} sections={sections}>
     <Reveal><Fiche /></Reveal>
     <Reveal><FilRouge /></Reveal>
     <Reveal><Demarche /></Reveal>

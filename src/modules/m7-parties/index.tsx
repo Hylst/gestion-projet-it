@@ -15,6 +15,7 @@ import Exercices from './exercise';
 import { quiz } from './quiz';
 import { guide } from './guide';
 import { items } from './ficheReflexe';
+import { moduleMetaByNum } from '../../modules/index';
 
 const Labo = () => {
   const p = useProgress();
@@ -28,17 +29,10 @@ const Labo = () => {
   );
 };
 
+const meta = moduleMetaByNum(7)!;
+
 export const M7Page = () => (
-  <ModuleLayout
-    meta={{
-      id: 'm7-parties',
-      num: 7,
-      slug: 'module-7',
-      titre: 'Parties prenantes et communication',
-      resume: 'Cartographier, clarifier les rôles et les décisions, choisir les canaux, animer un rituel court et ajuster après les retours.',
-      motsCles: ['parties prenantes', 'communication', 'cartographie', 'canaux', 'rituels', 'raci', 'gouvernance', 'decisions', 'escalade'],
-    }}
-  >
+  <ModuleLayout meta={meta}>
     <Reveal><Fiche /></Reveal>
     <Reveal><FilRouge /></Reveal>
     <Reveal><Demarche /></Reveal>

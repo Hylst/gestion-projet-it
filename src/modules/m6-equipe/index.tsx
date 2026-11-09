@@ -17,6 +17,7 @@ import Exercices from './exercise';
 import { quiz } from './quiz';
 import { guide } from './guide';
 import { items } from './ficheReflexe';
+import { moduleMetaByNum } from '../../modules/index';
 
 const Labo = () => {
   const p = useProgress();
@@ -42,18 +43,22 @@ const LaboRisquesBloc = () => {
   );
 };
 
+const meta = moduleMetaByNum(6)!;
+const sections = [
+  { id: 'fiche', label: 'Fiche' },
+  { id: 'fil-rouge', label: 'Fil rouge' },
+  { id: 'demarche', label: 'Démarche' },
+  { id: 'labo', label: 'Eisenhower' },
+  { id: 'labo-risques', label: 'Risques' },
+  { id: 'pre-mortem', label: 'Pré-mortem' },
+  { id: 'exercice', label: 'Exercice corrigé' },
+  { id: 'quiz', label: 'Quiz' },
+  { id: 'guide', label: 'Erreurs et décisions' },
+  { id: 'reflexe', label: 'Fiche réflexe' },
+];
+
 export const M6Page = () => (
-  <ModuleLayout
-    meta={{
-      id: 'm6-equipe',
-      num: 6,
-      slug: 'module-6',
-      titre: 'Équipe, risques (Eisenhower) et suivi',
-      resume: 'Communication, tri urgent important, registre des risques, rétro utile.',
-      motsCles: ['eisenhower', 'risques', 'retro', 'communication', 'indicateurs', 'pre-mortem'],
-    }}
-    extraNav={{ href: '#pre-mortem', label: 'Pré-mortem' }}
-  >
+  <ModuleLayout meta={meta} sections={sections}>
     <Reveal><Fiche /></Reveal>
     <Reveal><FilRouge /></Reveal>
     <Reveal><Demarche /></Reveal>

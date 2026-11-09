@@ -16,6 +16,7 @@ import Exercices from './exercise';
 import { quiz } from './quiz';
 import { guide } from './guide';
 import { items } from './ficheReflexe';
+import { moduleMetaByNum } from '../../modules/index';
 
 const Labo = () => {
   const p = useProgress();
@@ -37,17 +38,21 @@ const Labo = () => {
   );
 };
 
+const meta = moduleMetaByNum(4)!;
+const sections = [
+  { id: 'fiche', label: 'Fiche' },
+  { id: 'fil-rouge', label: 'Fil rouge' },
+  { id: 'demarche', label: 'Démarche' },
+  { id: 'labo', label: 'Kanban' },
+  { id: 'labo-poker', label: 'Planning poker' },
+  { id: 'exercice', label: 'Exercice corrigé' },
+  { id: 'quiz', label: 'Quiz' },
+  { id: 'guide', label: 'Erreurs et décisions' },
+  { id: 'reflexe', label: 'Fiche réflexe' },
+];
+
 export const M4Page = () => (
-  <ModuleLayout
-    meta={{
-      id: 'm4-agiles',
-      num: 4,
-      slug: 'module-4',
-      titre: 'Agiles\u00A0: Scrum, Kanban, Lean, XP',
-      resume: 'Backlog, rituels, limites de WIP, petits lots, qualité du code.',
-      motsCles: ['scrum', 'kanban', 'wip', 'lean', 'xp', 'backlog', 'poker planning', 'user stories'],
-    }}
-  >
+  <ModuleLayout meta={meta} sections={sections}>
     <Reveal><Fiche /></Reveal>
     <Reveal><FilRouge /></Reveal>
     <Reveal><Demarche /></Reveal>

@@ -15,6 +15,9 @@ import { M3Page } from '../src/modules/m3-methodes';
 import { M4Page } from '../src/modules/m4-agiles';
 import { M5Page } from '../src/modules/m5-outils';
 import { M6Page } from '../src/modules/m6-equipe';
+import { M7Page } from '../src/modules/m7-parties';
+import { M8Page } from '../src/modules/m8-budget';
+import { M9Page } from '../src/modules/m9-changement';
 
 afterEach(cleanup);
 
@@ -261,5 +264,58 @@ describe('Intros pédagogiques et infobulles des modules 4 à 6', () => {
     expect(nav.querySelector('a[href="#labo"]')).not.toBeNull();
     expect(nav.querySelector('a[href="#labo-risques"]')).not.toBeNull();
     expect(nav.querySelector('a[href="#pre-mortem"]')).not.toBeNull();
+  });
+});
+
+describe('Intros pédagogiques et infobulles des modules 7 à 9', () => {
+  it('module 7 : intègre ModuleIntro, chapeaux et infobulles Parties prenantes / RACI', () => {
+    const { container } = render(
+      <ProgressProvider>
+        <MemoryRouter>
+          <M7Page />
+        </MemoryRouter>
+      </ProgressProvider>,
+    );
+
+    expect(screen.getByRole('heading', { level: 2, name: /Pourquoi parties prenantes/i })).toBeDefined();
+    expect(container.querySelector('#fiche .section-chapeau')).not.toBeNull();
+    expect(container.querySelector('#demarche .section-chapeau')).not.toBeNull();
+
+    const triggers = container.querySelectorAll('.terme-trigger');
+    expect(triggers.length).toBeGreaterThanOrEqual(3);
+    const textes = Array.from(triggers).map((t) => t.textContent);
+    expect(textes.some((t) => t?.includes('RACI') || t?.includes('partie prenante') || t?.includes('parties prenantes'))).toBe(true);
+  });
+
+  it('module 8 : intègre ModuleIntro, chapeaux et infobulles Budget / Estimation', () => {
+    const { container } = render(
+      <ProgressProvider>
+        <MemoryRouter>
+          <M8Page />
+        </MemoryRouter>
+      </ProgressProvider>,
+    );
+
+    expect(screen.getByRole('heading', { level: 2, name: /Pourquoi budget/i })).toBeDefined();
+    expect(container.querySelector('#fiche .section-chapeau')).not.toBeNull();
+
+    const triggers = container.querySelectorAll('.terme-trigger');
+    expect(triggers.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it('module 9 : intègre ModuleIntro, chapeaux et infobulles Conduite du changement', () => {
+    const { container } = render(
+      <ProgressProvider>
+        <MemoryRouter>
+          <M9Page />
+        </MemoryRouter>
+      </ProgressProvider>,
+    );
+
+    expect(screen.getByRole('heading', { level: 2, name: /Pourquoi conduite du changement/i })).toBeDefined();
+    expect(container.querySelector('#fiche .section-chapeau')).not.toBeNull();
+
+    const triggers = container.querySelectorAll('.terme-trigger');
+    expect(triggers.length).toBeGreaterThanOrEqual(3);
   });
 });

@@ -125,6 +125,9 @@ export default function DossierProjet() {
           <p>
             Construis un dossier complet pour Les Amis du Square, une association fictive. Les six étapes suivent le cours, sans remplacer une expérience réelle.
           </p>
+          <p className="section-chapeau">
+            Le dossier projet vous met en situation de chef de projet débutant&nbsp;: vous appliquez les notions des neuf modules sur un cas complet, étape par étape.
+          </p>
           <p className="capstone-hero__note">
             Progression enregistrée dans ce navigateur. Aucun compte, aucun envoi de données.
           </p>

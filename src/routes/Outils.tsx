@@ -16,6 +16,7 @@ export default function Outils() {
         <p className="kicker">Outils</p>
         <h1>Fiches outils</h1>
         <p className="accroche">Six familles d’outils, avec leur utilité, leur moment, leurs limites et leurs alternatives. Aucun outil n’est meilleur par principe.</p>
+        <p className="section-chapeau">Pour une équipe débutante, la tentation est forte d’adopter l’outil le plus en vue. Ces fiches aident à juger un logiciel selon le problème réel à résoudre, son coût d’apprentissage et sa réversibilité.</p>
         <p><Link to="/ressources">Ressources et outils</Link> · <Link to="/module-5">Module 5</Link> · <Link to="/modeles">Journal et modèles imprimables</Link></p>
       </header>
       <nav className="sommaire" aria-label="Sommaire des fiches outils">

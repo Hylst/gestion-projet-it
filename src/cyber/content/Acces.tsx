@@ -7,6 +7,7 @@ import { CyberCallout } from '../CyberCallout';
 import { CyberLayout } from '../CyberLayout';
 import { CYBER_PAGES } from '../pages';
 import { CYBER_SOURCES } from '../sources';
+import { Terme } from '../../components/Terme';
 
 export function CyberAccesPage() {
   const meta = CYBER_PAGES[2];
@@ -51,7 +52,7 @@ export function CyberAccesPage() {
 
       <section id="mfa">
         <h2>Authentification et mots de passe</h2>
-        <p>Une authentification multifacteur demande au moins deux preuves de nature différente. Elle réduit fortement l’effet d’un mot de passe volé.</p>
+        <p><Terme id="mfa">Une authentification multifacteur</Terme> demande au moins deux preuves de nature différente. Elle réduit fortement l’effet d’un mot de passe volé.</p>
         <ul>
           <li>Utiliser un gestionnaire de mots de passe pour les comptes du projet.</li>
           <li>Préférer une clé d’authentification ou une application de code quand elle est disponible.</li>
@@ -62,8 +63,8 @@ export function CyberAccesPage() {
 
       <section id="secrets">
         <h2>Secrets et clés</h2>
-        <p>Un secret est une information d’authentification&nbsp;: clé d’API, mot de passe de base de données, jeton de déploiement. Il ne se versionne pas, ne se colle pas dans un journal et ne s’envoie pas par message.</p>
-        <p>Le secret vit dans un coffre adapté, avec un propriétaire, une date de rotation et une procédure de révocation. Le retrait du dépôt ne suffit pas si la valeur a déjà circulé.</p>
+        <p><Terme id="secret">Un secret</Terme> est une information d’authentification&nbsp;: <Terme id="api">clé d’API</Terme>, mot de passe de base de données, jeton de déploiement. Il ne se versionne pas, ne se colle pas dans un journal et ne s’envoie pas par message.</p>
+        <p>Le secret vit dans un coffre adapté, avec un propriétaire, une date de rotation et une procédure de révocation. Le retrait du <Terme id="depot">dépôt</Terme> ne suffit pas si la valeur a déjà circulé.</p>
         <CyberCallout titre="Secret" variante="limite">
           <p>Un secret retiré du code doit aussi être révoqué.</p>
         </CyberCallout>

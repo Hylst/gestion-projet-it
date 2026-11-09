@@ -4,6 +4,7 @@
 import { ModuleLayout } from '../../components/ModuleLayout';
 import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
+import { ModuleIntro } from '../../components/ModuleIntro';
 import { ModuleGuide } from '../../components/ModuleGuide';
 import Reveal from '../../components/Reveal';
 import LaboAlea from '../../labos/LaboAlea';
@@ -33,6 +34,7 @@ const meta = moduleMetaByNum(8)!;
 
 export const M8Page = () => (
   <ModuleLayout meta={meta}>
+    <Reveal><ModuleIntro meta={meta} /></Reveal>
     <Reveal><Fiche /></Reveal>
     <Reveal><FilRouge /></Reveal>
     <Reveal><Demarche /></Reveal>

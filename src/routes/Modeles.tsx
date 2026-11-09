@@ -59,6 +59,7 @@ export default function Modeles() {
         <p className="kicker">Ateliers</p>
         <h1>Journal et modèles</h1>
         <p className="accroche">Un journal guidé pour tracer les décisions, une revue courte pour un livrable et six modèles imprimables. La progression reste dans le navigateur.</p>
+        <p className="section-chapeau">Tracer les décisions et relire les livrables entre pairs sont deux réflexes professionnels majeurs. Utilisez ces canevas pour structurer vos premiers pas sans alourdir le quotidien.</p>
         <p><Link to="/dossier-projet">Dossier projet</Link> · <Link to="/outils">Fiches outils</Link></p>
       </header>
       <nav className="sommaire" aria-label="Sommaire du journal et des modèles">

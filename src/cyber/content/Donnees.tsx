@@ -5,6 +5,7 @@ import { CyberCallout } from '../CyberCallout';
 import { CyberLayout } from '../CyberLayout';
 import { CYBER_PAGES } from '../pages';
 import { CYBER_SOURCES } from '../sources';
+import { Terme } from '../../components/Terme';
 
 export function CyberDonneesPage() {
   const meta = CYBER_PAGES[4];
@@ -52,7 +53,7 @@ export function CyberDonneesPage() {
 
       <section id="rgpd">
         <h2>Principes RGPD</h2>
-        <p>Le RGPD repose sur quelques principes simples à retenir&nbsp;: finalité, minimisation, conservation limitée, exactitude, sécurité et responsabilité. Chaque principe se traduit par une décision de projet.</p>
+        <p><Terme id="rgpd">Le RGPD</Terme> repose sur quelques principes simples à retenir&nbsp;: finalité, minimisation, conservation limitée, exactitude, sécurité et responsabilité. Chaque principe se traduit par une décision de projet.</p>
         <ul>
           <li>Finalité&nbsp;: pourquoi la donnée est collectée et quel usage est prévu.</li>
           <li>Minimisation&nbsp;: seulement les données utiles, pas celles qui pourraient servir un jour.</li>
@@ -71,7 +72,7 @@ export function CyberDonneesPage() {
 
       <section id="aiact">
         <h2>AI Act</h2>
-        <p>Le règlement européen sur l’intelligence artificielle ajoute des obligations selon le niveau de risque du système. Il distingue les pratiques interdites, les systèmes à haut risque, les obligations de transparence et les usages à risque limité ou minimal.</p>
+        <p>Le règlement européen sur l’intelligence artificielle, ou <Terme id="ai-act">AI Act</Terme>, ajoute des obligations selon le niveau de risque du système. Il distingue les pratiques interdites, les systèmes à haut risque, les obligations de transparence et les usages à risque limité ou minimal.</p>
         <p>Le fournisseur et le déployeur n’ont pas les mêmes responsabilités. Un projet qui utilise un assistant doit savoir qui fournit le modèle, pour quel usage et avec quelles limites. La section IA du cours détaille ce cadre dans la page Gouvernance.</p>
       </section>
 

@@ -5,6 +5,7 @@ import { IaCallout } from '../IaCallout';
 import { IaLayout } from '../IaLayout';
 import { IA_PAGES } from '../pages';
 import { SOURCES } from '../sources';
+import { Terme } from '../../components/Terme';
 
 export function IaMethodesPage() {
   const meta = IA_PAGES[2];
@@ -64,7 +65,7 @@ export function IaMethodesPage() {
 
       <section id="contexte">
         <h2>Recherche documentaire et RAG</h2>
-        <p>La recherche documentaire, ou RAG, commence par une recherche d’extraits dans un corpus, puis injecte les passages retenus dans le contexte envoyé au modèle. Le modèle ne consulte pas le corpus&nbsp;: il lit ce que la recherche lui donne.</p>
+        <p>La recherche documentaire, ou <Terme id="rag">RAG</Terme>, commence par une recherche d’extraits dans un corpus, puis injecte les passages retenus dans le contexte envoyé au modèle. Le modèle ne consulte pas le corpus&nbsp;: il lit ce que la recherche lui donne.</p>
         <p>Un corpus projet peut réunir des comptes rendus de réunion, des notes de cadrage et des normes internes. La qualité de la recherche compte avant la qualité de la génération&nbsp;: un extrait pertinent manquant ne se rattrape pas avec une belle formulation.</p>
         <p>Affichez toujours la source et la date de l’extrait. Une réponse sans référence se traite comme une hypothèse. <strong>Un RAG n’est pas une garantie de vérité.</strong></p>
         <IaCallout titre="Fil rouge" variante="fil">

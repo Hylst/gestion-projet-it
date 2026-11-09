@@ -64,6 +64,7 @@ export interface Champ { id: ChampId; label: string; aide: string }
 export interface Livrable { id: LivrableId; label: string }
 export interface Etape {
   id: EtapeId;
+  moduleNum: number;
   titre: string;
   intro: string;
   champs: readonly Champ[];
@@ -90,6 +91,7 @@ export interface ProgressionDossier {
 export const ETAPES: readonly Etape[] = [
   {
     id: 'cadrage',
+    moduleNum: 1,
     titre: 'Cadrer et découper',
     intro: 'Reprends le besoin fictif des Amis du Square\u00A0: une page de présentation, un agenda et un formulaire de contact. Commence par délimiter ce que le projet fait et ne fait pas.',
     champs: [
@@ -105,6 +107,7 @@ export const ETAPES: readonly Etape[] = [
   },
   {
     id: 'planning',
+    moduleNum: 2,
     titre: 'Planifier et chiffrer',
     intro: 'Le besoin est cadré. Pose maintenant des jalons fictifs, des charges et une marge, puis vérifie que le budget tient debout.',
     champs: [
@@ -120,6 +123,7 @@ export const ETAPES: readonly Etape[] = [
   },
   {
     id: 'qualite',
+    moduleNum: 3,
     titre: 'Choisir la méthode et la qualité',
     intro: 'Choisis une méthode sans dogme, puis rends la qualité vérifiable\u00A0: critères d’acceptation et recette.',
     champs: [
@@ -134,6 +138,7 @@ export const ETAPES: readonly Etape[] = [
   },
   {
     id: 'gouvernance',
+    moduleNum: 7,
     titre: 'Organiser l’équipe et la gouvernance',
     intro: 'Le projet tient aussi à ses rôles et à ses instances. Rends les décisions traçables et la communication prévisible.',
     champs: [
@@ -149,6 +154,7 @@ export const ETAPES: readonly Etape[] = [
   },
   {
     id: 'risques',
+    moduleNum: 6,
     titre: 'Gérer les risques et le suivi',
     intro: 'Un dossier solide regarde aussi ce qui peut mal tourner. Tiens un registre court et des indicateurs utiles.',
     champs: [
@@ -164,6 +170,7 @@ export const ETAPES: readonly Etape[] = [
   },
   {
     id: 'changement',
+    moduleNum: 9,
     titre: 'Conduire le changement et conclure',
     intro: 'Reste l’adoption. Prépare les gestes qui aideront les personnes à utiliser le livrable, puis conclus le dossier.',
     champs: [

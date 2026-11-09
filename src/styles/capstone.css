@@ -18,6 +18,7 @@
 .capstone-stepper__titre { display: block; font-weight: 600; }
 .capstone-stepper__statut { display: block; font-size: 0.82rem; color: var(--c-muted); }
 .capstone-step__compteur { color: var(--c-muted); font-size: 0.9rem; margin: 0; }
+.capstone-step__module { margin: 0.5rem 0 1rem; font-size: 0.92rem; }
 .capstone-step h2:focus { outline: 2px solid var(--c-main); outline-offset: 4px; }
 .capstone-step__champs { display: grid; gap: 1rem; }
 .capstone-field { display: grid; gap: 0.3rem; }

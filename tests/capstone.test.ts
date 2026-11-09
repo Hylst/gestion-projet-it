@@ -52,6 +52,17 @@ describe('contenu du capstone', () => {
     expect(new Set(livrables).size).toBe(livrables.length);
     expect(new Set(criteres).size).toBe(criteres.length);
   });
+
+  it('relie chaque étape au module qui la traite', () => {
+    expect(ETAPES.map((etape) => [etape.id, etape.moduleNum])).toEqual([
+      ['cadrage', 1],
+      ['planning', 2],
+      ['qualite', 3],
+      ['gouvernance', 7],
+      ['risques', 6],
+      ['changement', 9],
+    ]);
+  });
 });
 
 describe('complétion', () => {

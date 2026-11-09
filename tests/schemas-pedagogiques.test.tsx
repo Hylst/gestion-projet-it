@@ -5,6 +5,7 @@ import { afterEach, describe, it, expect } from 'vitest';
 import { cleanup, render, screen, fireEvent } from '@testing-library/react';
 import { SchemaCycleV } from '../src/components/schemas/SchemaCycleV';
 import { SchemaCircuitDemande } from '../src/components/schemas/SchemaCircuitDemande';
+import { SchemaCourbeAdoption } from '../src/components/schemas/SchemaCourbeAdoption';
 
 afterEach(cleanup);
 
@@ -54,5 +55,24 @@ describe('SchemaCircuitDemande (Module 5)', () => {
     fireEvent.click(boutons[3]); // CI
     expect(screen.getByText(/Étape 4\s*: CI \(Intégration continue\)/i)).toBeTruthy();
     expect(screen.getByText(/Branche bloquée tant que la CI n’est pas verte/i)).toBeTruthy();
+  });
+});
+
+describe('SchemaCourbeAdoption (Module 9)', () => {
+  it('rend la courbe d adoption avec les 4 phases et leurs actions', () => {
+    render(<SchemaCourbeAdoption />);
+    expect(screen.getByText(/Courbe d’adoption\s*: accompagner les quatre phases/i)).toBeTruthy();
+    expect(screen.getAllByRole('button')).toHaveLength(4);
+  });
+
+  it('affiche la phase Choc par défaut et permet de basculer vers Résistance', () => {
+    render(<SchemaCourbeAdoption />);
+    expect(screen.getByText(/Phase 1\s*: Choc/i)).toBeTruthy();
+    expect(screen.getByText(/Accueillir les réactions sans juger/i)).toBeTruthy();
+
+    const boutons = screen.getAllByRole('button');
+    fireEvent.click(boutons[1]); // Résistance
+    expect(screen.getByText(/Phase 2\s*: Résistance/i)).toBeTruthy();
+    expect(screen.getByText(/Réexpliquer le sens du projet/i)).toBeTruthy();
   });
 });

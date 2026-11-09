@@ -220,3 +220,100 @@
     fill: #000000;
   }
 }
+
+.schema-zone {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 1;
+  transition: fill 140ms ease, stroke 140ms ease;
+}
+
+.schema-pair.is-hot .schema-zone {
+  fill: var(--accent-soft);
+}
+
+.schema-pair.is-active .schema-zone {
+  fill: var(--accent-soft);
+  stroke: var(--accent-line);
+}
+
+.schema-pair:focus-visible .schema-zone {
+  fill: var(--accent-soft);
+  stroke: var(--accent-ink);
+  stroke-width: 2;
+}
+
+.schema-phase {
+  fill: var(--c-ink);
+  font-size: 13px;
+  font-weight: 600;
+  transition: fill 140ms ease;
+}
+
+.schema-action {
+  fill: var(--c-muted);
+  font-size: 11px;
+  transition: fill 140ms ease;
+}
+
+.schema-pair.is-hot .schema-phase,
+.schema-pair.is-active .schema-phase {
+  fill: var(--accent-ink);
+}
+
+.schema-pair.is-hot .schema-action,
+.schema-pair.is-active .schema-action {
+  fill: var(--accent-ink);
+}
+
+.schema-curve {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.4;
+}
+
+.schema-guide {
+  stroke: var(--c-line);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+
+.schema-dot {
+  fill: var(--accent);
+}
+
+.schema-decor {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .schema-dot {
+    display: none;
+  }
+
+  .schema-zone,
+  .schema-phase,
+  .schema-action {
+    transition: none;
+  }
+}
+
+@media print {
+  .schema-zone {
+    stroke: #000000;
+  }
+
+  .schema-phase,
+  .schema-action {
+    fill: #000000;
+  }
+
+  .schema-curve,
+  .schema-guide {
+    stroke: #000000;
+  }
+
+  .schema-dot {
+    display: none;
+  }
+}

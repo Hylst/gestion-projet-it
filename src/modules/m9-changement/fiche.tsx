@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { Terme } from '../../components/Terme';
+import { SchemaCourbeAdoption } from '../../components/schemas/SchemaCourbeAdoption';
 
 export const Fiche = () => (
   <section id="fiche" aria-labelledby="fiche-t">
@@ -15,6 +16,7 @@ export const Fiche = () => (
     <p><strong>Un message simple, répété et cohérent.</strong> Le même cap, dit par les mêmes personnes, sur un rythme tenable. <strong>Avantage.</strong> Les consignes se stabilisent. <strong>Limite.</strong> Trop de messages fatigue et brouille le cap.</p>
     <h3>Suivre <Terme id="adoption">l’adoption</Terme></h3>
     <p><strong>Des signes simples.</strong> Usages réels, questions qui diminuent, gestes qui se transmettent. <strong>Avantage.</strong> Les ajustements arrivent avant le blocage. <strong>Limite.</strong> Un <Terme id="indicateur-d-adoption">indicateur d’adoption</Terme> seul ne raconte pas toute l’histoire.</p>
+    <SchemaCourbeAdoption />
   </section>
 );
 

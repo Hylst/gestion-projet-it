@@ -1,7 +1,7 @@
 # Refonte pédagogique : introductions de contexte, infobulles de termes techniques et fil conducteur junior
 
 **Date :** 9 novembre 2026  
-**Statut :** validé pour conception et planification (Approche A retenue).  
+**Statut :** livré le 9 novembre 2026 (approche A retenue).  
 **Périmètre :** 9 modules du cours, glossaire, composant d’infobulles de termes techniques, bases informatiques, passerelles entre sections et pages transversales.
 
 ---

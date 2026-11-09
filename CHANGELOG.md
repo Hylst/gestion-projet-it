@@ -1,5 +1,17 @@
 # Changelog
 
+## [Non publié]
+
+### Recherche, parcours et liens pédagogiques
+
+- Glossaire intégré à la recherche globale : 98 termes indexés, ancres stables par terme, alias de recherche et correspondances exactes classées avant les modules.
+- Introductions de parcours (`ParcoursIntro`) sur les 5 pages IA et les 6 pages cyber : pourquoi la page existe, trois objectifs, rappel du fil rouge et temps estimé.
+- Chapeaux de section sur les deux hubs, infobulles `Terme` ciblées et sommaires sticky avec défilement horizontal maîtrisé à 320 px.
+- Dossier projet : chaque étape porte un `moduleNum` et affiche un lien « Revoir le module N : titre » vers le module qui la traite.
+- Glossaire à 98 termes, avec les entrées `Actif` et `Menace` et les alias `controle acces`, `critere acceptation` et `surface attaque`.
+- Vérifications : 55 fichiers, 356 tests, lint, typecheck, 79 liens relatifs, 31 routes, build de production et smoke Playwright 21/21.
+- Publication : aucune mise en ligne ni copie Docker pour ce cycle à la date de cette entrée. La prochaine version, prévue en `1.8.0`, devra incrémenter le service worker et consigner les contrôles de production.
+
 ## [1.7.0] - 2026-11-09
 
 ### Pédagogie et fil conducteur junior

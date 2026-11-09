@@ -1,6 +1,6 @@
 # Todo
 
-État au 6 novembre 2026. Ce fichier centralise l’audit, les quick wins
+État au 9 novembre 2026. Ce fichier centralise l’audit, les quick wins
 traités et les lots de fond. Les identifiants `F-*` renvoient à
 `features.md`.
 
@@ -31,6 +31,14 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 | QW-12 | Corriger la documentation obsolète : 25 routes, 15 tests smoke, 292 kB, version 1.4.0 | fait |
 | QW-13 | Compléter `.gitignore` : environnements, couverture, caches, fichiers système | fait |
 | QW-14 | Vérifier tests, lint, typecheck, liens, build, smoke et Lighthouse | fait |
+
+### Cycle pédagogique complémentaire du 9 novembre 2026
+
+| ID | Action | Preuve | Statut |
+| --- | --- | --- | --- |
+| PED-01 | Indexer le glossaire dans la recherche globale et stabiliser ses ancres | `src/lib/search.ts`, `src/lib/glossaire.ts`, `src/routes/Glossaire.tsx` | fait |
+| PED-02 | Ajouter une introduction pédagogique aux 5 pages IA et aux 6 pages cyber | `src/components/ParcoursIntro.tsx`, `src/ia/pages.ts`, `src/cyber/pages.ts` | fait |
+| PED-03 | Relier chaque étape du dossier projet au module qui la traite | `src/lib/capstone.ts`, `src/components/capstone/CapstoneStep.tsx` | fait |
 
 ## 2. Écarts et incohérences trouvés
 
@@ -124,8 +132,8 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 
 ## 4. Décisions ouvertes
 
-1. **Ordre de fusion** : #26, #27, #28 et #32 fusionnées sur main (4156790), puis PR d’audit #33 (76cf64a) et PR de publication #34 (4514f93).
-2. **Version** : `1.7.0` publiée le 9 novembre 2026, avec refonte pédagogique, infobulles accessibles et service worker v15.
+1. **Ordre de fusion** : #26, #27, #28 et #32 fusionnées sur main (4156790), puis PR d’audit #33 (76cf64a), PR de publication #34 (4514f93), PR #41 (98ac4c9), PR #42 (3876d28) et PR #43 (3353f22).
+2. **Version** : `1.7.0` publiée le 9 novembre 2026, avec refonte pédagogique, infobulles accessibles et service worker v15. Les lots #41 à #43 sont livrés sur `main` mais ne sont pas publiés ; la prochaine version prévue est `1.8.0`, avec service worker incrémenté et contrôles de production.
 3. **JSON-LD** : la CSP `script-src 'self'` interdit le script inline.
    Privilégier les microdonnées HTML ou une politique de hachage explicite.
 4. **Références Google** : conserver Gmail, Vertex AI et Search Console
@@ -168,4 +176,9 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 - [x] Infobulles accessibles (`Terme`) pour tous les acronymes et termes techniques, incluant les bases informatiques (dépôt, serveur, API, navigateur).
 - [x] Suite smoke Playwright portée à 19/19 avec test de l’infobulle, de la continuité et du reflow.
 - [x] Publication 1.7.0 et contrôles de production (assets 200, ancien 1.6.1 404, sw v15, smoke 19/19, Lighthouse 98/100/100/100).
+- [x] Recherche globale : 98 termes du glossaire indexés, ancres uniques et correspondances exactes classées avant les modules.
+- [x] Introductions pédagogiques sur les 5 pages IA et les 6 pages cyber, sommaire sticky et reflow vérifié à 320 px.
+- [x] Dossier projet : lien de révision vers le module associé à chaque étape.
+- [x] Vérifications du cycle pédagogique : 55 fichiers, 356 tests, lint, typecheck, 79 liens, 31 routes, build et smoke 21/21.
+- [ ] Publication 1.8.0 : copie Docker, service worker incrémenté, contrôles de production et Lighthouse.
 - [ ] Soumission Search Console confirmée par Geoffroy.

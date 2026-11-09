@@ -29,6 +29,15 @@
 - [x] Docker resynchronisé et smoke 17/17 sur la copie Docker, 54 empreintes SHA-256 identiques.
 - [x] Search Console soumise après déploiement le 24 octobre 2026.
 
+## Contrôles après la mise en ligne du 9 novembre 2026 (version 1.7.0)
+
+- [x] Production `https://hylst.fr/gestion-projet-it/` servie depuis `main` `feb571b` (version 1.7.0).
+- [x] Version 1.7.0 active : bundle JS `index-7lhu8IfR.js` en 200, bundle CSS `index-BmDYZsm_.css` en 200, ancien asset 1.6.1 (`index-CoaE1kCu.js`) en 404, service worker v15 en `no-cache`.
+- [x] En-têtes CSP, HSTS, `nosniff`, `X-Frame-Options`, `Referrer-Policy` et `Permissions-Policy` conformes.
+- [x] Smoke Playwright 19/19 sur la production, incluant l'infobulle interactive, la continuité entre modules et le reflow à 320 px.
+- [x] Lighthouse production 1.7.0 : accueil 98/100/100/100, `/module-1` 98/100/100/100.
+- [x] Zéro requête externe, zéro erreur console et zéro requête échouée sur les routes testées.
+
 ## Contrôles après la mise en ligne du 6 novembre 2026
 
 - [x] Production `https://hylst.fr/gestion-projet-it/` servie depuis `main` `3b93f01` (version 1.6.1).

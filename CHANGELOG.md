@@ -11,6 +11,11 @@
 - Continuité du parcours (`ModulePager`) : transition logique et lien direct vers le module suivant, avec renvoi vers le dossier projet à la fin du module 9.
 - Sommaires complets : le sommaire sticky de chaque module référence désormais l’intégralité de ses sections (comparateur, laboratoires secondaires, pré-mortem).
 - Publication : version `1.7.0` et service worker v15, pour purger les caches du build précédent.
+- Mise en ligne le 9 novembre 2026 depuis `main` `feb571b`.
+- Build : `index-7lhu8IfR.js` (240 961 octets, SHA-256 `429365cb…`), `index-BmDYZsm_.css` (51 745 octets, SHA-256 `0445bc5a…`), `index.html` (2 713 octets, SHA-256 `d1e4260a…`), `sw.js` v15 (SHA-256 `6b78c2a7…`). 54 fichiers vérifiés.
+- Production `https://hylst.fr/gestion-projet-it/` : assets en 200, ancien `index-CoaE1kCu.js` en 404, service worker v15 actif et en `no-cache`.
+- Smoke Playwright 19/19 en production, incluant l’infobulle, la continuité et le reflow à 320 px.
+- Lighthouse production 1.7.0 : accueil 98/100/100/100, `/module-1` 98/100/100/100.
 - Vérifications : 344 tests unitaires (54 fichiers), typographie stricte validée, suite smoke Playwright portée à 19/19 avec test dédié de l’infobulle et du reflow.
 
 ## [1.6.1] - 2026-11-06

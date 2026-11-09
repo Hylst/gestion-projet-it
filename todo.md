@@ -167,4 +167,5 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 - [x] Refonte pédagogique : introductions de module (`ModuleIntro`), chapeaux de section, fil conducteur (`ModulePager`), sommaires complets.
 - [x] Infobulles accessibles (`Terme`) pour tous les acronymes et termes techniques, incluant les bases informatiques (dépôt, serveur, API, navigateur).
 - [x] Suite smoke Playwright portée à 19/19 avec test de l’infobulle, de la continuité et du reflow.
+- [x] Publication 1.7.0 et contrôles de production (assets 200, ancien 1.6.1 404, sw v15, smoke 19/19, Lighthouse 98/100/100/100).
 - [ ] Soumission Search Console confirmée par Geoffroy.

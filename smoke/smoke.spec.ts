@@ -122,7 +122,7 @@ test('liens internes : routes, ancres et ids valides', async ({ page }) => {
 
   for (const route of routes) {
     await page.goto(`${base}${route}`);
-    await expect(page.locator('#contenu')).toBeVisible();
+    await expect(page.locator('#contenu h1').first()).toBeVisible();
     const ids = await page.locator('[id]').evaluateAll((els) => els.map((el) => el.id));
     const duplicates = [...new Set(ids.filter((id, i) => id && ids.indexOf(id) !== i))];
     if (duplicates.length) duplicateIds.push(`${route}: ${duplicates.join(', ')}`);

@@ -12,6 +12,9 @@ import { ProgressProvider } from '../src/lib/progress';
 import { M1Page } from '../src/modules/m1-wbs';
 import { M2Page } from '../src/modules/m2-planif';
 import { M3Page } from '../src/modules/m3-methodes';
+import { M4Page } from '../src/modules/m4-agiles';
+import { M5Page } from '../src/modules/m5-outils';
+import { M6Page } from '../src/modules/m6-equipe';
 
 afterEach(cleanup);
 
@@ -192,5 +195,71 @@ describe('Intros pédagogiques et infobulles des modules 1 à 3', () => {
 
     const triggers = container.querySelectorAll('.terme-trigger');
     expect(triggers.length).toBeGreaterThanOrEqual(3);
+  });
+});
+
+describe('Intros pédagogiques et infobulles des modules 4 à 6', () => {
+  it('module 4 : intègre ModuleIntro, chapeaux et infobulles Agiles', () => {
+    const { container } = render(
+      <ProgressProvider>
+        <MemoryRouter>
+          <M4Page />
+        </MemoryRouter>
+      </ProgressProvider>,
+    );
+
+    expect(screen.getByRole('heading', { level: 2, name: /Pourquoi agiles/i })).toBeDefined();
+    expect(container.querySelector('#fiche .section-chapeau')).not.toBeNull();
+    expect(container.querySelector('#demarche .section-chapeau')).not.toBeNull();
+
+    const triggers = container.querySelectorAll('.terme-trigger');
+    expect(triggers.length).toBeGreaterThanOrEqual(4);
+    const textes = Array.from(triggers).map((t) => t.textContent);
+    expect(textes.some((t) => t?.includes('Scrum') || t?.includes('Kanban'))).toBe(true);
+
+    const nav = screen.getByRole('navigation', { name: /Sommaire du module/i });
+    expect(nav.querySelector('a[href="#labo"]')).not.toBeNull();
+    expect(nav.querySelector('a[href="#labo-poker"]')).not.toBeNull();
+  });
+
+  it('module 5 : intègre ModuleIntro, chapeaux et infobulles Outils / CI / CD', () => {
+    const { container } = render(
+      <ProgressProvider>
+        <MemoryRouter>
+          <M5Page />
+        </MemoryRouter>
+      </ProgressProvider>,
+    );
+
+    expect(screen.getByRole('heading', { level: 2, name: /Pourquoi outils/i })).toBeDefined();
+    expect(container.querySelector('#fiche .section-chapeau')).not.toBeNull();
+
+    const triggers = container.querySelectorAll('.terme-trigger');
+    expect(triggers.length).toBeGreaterThanOrEqual(3);
+
+    const nav = screen.getByRole('navigation', { name: /Sommaire du module/i });
+    expect(nav.querySelector('a[href="#labo"]')).not.toBeNull();
+    expect(nav.querySelector('a[href="#labo-chaine"]')).not.toBeNull();
+  });
+
+  it('module 6 : intègre ModuleIntro, chapeaux et infobulles Équipe / Risques / Eisenhower', () => {
+    const { container } = render(
+      <ProgressProvider>
+        <MemoryRouter>
+          <M6Page />
+        </MemoryRouter>
+      </ProgressProvider>,
+    );
+
+    expect(screen.getByRole('heading', { level: 2, name: /Pourquoi équipe, risques/i })).toBeDefined();
+    expect(container.querySelector('#fiche .section-chapeau')).not.toBeNull();
+
+    const triggers = container.querySelectorAll('.terme-trigger');
+    expect(triggers.length).toBeGreaterThanOrEqual(3);
+
+    const nav = screen.getByRole('navigation', { name: /Sommaire du module/i });
+    expect(nav.querySelector('a[href="#labo"]')).not.toBeNull();
+    expect(nav.querySelector('a[href="#labo-risques"]')).not.toBeNull();
+    expect(nav.querySelector('a[href="#pre-mortem"]')).not.toBeNull();
   });
 });

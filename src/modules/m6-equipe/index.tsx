@@ -4,6 +4,7 @@
 import { ModuleLayout } from '../../components/ModuleLayout';
 import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
+import { ModuleIntro } from '../../components/ModuleIntro';
 import { ModuleGuide } from '../../components/ModuleGuide';
 import Reveal from '../../components/Reveal';
 import LaboEisenhower from '../../labos/LaboEisenhower';
@@ -59,6 +60,7 @@ const sections = [
 
 export const M6Page = () => (
   <ModuleLayout meta={meta} sections={sections}>
+    <Reveal><ModuleIntro meta={meta} /></Reveal>
     <Reveal><Fiche /></Reveal>
     <Reveal><FilRouge /></Reveal>
     <Reveal><Demarche /></Reveal>

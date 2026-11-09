@@ -4,6 +4,7 @@
 import { ModuleLayout } from '../../components/ModuleLayout';
 import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
+import { ModuleIntro } from '../../components/ModuleIntro';
 import { ModuleGuide } from '../../components/ModuleGuide';
 import Reveal from '../../components/Reveal';
 import LaboSelecteurOutil from '../../labos/LaboSelecteurOutil';
@@ -57,6 +58,7 @@ const sections = [
 
 export const M5Page = () => (
   <ModuleLayout meta={meta} sections={sections}>
+    <Reveal><ModuleIntro meta={meta} /></Reveal>
     <Reveal><Fiche /></Reveal>
     <Reveal><FilRouge /></Reveal>
     <Reveal><Demarche /></Reveal>

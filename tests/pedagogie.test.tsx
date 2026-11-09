@@ -158,11 +158,13 @@ describe('Intros pédagogiques et infobulles des modules 1 à 3', () => {
     expect(container.querySelector('#demarche .section-chapeau')).not.toBeNull();
     expect(container.querySelector('#fil-rouge .section-chapeau')).not.toBeNull();
 
-    // Infobulles présentes sur le module 1
+    // Infobulles présentes sur le module 1 (WBS et équivalents français OTP / SDP)
     const triggers = container.querySelectorAll('.terme-trigger');
-    expect(triggers.length).toBeGreaterThanOrEqual(3);
+    expect(triggers.length).toBeGreaterThanOrEqual(5);
     const textes = Array.from(triggers).map((t) => t.textContent);
     expect(textes.some((t) => t?.includes('WBS'))).toBe(true);
+    expect(textes.some((t) => t?.includes('OTP'))).toBe(true);
+    expect(textes.some((t) => t?.includes('SDP'))).toBe(true);
   });
 
   it('module 2 : intègre ModuleIntro, chapeaux de sections et infobulles PERT/GANTT', () => {

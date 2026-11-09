@@ -30,6 +30,15 @@ function CibleCyber() {
   return (<section id="actifs"><h1>Menaces</h1></section>);
 }
 
+function CibleGlossaire() {
+  return (
+    <section id="wbs">
+      <h1>Glossaire</h1>
+      <dl><dt>WBS</dt><dd>Découpage du travail.</dd></dl>
+    </section>
+  );
+}
+
 function App() {
   return (
     <MemoryRouter initialEntries={['/module-1']}>
@@ -39,6 +48,7 @@ function App() {
         <Route path="/module-6" element={<Cible num={6} />} />
         <Route path="/ressources" element={<h1>Ressources et outils</h1>} />
         <Route path="/cybersecurite/menaces" element={<CibleCyber />} />
+        <Route path="/glossaire" element={<CibleGlossaire />} />
       </Routes>
     </MemoryRouter>
   );
@@ -81,5 +91,19 @@ describe('recherche globale', () => {
     expect(scrollIntoView).toHaveBeenCalledTimes(1);
     const cible = scrollIntoView.mock.instances[0] as HTMLElement;
     expect(cible.id).toBe('actifs');
+  });
+
+  it('propose un terme du glossaire et ouvre sa définition', async () => {
+    render(<App />);
+    fireEvent.change(screen.getByLabelText('Rechercher dans le cours'), {
+      target: { value: 'wbs' },
+    });
+    const resultat = screen.getByRole('button', { name: /WBS Glossaire/ });
+    fireEvent.click(resultat);
+
+    await waitFor(() => expect(screen.getByRole('heading', { level: 1, name: 'Glossaire' })).not.toBeNull());
+    expect(scrollIntoView).toHaveBeenCalledTimes(1);
+    const cible = scrollIntoView.mock.instances[0] as HTMLElement;
+    expect(cible.id).toBe('wbs');
   });
 });

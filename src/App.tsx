@@ -3,6 +3,7 @@
 
 import { Suspense, lazy } from 'react';
 import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import SiteHeader from './components/SiteHeader';
 import Footer from './components/Footer';
 import Accueil from './routes/accueil';
@@ -51,6 +52,7 @@ function ModulePlaceholder() {
 export default function App() {
   return (
     <BrowserRouter basename="/gestion-projet-it/">
+      <ScrollToTop />
       <SiteHeader />
       <main id="contenu">
         <Suspense fallback={<div className="route-loading" role="status" aria-live="polite">Chargement de la page…</div>}>

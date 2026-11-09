@@ -41,7 +41,7 @@ describe('Terme (composant infobulle accessible)', () => {
     expect(tooltip).toBeDefined();
     expect(tooltip.id).toBe(describedby);
     expect(tooltip.textContent).toContain('Work Breakdown Structure');
-    expect(tooltip.textContent).toContain('Découpage hiérarchique');
+    expect(tooltip.textContent).toMatch(/découpage hiérarchique/i);
 
     // Valide que le tooltip n'embarque pas de paragraphe <p> afin d'être valide dans les titres
     expect(tooltip.querySelector('p')).toBeNull();

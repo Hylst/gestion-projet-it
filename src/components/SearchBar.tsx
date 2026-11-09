@@ -83,9 +83,9 @@ export default function SearchBar() {
       {ouverte && (
         <ul id="search-results" role="listbox" aria-label="Résultats de recherche">
           {visibles.map((h, i) => (
-            <li key={h.type === 'module' ? `m-${h.moduleNum}-${h.ancre}` : h.type === 'ia' ? `ia-${h.path}-${h.ancre}` : h.type === 'cyber' ? `cyber-${h.path}-${h.ancre}` : `page-${h.path}`} id={`search-opt-${i}`} role="option" aria-selected={i === actif}>
+            <li key={h.type === 'module' ? `m-${h.moduleNum}-${h.ancre}` : h.type === 'ia' ? `ia-${h.path}-${h.ancre}` : h.type === 'cyber' ? `cyber-${h.path}-${h.ancre}` : h.type === 'terme' ? `terme-${h.ancre}` : `page-${h.path}`} id={`search-opt-${i}`} role="option" aria-selected={i === actif}>
               <button type="button" onClick={() => aller(h)}>
-                {h.type === 'module' ? <>Module {h.moduleNum}&nbsp;: {h.moduleTitre}</> : <>{h.pageTitre}</>} <span>{h.section}</span>
+                {h.type === 'module' ? <>Module {h.moduleNum}&nbsp;: {h.moduleTitre}</> : h.type === 'terme' ? <>{h.terme} <span>{h.pageTitre}</span></> : <>{h.pageTitre} <span>{h.section}</span></>}
               </button>
             </li>
           ))}

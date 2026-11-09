@@ -4,6 +4,7 @@ test-results/
 playwright-report/
 coverage/
 lighthouse-report/
+.lh-*.json
 .shots/
 *.log
 .superpowers/

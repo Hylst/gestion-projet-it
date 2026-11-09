@@ -133,7 +133,7 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 ## 4. Décisions ouvertes
 
 1. **Ordre de fusion** : #26, #27, #28 et #32 fusionnées sur main (4156790), puis PR d’audit #33 (76cf64a), PR de publication #34 (4514f93), PR #41 (98ac4c9), PR #42 (3876d28) et PR #43 (3353f22).
-2. **Version** : `1.10.0` préparée le 9 novembre 2026 depuis `main`, avec les schémas pédagogiques interactifs, le service worker v18 et un smoke 25/25. La `1.9.0` a été publiée le 9 novembre 2026 depuis `3174eef` avec le service worker v17.
+2. **Version** : `1.10.0` publiée le 10 novembre 2026 depuis `main` `6b93318` (commit plateforme `994fd799`), avec les schémas pédagogiques interactifs, le service worker v18 et un smoke 25/25. La `1.9.0` a été publiée le 9 novembre 2026 depuis `3174eef` avec le service worker v17.
 3. **JSON-LD** : la CSP `script-src 'self'` interdit le script inline.
    Privilégier les microdonnées HTML ou une politique de hachage explicite.
 4. **Références Google** : conserver Gmail, Vertex AI et Search Console
@@ -186,4 +186,7 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 - [x] Publication 1.9.0 : menu des 17 sections, 31 routes, service worker v17, smoke 24/24, Lighthouse accueil 96/100/100/100.
 - [x] Trois schémas pédagogiques interactifs dans les modules 3, 5 et 9 : 371 tests, smoke 25/25, mouvement réduit, impression et reflow à 320 px vérifiés.
 - [x] Release 1.10.0 préparée : version et service worker v18, build de 56 fichiers, smoke 25/25, Lighthouse local accueil 95/100/100/100 et modules 3, 5 et 9 entre 96 et 98 en performance.
+- [x] Publication 1.10.0 : build identique à `6b93318`, service worker v18, commit plateforme `994fd799`.
+- [x] Contrôles de production 1.10.0 : 31 pages, 33 assets, 152 vérifications, 0 anomalie, smoke 25/25, Lighthouse accueil 97/100/100/100 et modules 3, 5 et 9 entre 93 et 94 en performance.
+- [x] Search Console 1.10.0 : aucune nouvelle URL, aucune soumission nécessaire.
 - [ ] Soumission Search Console confirmée par Geoffroy.

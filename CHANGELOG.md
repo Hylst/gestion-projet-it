@@ -9,9 +9,15 @@
 - Module 9 : courbe d’adoption en quatre phases, du choc à l’appropriation, avec point animé et posture attendue du chef de projet.
 - SVG inline uniquement, aucune requête réseau, aucune dépendance ajoutée, `prefers-reduced-motion` respecté et aucun débordement à 320 px.
 - Vérifications : 56 fichiers, 371 tests, lint, typecheck, 83 liens relatifs, 31 routes, build de production et smoke Playwright 25/25.
-- Release préparée : version `1.10.0` et service worker v18, pour purger les caches du build précédent.
+- Publication : version `1.10.0` et service worker v18, pour purger les caches du build précédent.
 - Build : `index-ZXQw16Jv.js` (349 156 octets, SHA-256 `7070540b…`), `index-DA40NmzD.css` (56 425 octets, SHA-256 `c201f8f4…`), `index.html` (2 713 octets, SHA-256 `2e61185e…`), `sw.js` v18 (1 443 octets, SHA-256 `30169b36…`). 56 fichiers vérifiés.
 - Lighthouse local avant publication : accueil 95/100/100/100, `/module-3` 98/100/100/100, `/module-5` 97/100/100/100, `/module-9` 96/100/100/100.
+- Mise en ligne le 10 novembre 2026 depuis `main` `6b93318` (commit plateforme `994fd799`).
+- Production `https://hylst.fr/gestion-projet-it/` : `index-ZXQw16Jv.js` et `index-DA40NmzD.css` en 200, anciens assets en 404, service worker v18 actif et en `no-cache`.
+- `sw.js` servi en LF (1 405 octets, SHA-256 `03cf0739…`) après normalisation Git ; `index.html`, le bundle JS et le CSS sont identiques au build (`2e61185e…`, `7070540b…`, `c201f8f4…`).
+- `verifier-prod.sh --full gestion-projet-it` : 31 pages, 33 assets, 152 vérifications, 0 anomalie.
+- Smoke Playwright 25/25 en production, dont le scénario des trois schémas.
+- Lighthouse production 1.10.0 : accueil 97/100/100/100, `/module-3` 93/100/100/100, `/module-5` 94/100/100/100, `/module-9` 94/100/100/100. Un premier passage de l’accueil à 86 en performance a été repris et confirmé à 97.
 
 ## [1.9.0] - 2026-11-09
 

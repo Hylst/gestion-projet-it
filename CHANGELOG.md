@@ -1,5 +1,16 @@
 # Changelog
 
+## [Unreleased]
+
+### Schémas pédagogiques interactifs
+
+- Module 3 : schéma du cycle en V en quatre paires miroir conception et test, sélection au clic, au survol et au clavier, explication synchronisée.
+- Module 5 : circuit d’une demande en six étapes, du besoin à la production, avec deux boucles de retour, flux animé et détail par étape.
+- Module 9 : courbe d’adoption en quatre phases, du choc à l’appropriation, avec point animé et posture attendue du chef de projet.
+- SVG inline uniquement, aucune requête réseau, aucune dépendance ajoutée, `prefers-reduced-motion` respecté et aucun débordement à 320 px.
+- Correctif associé : le sommaire IA redevient sticky, comme le sommaire cyber et comme l’attend le smoke.
+- Vérifications : 56 fichiers, 368 tests, lint, typecheck, 81 liens relatifs, 31 routes, build de production et smoke Playwright 25/25.
+
 ## [1.9.0] - 2026-11-09
 
 ### Menu des 17 sections

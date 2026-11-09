@@ -32,6 +32,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-11-06 | [Onboarding du cours](superpowers/specs/2026-11-06-onboarding-design.md) | Livré | Cinq écrans, première visite et relecture |
 | 2026-11-09 | [Refonte pédagogique](superpowers/specs/2026-11-09-pedagogie-intros-infobulles-design.md) | Livré | Intros, infobulles, glossaire et dossier projet |
 | 2026-11-09 | [Menu des 17 sections](superpowers/specs/2026-11-09-menu-17-sections-design.md) | Livré | Ruban horizontal, 17 entrées et responsive |
+| 2026-11-09 | [Schémas pédagogiques des modules](superpowers/specs/2026-11-09-schemas-pedagogiques-modules-design.md) | Livré | Cycle en V, circuit d’une demande et courbe d’adoption |
 
 ## Plans
 
@@ -53,6 +54,7 @@ Index des décisions et des plans. Les specs décrivent le problème, les décis
 | 2026-10-31 | [Plan laboratoires Cybersécurité](superpowers/plans/2026-10-31-labos-cybersecurite.md) | Livré | Modèle de menace, accès et chronologie |
 | 2026-11-09 | [Plan refonte pédagogique](superpowers/plans/2026-11-09-pedagogie-intros-infobulles.md) | Livré | Modules, glossaire, parcours IA et cyber |
 | 2026-11-09 | [Plan menu des 17 sections](superpowers/plans/2026-11-09-menu-17-sections.md) | Livré | Header à deux niveaux et tests |
+| 2026-11-09 | [Plan schémas pédagogiques](superpowers/plans/2026-11-09-schemas-pedagogiques-modules.md) | Livré | Trois schémas SVG interactifs |
 
 ## Politique
 

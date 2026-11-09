@@ -1,7 +1,7 @@
 # Schémas pédagogiques interactifs pour les modules : conception
 
 Date : 9 novembre 2026
-Statut : proposé, en attente de validation.
+Statut : livré le 9 novembre 2026.
 Périmètre : modules 3 (méthodes), 5 (outils) et 9 (conduite du changement) de Gestion de Projet IT.
 
 ## 1. Contexte et objectif

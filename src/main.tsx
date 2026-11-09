@@ -8,6 +8,7 @@ import { ProgressProvider } from './lib/progress';
 import './styles/index.css';
 import './styles/print.css';
 import './styles/editorial.css';
+import './styles/terme.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

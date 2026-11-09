@@ -1,0 +1,108 @@
+/* SPDX-FileCopyrightText: 2026 Geoffroy Streit */
+/* SPDX-License-Identifier: AGPL-3.0-or-later */
+
+.terme-wrapper {
+  position: relative;
+  display: inline;
+}
+
+.terme-trigger {
+  display: inline;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: help;
+  border-bottom: 1.5px dotted var(--c-main);
+  border-radius: 2px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.terme-trigger:hover {
+  background-color: var(--accent-soft);
+  border-bottom-style: solid;
+}
+
+.terme-trigger:focus-visible {
+  outline: 2px solid var(--c-main);
+  outline-offset: 2px;
+  background-color: var(--accent-soft);
+}
+
+.terme-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  width: max-content;
+  max-width: min(21rem, calc(100vw - 2.5rem));
+  background: #ffffff;
+  color: var(--c-ink);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.85rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  text-align: left;
+  display: block;
+}
+
+.terme-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+
+.terme-titre {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--c-ink);
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
+
+.terme-developpe {
+  font-weight: 500;
+  color: var(--c-muted);
+  font-size: 0.82rem;
+}
+
+.terme-def {
+  margin: 0 0 0.45rem;
+  color: var(--c-ink);
+}
+
+.terme-lien {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--c-main);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.terme-lien:hover,
+.terme-lien:focus-visible {
+  color: #1e40af;
+}
+
+@media (max-width: 480px) {
+  .terme-tooltip {
+    left: 0;
+    transform: none;
+    max-width: calc(100vw - 2rem);
+  }
+  .terme-tooltip::after {
+    left: 1.5rem;
+    transform: none;
+  }
+}

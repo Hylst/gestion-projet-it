@@ -3,6 +3,7 @@
 
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { ParcoursIntro } from '../components/ParcoursIntro';
 import { SeoHead } from '../components/SeoHead';
 import { CyberChecklist } from './CyberChecklist';
 import { CYBER_PAGES, type CyberPageMeta } from './pages';
@@ -30,6 +31,12 @@ export function CyberLayout({ meta, intro, retenir, checklist, checklistTitre, s
         <h1>{meta.titre}</h1>
         <p className="accroche">{intro}</p>
       </header>
+      <ParcoursIntro
+        pourquoi={meta.pourquoi}
+        objectifs={meta.objectifs}
+        filRouge={meta.filRouge}
+        temps={meta.temps}
+      />
       <nav className="cyber-sommaire" aria-label="Sommaire de la page">
         {meta.sections.map((section) => (
           <a key={section.id} href={`#${section.id}`}>{section.label}</a>

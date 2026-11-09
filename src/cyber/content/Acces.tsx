@@ -41,7 +41,7 @@ export function CyberAccesPage() {
 
       <section id="privileges">
         <h2>Moindre privilège</h2>
-        <p>Le moindre privilège consiste à donner uniquement les droits nécessaires à la tâche, pour la durée nécessaire. Un rédacteur n’a pas besoin d’administrer l’hébergement.</p>
+        <p>Le <Terme id="moindre-privilege">moindre privilège</Terme> consiste à donner uniquement les droits nécessaires à la tâche, pour la durée nécessaire. Un rédacteur n’a pas besoin d’administrer l’hébergement.</p>
         <ul>
           <li>Séparer les comptes d’administration des comptes d’usage courant.</li>
           <li>Accorder un droit temporaire plutôt qu’un droit permanent.</li>
@@ -72,7 +72,7 @@ export function CyberAccesPage() {
 
       <section id="revue">
         <h2>Revue des accès</h2>
-        <p>Une revue vérifie que chaque compte existe encore, que son rôle correspond au besoin et que les droits anciens ont été retirés. Elle produit une trace datée, pas seulement une conversation.</p>
+        <p>Une revue vérifie que chaque compte existe encore, que son rôle correspond au besoin et que les droits anciens ont été retirés. Le <Terme id="controle-acces">contrôle d’accès</Terme> produit une trace datée, pas seulement une conversation.</p>
         <div className="cyber-table-wrap">
           <table>
             <caption>Matrice des accès</caption>

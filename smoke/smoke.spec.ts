@@ -358,6 +358,12 @@ test('section IA : navigation, recherche, glossaire et impression', async ({ pag
   await expect(page).toHaveURL(/\/ia$/);
   await expect(page.getByRole('heading', { level: 1, name: 'Gestion de projet et IA' })).toBeVisible();
 
+  const introIa = page.locator('.parcours-intro');
+  await expect(introIa).toBeVisible();
+  await expect(introIa.getByRole('heading', { level: 2, name: /Pourquoi cette page/ })).toBeVisible();
+  await expect(introIa.getByText(/Temps estimé/)).toBeVisible();
+  await expect(page.locator('.ia-sommaire')).toHaveCSS('position', 'sticky');
+
   const pages = [
     ['/ia/usages', 'Usages de l’IA par phase de projet'],
     ['/ia/methodes', 'Méthodes et évaluation'],
@@ -394,6 +400,12 @@ test('parcours cyber : navigation, recherche, glossaire et impression', async ({
   await expect(page).toHaveURL(/\/cybersecurite$/);
   await expect(page.getByRole('heading', { level: 1, name: 'Cybersécurité et gestion de projet' })).toBeVisible();
 
+  const introCyber = page.locator('.parcours-intro');
+  await expect(introCyber).toBeVisible();
+  await expect(introCyber.getByRole('heading', { level: 2, name: /Pourquoi cette page/ })).toBeVisible();
+  await expect(introCyber.getByText(/Temps estimé/)).toBeVisible();
+  await expect(page.locator('.cyber-sommaire')).toHaveCSS('position', 'sticky');
+
   await page.goto(`${base}/cybersecurite`);
   await page.getByLabel('Rechercher dans le cours').fill('phishing');
   const resultat = page.getByRole('button', { name: /Menaces/ }).first();
@@ -421,7 +433,7 @@ test('parcours cyber : navigation, recherche, glossaire et impression', async ({
 });
 
 test('reflow : aucune page ne deborde horizontalement a 320 px', async ({ page }) => {
-  const pages = ['/', '/module-1', '/cybersecurite', '/dossier-projet', '/modeles', '/a-propos'];
+  const pages = ['/', '/module-1', '/ia', '/ia/methodes', '/cybersecurite', '/cybersecurite/menaces', '/dossier-projet', '/modeles', '/a-propos'];
   await page.setViewportSize({ width: 320, height: 640 });
   for (const r of pages) {
     await page.goto(`${base}${r}`);

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import LaboModeleMenace from '../../labos/LaboModeleMenace';
+import { Terme } from '../../components/Terme';
 import { CyberCallout } from '../CyberCallout';
 import { CyberLayout } from '../CyberLayout';
 import { CYBER_PAGES } from '../pages';
@@ -33,7 +34,7 @@ export function CyberMenacesPage() {
     >
       <section id="actifs">
         <h2>Actifs et valeur</h2>
-        <p>Un actif est ce qui a de la valeur pour l’organisation ou pour les personnes. Il peut être technique ou non. Le projet commence par les nommer, sans jargon.</p>
+        <p>Un <Terme id="actif">actif</Terme> est ce qui a de la valeur pour l’organisation ou pour les personnes. Il peut être technique ou non. Le projet commence par les nommer, sans jargon.</p>
         <ul>
           <li>Les données&nbsp;: contacts, adresses, pièces jointes, décisions, sauvegardes.</li>
           <li>Les comptes&nbsp;: administrateur, messagerie, hébergement, outils de suivi.</li>
@@ -46,11 +47,11 @@ export function CyberMenacesPage() {
 
       <section id="menaces">
         <h2>Menaces plausibles</h2>
-        <p>Une menace plausible n’est pas une hypothèse spectaculaire. C’est un scénario qui peut arriver avec les moyens, les accès et le contexte du projet.</p>
+        <p>Une <Terme id="menace">menace</Terme> plausible n’est pas une hypothèse spectaculaire. C’est un scénario qui peut arriver avec les moyens, les accès et le contexte du projet.</p>
         <ul>
-          <li>Hameçonnage&nbsp;: un message trompeur pousse à livrer un mot de passe ou à ouvrir une pièce jointe.</li>
+          <li><Terme id="phishing">Hameçonnage</Terme>&nbsp;: un message trompeur pousse à livrer un mot de passe ou à ouvrir une pièce jointe.</li>
           <li>Vol d’identifiants&nbsp;: un mot de passe réutilisé ou mal conservé ouvre un compte.</li>
-          <li>Rançongiciel&nbsp;: un logiciel malveillant chiffre des fichiers et bloque le service.</li>
+          <li><Terme id="rancongiciel">Rançongiciel</Terme>&nbsp;: un logiciel malveillant chiffre des fichiers et bloque le service.</li>
           <li>Erreur humaine&nbsp;: un fichier envoyé au mauvais destinataire, un droit accordé trop largement.</li>
           <li>Menace interne&nbsp;: un ancien bénévole ou un prestataire garde un accès oublié.</li>
           <li>Fournisseur compromis&nbsp;: un service tiers expose les données ou tombe en panne.</li>
@@ -60,7 +61,7 @@ export function CyberMenacesPage() {
 
       <section id="modele">
         <h2>Construire un modèle de menace</h2>
-        <p>Un modèle de menace tient en quatre temps&nbsp;: choisir les actifs, nommer les attaquants plausibles, décrire les chemins, puis choisir une parade et un responsable. Le tableau se remplit en atelier court, avec les personnes qui connaissent le terrain.</p>
+        <p>Un <Terme id="modele-de-menace">modèle de menace</Terme> tient en quatre temps&nbsp;: choisir les actifs, nommer les attaquants plausibles, décrire les chemins, puis choisir une parade et un responsable. Le tableau se remplit en atelier court, avec les personnes qui connaissent le terrain.</p>
         <div className="cyber-table-wrap">
           <table>
             <caption>Modèle de menace</caption>
@@ -81,7 +82,7 @@ export function CyberMenacesPage() {
 
       <section id="surface">
         <h2>Surface d’attaque</h2>
-        <p>La surface d’attaque est l’ensemble des points d’entrée par lesquels une menace peut atteindre un actif. Elle se regarde par couches, pas seulement dans le code.</p>
+        <p>La <Terme id="surface-attaque">surface d’attaque</Terme> est l’ensemble des points d’entrée par lesquels une menace peut atteindre un actif. Elle se regarde par couches, pas seulement dans le code.</p>
         <ul>
           <li>Le navigateur et les pages publiques.</li>
           <li>Les comptes et les mots de passe.</li>
@@ -96,7 +97,7 @@ export function CyberMenacesPage() {
         <h2>Proportionner les parades</h2>
         <p>Quatre familles de réponses existent&nbsp;: réduire le risque, l’éviter, le transférer ou l’accepter. Le choix dépend de l’impact, de la vraisemblance, du coût et de la réversibilité.</p>
         <ul>
-          <li><strong>Réduire.</strong> Ajouter une MFA, limiter un droit, tester une sauvegarde.</li>
+          <li><strong>Réduire.</strong> Ajouter une <Terme id="mfa">MFA</Terme>, limiter un droit, tester une sauvegarde.</li>
           <li><strong>Éviter.</strong> Renoncer à une fonction ou à un fournisseur qui crée trop de risque.</li>
           <li><strong>Transférer.</strong> Passer par un contrat, une assurance ou un service spécialisé.</li>
           <li><strong>Accepter.</strong> Documenter le risque, son propriétaire et la date de revue.</li>

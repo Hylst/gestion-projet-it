@@ -13,6 +13,12 @@ export interface Terme {
 
 export const TERMES: Terme[] = [
   {
+    terme: 'Actif',
+    definition: 'Ce qui a de la valeur pour l’organisation ou pour les personnes et qu’un risque peut atteindre\u00A0: données, comptes, service, réputation, preuves.',
+    lien: { to: '/cybersecurite/menaces', label: 'Voir la page Menaces' },
+    alias: ['actif', 'actifs', 'bien'],
+  },
+  {
     terme: 'Adoption',
     definition: 'Usage réel d’un changement par les personnes concernées, au-delà de l’annonce et de la formation.',
     module: 9,
@@ -139,7 +145,7 @@ export const TERMES: Terme[] = [
     terme: 'Contrôle d’accès',
     definition: 'Ensemble des règles qui décident qui peut lire, modifier ou supprimer une ressource, et dans quelles conditions.',
     lien: { to: '/cybersecurite/acces', label: 'Voir la page Accès' },
-    alias: ['controle d’acces', 'gestion des acces'],
+    alias: ['controle d’acces', 'controle acces', 'gestion des acces'],
   },
   {
     terme: 'Coût d’entrée',
@@ -151,7 +157,7 @@ export const TERMES: Terme[] = [
     terme: 'Critère d’acceptation',
     definition: 'Condition observable et testable qui permet de dire si un livrable est accepté.',
     module: 3,
-    alias: ['critere d’acceptation', 'criteres d’acceptation', 'acceptance criteria'],
+    alias: ['critere d’acceptation', 'critere acceptation', 'criteres d’acceptation', 'acceptance criteria'],
   },
   {
     terme: 'Critère de sortie',
@@ -372,6 +378,12 @@ export const TERMES: Terme[] = [
     alias: ['marge d’alea', 'provision pour aleas'],
   },
   {
+    terme: 'Menace',
+    definition: 'Scénario capable d’exploiter une faiblesse et d’atteindre un actif, de façon accidentelle ou intentionnelle.',
+    lien: { to: '/cybersecurite/menaces', label: 'Voir la page Menaces' },
+    alias: ['menace', 'menaces'],
+  },
+  {
     terme: 'Modèle de menace',
     definition: 'Description courte des actifs à protéger, des attaquants plausibles et des chemins d’attaque à surveiller.',
     lien: { to: '/cybersecurite/menaces', label: 'Voir la page Menaces' },
@@ -585,7 +597,7 @@ export const TERMES: Terme[] = [
     terme: 'Surface d’attaque',
     definition: 'Ensemble des points d’entrée par lesquels un attaquant peut tenter d’atteindre un système.',
     lien: { to: '/cybersecurite/menaces', label: 'Voir la page Menaces' },
-    alias: ['surface d’attaque'],
+    alias: ['surface d’attaque', 'surface attaque'],
   },
   {
     terme: 'Waterfall',

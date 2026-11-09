@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { Link } from 'react-router-dom';
+import { Terme } from '../../components/Terme';
 import { IaCallout } from '../IaCallout';
 import { IaLayout } from '../IaLayout';
 import { IA_PAGES } from '../pages';
@@ -32,7 +33,7 @@ export function IaHubPage() {
     >
       <section id="pourquoi">
         <h2>Pourquoi l’IA entre dans le projet</h2>
-        <p>Les assistants génératifs produisent un texte, un tableau ou du code à partir d’une consigne. Les copilotes s’insèrent dans un outil existant et proposent des compléments au fil de la frappe. Les agents enchaînent plusieurs actions, parfois avec des accès à des fichiers ou à des services.</p>
+        <p>Les assistants d’<Terme id="ia-generative">IA générative</Terme> produisent un texte, un tableau ou du code à partir d’une consigne. Les copilotes s’insèrent dans un outil existant et proposent des compléments au fil de la frappe. Les agents enchaînent plusieurs actions, parfois avec des accès à des fichiers ou à des services.</p>
         <p>Le glissement est net&nbsp;: «&nbsp;de l’intention à la première matière&nbsp;». Là où il fallait une page blanche et un temps de rédaction, il faut désormais une consigne, un contexte et une relecture.</p>
         <p>Cette vitesse ne dispense pas de méthode. Elle rend même la méthode plus visible&nbsp;: sans besoin clair, sans critère de vérification et sans responsable, la production générée reste une matière à trier. <strong>Un outil, pas une méthode.</strong></p>
       </section>
@@ -43,6 +44,7 @@ export function IaHubPage() {
 
       <section id="fait-bien">
         <h2>Ce que l’IA fait bien</h2>
+        <p className="section-chapeau">Cinq usages reviennent souvent en projet. Ils déplacent le temps de production vers la vérification, sans supprimer la décision.</p>
         <ul>
           <li>
             <strong>Passer d’une intention à une première matière.</strong> Utile pour dégrossir, à condition de ne pas prendre le brouillon pour une décision.
@@ -64,12 +66,13 @@ export function IaHubPage() {
 
       <section id="ne-fait-pas">
         <h2>Ce qu’elle ne fait pas</h2>
+        <p className="section-chapeau">Les limites ci-dessous ne se corrigent pas avec un meilleur prompt. Elles tiennent à la nature de l’outil et au contexte qu’il ne connaît pas.</p>
         <ul>
           <li>
             <strong>Décider à la place du chef de projet.</strong> L’arbitrage reste humain&nbsp;: l’outil propose, le responsable tranche.
           </li>
           <li>
-            <strong>Garantir un fait, un chiffre ou une source.</strong> Une affirmation convaincante peut être fausse&nbsp;; la vérification se fait à la source.
+            <strong>Garantir un fait, un chiffre ou une source.</strong> Une affirmation convaincante peut être fausse&nbsp;: une <Terme id="hallucination">hallucination</Terme> se vérifie à la source.
           </li>
           <li>
             <strong>Connaître le contexte politique, historique et relationnel.</strong> Ce qui se joue entre les personnes ne figure pas dans le prompt.
@@ -85,12 +88,13 @@ export function IaHubPage() {
 
       <section id="cinq-questions">
         <h2>Cinq questions avant de l’utiliser</h2>
+        <p className="section-chapeau">Les cinq questions se posent avant l’essai. Une réponse floue à l’une d’elles annonce un usage difficile à défendre.</p>
         <ol>
           <li>
             <strong>Quel problème je cherche à résoudre&nbsp;?</strong> Sans problème formulé, l’outil produit une réponse à une question qui n’a pas été posée.
           </li>
           <li>
-            <strong>Quelles données puis-je donner&nbsp;?</strong> La question porte sur la nature des données, leur origine et le cadre qui autorise leur usage.
+            <strong>Quelles données puis-je donner&nbsp;?</strong> La question porte sur la nature des données, leur origine et le cadre qui autorise leur usage. Une <Terme id="donnee-personnelle">donnée personnelle</Terme> ne se confie pas sans base ni durée.
           </li>
           <li>
             <strong>Quel niveau de vérification est nécessaire&nbsp;?</strong> Un brouillon interne et une décision client n’exigent pas le même contrôle.
@@ -106,6 +110,7 @@ export function IaHubPage() {
 
       <section id="carte-usages">
         <h2>Carte des usages</h2>
+        <p className="section-chapeau">Quatre pages prolongent ce panorama, de la préparation des tâches à la gouvernance des usages.</p>
         <ul className="ia-carte">
           {IA_PAGES.slice(1).map((page) => (
             <li className="module-card" key={page.slug}>

@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { afterEach, describe, expect, it } from 'vitest';
-import { cleanup, render, screen } from '@testing-library/react';
+import { cleanup, render, screen, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import type { ReactElement } from 'react';
 import { CYBER_PAGES, type CyberPageMeta } from '../src/cyber/pages';
@@ -41,6 +41,13 @@ describe('registre cyber', () => {
     for (const p of CYBER_PAGES) {
       expect(p.path.startsWith('/cybersecurite')).toBe(true);
       expect(p.description.length).toBeLessThan(160);
+      expect(p.pourquoi.length).toBeGreaterThan(80);
+      expect(p.objectifs).toHaveLength(3);
+      for (const objectif of p.objectifs) expect(objectif.length).toBeGreaterThan(30);
+      expect(p.filRouge.length).toBeGreaterThan(40);
+      expect(p.temps.lecture).toMatch(/^\d+\u00A0min$/);
+      expect(p.temps.pratique).toMatch(/^\d+\u00A0min$/);
+      expect(p.temps.activite.length).toBeGreaterThan(5);
       expect(p.sections.length).toBeGreaterThanOrEqual(5);
       expect(new Set(p.sections.map((s) => s.id)).size).toBe(p.sections.length);
     }
@@ -88,6 +95,14 @@ describe('gabarit cyber', () => {
     }
     expect(screen.getByRole('heading', { level: 2, name: 'À retenir' })).not.toBeNull();
     expect(screen.getByRole('heading', { level: 2, name: 'Checklist' })).not.toBeNull();
+    const intro = container.querySelector('.parcours-intro');
+    expect(intro).not.toBeNull();
+    const bloc = within(intro as HTMLElement);
+    expect(bloc.getByRole('heading', { level: 2, name: /Pourquoi cette page/ })).not.toBeNull();
+    for (const objectif of meta.objectifs) expect(bloc.getByText(objectif)).not.toBeNull();
+    expect(bloc.getByText(meta.filRouge)).not.toBeNull();
+    expect(bloc.getByText(/Temps estimé/)).not.toBeNull();
+    expect(container.querySelectorAll('.terme-brut')).toHaveLength(0);
     expect(screen.getByText('Veille arrêtée en octobre 2026.')).not.toBeNull();
     expect(screen.getByText(/Usage\s*:\s*Trouver les guides d’hygiène et de réponse à incident\./)).not.toBeNull();
     expect(screen.getByText(/Limite\s*:\s*Pas de diagnostic d’infrastructure\./)).not.toBeNull();
@@ -119,7 +134,11 @@ describe('hub cyber', () => {
     rendre(<CyberHubPage />);
     expect(document.querySelectorAll('#cinq-questions li')).toHaveLength(5);
     expect(screen.getByRole('link', { name: 'Menaces et modèle de menace' })).not.toBeNull();
-    expect(screen.getByText('Sur Les Amis du Square, le site stocke des contacts d’adhérents. Le projet identifie les données, les comptes et les sauvegardes avant l’ouverture.')).not.toBeNull();
+    const intro = document.querySelector('.parcours-intro');
+    expect(intro).not.toBeNull();
+    expect(within(intro as HTMLElement).getByText('Sur Les Amis du Square, le site stocke des contacts d’adhérents. Le projet identifie les données, les comptes et les sauvegardes avant l’ouverture.')).not.toBeNull();
+    expect(document.querySelectorAll('.section-chapeau')).toHaveLength(4);
+    expect(document.querySelectorAll('.terme-brut')).toHaveLength(0);
   });
 });
 
@@ -132,6 +151,7 @@ describe('menaces cyber', () => {
     expect(screen.getByText(/Un modèle de menace n’est pas une garantie/)).not.toBeNull();
     expect(screen.getByRole('heading', { level: 3, name: /Labo\s*:\s*associer menaces et parades/ })).not.toBeNull();
     expect(screen.queryByText(/\+5 XP/)).toBeNull();
+    expect(document.querySelectorAll('.terme-brut')).toHaveLength(0);
   });
 });
 
@@ -144,6 +164,7 @@ describe('acces cyber', () => {
     expect(screen.getAllByText('Un secret retiré du code doit aussi être révoqué.').length).toBeGreaterThanOrEqual(1);
     expect(screen.getByRole('heading', { level: 3, name: /Labo\s*:\s*attribuer le droit minimal/ })).not.toBeNull();
     expect(screen.queryByText(/\+5 XP/)).toBeNull();
+    expect(document.querySelectorAll('.terme-brut')).toHaveLength(0);
   });
 });
 
@@ -154,6 +175,7 @@ describe('dependances cyber', () => {
     expect(table.querySelectorAll('tbody tr')).toHaveLength(5);
     expect(screen.getByRole('heading', { level: 2, name: 'Chaîne de build et provenance' })).not.toBeNull();
     expect(screen.getByText(/Le test de la panne/)).not.toBeNull();
+    expect(document.querySelectorAll('.terme-brut')).toHaveLength(0);
   });
 });
 
@@ -164,6 +186,7 @@ describe('donnees cyber', () => {
     expect(table.querySelectorAll('tbody tr')).toHaveLength(5);
     expect(screen.getByRole('heading', { level: 2, name: 'AI Act' })).not.toBeNull();
     expect(screen.getByText(/Ce contenu n’est pas un conseil juridique/)).not.toBeNull();
+    expect(document.querySelectorAll('.terme-brut')).toHaveLength(0);
   });
 });
 
@@ -176,6 +199,7 @@ describe('incident cyber', () => {
     expect(screen.getAllByText('Une sauvegarde non testée n’est pas une sauvegarde.').length).toBeGreaterThanOrEqual(1);
     expect(screen.getByRole('heading', { level: 3, name: /Labo\s*:\s*ordonner la réponse à incident/ })).not.toBeNull();
     expect(screen.queryByText(/\+5 XP/)).toBeNull();
+    expect(document.querySelectorAll('.terme-brut')).toHaveLength(0);
   });
 });
 

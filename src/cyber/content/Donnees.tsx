@@ -33,7 +33,7 @@ export function CyberDonneesPage() {
     >
       <section id="classer">
         <h2>Classer les données</h2>
-        <p>Classer consiste à nommer le niveau de sensibilité et les règles qui vont avec. Un document public et une liste de contacts ne se stockent pas, ne se partagent pas et ne se conservent pas de la même façon.</p>
+        <p>Classer consiste à nommer le niveau de sensibilité et les règles qui vont avec. Une <Terme id="donnee-personnelle">donnée personnelle</Terme> ne se stocke, ne se partage et ne se conserve pas comme un document public.</p>
         <div className="cyber-table-wrap">
           <table>
             <caption>Classification des données</caption>
@@ -53,7 +53,7 @@ export function CyberDonneesPage() {
 
       <section id="rgpd">
         <h2>Principes RGPD</h2>
-        <p><Terme id="rgpd">Le RGPD</Terme> repose sur quelques principes simples à retenir&nbsp;: finalité, minimisation, conservation limitée, exactitude, sécurité et responsabilité. Chaque principe se traduit par une décision de projet.</p>
+        <p><Terme id="rgpd">Le RGPD</Terme> repose sur quelques principes simples à retenir&nbsp;: finalité, minimisation, conservation limitée, exactitude, sécurité et responsabilité. Chaque principe se traduit par une décision de projet sur les données personnelles.</p>
         <ul>
           <li>Finalité&nbsp;: pourquoi la donnée est collectée et quel usage est prévu.</li>
           <li>Minimisation&nbsp;: seulement les données utiles, pas celles qui pourraient servir un jour.</li>
@@ -78,13 +78,13 @@ export function CyberDonneesPage() {
 
       <section id="cycle">
         <h2>Cycle de vie</h2>
-        <p>Une donnée se collecte, se stocke, se partage, s’archive puis s’efface. Chaque étape a un responsable et un contrôle. Le chiffrement protège le transport et le stockage, mais ne remplace pas une limitation d’accès.</p>
-        <p>Les sauvegardes contiennent souvent les mêmes données que la production. Elles suivent la même classification et la même durée de conservation.</p>
+        <p>Une donnée se collecte, se stocke, se partage, s’archive puis s’efface. Chaque étape a un responsable et un contrôle. Le <Terme id="chiffrement">chiffrement</Terme> protège le transport et le stockage, mais ne remplace pas une limitation d’accès.</p>
+        <p>Les <Terme id="sauvegarde">sauvegardes</Terme> contiennent souvent les mêmes données que la production. Elles suivent la même classification et la même durée de conservation.</p>
       </section>
 
       <section id="droits">
         <h2>Droits et incidents</h2>
-        <p>Une demande d’accès, de rectification ou d’effacement se traite dans un délai connu, avec une trace. En cas d’incident, la notification ne se décide pas seul&nbsp;: elle associe le référent données, le juriste et la direction.</p>
+        <p>Une demande d’accès, de rectification ou d’effacement se traite dans un délai connu, avec une trace. En cas d’<Terme id="incident-de-securite">incident de sécurité</Terme>, la notification ne se décide pas seul&nbsp;: elle associe le référent données, le juriste et la direction.</p>
         <p>Le registre des traitements et le journal des incidents permettent de répondre sans reconstituer l’histoire de mémoire.</p>
         <CyberCallout titre="Pas un conseil juridique" variante="limite">
           <p>Ce contenu n’est pas un conseil juridique. Pour un cas réel, consulter un juriste ou le référent données.</p>

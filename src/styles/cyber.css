@@ -6,10 +6,12 @@
 .cyber-hero { margin-bottom: 1.5rem; }
 .cyber-hero .kicker { margin-bottom: 0.4rem; }
 .cyber-hero h1 { margin-top: 0; }
-.cyber-sommaire { display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; margin: 1rem 0 1.5rem; padding: 0.7rem 0.9rem; border: 1px solid var(--c-line); border-radius: var(--radius); background: var(--c-surface); font-size: 0.92rem; }
+.cyber-sommaire { position: sticky; top: 0.55rem; z-index: 30; display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; margin: 1rem 0 1.5rem; padding: 0.7rem 0.9rem; border: 1px solid var(--c-line); border-radius: 999px; background: rgba(255, 253, 248, 0.92); box-shadow: var(--shadow-sm); backdrop-filter: blur(12px); font-size: 0.92rem; overflow-x: auto; scrollbar-width: thin; }
+@media (min-width: 70rem) { .cyber-sommaire { top: 8.7rem; } }
 .cyber-sommaire a { color: var(--c-main-ink); }
 .cyber-page h2 { margin-top: 1.8rem; }
-.cyber-page section { scroll-margin-top: 5rem; }
+.cyber-page section[id] { scroll-margin-top: 11rem; }
+@media (max-width: 60rem) { .cyber-page section[id] { scroll-margin-top: 5.5rem; } }
 .cyber-table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--c-line); border-radius: var(--radius); }
 .cyber-table-wrap table { width: 100%; min-width: 38rem; border-collapse: collapse; background: var(--c-surface); font-size: 0.95rem; }
 .cyber-table-wrap caption { caption-side: top; text-align: left; padding: 0.8rem 0.9rem; font-weight: 700; }

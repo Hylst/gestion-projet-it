@@ -2,10 +2,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { describe, it, expect } from 'vitest';
-import { buildIndex, isCyberHit, isIaHit, isModuleHit, isPageHit, searchIndex } from '../src/lib/search';
+import { buildIndex, isCyberHit, isIaHit, isModuleHit, isPageHit, isTermeHit, searchIndex } from '../src/lib/search';
 import { MODULES } from '../src/modules/index';
 import { IA_PAGES } from '../src/ia/pages';
 import { CYBER_PAGES } from '../src/cyber/pages';
+import { TERMES, slugTerme } from '../src/lib/glossaire';
 
 describe('search', () => {
   const index = buildIndex();
@@ -21,8 +22,8 @@ describe('search', () => {
     const hits = searchIndex(index, 'KANBAN');
     expect(hits.some((h) => isModuleHit(h) && h.moduleNum === 4)).toBe(true);
     const hits2 = searchIndex(index, 'eisenhower');
-    expect(hits2.length).toBeGreaterThan(0);
-    expect(hits2.every((h) => isModuleHit(h) && h.moduleNum === 6)).toBe(true);
+    expect(hits2.some((h) => isModuleHit(h) && h.moduleNum === 6)).toBe(true);
+    expect(hits2.some((h) => isTermeHit(h) && h.terme === 'Eisenhower')).toBe(true);
   });
 
   it('trouve le module 6 avec une requête sans accent', () => {
@@ -67,9 +68,9 @@ describe('search', () => {
 
   it('trouve un usage IA par un mot de son corpus', () => {
     const hits = searchIndex(index, 'hallucination');
-    expect(hits.length).toBeGreaterThan(0);
-    expect(hits.every(isIaHit)).toBe(true);
+    expect(hits.some(isIaHit)).toBe(true);
     expect(hits.some((h) => h.path === '/ia/gouvernance')).toBe(true);
+    expect(hits.some((h) => isTermeHit(h) && h.terme === 'Hallucination')).toBe(true);
   });
 
   it('tolère quelques synonymes métier', () => {
@@ -124,5 +125,39 @@ describe('search', () => {
     expect(transparence.find(isPageHit)?.path).toBe('/transparence-ia');
     const accessibilite = searchIndex(index, 'wcag');
     expect(accessibilite.find(isPageHit)?.path).toBe('/accessibilite');
+  });
+
+  it('indexe les termes du glossaire avec une ancre stable et unique', () => {
+    const termes = index.filter(isTermeHit);
+    expect(termes).toHaveLength(TERMES.length);
+    expect(new Set(termes.map((h) => h.ancre)).size).toBe(TERMES.length);
+    expect(termes.every((h) => h.path === '/glossaire')).toBe(true);
+    for (const t of TERMES) {
+      expect(termes.some((h) => h.ancre === slugTerme(t) && h.terme === t.terme), t.terme).toBe(true);
+    }
+  });
+
+  it('place un terme exactement demandé en tête des résultats', () => {
+    for (const requete of ['WBS', 'RAG', 'phishing', 'MFA']) {
+      const premier = searchIndex(index, requete)[0];
+      expect(premier, requete).toBeDefined();
+      expect(isTermeHit(premier!), requete).toBe(true);
+    }
+    const wbs = searchIndex(index, 'WBS')[0];
+    expect(isTermeHit(wbs!) && wbs!.ancre).toBe('wbs');
+    const mfa = searchIndex(index, 'MFA')[0];
+    expect(isTermeHit(mfa!) && mfa!.ancre).toBe('mfa');
+  });
+
+  it('retrouve un terme par son sigle développé ou un alias', () => {
+    for (const requete of ['Work Breakdown Structure', 'organigramme des taches', 'Retrieval-Augmented Generation']) {
+      const hits = searchIndex(index, requete);
+      expect(hits.some(isTermeHit), requete).toBe(true);
+    }
+  });
+
+  it('propose aussi la page glossaire dans la recherche', () => {
+    const hits = searchIndex(index, 'glossaire');
+    expect(hits.find(isPageHit)?.path).toBe('/glossaire');
   });
 });

@@ -396,6 +396,14 @@ export const TERMES: Terme[] = [
     alias: ['non-regression', 'test de non-regression'],
   },
   {
+    terme: 'OTP',
+    sigle: 'OTP',
+    developpe: 'Organigramme des Tâches du Projet',
+    definition: 'Équivalent français normalisé du WBS (Work Breakdown Structure)\u00A0: décomposition hiérarchique du projet en lots et livrables.',
+    module: 1,
+    alias: ['otp', 'organigramme des taches', 'organigramme des taches du projet', 'organigramme technique de produit'],
+  },
+  {
     terme: 'Partie prenante',
     definition: 'Personne ou groupe qui influence le projet ou qui est concerné par lui.',
     module: 7,
@@ -536,6 +544,14 @@ export const TERMES: Terme[] = [
     alias: ['scrum'],
   },
   {
+    terme: 'SDP',
+    sigle: 'SDP',
+    developpe: 'Structure de Découpage du Projet',
+    definition: 'Traduction française courante du WBS (Work Breakdown Structure)\u00A0: arborescence des livrables et des lots de travail.',
+    module: 1,
+    alias: ['sdp', 'structure de decoupage', 'structure de decoupage du projet'],
+  },
+  {
     terme: 'Secret',
     definition: 'Information d’authentification qui ne doit pas être versionnée ni affichée, et qui se stocke dans un coffre adapté.',
     module: 5,
@@ -581,9 +597,9 @@ export const TERMES: Terme[] = [
     terme: 'WBS',
     sigle: 'WBS',
     developpe: 'Work Breakdown Structure',
-    definition: 'Découpage hiérarchique du travail en lots et livrables, jusqu’à un niveau d’action utile.',
+    definition: 'Work Breakdown Structure, ou Organigramme des Tâches du Projet (OTP / SDP en français)\u00A0: découpage hiérarchique du travail en lots et livrables.',
     module: 1,
-    alias: ['wbs', 'decoupage wbs'],
+    alias: ['wbs', 'decoupage wbs', 'otp', 'sdp', 'organigramme des taches', 'structure de decoupage du projet', 'work breakdown structure'],
   },
   {
     terme: 'WIP',
@@ -610,6 +626,16 @@ const normaliser = (s: string): string =>
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();
+
+/** Transforme un libellé en ancre stable, sans accents ni ponctuation. */
+export function slugTexte(texte: string): string {
+  return normaliser(texte).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+/** Ancre d'un terme : son sigle quand il existe, sinon son libellé. */
+export function slugTerme(terme: Pick<Terme, 'terme' | 'sigle'>): string {
+  return slugTexte(terme.sigle ?? terme.terme);
+}
 
 export function trouverTerme(idOuNom: string): Terme | undefined {
   if (!idOuNom) return undefined;

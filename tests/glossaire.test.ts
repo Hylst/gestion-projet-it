@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { describe, it, expect } from 'vitest';
-import { TERMES, trouverTerme } from '../src/lib/glossaire';
+import { TERMES, slugTexte, slugTerme, trouverTerme } from '../src/lib/glossaire';
 
 describe('glossaire', () => {
   it('contient au moins 25 termes', () => {
@@ -136,6 +136,17 @@ describe('glossaire', () => {
     expect(wbs).toBeDefined();
     expect(wbs?.sigle).toBe('WBS');
     expect(wbs?.developpe).toBe('Work Breakdown Structure');
+    expect(wbs?.definition).toContain('OTP');
+
+    const otp = trouverTerme('OTP');
+    expect(otp).toBeDefined();
+    expect(otp?.sigle).toBe('OTP');
+    expect(otp?.developpe).toContain('Organigramme des Tâches');
+
+    const sdp = trouverTerme('SDP');
+    expect(sdp).toBeDefined();
+    expect(sdp?.sigle).toBe('SDP');
+    expect(sdp?.developpe).toContain('Structure de Découpage');
 
     const pert = trouverTerme('PERT');
     expect(pert).toBeDefined();
@@ -162,5 +173,17 @@ describe('glossaire', () => {
     expect(trouverTerme('repository')?.terme).toBe('Dépôt');
     expect(trouverTerme('mfa')?.terme).toBe('Authentification multifacteur');
     expect(trouverTerme('terme-inconnu')).toBeUndefined();
+  });
+
+  it('slugTerme produit une ancre stable, sans accent et sans ponctuation', () => {
+    expect(slugTexte('Arbre d’opportunités')).toBe('arbre-d-opportunites');
+    expect(slugTerme(trouverTerme('WBS')!)).toBe('wbs');
+    expect(slugTerme(trouverTerme('MFA')!)).toBe('mfa');
+    expect(slugTerme(trouverTerme('Chaîne CI')!)).toBe('ci');
+  });
+
+  it('les ancres des termes sont uniques', () => {
+    const ancres = TERMES.map((t) => slugTerme(t));
+    expect(new Set(ancres).size).toBe(ancres.length);
   });
 });

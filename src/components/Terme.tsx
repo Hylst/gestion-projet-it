@@ -3,7 +3,7 @@
 
 import React, { useEffect, useId, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { trouverTerme } from '../lib/glossaire';
+import { slugTerme, trouverTerme } from '../lib/glossaire';
 import '../styles/terme.css';
 
 export interface TermeProps {
@@ -11,14 +11,6 @@ export interface TermeProps {
   terme?: string;
   children?: React.ReactNode;
 }
-
-const slugifier = (s: string): string =>
-  s
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
 
 export function Terme({ id, terme, children }: TermeProps) {
   const [ouvert, setOuvert] = useState(false);
@@ -60,7 +52,7 @@ export function Terme({ id, terme, children }: TermeProps) {
     return <span className="terme-brut">{children ?? terme ?? id}</span>;
   }
 
-  const ancre = slugifier(donnees.sigle ?? donnees.terme);
+  const ancre = slugTerme(donnees);
   const cibleGlossaire = `/glossaire#${ancre}`;
 
   return (

@@ -285,6 +285,17 @@ test('glossaire : definitions et navigation', async ({ page }) => {
   expect(await page.locator('dt').count()).toBeGreaterThanOrEqual(25);
 });
 
+test('recherche globale : un terme du glossaire mene a sa definition', async ({ page }) => {
+  await page.goto(`${base}/module-1`);
+  await fermerOnboarding(page);
+  await page.getByLabel('Rechercher dans le cours').fill('wbs');
+  const resultat = page.getByRole('button', { name: /WBS Glossaire/ }).first();
+  await expect(resultat).toBeVisible();
+  await resultat.click();
+  await expect(page).toHaveURL(/\/glossaire$/);
+  await expect(page.locator('dt#wbs')).toBeInViewport();
+});
+
 test('impression : la fiche reflexe reste visible et le reste est masque', async ({ page }) => {
   await page.goto(`${base}/module-1`);
   await page.emulateMedia({ media: 'print' });
@@ -464,4 +475,23 @@ test('pedagogie : infobulle Terme, ModuleIntro et continuite entre modules', asy
   await lienSuivant.click();
   await expect(page).toHaveURL(/\/module-2$/);
   await expect(page.getByRole('heading', { level: 1, name: /Planifier\s*:\s*PERT et GANTT/i })).toBeVisible();
+});
+
+test('navigation : restauration du defilement en haut de page lors du changement de route', async ({ page }) => {
+  await page.goto(`${base}/`);
+  await fermerOnboarding(page);
+
+  // Defiler vers le bas sur la page d'accueil
+  await page.evaluate(() => window.scrollTo(0, 1000));
+  const scrollInitial = await page.evaluate(() => window.scrollY);
+  expect(scrollInitial).toBeGreaterThan(500);
+
+  // Cliquer sur le lien du module 1 depuis la grille
+  await page.locator('.module-card .titre', { hasText: 'Cadrer et découper' }).click();
+  await expect(page).toHaveURL(/\/module-1$/);
+
+  // Le defilement doit etre retabli tout en haut de la page
+  await expect.poll(async () => page.evaluate(() => window.scrollY)).toBe(0);
+  await expect(page.locator('#contenu h1')).toBeInViewport();
+  await expect(page.locator('.module-intro')).toBeInViewport();
 });

@@ -3,11 +3,8 @@
 
 import { Link } from 'react-router-dom';
 import { SeoHead } from '../components/SeoHead';
-import { TERMES, type Terme } from '../lib/glossaire';
+import { TERMES, slugTexte, type Terme } from '../lib/glossaire';
 import { normaliser } from '../lib/search';
-
-const slug = (s: string): string =>
-  normaliser(s).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 
 const groupes = new Map<string, Terme[]>();
 for (const t of [...TERMES].sort((a, b) => a.terme.localeCompare(b.terme, 'fr'))) {
@@ -36,9 +33,9 @@ export default function Glossaire() {
           <dl className="glossaire">
             {(groupes.get(l) ?? []).map((t) => (
               <div key={t.terme} className="glossaire-item">
-                <dt id={slug(t.terme)}>
-                  {t.sigle && slug(t.sigle) !== slug(t.terme) && (
-                    <span id={slug(t.sigle)} className="sr-anchor" />
+                <dt id={slugTexte(t.terme)}>
+                  {t.sigle && slugTexte(t.sigle) !== slugTexte(t.terme) && (
+                    <span id={slugTexte(t.sigle)} className="sr-anchor" />
                   )}
                   {t.terme}
                 </dt>

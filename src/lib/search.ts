@@ -4,6 +4,7 @@
 import { MODULES } from '../modules/index';
 import { IA_PAGES } from '../ia/pages';
 import { CYBER_PAGES } from '../cyber/pages';
+import { TERMES, slugTerme } from './glossaire';
 
 interface SearchHitBase {
   path: string;
@@ -34,7 +35,14 @@ export interface PageSearchHit extends SearchHitBase {
   pageTitre: string;
 }
 
-export type SearchHit = ModuleSearchHit | IaSearchHit | CyberSearchHit | PageSearchHit;
+export interface TermeSearchHit extends SearchHitBase {
+  type: 'terme';
+  pageTitre: 'Glossaire';
+  terme: string;
+  cibles: readonly string[];
+}
+
+export type SearchHit = ModuleSearchHit | IaSearchHit | CyberSearchHit | PageSearchHit | TermeSearchHit;
 
 export function isModuleHit(hit: SearchHit): hit is ModuleSearchHit {
   return hit.type === 'module';
@@ -50,6 +58,10 @@ export function isCyberHit(hit: SearchHit): hit is CyberSearchHit {
 
 export function isPageHit(hit: SearchHit): hit is PageSearchHit {
   return hit.type === 'page';
+}
+
+export function isTermeHit(hit: SearchHit): hit is TermeSearchHit {
+  return hit.type === 'terme';
 }
 
 const SECTIONS: Array<{ section: string; ancre: string }> = [
@@ -126,6 +138,31 @@ export function buildIndex(): SearchHit[] {
       });
     }
   }
+  for (const t of TERMES) {
+    const cibles = [t.terme, t.sigle, t.developpe, ...(t.alias ?? [])].filter(
+      (v): v is string => Boolean(v),
+    );
+    out.push({
+      type: 'terme',
+      path: '/glossaire',
+      pageTitre: 'Glossaire',
+      terme: t.terme,
+      cibles,
+      section: 'Définition',
+      ancre: slugTerme(t),
+      label: `Glossaire\u00A0: ${t.terme}`,
+      needles: normaliser(`${cibles.join(' ')} ${t.definition}`),
+    });
+  }
+  out.push({
+    type: 'page',
+    path: '/glossaire',
+    pageTitre: 'Glossaire',
+    section: 'Définitions',
+    ancre: '',
+    label: 'Glossaire',
+    needles: normaliser('glossaire definitions termes vocabulaire sigles acronymes'),
+  });
   out.push({
     type: 'page',
     path: '/ressources',
@@ -192,8 +229,19 @@ export function buildIndex(): SearchHit[] {
   return out;
 }
 
+function rangRecherche(hit: SearchHit, qNormalise: string): number {
+  if (hit.type !== 'terme') return 2;
+  const cibles = hit.cibles.map(normaliser);
+  if (cibles.includes(qNormalise)) return 0;
+  if (qNormalise.length >= 2 && cibles.some((cible) => cible.startsWith(qNormalise))) return 1;
+  return 3;
+}
+
 export function searchIndex(index: SearchHit[], q: string): SearchHit[] {
   const groupes = groupesRecherche(q.trim());
   if (groupes.length === 0) return [];
-  return index.filter((h) => groupes.every((groupe) => groupe.some((mot) => h.needles.includes(mot))));
+  const qNormalise = normaliser(q.trim()).replace(/\s+/g, ' ').trim();
+  return index
+    .filter((h) => groupes.every((groupe) => groupe.some((mot) => h.needles.includes(mot))))
+    .sort((a, b) => rangRecherche(a, qNormalise) - rangRecherche(b, qNormalise));
 }

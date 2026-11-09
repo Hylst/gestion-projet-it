@@ -1,6 +1,6 @@
 # Changelog
 
-## [Non publié]
+## [1.8.0] - 2026-11-09
 
 ### Recherche, parcours et liens pédagogiques
 
@@ -10,7 +10,9 @@
 - Dossier projet : chaque étape porte un `moduleNum` et affiche un lien « Revoir le module N : titre » vers le module qui la traite.
 - Glossaire à 98 termes, avec les entrées `Actif` et `Menace` et les alias `controle acces`, `critere acceptation` et `surface attaque`.
 - Vérifications : 55 fichiers, 356 tests, lint, typecheck, 79 liens relatifs, 31 routes, build de production et smoke Playwright 21/21.
-- Publication : aucune mise en ligne ni copie Docker pour ce cycle à la date de cette entrée. La prochaine version, prévue en `1.8.0`, devra incrémenter le service worker et consigner les contrôles de production.
+- Publication : version `1.8.0` et service worker v16, pour purger les caches du build précédent.
+- Build : `index-YVC6Jql5.js` (270 517 octets, SHA-256 `e70e9cc0…`), `index-D5bZgoPJ.css` (52 055 octets, SHA-256 `5db5cbb5…`), `index.html` (2 713 octets, SHA-256 `9322065b…`), `sw.js` v16 (1 443 octets, SHA-256 `e1dc26a3…`). 56 fichiers vérifiés, sitemap à 31 URL.
+- Lighthouse local avant publication : accueil 99/100/100/100, `/module-1` 99/100/100/100.
 
 ## [1.7.0] - 2026-11-09
 

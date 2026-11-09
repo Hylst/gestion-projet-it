@@ -133,7 +133,7 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 ## 4. Décisions ouvertes
 
 1. **Ordre de fusion** : #26, #27, #28 et #32 fusionnées sur main (4156790), puis PR d’audit #33 (76cf64a), PR de publication #34 (4514f93), PR #41 (98ac4c9), PR #42 (3876d28) et PR #43 (3353f22).
-2. **Version** : `1.7.0` publiée le 9 novembre 2026, avec refonte pédagogique, infobulles accessibles et service worker v15. Les lots #41 à #43 sont livrés sur `main` mais ne sont pas publiés ; la prochaine version prévue est `1.8.0`, avec service worker incrémenté et contrôles de production.
+2. **Version** : `1.8.0` préparée le 9 novembre 2026 avec les lots #41 à #44, le service worker v16, un build de 56 fichiers et un smoke 21/21. La copie Docker et les contrôles de production restent à effectuer avant de clore la publication.
 3. **JSON-LD** : la CSP `script-src 'self'` interdit le script inline.
    Privilégier les microdonnées HTML ou une politique de hachage explicite.
 4. **Références Google** : conserver Gmail, Vertex AI et Search Console
@@ -180,5 +180,6 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 - [x] Introductions pédagogiques sur les 5 pages IA et les 6 pages cyber, sommaire sticky et reflow vérifié à 320 px.
 - [x] Dossier projet : lien de révision vers le module associé à chaque étape.
 - [x] Vérifications du cycle pédagogique : 55 fichiers, 356 tests, lint, typecheck, 79 liens, 31 routes, build et smoke 21/21.
+- [x] Release 1.8.0 préparée : version et service worker v16, build de 56 fichiers, smoke Playwright 21/21, Lighthouse local 99/100/100/100 sur l’accueil et `/module-1`.
 - [ ] Publication 1.8.0 : copie Docker, service worker incrémenté, contrôles de production et Lighthouse.
 - [ ] Soumission Search Console confirmée par Geoffroy.

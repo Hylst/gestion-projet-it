@@ -65,7 +65,7 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 31
     expect(res.status(), a).toBe(200);
   }
   const swBody = await (await page.request.get(`${base}/sw.js`)).text();
-  expect(swBody).toContain("const version = 'gestion-projet-it-v16';");
+  expect(swBody).toContain("const version = 'gestion-projet-it-v17';");
 
   expect(externals).toEqual([]);
   expect(failures).toEqual([]);
@@ -399,7 +399,7 @@ test('section IA : navigation, recherche, glossaire et impression', async ({ pag
 test('parcours cyber : navigation, recherche, glossaire et impression', async ({ page }) => {
   await page.goto(`${base}/`);
   await fermerOnboarding(page);
-  await page.getByRole('link', { name: 'Sécurité', exact: true }).click();
+  await page.getByRole('link', { name: 'Cybersécurité', exact: true }).click();
   await expect(page).toHaveURL(/\/cybersecurite$/);
   await expect(page.getByRole('heading', { level: 1, name: 'Cybersécurité et gestion de projet' })).toBeVisible();
 
@@ -509,4 +509,94 @@ test('navigation : restauration du defilement en haut de page lors du changement
   await expect.poll(async () => page.evaluate(() => window.scrollY)).toBe(0);
   await expect(page.locator('#contenu h1')).toBeInViewport();
   await expect(page.locator('.module-intro')).toBeInViewport();
+});
+
+test('menu : 17 entrées sur une ligne et défilement horizontal', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${base}/`);
+  await fermerOnboarding(page);
+
+  const nav = page.getByRole('navigation', { name: 'Navigation principale' });
+  await expect(nav.getByRole('link')).toHaveCount(17);
+
+  const mesures = await nav.evaluate((el) => {
+    const liste = el.querySelector('ul') as HTMLElement;
+    const premier = el.querySelector('a') as HTMLElement;
+    return {
+      wrap: getComputedStyle(liste).flexWrap,
+      hauteurListe: liste.getBoundingClientRect().height,
+      hauteurLien: premier.getBoundingClientRect().height,
+      scrollWidth: el.scrollWidth,
+      clientWidth: el.clientWidth,
+    };
+  });
+
+  expect(mesures.wrap).toBe('nowrap');
+  expect(mesures.hauteurListe).toBeLessThan(mesures.hauteurLien * 1.8);
+  expect(mesures.scrollWidth).toBeGreaterThan(mesures.clientWidth);
+
+  await page.setViewportSize({ width: 320, height: 640 });
+  await page.goto(`${base}/`);
+  await fermerOnboarding(page);
+
+  const largeurDocument = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(largeurDocument).toBeLessThanOrEqual(321);
+
+  const mesuresEtroites = await nav.evaluate((el) => ({
+    scrollWidth: el.scrollWidth,
+    clientWidth: el.clientWidth,
+  }));
+  expect(mesuresEtroites.scrollWidth).toBeGreaterThan(mesuresEtroites.clientWidth);
+});
+
+test('menu : le header sticky ne masque pas les ancres', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${base}/module-1`);
+  await fermerOnboarding(page);
+
+  await page.locator('nav.sommaire a[href="#quiz"]').click();
+
+  const positions = await page.evaluate(() => {
+    const header = document.querySelector('header.site-header') as HTMLElement;
+    const cible = document.querySelector('#quiz') as HTMLElement;
+    return {
+      basHeader: header.getBoundingClientRect().bottom,
+      hautCible: cible.getBoundingClientRect().top,
+    };
+  });
+
+  expect(positions.hautCible).toBeGreaterThanOrEqual(positions.basHeader - 2);
+});
+
+test('menu : lien actif visible sur route profonde, clavier et mouvement réduit', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${base}/module-9`);
+  await fermerOnboarding(page);
+
+  const nav = page.getByRole('navigation', { name: 'Navigation principale' });
+  const module9 = nav.getByRole('link', { name: 'Module 9 · Changement' });
+  await expect(module9).toHaveAttribute('aria-current', 'page');
+  await expect(module9).toBeInViewport();
+  expect(await nav.evaluate((el) => el.scrollLeft)).toBeGreaterThan(0);
+
+  await page.goto(`${base}/ia/gouvernance`);
+  await fermerOnboarding(page);
+  const ia = nav.getByRole('link', { name: 'IA' });
+  await expect(ia).toHaveAttribute('aria-current', 'true');
+  await expect(ia).toBeInViewport();
+
+  await page.goto(`${base}/cybersecurite/incident`);
+  await fermerOnboarding(page);
+  const cyber = nav.getByRole('link', { name: 'Cybersécurité' });
+  await expect(cyber).toHaveAttribute('aria-current', 'true');
+  await expect(cyber).toBeInViewport();
+
+  const apropos = nav.getByRole('link', { name: 'À propos' });
+  await apropos.focus();
+  await expect(apropos).toBeInViewport();
+
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto(`${base}/module-9`);
+  await fermerOnboarding(page);
+  await expect(module9).toBeInViewport();
 });

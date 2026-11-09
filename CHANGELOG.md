@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.9.0] - 2026-11-09
+
+### Menu des 17 sections
+
+- Navigation principale portée à 17 entrées : 9 modules, dossier projet, IA, cybersécurité, fiches outils, glossaire, ressources et à propos.
+- Ruban horizontal sur une ligne, défilement tactile et clavier, lien actif ramené dans la vue, dégradés de bord.
+- Header à deux niveaux : marque, recherche et progression au-dessus, ruban de section en dessous.
+- Aucune route, aucune donnée locale et aucun appel réseau ajoutés.
+- Vérifications : 55 fichiers, 361 tests, lint, typecheck, 81 liens relatifs, 31 routes, build de production et smoke Playwright 24/24.
+- Publication : version `1.9.0` et service worker v17, pour purger les caches du build précédent.
+- Build : `index-Cr_jAf6d.js` (349 156 octets, SHA-256 `159cd758…`), `index-B9CzcIfb.css` (52 443 octets, SHA-256 `389880f6…`), `index.html` (2 713 octets, SHA-256 `ef1a1bc8…`), `sw.js` v17 (1 443 octets, SHA-256 `d2ebe356…`).
+- Lighthouse local avant publication : accueil 100/100/100/100, `/module-1` 98/100/100/100.
+
 ## [1.8.0] - 2026-11-09
 
 ### Recherche, parcours et liens pédagogiques

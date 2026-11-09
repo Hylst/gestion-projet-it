@@ -107,7 +107,7 @@ export const SchemaCircuitDemande = () => {
 
       <svg
         className="schema-svg"
-        viewBox="0 0 640 300"
+        viewBox="0 0 640 240"
         role="group"
         aria-labelledby={`${uid}-svg-titre`}
       >

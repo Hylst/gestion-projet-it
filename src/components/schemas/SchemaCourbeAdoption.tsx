@@ -46,7 +46,7 @@ const PHASES: Phase[] = [
   },
 ];
 
-const COURBE = 'M30 196 C120 240 180 230 240 180 S380 75 610 55';
+const COURBE = 'M30 196 C120 240 180 230 240 180 S380 95 610 80';
 
 export const SchemaCourbeAdoption = () => {
   const uid = useId().replace(/:/g, '');

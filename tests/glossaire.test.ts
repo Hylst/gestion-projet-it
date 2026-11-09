@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { describe, it, expect } from 'vitest';
-import { TERMES } from '../src/lib/glossaire';
+import { TERMES, trouverTerme } from '../src/lib/glossaire';
 
 describe('glossaire', () => {
   it('contient au moins 25 termes', () => {
@@ -121,5 +121,46 @@ describe('glossaire', () => {
       expect(entree?.lien?.label.length).toBeGreaterThan(5);
     }
     expect(TERMES.find((t) => t.terme === 'Modèle de menace')?.lien?.to).toBe('/cybersecurite/menaces');
+  });
+
+  it('contient les bases informatiques essentielles pour les juniors', () => {
+    const bases = ['Dépôt', 'Serveur', 'API', 'Navigateur'];
+    const noms = TERMES.map((t) => t.terme);
+    for (const b of bases) {
+      expect(noms, `manque la base : ${b}`).toContain(b);
+    }
+  });
+
+  it('contient les sigles enrichis et développés', () => {
+    const wbs = trouverTerme('WBS');
+    expect(wbs).toBeDefined();
+    expect(wbs?.sigle).toBe('WBS');
+    expect(wbs?.developpe).toBe('Work Breakdown Structure');
+
+    const pert = trouverTerme('PERT');
+    expect(pert).toBeDefined();
+    expect(pert?.sigle).toBe('PERT');
+
+    const raci = trouverTerme('RACI');
+    expect(raci).toBeDefined();
+    expect(raci?.developpe).toContain('Responsible');
+
+    const ci = trouverTerme('CI');
+    expect(ci).toBeDefined();
+    expect(ci?.developpe).toContain('Intégration continue');
+
+    const rgpd = trouverTerme('RGPD');
+    expect(rgpd).toBeDefined();
+    expect(rgpd?.developpe).toContain('Règlement général');
+  });
+
+  it('trouverTerme retrouve par identifiant, terme ou alias insensible à la casse', () => {
+    expect(trouverTerme('wbs')?.terme).toBe('WBS');
+    expect(trouverTerme('cadrage')?.terme).toBe('Cadrage');
+    expect(trouverTerme('dépôt')?.terme).toBe('Dépôt');
+    expect(trouverTerme('depot')?.terme).toBe('Dépôt');
+    expect(trouverTerme('repository')?.terme).toBe('Dépôt');
+    expect(trouverTerme('mfa')?.terme).toBe('Authentification multifacteur');
+    expect(trouverTerme('terme-inconnu')).toBeUndefined();
   });
 });

@@ -36,7 +36,13 @@ export default function Glossaire() {
           <dl className="glossaire">
             {(groupes.get(l) ?? []).map((t) => (
               <div key={t.terme} className="glossaire-item">
-                <dt id={slug(t.terme)}>{t.terme}</dt>
+                <dt id={slug(t.terme)}>
+                  {t.sigle && slug(t.sigle) !== slug(t.terme) && (
+                    <span id={slug(t.sigle)} className="sr-anchor" />
+                  )}
+                  {t.terme}
+                  {t.developpe && <span className="glossaire-developpe">&nbsp;({t.developpe})</span>}
+                </dt>
                 <dd>
                   {t.definition}
                   {t.module !== undefined && (

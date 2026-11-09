@@ -125,7 +125,7 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 ## 4. Décisions ouvertes
 
 1. **Ordre de fusion** : #26, #27, #28 et #32 fusionnées sur main (4156790), puis PR d’audit #33 (76cf64a) et PR de publication #34 (4514f93).
-2. **Version** : `1.6.0` publiée le 6 novembre 2026 (PR #34), puis `1.6.1` pour le correctif de reflow et les mises à jour de dépendances.
+2. **Version** : `1.7.0` publiée le 9 novembre 2026, avec refonte pédagogique, infobulles accessibles et service worker v15.
 3. **JSON-LD** : la CSP `script-src 'self'` interdit le script inline.
    Privilégier les microdonnées HTML ou une politique de hachage explicite.
 4. **Références Google** : conserver Gmail, Vertex AI et Search Console

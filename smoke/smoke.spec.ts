@@ -510,3 +510,60 @@ test('navigation : restauration du defilement en haut de page lors du changement
   await expect(page.locator('#contenu h1')).toBeInViewport();
   await expect(page.locator('.module-intro')).toBeInViewport();
 });
+
+test('menu : 17 entrées sur une ligne et défilement horizontal', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${base}/`);
+  await fermerOnboarding(page);
+
+  const nav = page.getByRole('navigation', { name: 'Navigation principale' });
+  await expect(nav.getByRole('link')).toHaveCount(17);
+
+  const mesures = await nav.evaluate((el) => {
+    const liste = el.querySelector('ul') as HTMLElement;
+    const premier = el.querySelector('a') as HTMLElement;
+    return {
+      wrap: getComputedStyle(liste).flexWrap,
+      hauteurListe: liste.getBoundingClientRect().height,
+      hauteurLien: premier.getBoundingClientRect().height,
+      scrollWidth: el.scrollWidth,
+      clientWidth: el.clientWidth,
+    };
+  });
+
+  expect(mesures.wrap).toBe('nowrap');
+  expect(mesures.hauteurListe).toBeLessThan(mesures.hauteurLien * 1.8);
+  expect(mesures.scrollWidth).toBeGreaterThan(mesures.clientWidth);
+
+  await page.setViewportSize({ width: 320, height: 640 });
+  await page.goto(`${base}/`);
+  await fermerOnboarding(page);
+
+  const largeurDocument = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(largeurDocument).toBeLessThanOrEqual(321);
+
+  const mesuresEtroites = await nav.evaluate((el) => ({
+    scrollWidth: el.scrollWidth,
+    clientWidth: el.clientWidth,
+  }));
+  expect(mesuresEtroites.scrollWidth).toBeGreaterThan(mesuresEtroites.clientWidth);
+});
+
+test('menu : le header sticky ne masque pas les ancres', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${base}/module-1`);
+  await fermerOnboarding(page);
+
+  await page.locator('nav.sommaire a[href="#quiz"]').click();
+
+  const positions = await page.evaluate(() => {
+    const header = document.querySelector('header.site-header') as HTMLElement;
+    const cible = document.querySelector('#quiz') as HTMLElement;
+    return {
+      basHeader: header.getBoundingClientRect().bottom,
+      hautCible: cible.getBoundingClientRect().top,
+    };
+  });
+
+  expect(positions.hautCible).toBeGreaterThanOrEqual(positions.basHeader - 2);
+});

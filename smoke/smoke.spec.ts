@@ -600,3 +600,40 @@ test('menu : lien actif visible sur route profonde, clavier et mouvement réduit
   await fermerOnboarding(page);
   await expect(module9).toBeInViewport();
 });
+
+test('schémas pédagogiques : présents, interactifs et sans débordement à 320 px', async ({ page }) => {
+  const cibles = [
+    { route: '/module-3', nombre: 4, titre: /Cycle en V.*les tests conçus en miroir/, apres: /Conception globale ↔ Tests système/ },
+    { route: '/module-5', nombre: 6, titre: /Circuit d’une demande.*du besoin à la production/, apres: /Étape 2.*Ticket/ },
+    { route: '/module-9', nombre: 4, titre: /Courbe d’adoption.*accompagner les quatre phases/, apres: /Phase 2.*Résistance/ },
+  ];
+
+  for (const c of cibles) {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto(`${base}${c.route}`);
+    await fermerOnboarding(page);
+
+    const schema = page.locator('figure.schema-pedagogique');
+    await expect(schema).toBeVisible();
+    await expect(schema.locator('figcaption')).toContainText(c.titre);
+
+    const boutons = schema.locator('[role="button"].schema-pair');
+    await expect(boutons).toHaveCount(c.nombre);
+    await boutons.nth(1).click();
+    await expect(boutons.nth(1)).toHaveAttribute('aria-pressed', 'true');
+    await expect(schema.locator('.schema-explication')).toContainText(c.apres);
+
+    await page.setViewportSize({ width: 320, height: 640 });
+    await expect(schema).toBeVisible();
+
+    const mesure = await page.evaluate(() => ({
+      scrollWidth: document.documentElement.scrollWidth,
+      clientWidth: document.documentElement.clientWidth,
+    }));
+    expect(mesure.scrollWidth).toBeLessThanOrEqual(mesure.clientWidth + 1);
+
+    const boite = await schema.boundingBox();
+    expect(boite).not.toBeNull();
+    expect((boite?.x ?? 0) + (boite?.width ?? 0)).toBeLessThanOrEqual(321);
+  }
+});

@@ -88,3 +88,12 @@ Mesure mobile sur la production déployée depuis `main` `4514f93` (commit plate
 | `https://hylst.fr/gestion-projet-it/module-1` | 98 | 100 | 100 | 100 |
 
 Mesure mobile sur la production déployée depuis `main` `3b93f01`. Les scores confirment le maintien des performances et de l’accessibilité après application du correctif de reflow et montée des dépendances.
+
+## 9. Production du 9 novembre 2026 (version 1.7.0)
+
+| Page | Performance | Accessibilité | Bonnes pratiques | SEO |
+| --- | ---: | ---: | ---: | ---: |
+| `https://hylst.fr/gestion-projet-it/` | 98 | 100 | 100 | 100 |
+| `https://hylst.fr/gestion-projet-it/module-1` | 98 | 100 | 100 | 100 |
+
+Mesure mobile sur la production déployée depuis `main` `feb571b`. Les scores confirment le maintien des performances optimales et du score parfait d’accessibilité (100) après intégration des introductions pédagogiques, des infobulles de termes techniques et de la navigation de continuité.

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { Terme } from '../../components/Terme';
+import { SchemaCircuitDemande } from '../../components/schemas/SchemaCircuitDemande';
 
 export const Fiche = () => (
   <section id="fiche" aria-labelledby="fiche-t">
@@ -13,6 +14,7 @@ export const Fiche = () => (
     <p><strong>À quoi ça sert.</strong> Tester et livrer automatiquement à chaque changement poussé vers le <Terme id="serveur">serveur</Terme>. <strong>Quand.</strong> Base de code partagée, régressions fréquentes. GitHub Actions cité comme exemple informatif.</p>
     <h3><Terme id="environnement">Environnements</Terme> reproductibles</h3>
     <p><strong>À quoi ça sert.</strong> Garantir le même comportement sur chaque poste et en production grâce à la conteneurisation. <strong>Quand.</strong> Écarts entre postes, démonstration fragile. Docker cité comme exemple informatif.</p>
+    <SchemaCircuitDemande />
     <p><strong>Limites communes.</strong> Un outil n’est pas une méthode&nbsp;: sans entretien et sans usage collectif, il devient un registre vide&nbsp;; l’outil choisi doit rester une décision d’équipe avec motif et limite écrite.</p>
   </section>
 );

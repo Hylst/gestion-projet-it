@@ -1,0 +1,319 @@
+/* SPDX-FileCopyrightText: 2026 Geoffroy Streit
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+.schema-pedagogique {
+  margin: 1.5rem 0;
+  padding: 1rem 1.1rem 0.9rem;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-sm);
+  background: var(--c-surface-2);
+  overflow-x: clip;
+}
+
+.schema-legende {
+  margin-bottom: 0.6rem;
+}
+
+.schema-titre {
+  margin: 0 0 0.2rem;
+  color: var(--c-ink);
+  font-weight: 650;
+}
+
+.schema-aide {
+  margin: 0;
+  color: var(--c-muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.schema-svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.schema-pair {
+  cursor: pointer;
+  outline: none;
+}
+
+.schema-node {
+  fill: var(--c-surface);
+  stroke: var(--c-line);
+  stroke-width: 1.4;
+  transition: fill 140ms ease, stroke 140ms ease;
+}
+
+.schema-node-label {
+  fill: var(--c-ink);
+  font-size: 13px;
+  font-weight: 600;
+  transition: fill 140ms ease;
+}
+
+.schema-link {
+  stroke: var(--accent-line);
+  stroke-width: 1.4;
+  stroke-dasharray: 4 4;
+  transition: stroke 140ms ease;
+}
+
+.schema-pair.is-hot .schema-node {
+  fill: var(--accent-soft);
+  stroke: var(--accent);
+}
+
+.schema-pair.is-hot .schema-node-label {
+  fill: var(--accent-ink);
+}
+
+.schema-pair.is-hot .schema-link {
+  stroke: var(--accent);
+}
+
+.schema-pair.is-active .schema-node {
+  fill: var(--accent);
+  stroke: var(--accent-ink);
+}
+
+.schema-pair.is-active .schema-node-label {
+  fill: #ffffff;
+}
+
+.schema-pair.is-active .schema-link {
+  stroke: var(--accent);
+  stroke-dasharray: none;
+}
+
+.schema-pair:focus-visible .schema-node {
+  stroke: var(--accent-ink);
+  stroke-width: 2.6;
+}
+
+.schema-explication {
+  margin-top: 0.85rem;
+  padding: 0.7rem 0.85rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 0.5rem 0.5rem 0;
+  background: var(--accent-wash);
+  min-height: 7.5rem;
+}
+
+.schema-explication p {
+  margin: 0 0 0.35rem;
+  line-height: 1.5;
+}
+
+.schema-explication p:last-child {
+  margin-bottom: 0;
+}
+
+.schema-explication-titre {
+  color: var(--c-ink);
+  font-weight: 650;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .schema-node,
+  .schema-node-label,
+  .schema-link {
+    transition: none;
+  }
+}
+
+@media print {
+  .schema-pedagogique {
+    break-inside: avoid;
+    background: #ffffff;
+  }
+
+  .schema-pair.is-active .schema-node,
+  .schema-pair.is-hot .schema-node {
+    fill: #ffffff;
+    stroke: #000000;
+  }
+
+  .schema-pair.is-active .schema-node-label,
+  .schema-pair.is-hot .schema-node-label {
+    fill: #000000;
+  }
+
+  .schema-pair.is-active .schema-link,
+  .schema-pair.is-hot .schema-link {
+    stroke: #000000;
+  }
+}
+
+.schema-node-sub {
+  fill: var(--c-muted);
+  font-size: 10.5px;
+  transition: fill 140ms ease;
+}
+
+.schema-pair.is-hot .schema-node-sub {
+  fill: var(--accent-ink);
+}
+
+.schema-pair.is-active .schema-node-sub {
+  fill: #ffffff;
+}
+
+.schema-flux {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  stroke-dasharray: 6 5;
+  animation: schema-flux 1.1s linear infinite;
+}
+
+.schema-fleche {
+  fill: var(--c-muted);
+}
+
+.schema-retour {
+  fill: none;
+  stroke: var(--c-muted);
+  stroke-width: 1.3;
+  stroke-dasharray: 4 5;
+  opacity: 0.8;
+}
+
+.schema-retour-label {
+  fill: var(--c-muted);
+  font-size: 11px;
+}
+
+@keyframes schema-flux {
+  to {
+    stroke-dashoffset: -22;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .schema-flux {
+    animation: none;
+  }
+
+  .schema-node-sub {
+    transition: none;
+  }
+}
+
+@media print {
+  .schema-node-sub,
+  .schema-retour-label {
+    fill: #000000;
+  }
+
+  .schema-flux,
+  .schema-retour {
+    stroke: #000000;
+    animation: none;
+    opacity: 1;
+  }
+
+  .schema-fleche {
+    fill: #000000;
+  }
+}
+
+.schema-zone {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 1;
+  transition: fill 140ms ease, stroke 140ms ease;
+}
+
+.schema-pair.is-hot .schema-zone {
+  fill: var(--accent-soft);
+}
+
+.schema-pair.is-active .schema-zone {
+  fill: var(--accent-soft);
+  stroke: var(--accent-line);
+}
+
+.schema-pair:focus-visible .schema-zone {
+  fill: var(--accent-soft);
+  stroke: var(--accent-ink);
+  stroke-width: 2;
+}
+
+.schema-phase {
+  fill: var(--c-ink);
+  font-size: 13px;
+  font-weight: 600;
+  transition: fill 140ms ease;
+}
+
+.schema-action {
+  fill: var(--c-muted);
+  font-size: 11px;
+  transition: fill 140ms ease;
+}
+
+.schema-pair.is-hot .schema-phase,
+.schema-pair.is-active .schema-phase {
+  fill: var(--accent-ink);
+}
+
+.schema-pair.is-hot .schema-action,
+.schema-pair.is-active .schema-action {
+  fill: var(--accent-ink);
+}
+
+.schema-curve {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.4;
+}
+
+.schema-guide {
+  stroke: var(--c-line);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+
+.schema-dot {
+  fill: var(--accent);
+}
+
+.schema-decor {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .schema-dot {
+    display: none;
+  }
+
+  .schema-zone,
+  .schema-phase,
+  .schema-action {
+    transition: none;
+  }
+}
+
+@media print {
+  .schema-zone {
+    stroke: #000000;
+  }
+
+  .schema-phase,
+  .schema-action {
+    fill: #000000;
+  }
+
+  .schema-curve,
+  .schema-guide {
+    stroke: #000000;
+  }
+
+  .schema-dot {
+    display: none;
+  }
+}

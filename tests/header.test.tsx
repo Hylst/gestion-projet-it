@@ -104,6 +104,7 @@ describe('en-tete', () => {
     const liens = Array.from(container.querySelectorAll('.header-nav a'));
     expect(liens).toHaveLength(17);
     expect(liens.map((a) => a.textContent)).toEqual(LIBELLES);
+    expect(new Set(liens.map((a) => a.getAttribute('href'))).size).toBe(17);
   });
 
   it('place le ruban hors de la première ligne', () => {

@@ -399,7 +399,7 @@ test('section IA : navigation, recherche, glossaire et impression', async ({ pag
 test('parcours cyber : navigation, recherche, glossaire et impression', async ({ page }) => {
   await page.goto(`${base}/`);
   await fermerOnboarding(page);
-  await page.getByRole('link', { name: 'Sécurité', exact: true }).click();
+  await page.getByRole('link', { name: 'Cybersécurité', exact: true }).click();
   await expect(page).toHaveURL(/\/cybersecurite$/);
   await expect(page.getByRole('heading', { level: 1, name: 'Cybersécurité et gestion de projet' })).toBeVisible();
 

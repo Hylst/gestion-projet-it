@@ -164,4 +164,7 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 - [x] Navigation clavier vérifiée sans focus trap et reflow 320 px sans débordement horizontal.
 - [x] Image sociale 1200 x 630 px et métadonnées Open Graph / Twitter Card validées.
 - [x] Installabilité PWA validée par CDP (0 erreur, service worker v14 actif).
+- [x] Refonte pédagogique : introductions de module (`ModuleIntro`), chapeaux de section, fil conducteur (`ModulePager`), sommaires complets.
+- [x] Infobulles accessibles (`Terme`) pour tous les acronymes et termes techniques, incluant les bases informatiques (dépôt, serveur, API, navigateur).
+- [x] Suite smoke Playwright portée à 19/19 avec test de l’infobulle, de la continuité et du reflow.
 - [ ] Soumission Search Console confirmée par Geoffroy.

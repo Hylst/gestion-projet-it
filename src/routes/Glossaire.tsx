@@ -41,9 +41,13 @@ export default function Glossaire() {
                     <span id={slug(t.sigle)} className="sr-anchor" />
                   )}
                   {t.terme}
-                  {t.developpe && <span className="glossaire-developpe">&nbsp;({t.developpe})</span>}
                 </dt>
                 <dd>
+                  {t.developpe && (
+                    <p className="glossaire-developpe">
+                      <strong>Sigle&nbsp;:</strong> {t.developpe}.
+                    </p>
+                  )}
                   {t.definition}
                   {t.module !== undefined && (
                     <span> <Link to={`/module-${t.module}`}>Voir le module {t.module}</Link></span>

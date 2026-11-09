@@ -57,6 +57,21 @@ dans `todo.md` avec leur priorité.
 - Thème clair uniquement, contrastes AA, focus visible, mouvement réduit.
 - Navigation clavier complète, lien d’évitement, dialogues accessibles.
 - Impression des fiches et du dossier projet.
+
+### 1.7 Pédagogie et fil conducteur junior
+
+- Introduction de contexte pour chaque module (`ModuleIntro`) : problème
+  concret résolu, 3 objectifs d’apprentissage, rappel du fil rouge des
+  Amis du Square et temps réaliste de lecture/pratique.
+- Chapeaux explicatifs au début de chaque section majeure (fiche, démarche,
+  fil rouge, exercices, quiz, guide, réflexe).
+- Composant d’infobulle accessible (`Terme`) pour tous les termes techniques
+  et acronymes (WBS, PERT, GANTT, CI/CD, RACI, WIP, XP, RGPD, MFA, RAG...),
+  incluant les bases informatiques (dépôt, serveur, API, navigateur).
+- Navigation de continuité (`ModulePager`) entre modules avec phrases de
+  transition explicites et renvoi vers le dossier projet en clôture.
+- Sommaires exhaustifs de modules représentant l’ensemble des ateliers
+  et comparateurs.
 - Mode hors ligne via service worker et page `offline.html`.
 
 ### 1.7 SEO, partage et PWA

@@ -1,5 +1,17 @@
 # Changelog
 
+## [Non publié]
+
+### Pédagogie et fil conducteur junior
+
+- Introductions de module (`ModuleIntro`) : problème concret résolu, trois objectifs observables à la 2e personne, rappel du cas des Amis du Square et temps réaliste de lecture/pratique pour chaque module.
+- Chapeaux explicatifs : chaque section majeure (fiche, démarche, fil rouge, exercices, quiz, guide, réflexe) commence par une mise en contexte claire pour les débutants.
+- Infobulles interactives et accessibles (`Terme`) : définitions immédiates et sigles développés au clic, au survol ou au clavier (Espace/Entrée/Échap), sans collision ni débordement d’écran à 320 px.
+- Bases informatiques : intégration dans le glossaire et en infobulles des notions de dépôt (repository), serveur, API et navigateur.
+- Continuité du parcours (`ModulePager`) : transition logique et lien direct vers le module suivant, avec renvoi vers le dossier projet à la fin du module 9.
+- Sommaires complets : le sommaire sticky de chaque module référence désormais l’intégralité de ses sections (comparateur, laboratoires secondaires, pré-mortem).
+- Vérifications : 344 tests unitaires (54 fichiers), typographie stricte validée, suite smoke Playwright portée à 19/19 avec test dédié de l’infobulle et du reflow.
+
 ## [1.6.1] - 2026-11-06
 
 ### Correctif

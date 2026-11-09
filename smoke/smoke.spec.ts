@@ -427,3 +427,41 @@ test('reflow : aucune page ne deborde horizontalement a 320 px', async ({ page }
     expect(mesures.scrollX, `${r} defile horizontalement`).toBe(0);
   }
 });
+
+test('pedagogie : infobulle Terme, ModuleIntro et continuite entre modules', async ({ page }) => {
+  await page.goto(`${base}/module-1`);
+  await fermerOnboarding(page);
+
+  // Verification de l'introduction pedagogique
+  await expect(page.getByRole('heading', { level: 2, name: /Pourquoi cadrer et découper/i })).toBeVisible();
+  await expect(page.getByText('Ce que vous saurez faire')).toBeVisible();
+
+  // Verification de l'infobulle
+  const triggerWbs = page.locator('.terme-trigger', { hasText: 'WBS' }).first();
+  await expect(triggerWbs).toBeVisible();
+  await triggerWbs.click();
+
+  const tooltip = page.getByRole('tooltip');
+  await expect(tooltip).toBeVisible();
+  await expect(tooltip).toContainText('Work Breakdown Structure');
+
+  // Fermeture par Escape
+  await page.keyboard.press('Escape');
+  await expect(tooltip).toBeHidden();
+
+  // Test de reflow avec infobulle ouverte a 320 px
+  await page.setViewportSize({ width: 320, height: 640 });
+  await triggerWbs.click();
+  await expect(tooltip).toBeVisible();
+  const scrollDoc = await page.evaluate(() => document.documentElement.scrollWidth);
+  expect(scrollDoc).toBeLessThanOrEqual(321);
+  await page.keyboard.press('Escape');
+
+  // Navigation vers le module suivant via ModulePager
+  await page.setViewportSize({ width: 1280, height: 720 });
+  const lienSuivant = page.getByRole('link', { name: /Module 2/i }).last();
+  await expect(lienSuivant).toBeVisible();
+  await lienSuivant.click();
+  await expect(page).toHaveURL(/\/module-2$/);
+  await expect(page.getByRole('heading', { level: 1, name: /Planifier\s*:\s*PERT et GANTT/i })).toBeVisible();
+});

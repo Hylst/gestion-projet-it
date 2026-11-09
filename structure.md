@@ -39,7 +39,7 @@ gestion-projet-it/
   src/
     main.tsx                  point d’entrée, provider de progression, SW
     App.tsx                   routeur et découpage différé des pages
-    components/               composants partagés
+    components/               composants partagés (Terme, ModuleIntro, ModulePager, Layouts)
       capstone/               étapes du dossier projet
     modules/                  contenu des neuf modules
     ia/                       registre, gabarit et cinq pages IA

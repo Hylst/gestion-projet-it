@@ -8,7 +8,6 @@
 .ia-sommaire { display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; margin: 1rem 0 1.5rem; padding: 0.7rem 0.9rem; border: 1px solid var(--c-line); border-radius: 999px; background: var(--c-surface); font-size: 0.92rem; overflow-x: auto; scrollbar-width: thin; }
 .ia-sommaire a { color: var(--c-main-ink); }
 .ia-page h2 { margin-top: 1.8rem; }
-.ia-page section { scroll-margin-top: 5rem; }
 .ia-table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--c-line); border-radius: var(--radius); }
 .ia-table-wrap table { width: 100%; min-width: 38rem; border-collapse: collapse; background: var(--c-surface); font-size: 0.95rem; }
 .ia-table-wrap caption { caption-side: top; text-align: left; padding: 0.8rem 0.9rem; font-weight: 700; }

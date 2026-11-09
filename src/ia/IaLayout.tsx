@@ -1,10 +1,11 @@
 // SPDX-FileCopyrightText: 2026 Geoffroy Streit
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import type { ReactNode } from 'react';
+import { useRef, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { ParcoursIntro } from '../components/ParcoursIntro';
 import { SeoHead } from '../components/SeoHead';
+import { useStickyNavHeight } from '../lib/useStickyNavHeight';
 import { IaChecklist } from './IaChecklist';
 import { IA_PAGES, type IaPageMeta } from './pages';
 import type { IaSource } from './sources';
@@ -20,11 +21,13 @@ export interface IaLayoutProps {
 }
 
 export function IaLayout({ meta, intro, retenir, checklist, checklistTitre, sources, children }: IaLayoutProps) {
+  const pageRef = useRef<HTMLElement>(null);
+  useStickyNavHeight(pageRef, '.ia-sommaire');
   const index = IA_PAGES.findIndex((page) => page.slug === meta.slug);
   const precedent = index > 0 ? IA_PAGES[index - 1] : undefined;
   const suivant = index >= 0 && index < IA_PAGES.length - 1 ? IA_PAGES[index + 1] : undefined;
   return (
-    <article className="ia-page theme-ia">
+    <article ref={pageRef} className="ia-page theme-ia">
       <SeoHead title={meta.titre} description={meta.description} />
       <header className="ia-hero">
         <p className="kicker">Section IA</p>

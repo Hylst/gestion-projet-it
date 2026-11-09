@@ -65,7 +65,7 @@ test('gate jalon 1 : clic accueil vers module 1 et a-propos, rechargement des 31
     expect(res.status(), a).toBe(200);
   }
   const swBody = await (await page.request.get(`${base}/sw.js`)).text();
-  expect(swBody).toContain("const version = 'gestion-projet-it-v18';");
+  expect(swBody).toContain("const version = 'gestion-projet-it-v19';");
 
   expect(externals).toEqual([]);
   expect(failures).toEqual([]);
@@ -635,5 +635,62 @@ test('schémas pédagogiques : présents, interactifs et sans débordement à 32
     const boite = await schema.boundingBox();
     expect(boite).not.toBeNull();
     expect((boite?.x ?? 0) + (boite?.width ?? 0)).toBeLessThanOrEqual(321);
+  }
+});
+
+test('ancres de module : le sommaire sticky ne masque pas les cibles', async ({ page }) => {
+  const cibles = [
+    { label: 'Fiche', id: 'fiche' },
+    { label: 'Exercice corrigé', id: 'exercice' },
+  ];
+
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const viewport of [{ width: 1280, height: 900 }, { width: 320, height: 640 }]) {
+    await page.setViewportSize(viewport);
+    await page.goto(`${base}/module-1`);
+    await fermerOnboarding(page);
+    await expect(page.locator('.sommaire-module')).toBeVisible();
+
+    for (const cible of cibles) {
+      await page.getByRole('link', { name: cible.label, exact: true }).click();
+      await page.waitForTimeout(250);
+      const ecart = await page.evaluate((id) => {
+        const target = document.getElementById(id);
+        const nav = document.querySelector('.sommaire-module');
+        if (!target || !nav) return -999;
+        return Math.round(target.getBoundingClientRect().top - nav.getBoundingClientRect().bottom);
+      }, cible.id);
+      expect(ecart, `${cible.label} à ${viewport.width}px`).toBeGreaterThanOrEqual(4);
+    }
+
+    const mesure = await page.evaluate(() => ({
+      scrollWidth: document.documentElement.scrollWidth,
+      clientWidth: document.documentElement.clientWidth,
+    }));
+    expect(mesure.scrollWidth).toBeLessThanOrEqual(mesure.clientWidth + 1);
+  }
+});
+
+test('ancres de parcours : les sommaires IA et cyber ne masquent pas les cibles', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const viewport of [{ width: 1280, height: 900 }, { width: 320, height: 640 }]) {
+    await page.setViewportSize(viewport);
+    for (const route of ['/ia/usages', '/cybersecurite/acces']) {
+      await page.goto(`${base}${route}`);
+      await fermerOnboarding(page);
+      const nav = page.locator('.ia-sommaire, .cyber-sommaire');
+      await expect(nav).toBeVisible();
+      const lien = nav.locator('a').nth(1);
+      const href = await lien.getAttribute('href');
+      await lien.click();
+      await page.waitForTimeout(250);
+      const ecart = await page.evaluate((id) => {
+        const target = document.getElementById(id);
+        const sommaire = document.querySelector('.ia-sommaire, .cyber-sommaire');
+        if (!target || !sommaire) return -999;
+        return Math.round(target.getBoundingClientRect().top - sommaire.getBoundingClientRect().bottom);
+      }, href?.replace('#', '') ?? '');
+      expect(ecart, `${route} à ${viewport.width}px`).toBeGreaterThanOrEqual(4);
+    }
   }
 });

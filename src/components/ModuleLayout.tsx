@@ -1,11 +1,12 @@
 // SPDX-FileCopyrightText: 2026 Geoffroy Streit
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { SeoHead } from './SeoHead';
 import { ModuleEnd } from './ModuleEnd';
 import { ModulePicto } from './ModulePicto';
 import { ModulePager } from './ModulePager';
+import { useStickyNavHeight } from '../lib/useStickyNavHeight';
 import type { ModuleMeta } from '../modules/index';
 
 export interface ModuleSectionNav {
@@ -34,12 +35,14 @@ export function ModuleLayout(props: {
   ];
 
   const sommaireSections = props.sections ?? sectionsParDefaut;
+  const pageRef = useRef<HTMLElement>(null);
+  useStickyNavHeight(pageRef, '.sommaire-module');
   const tempsLibelle = props.meta.temps
     ? `Module ${props.meta.num} · ${props.meta.temps.lecture} de lecture, ${props.meta.temps.pratique} de pratique`
     : `Module ${props.meta.num}`;
 
   return (
-    <article className={`module-page module-theme-${props.meta.num}`}>
+    <article ref={pageRef} className={`module-page module-theme-${props.meta.num}`}>
       <SeoHead title={props.meta.titre} description={props.meta.resume} />
       <header className="module-head">
         <div className="module-head-row">

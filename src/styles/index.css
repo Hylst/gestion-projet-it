@@ -250,7 +250,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 }
 @media (min-width: 70rem) {
   .site-header { position: sticky; top: 0; }
-  #contenu, main [id] { scroll-margin-top: 8rem; }
+  #contenu, main [id] { scroll-margin-top: 9rem; }
   #header-tools { flex-wrap: nowrap; }
   .search { min-width: 0; }
   .search input { width: 10rem; min-width: 0; }

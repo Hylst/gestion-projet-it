@@ -567,3 +567,36 @@ test('menu : le header sticky ne masque pas les ancres', async ({ page }) => {
 
   expect(positions.hautCible).toBeGreaterThanOrEqual(positions.basHeader - 2);
 });
+
+test('menu : lien actif visible sur route profonde, clavier et mouvement réduit', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto(`${base}/module-9`);
+  await fermerOnboarding(page);
+
+  const nav = page.getByRole('navigation', { name: 'Navigation principale' });
+  const module9 = nav.getByRole('link', { name: 'Module 9 · Changement' });
+  await expect(module9).toHaveAttribute('aria-current', 'page');
+  await expect(module9).toBeInViewport();
+  expect(await nav.evaluate((el) => el.scrollLeft)).toBeGreaterThan(0);
+
+  await page.goto(`${base}/ia/gouvernance`);
+  await fermerOnboarding(page);
+  const ia = nav.getByRole('link', { name: 'IA' });
+  await expect(ia).toHaveAttribute('aria-current', 'true');
+  await expect(ia).toBeInViewport();
+
+  await page.goto(`${base}/cybersecurite/incident`);
+  await fermerOnboarding(page);
+  const cyber = nav.getByRole('link', { name: 'Cybersécurité' });
+  await expect(cyber).toHaveAttribute('aria-current', 'true');
+  await expect(cyber).toBeInViewport();
+
+  const apropos = nav.getByRole('link', { name: 'À propos' });
+  await apropos.focus();
+  await expect(apropos).toBeInViewport();
+
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto(`${base}/module-9`);
+  await fermerOnboarding(page);
+  await expect(module9).toBeInViewport();
+});

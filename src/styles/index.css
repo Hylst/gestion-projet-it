@@ -227,8 +227,26 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .header-nav::-webkit-scrollbar { height: 6px; }
 .header-nav::-webkit-scrollbar-track { background: transparent; }
 .header-nav::-webkit-scrollbar-thumb { background: var(--c-line); border-radius: 999px; }
+.header-nav-wrap::before,
+.header-nav-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 2.5rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+.header-nav-wrap::before { left: 0; background: linear-gradient(90deg, var(--c-surface), transparent); }
+.header-nav-wrap::after { right: 0; background: linear-gradient(270deg, var(--c-surface), transparent); }
+.header-nav-wrap:not(.is-debut)::before { opacity: 1; }
+.header-nav-wrap:not(.is-fin)::after { opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
   .header-nav { scroll-behavior: auto; }
+  .header-nav-wrap::before,
+  .header-nav-wrap::after { transition: none; }
 }
 @media (min-width: 70rem) {
   .site-header { position: sticky; top: 0; }

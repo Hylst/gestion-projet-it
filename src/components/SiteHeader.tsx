@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Geoffroy Streit
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import ProgressHeader from './ProgressHeader';
@@ -31,6 +32,52 @@ const LIENS: NavItem[] = [
 
 export default function SiteHeader() {
   const { pathname } = useLocation();
+  const railRef = useRef<HTMLElement>(null);
+  const [debut, setDebut] = useState(true);
+  const [fin, setFin] = useState(true);
+
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail) return;
+
+    const maj = () => {
+      const max = rail.scrollWidth - rail.clientWidth;
+      setDebut(rail.scrollLeft <= 1);
+      setFin(rail.scrollLeft >= max - 1);
+    };
+
+    maj();
+    rail.addEventListener('scroll', maj, { passive: true });
+    window.addEventListener('resize', maj);
+    return () => {
+      rail.removeEventListener('scroll', maj);
+      window.removeEventListener('resize', maj);
+    };
+  }, []);
+
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail || !rail.clientWidth) return;
+
+    const actif = rail.querySelector<HTMLElement>('[aria-current]');
+    if (!actif) return;
+
+    const railRect = rail.getBoundingClientRect();
+    const actifRect = actif.getBoundingClientRect();
+    const marge = 24;
+    if (actifRect.left >= railRect.left + marge && actifRect.right <= railRect.right - marge) return;
+
+    const cible = Math.max(
+      0,
+      rail.scrollLeft + (actifRect.left - railRect.left) - (rail.clientWidth - actif.offsetWidth) / 2,
+    );
+    const reduire = typeof window.matchMedia === 'function'
+      && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const options: ScrollToOptions = { left: cible, behavior: reduire ? 'auto' : 'smooth' };
+
+    if (typeof rail.scrollTo === 'function') rail.scrollTo(options);
+    else rail.scrollLeft = cible;
+  }, [pathname]);
 
   function estActif(item: NavItem): boolean {
     return item.section
@@ -56,8 +103,8 @@ export default function SiteHeader() {
         </div>
         <div id="header-tools"><SearchBar /> <ProgressHeader /></div>
       </div>
-      <div className="header-nav-wrap">
-        <nav className="header-nav" aria-label="Navigation principale">
+      <div className={`header-nav-wrap${debut ? ' is-debut' : ''}${fin ? ' is-fin' : ''}`}>
+        <nav className="header-nav" aria-label="Navigation principale" ref={railRef}>
           <ul className="header-nav-list">
             {LIENS.map((item) => (
               <li key={item.to}>

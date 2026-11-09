@@ -24,6 +24,7 @@
 .schema-aide {
   margin: 0;
   color: var(--c-muted);
+  fill: var(--c-muted);
   font-size: 0.85rem;
   line-height: 1.45;
 }

@@ -10,8 +10,6 @@
 @media (min-width: 70rem) { .cyber-sommaire { top: 8.7rem; } }
 .cyber-sommaire a { color: var(--c-main-ink); }
 .cyber-page h2 { margin-top: 1.8rem; }
-.cyber-page section[id] { scroll-margin-top: 11rem; }
-@media (max-width: 60rem) { .cyber-page section[id] { scroll-margin-top: 5.5rem; } }
 .cyber-table-wrap { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--c-line); border-radius: var(--radius); }
 .cyber-table-wrap table { width: 100%; min-width: 38rem; border-collapse: collapse; background: var(--c-surface); font-size: 0.95rem; }
 .cyber-table-wrap caption { caption-side: top; text-align: left; padding: 0.8rem 0.9rem; font-weight: 700; }

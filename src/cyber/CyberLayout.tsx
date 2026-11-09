@@ -1,10 +1,11 @@
 // SPDX-FileCopyrightText: 2026 Geoffroy Streit
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import type { ReactNode } from 'react';
+import { useRef, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { ParcoursIntro } from '../components/ParcoursIntro';
 import { SeoHead } from '../components/SeoHead';
+import { useStickyNavHeight } from '../lib/useStickyNavHeight';
 import { CyberChecklist } from './CyberChecklist';
 import { CYBER_PAGES, type CyberPageMeta } from './pages';
 import type { CyberSource } from './sources';
@@ -20,11 +21,13 @@ export interface CyberLayoutProps {
 }
 
 export function CyberLayout({ meta, intro, retenir, checklist, checklistTitre, sources, children }: CyberLayoutProps) {
+  const pageRef = useRef<HTMLElement>(null);
+  useStickyNavHeight(pageRef, '.cyber-sommaire');
   const index = CYBER_PAGES.findIndex((page) => page.slug === meta.slug);
   const precedent = index > 0 ? CYBER_PAGES[index - 1] : undefined;
   const suivant = index >= 0 && index < CYBER_PAGES.length - 1 ? CYBER_PAGES[index + 1] : undefined;
   return (
-    <article className="cyber-page theme-cyber">
+    <article ref={pageRef} className="cyber-page theme-cyber">
       <SeoHead title={meta.titre} description={meta.description} />
       <header className="cyber-hero">
         <p className="kicker">Parcours Cybersécurité</p>

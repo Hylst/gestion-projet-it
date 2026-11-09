@@ -198,7 +198,10 @@ a:hover { text-decoration-thickness: 2px; }
 .ia-carte .module-card { border-top-color: var(--accent); }
 .ia-accueil > .btn { box-shadow: 0 7px 18px rgba(109, 40, 217, 0.16); background: linear-gradient(135deg, #6d28d9, #4338ca); }
 
-.module-page section[id], .ia-page section[id] { scroll-margin-top: 11rem; }
+.module-page [id], .ia-page [id], .cyber-page [id] { scroll-margin-top: calc(0.55rem + var(--sommaire-h, 3.2rem) + 1rem); }
+@media (min-width: 70rem) {
+  .module-page [id], .ia-page [id], .cyber-page [id] { scroll-margin-top: calc(8.7rem + var(--sommaire-h, 3.2rem) + 1rem); }
+}
 
 .module-page { --accent: var(--c-main); --accent-ink: var(--c-main-ink); --accent-soft: #eef3ff; --accent-line: #c8d6fb; --accent-wash: #f7f9ff; }
 .module-head {
@@ -230,8 +233,6 @@ a:hover { text-decoration-thickness: 2px; }
   background: rgba(255, 253, 248, 0.9);
   box-shadow: var(--shadow-sm);
   backdrop-filter: blur(12px);
-  overflow-x: auto;
-  scrollbar-width: thin;
 }
 .sommaire a { min-height: 2.15rem; padding: 0.25rem 0.72rem; border-radius: 999px; color: var(--accent-ink); text-decoration: none; font-size: 0.9rem; white-space: nowrap; }
 .sommaire a:hover, .sommaire a:focus-visible { background: var(--accent-soft); }
@@ -366,7 +367,6 @@ footer { border-top-color: var(--c-line); }
 .footer-liens a:hover { background: var(--accent-soft); text-decoration: none; }
 
 @media (max-width: 60rem) {
-  .module-page section[id], .ia-page section[id] { scroll-margin-top: 5.5rem; }
   .hero h1 { max-width: 15ch; }
   .sommaire { border-radius: var(--radius-sm); }
   .module-head { margin-top: 1.2rem; }

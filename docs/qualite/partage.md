@@ -29,6 +29,17 @@
 - [x] Docker resynchronisé et smoke 17/17 sur la copie Docker, 54 empreintes SHA-256 identiques.
 - [x] Search Console soumise après déploiement le 24 octobre 2026.
 
+## Contrôles après la mise en ligne du 9 novembre 2026 (version 1.8.0)
+
+- [x] Production `https://hylst.fr/gestion-projet-it/` servie depuis `main` `b2319ef` (version 1.8.0, commit plateforme `7a934d80`).
+- [x] Version 1.8.0 active : bundle JS `index-YVC6Jql5.js` en 200, bundle CSS `index-D5bZgoPJ.css` en 200, anciens assets 1.7.0 (`index-7lhu8IfR.js`, `index-BmDYZsm_.css`) en 404, service worker v16 en `no-cache`.
+- [x] `sw.js` servi en LF (1 405 octets, SHA-256 `9cd78c0e…`) après normalisation Git ; `index.html`, le bundle JS et le CSS sont identiques au build (`9322065b…`, `e70e9cc0…`, `5db5cbb5…`).
+- [x] En-têtes CSP, HSTS, `nosniff`, `X-Frame-Options`, `Referrer-Policy` et `Permissions-Policy` conformes ; assets hashés en `immutable`.
+- [x] `verifier-prod.sh --full gestion-projet-it` : 31 pages, 43 assets, 162 vérifications, 0 anomalie.
+- [x] Smoke Playwright 21/21 sur la production, incluant la recherche globale, le glossaire, les parcours IA et cyber, le dossier projet, la continuité entre modules et le reflow à 320 px.
+- [x] Lighthouse production 1.8.0 : accueil 98/100/100/100, `/module-1` 98/100/100/100 (LCP 1,2 s, CLS 0, TBT 10 ms et 100 ms).
+- [x] Zéro requête externe, zéro erreur console et zéro requête échouée sur les routes testées.
+
 ## Contrôles après la mise en ligne du 9 novembre 2026 (version 1.7.0)
 
 - [x] Production `https://hylst.fr/gestion-projet-it/` servie depuis `main` `feb571b` (version 1.7.0).

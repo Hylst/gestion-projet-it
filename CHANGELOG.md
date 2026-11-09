@@ -13,6 +13,12 @@
 - Publication : version `1.8.0` et service worker v16, pour purger les caches du build précédent.
 - Build : `index-YVC6Jql5.js` (270 517 octets, SHA-256 `e70e9cc0…`), `index-D5bZgoPJ.css` (52 055 octets, SHA-256 `5db5cbb5…`), `index.html` (2 713 octets, SHA-256 `9322065b…`), `sw.js` v16 (1 443 octets, SHA-256 `e1dc26a3…`). 56 fichiers vérifiés, sitemap à 31 URL.
 - Lighthouse local avant publication : accueil 99/100/100/100, `/module-1` 99/100/100/100.
+- Mise en ligne le 9 novembre 2026 depuis `main` `b2319ef` (commit plateforme `7a934d80`).
+- Production `https://hylst.fr/gestion-projet-it/` : `index-YVC6Jql5.js` et `index-D5bZgoPJ.css` en 200, anciens `index-7lhu8IfR.js` et `index-BmDYZsm_.css` en 404, service worker v16 actif et en `no-cache`.
+- `sw.js` servi en LF (1 405 octets, SHA-256 `9cd78c0e…`) après normalisation Git ; `index.html`, le bundle JS et le CSS sont identiques au build (`9322065b…`, `e70e9cc0…`, `5db5cbb5…`).
+- `verifier-prod.sh --full gestion-projet-it` : 31 pages, 43 assets, 162 vérifications, 0 anomalie.
+- Smoke Playwright 21/21 en production, incluant la recherche globale, le glossaire, les parcours IA et cyber, le dossier projet, la continuité et le reflow à 320 px.
+- Lighthouse production 1.8.0 : accueil 98/100/100/100, `/module-1` 98/100/100/100 (LCP 1,2 s, CLS 0, TBT 10 ms et 100 ms).
 
 ## [1.7.0] - 2026-11-09
 

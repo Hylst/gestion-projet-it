@@ -97,3 +97,12 @@ Mesure mobile sur la production déployée depuis `main` `3b93f01`. Les scores c
 | `https://hylst.fr/gestion-projet-it/module-1` | 98 | 100 | 100 | 100 |
 
 Mesure mobile sur la production déployée depuis `main` `feb571b`. Les scores confirment le maintien des performances optimales et du score parfait d’accessibilité (100) après intégration des introductions pédagogiques, des infobulles de termes techniques et de la navigation de continuité.
+
+## 10. Production du 9 novembre 2026 (version 1.8.0)
+
+| Page | Performance | Accessibilité | Bonnes pratiques | SEO |
+| --- | ---: | ---: | ---: | ---: |
+| `https://hylst.fr/gestion-projet-it/` | 98 | 100 | 100 | 100 |
+| `https://hylst.fr/gestion-projet-it/module-1` | 98 | 100 | 100 | 100 |
+
+Mesure mobile sur la production déployée depuis `main` `b2319ef` (commit plateforme `7a934d80`). LCP 1,2 s, CLS 0 et TBT 10 ms sur l’accueil, LCP 1,2 s, CLS 0 et TBT 100 ms sur `/module-1`. Les scores confirment le maintien des performances et de l’accessibilité après l’ajout de la recherche globale, des introductions de parcours et des liens du dossier projet vers les modules.

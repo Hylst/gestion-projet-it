@@ -1,10 +1,13 @@
 // SPDX-FileCopyrightText: 2026 Geoffroy Streit
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+import { Terme } from '../../components/Terme';
+
 export const Fiche = () => (
   <section id="fiche" aria-labelledby="fiche-t">
     <h2 id="fiche-t">Fiche&nbsp;: cadrer et découper</h2>
-    <p><strong>Définition.</strong> Le cadrage énonce le besoin, le périmètre et les jalons&nbsp;; le WBS découpe le travail en lots de livrables.</p>
+    <p className="section-chapeau">Cette fiche résume les repères essentiels du cadrage. Prenez le temps de bien distinguer ce qui relève du périmètre, des jalons et du découpage en livrables.</p>
+    <p><strong>Définition.</strong> <Terme id="cadrage">Le cadrage</Terme> énonce le besoin, <Terme id="perimetre">le périmètre</Terme> et <Terme id="jalon">les jalons</Terme>&nbsp;; <Terme id="wbs">le WBS</Terme> découpe le travail en <Terme id="lot">lots</Terme> de livrables.</p>
     <p><strong>À quoi ça sert.</strong> Visualiser les livrables et les lots, partager le périmètre avec tous, éviter les malentendus sur ce qui est dedans ou dehors.</p>
     <p><strong>Quand l’utiliser.</strong> Au cadrage, au lotissement, et avant toute planification&nbsp;; dès qu’un projet sort de trois tâches simples.</p>
     <p><strong>Avantages.</strong> Vue partagée, découpage qui parle à tous, base du planning et des estimations.</p>

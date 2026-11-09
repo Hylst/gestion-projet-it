@@ -9,6 +9,9 @@ import { ModuleIntro } from '../src/components/ModuleIntro';
 import { ModulePager } from '../src/components/ModulePager';
 import { ModuleLayout } from '../src/components/ModuleLayout';
 import { ProgressProvider } from '../src/lib/progress';
+import { M1Page } from '../src/modules/m1-wbs';
+import { M2Page } from '../src/modules/m2-planif';
+import { M3Page } from '../src/modules/m3-methodes';
 
 afterEach(cleanup);
 
@@ -131,5 +134,63 @@ describe('ModuleLayout (sommaire dynamique et pager)', () => {
     expect(nav).toBeDefined();
     expect(nav.querySelector('a[href="#comparateur"]')).not.toBeNull();
     expect(nav.querySelector('a[href="#labo"]')).not.toBeNull();
+  });
+});
+
+describe('Intros pédagogiques et infobulles des modules 1 à 3', () => {
+  it('module 1 : intègre ModuleIntro, chapeaux de sections et infobulles', () => {
+    const { container } = render(
+      <ProgressProvider>
+        <MemoryRouter>
+          <M1Page />
+        </MemoryRouter>
+      </ProgressProvider>,
+    );
+
+    expect(screen.getByRole('heading', { level: 2, name: /Pourquoi cadrer et découper/i })).toBeDefined();
+    expect(container.querySelector('#fiche .section-chapeau')).not.toBeNull();
+    expect(container.querySelector('#demarche .section-chapeau')).not.toBeNull();
+    expect(container.querySelector('#fil-rouge .section-chapeau')).not.toBeNull();
+
+    // Infobulles présentes sur le module 1
+    const triggers = container.querySelectorAll('.terme-trigger');
+    expect(triggers.length).toBeGreaterThanOrEqual(3);
+    const textes = Array.from(triggers).map((t) => t.textContent);
+    expect(textes.some((t) => t?.includes('WBS'))).toBe(true);
+  });
+
+  it('module 2 : intègre ModuleIntro, chapeaux de sections et infobulles PERT/GANTT', () => {
+    const { container } = render(
+      <ProgressProvider>
+        <MemoryRouter>
+          <M2Page />
+        </MemoryRouter>
+      </ProgressProvider>,
+    );
+
+    expect(screen.getByRole('heading', { level: 2, name: /Pourquoi planifier/i })).toBeDefined();
+    expect(container.querySelector('#fiche .section-chapeau')).not.toBeNull();
+    expect(container.querySelector('#demarche .section-chapeau')).not.toBeNull();
+
+    const triggers = container.querySelectorAll('.terme-trigger');
+    expect(triggers.length).toBeGreaterThanOrEqual(3);
+    const textes = Array.from(triggers).map((t) => t.textContent);
+    expect(textes.some((t) => t?.includes('PERT') || t?.includes('GANTT'))).toBe(true);
+  });
+
+  it('module 3 : intègre ModuleIntro, chapeaux de sections et infobulles Cycle en V', () => {
+    const { container } = render(
+      <ProgressProvider>
+        <MemoryRouter>
+          <M3Page />
+        </MemoryRouter>
+      </ProgressProvider>,
+    );
+
+    expect(screen.getByRole('heading', { level: 2, name: /Pourquoi cycle en v/i })).toBeDefined();
+    expect(container.querySelector('#fiche .section-chapeau')).not.toBeNull();
+
+    const triggers = container.querySelectorAll('.terme-trigger');
+    expect(triggers.length).toBeGreaterThanOrEqual(3);
   });
 });

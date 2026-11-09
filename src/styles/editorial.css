@@ -436,6 +436,14 @@ details.corrige summary, details.guide-erreur summary { display: flex; justify-c
   margin-bottom: 1.2rem;
 }
 
+.section-chapeau {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--c-muted);
+  margin: -0.2rem 0 1.2rem;
+  font-style: italic;
+}
+
 .module-intro-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -4,6 +4,7 @@
 import { ModuleLayout } from '../../components/ModuleLayout';
 import { QuizBlock } from '../../components/QuizBlock';
 import { FicheReflexe } from '../../components/FicheReflexe';
+import { ModuleIntro } from '../../components/ModuleIntro';
 import { ModuleGuide } from '../../components/ModuleGuide';
 import Reveal from '../../components/Reveal';
 import LaboWbs from '../../labos/LaboWbs';
@@ -35,6 +36,7 @@ export const M1Page = () => {
   if (!meta) return null;
   return (
     <ModuleLayout meta={meta}>
+      <Reveal><ModuleIntro meta={meta} /></Reveal>
       <Reveal><Fiche /></Reveal>
       <Reveal><FilRouge /></Reveal>
       <Reveal><Demarche /></Reveal>

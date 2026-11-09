@@ -50,17 +50,19 @@ function EtapeControlee() {
   const etape = ETAPES[index];
   if (!etape) throw new Error('Étape absente');
   return (
-    <CapstoneStep
-      etape={etape}
-      index={index}
-      total={ETAPES.length}
-      state={etatVide}
-      onReponse={() => undefined}
-      onLivrable={() => undefined}
-      onPrecedent={() => setIndex((courant) => Math.max(0, courant - 1))}
-      onSuivant={() => setIndex((courant) => Math.min(ETAPES.length - 1, courant + 1))}
-      onVoirSynthese={() => undefined}
-    />
+    <MemoryRouter>
+      <CapstoneStep
+        etape={etape}
+        index={index}
+        total={ETAPES.length}
+        state={etatVide}
+        onReponse={() => undefined}
+        onLivrable={() => undefined}
+        onPrecedent={() => setIndex((courant) => Math.max(0, courant - 1))}
+        onSuivant={() => setIndex((courant) => Math.min(ETAPES.length - 1, courant + 1))}
+        onVoirSynthese={() => undefined}
+      />
+    </MemoryRouter>
   );
 }
 
@@ -119,24 +121,26 @@ describe('CapstoneStep', () => {
     const etape = ETAPES[0];
     if (!etape) throw new Error('Étape absente');
     render(
-      <CapstoneStep
-        etape={etape}
-        index={0}
-        total={6}
-        state={{
-          version: 1,
-          reponses: {},
-          livrables: {},
-          autoEvaluation: {},
-          etapeCourante: 0,
-          updatedAt: '2026-10-21T10:00:00.000Z',
-        }}
-        onReponse={onReponse}
-        onLivrable={onLivrable}
-        onPrecedent={() => undefined}
-        onSuivant={() => undefined}
-        onVoirSynthese={() => undefined}
-      />,
+      <MemoryRouter>
+        <CapstoneStep
+          etape={etape}
+          index={0}
+          total={6}
+          state={{
+            version: 1,
+            reponses: {},
+            livrables: {},
+            autoEvaluation: {},
+            etapeCourante: 0,
+            updatedAt: '2026-10-21T10:00:00.000Z',
+          }}
+          onReponse={onReponse}
+          onLivrable={onLivrable}
+          onPrecedent={() => undefined}
+          onSuivant={() => undefined}
+          onVoirSynthese={() => undefined}
+        />
+      </MemoryRouter>,
     );
     const champ = screen.getByRole('textbox', { name: 'Besoin' });
     fireEvent.change(champ, { target: { value: 'x' } });
@@ -154,6 +158,28 @@ describe('CapstoneStep', () => {
     expect(document.activeElement).toBe(
       screen.getByRole('heading', { name: 'Planifier et chiffrer' }),
     );
+  });
+
+  it('propose de revoir le module associé à l’étape', () => {
+    const etape = ETAPES[0];
+    if (!etape) throw new Error('Étape absente');
+    render(
+      <MemoryRouter>
+        <CapstoneStep
+          etape={etape}
+          index={0}
+          total={ETAPES.length}
+          state={etatVide}
+          onReponse={() => undefined}
+          onLivrable={() => undefined}
+          onPrecedent={() => undefined}
+          onSuivant={() => undefined}
+          onVoirSynthese={() => undefined}
+        />
+      </MemoryRouter>,
+    );
+    const lien = screen.getByRole('link', { name: /Revoir le module 1/ });
+    expect(lien.getAttribute('href')).toBe('/module-1');
   });
 });
 

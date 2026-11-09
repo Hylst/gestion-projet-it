@@ -319,6 +319,9 @@ test('impression : la fiche reflexe reste visible et le reste est masque', async
 test('dossier projet : sauvegarde, synthèse, badge et impression', async ({ page }) => {
   await page.goto(`${base}/dossier-projet`);
   await expect(page.getByRole('heading', { level: 1, name: 'Dossier projet' })).toBeVisible();
+  const lienModule = page.getByRole('link', { name: /Revoir le module 1/ });
+  await expect(lienModule).toBeVisible();
+  await expect(lienModule).toHaveAttribute('href', '/gestion-projet-it/module-1');
   await page.getByLabel('Besoin').fill('Besoin fictif du capstone.');
   await expect(page.getByText('Enregistré localement')).toBeVisible();
   await page.reload();

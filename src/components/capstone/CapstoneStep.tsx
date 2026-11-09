@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { moduleMetaByNum } from '../../modules/index';
 import type { DossierProjetState, Etape } from '../../lib/capstone';
 import { CapstoneField } from './CapstoneField';
 
@@ -33,6 +35,7 @@ export function CapstoneStep({
     titreRef.current?.focus();
   }, [etape.id]);
   const estDerniere = index === total - 1;
+  const moduleLie = moduleMetaByNum(etape.moduleNum);
 
   return (
     <section className="capstone-step" aria-labelledby="capstone-step-titre">
@@ -41,6 +44,11 @@ export function CapstoneStep({
         {etape.titre}
       </h2>
       <p className="capstone-step__intro">{etape.intro}</p>
+      <p className="capstone-step__module">
+        <Link to={`/module-${etape.moduleNum}`}>
+          Revoir le module {etape.moduleNum}{moduleLie ? `\u00A0: ${moduleLie.titre}` : ''}
+        </Link>
+      </p>
       <div className="capstone-step__champs">
         {etape.champs.map((champ) => (
           <CapstoneField

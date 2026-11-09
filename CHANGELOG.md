@@ -1,5 +1,14 @@
 # Changelog
 
+## [Unreleased]
+
+### Menu des 17 sections
+
+- Navigation principale portée à 17 entrées : 9 modules, dossier projet, IA, cybersécurité, fiches outils, glossaire, ressources et à propos.
+- Ruban horizontal sur une ligne, défilement tactile et clavier, lien actif ramené dans la vue, dégradés de bord.
+- Header à deux niveaux : marque, recherche et progression au-dessus, ruban de section en dessous.
+- Aucune route, aucune donnée locale et aucun appel réseau ajoutés.
+
 ## [1.8.0] - 2026-11-09
 
 ### Recherche, parcours et liens pédagogiques

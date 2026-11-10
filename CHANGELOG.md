@@ -11,6 +11,13 @@
 - Release préparée : version `1.10.1` et service worker v19, pour purger les caches du build précédent.
 - Build : `index-C1oCShwP.js` (349 156 octets, SHA-256 `c3251f8f…`), `index-Dl1zyipv.css` (56 338 octets, SHA-256 `3a31e649…`), `index.html` (2 713 octets, SHA-256 `131288c8…`), `sw.js` v19 (1 443 octets, SHA-256 `788a3bcb…`). 56 fichiers vérifiés.
 - Lighthouse local avant publication : accueil 100/100/100/100, `/module-1` 98/100/100/100, `/module-3` 98/100/100/100, `/ia/usages` 99/100/100/100, `/cybersecurite/acces` 99/100/100/100.
+- Mise en ligne le 10 novembre 2026 depuis `main` `21e9764` (commit plateforme `87b70918`).
+- Production `https://hylst.fr/gestion-projet-it/` : `index-C1oCShwP.js` et `index-Dl1zyipv.css` en 200, anciens assets en 404, service worker v19 actif et en `no-cache`.
+- `sw.js` servi en LF (1 405 octets, SHA-256 `dac5cb4d…`) après normalisation Git ; `index.html`, le bundle JS et le CSS sont identiques au build (`131288c8…`, `c3251f8f…`, `3a31e649…`).
+- `verifier-prod.sh --full gestion-projet-it` : 31 pages, 33 assets, 152 vérifications, 0 anomalie.
+- Smoke Playwright 27/27 en production, dont les deux tests d’ancrage.
+- Lighthouse production 1.10.1 : accueil 98/100/100/100 (90 au premier passage, retest à 98), `/module-1` 94/100/100/100, `/module-3` 95/100/100/100, `/ia/usages` 95/100/100/100, `/cybersecurite/acces` 94/100/100/100.
+- Contrôle visuel : le titre « Exercice 1 : cadrer en une page » reste entièrement visible sous le sommaire, avec 16 px d’écart à 1280 px et 320 px, sans débordement horizontal.
 
 ## [1.10.0] - 2026-11-09
 

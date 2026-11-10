@@ -138,3 +138,15 @@ Mesure mobile sur la production déployée depuis `main` `6b93318` (commit plate
 | `/cybersecurite/acces` | 99 | 100 | 100 | 100 |
 
 Mesure mobile sur le build local 1.10.1, preview sur le port 4185. Les pages de référence couvrent l’accueil, un module, une page IA et une page cyber après le correctif des marges d’ancrage. Tous les scores restent au-dessus des seuils de 90.
+
+## 14. Production du 10 novembre 2026 (version 1.10.1)
+
+| Page | Performance | Accessibilité | Bonnes pratiques | SEO |
+| --- | ---: | ---: | ---: | ---: |
+| `https://hylst.fr/gestion-projet-it/` | 98 | 100 | 100 | 100 |
+| `https://hylst.fr/gestion-projet-it/module-1` | 94 | 100 | 100 | 100 |
+| `https://hylst.fr/gestion-projet-it/module-3` | 95 | 100 | 100 | 100 |
+| `https://hylst.fr/gestion-projet-it/ia/usages` | 95 | 100 | 100 | 100 |
+| `https://hylst.fr/gestion-projet-it/cybersecurite/acces` | 94 | 100 | 100 | 100 |
+
+Mesure mobile sur la production déployée depuis `main` `21e9764` (commit plateforme `87b70918`). L’accueil a donné 90 au premier passage puis 98 au retest, au-dessus du seuil de 90. Les pages de parcours restent entre 94 et 95 en performance et à 100 en accessibilité, bonnes pratiques et SEO. Le correctif d’ancrage a été contrôlé visuellement à 1280 px et 320 px.

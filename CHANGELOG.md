@@ -11,6 +11,10 @@
 - Release : version `1.10.2` et service worker v22, pour purger les caches du build précédent. La production était déjà en v21 : le dépôt de plateforme avait renouvelé le nom du cache le 12 novembre 2026 en corrigeant l’adresse à la main dans le build publié.
 - Build : `index-_dRPj5zq.js` (349 156 octets, SHA-256 `a0df74b1…`), `index-Dl1zyipv.css` inchangé (56 338 octets, SHA-256 `3a31e649…`), `index.html` (2 713 octets, SHA-256 `b681c77c…`), `sw.js` v22 (1 405 octets en LF, SHA-256 `8ccd347a…`). 56 fichiers.
 - Lighthouse local avant publication : accueil 100/100/100/100, `/confidentialite` 99/100/100/100.
+- Mise en ligne le 14 novembre 2026 depuis `main` `5a17351` (PR #53 et #54, commit plateforme `c18d12ad9`).
+- Production `https://hylst.fr/gestion-projet-it/` : service worker v22 servi en `no-cache`, ancienne entrée `index-C1oCShwP.js` en 404.
+- `verifier-prod.sh --full gestion-projet-it` : 32 pages, 152 assets, 0 anomalie.
+- Smoke Playwright 27/27 en production. Les quatre pages légales répondent 200 ; le module Confidentialité servi contient « douze mois au plus », Infomaniak Network SA et l’adresse ik.me, sans mention de Gmail ni de Google.
 
 ## [1.10.1] - 2026-11-10
 

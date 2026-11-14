@@ -133,7 +133,7 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 ## 4. Décisions ouvertes
 
 1. **Ordre de fusion** : #26, #27, #28 et #32 fusionnées sur main (4156790), puis PR d’audit #33 (76cf64a), PR de publication #34 (4514f93), PR #41 (98ac4c9), PR #42 (3876d28) et PR #43 (3353f22).
-2. **Version** : `1.10.2` préparée le 14 novembre 2026 (pages légales : journaux douze mois au plus, messagerie Infomaniak, adresse ik.me, service worker v22). La `1.10.1` est publiée le 10 novembre 2026 depuis `main` `21e9764` (commit plateforme `87b70918`), avec le correctif d’ancrage et le service worker v19. La `1.10.0` est publiée depuis `main` `6b93318` (commit plateforme `994fd799`).
+2. **Version** : `1.10.2` publiée le 14 novembre 2026 depuis `main` `5a17351` (commit plateforme `c18d12ad9` ; pages légales : journaux douze mois au plus, messagerie Infomaniak, adresse ik.me, service worker v22). La `1.10.1` est publiée le 10 novembre 2026 depuis `main` `21e9764` (commit plateforme `87b70918`), avec le correctif d’ancrage et le service worker v19. La `1.10.0` est publiée depuis `main` `6b93318` (commit plateforme `994fd799`).
 3. **JSON-LD** : la CSP `script-src 'self'` interdit le script inline.
    Privilégier les microdonnées HTML ou une politique de hachage explicite.
 4. **Références Google** : conserver Vertex AI et Search Console
@@ -196,5 +196,7 @@ traités et les lots de fond. Les identifiants `F-*` renvoient à
 - [x] Contrôle visuel 1.10.1 : titre « Exercice 1 » visible sous le sommaire, 16 px d’écart à 1280 px et 320 px, aucun débordement horizontal.
 - [x] Search Console 1.10.1 : aucune nouvelle URL, aucune soumission nécessaire.
 - [x] Release 1.10.2 préparée : pages légales alignées sur le serveur (journaux douze mois au plus) et la messagerie (Infomaniak, ik.me), service worker v22, 371 tests, smoke 27/27, Lighthouse local accueil 100/100/100/100 et `/confidentialite` 99/100/100/100.
+- [x] Publication 1.10.2 : build identique à `5a17351`, service worker v22, commit plateforme `c18d12ad9`.
+- [x] Contrôles de production 1.10.2 : 32 pages, 152 assets, 0 anomalie, smoke 27/27, pages légales vérifiées (douze mois, Infomaniak, ik.me).
 - [x] Search Console 1.10.0 : aucune nouvelle URL, aucune soumission nécessaire.
 - [ ] Soumission Search Console confirmée par Geoffroy.

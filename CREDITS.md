@@ -36,4 +36,4 @@ Les outils et modèles restent soumis à leurs propres licences. Aucune revendic
 
 ## Contact
 
-Pour une question sur les crédits, la provenance ou la licence : `geoffroy.streit@gmail.com`.
+Pour une question sur les crédits, la provenance ou la licence : `geoffroy.streit@ik.me`.

@@ -2,7 +2,7 @@
 
 ## Signaler une vulnérabilité
 
-Écrire à `geoffroy.streit@gmail.com` avec une description reproductible, la page concernée et, si possible, une proposition de correction. Ne pas publier de secret, de donnée personnelle ou d’exploit détaillé avant réponse.
+Écrire à `geoffroy.streit@ik.me` avec une description reproductible, la page concernée et, si possible, une proposition de correction. Ne pas publier de secret, de donnée personnelle ou d’exploit détaillé avant réponse.
 
 ## Périmètre
 

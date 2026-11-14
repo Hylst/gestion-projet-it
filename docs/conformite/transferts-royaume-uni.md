@@ -19,11 +19,11 @@ Hostinger indique que les données peuvent être traitées au Royaume-Uni, aux P
 
 ## Journaux
 
-Les journaux Nginx contiennent l’adresse IP, le user-agent, la date, l’URL et le code de réponse. Ils servent à la sécurité et au diagnostic. La rotation est mensuelle, avec six archives conservées en plus du mois en cours.
+Les journaux Nginx contiennent l’adresse IP, le user-agent, la date, l’URL et le code de réponse. Ils servent à la sécurité et au diagnostic. La rotation est mensuelle, avec onze archives conservées en plus du mois en cours, soit douze mois au plus.
 
-## Gmail
+## Messagerie
 
-Les courriels envoyés à `geoffroy.streit@gmail.com` sont traités par Google. Le mécanisme de transfert applicable doit être vérifié dans les conditions Google en vigueur avant publication large.
+Les courriels envoyés à `geoffroy.streit@ik.me` sont traités par Infomaniak Network SA, en Suisse (serveurs `mta-gw.infomaniak.ch`). La Suisse bénéficie d’une décision d’adéquation de la Commission européenne (décision 2000/518/CE), confirmée lors du réexamen de janvier 2024.
 
 ## Mise à jour
 

@@ -150,3 +150,12 @@ Mesure mobile sur le build local 1.10.1, preview sur le port 4185. Les pages de 
 | `https://hylst.fr/gestion-projet-it/cybersecurite/acces` | 94 | 100 | 100 | 100 |
 
 Mesure mobile sur la production déployée depuis `main` `21e9764` (commit plateforme `87b70918`). L’accueil a donné 90 au premier passage puis 98 au retest, au-dessus du seuil de 90. Les pages de parcours restent entre 94 et 95 en performance et à 100 en accessibilité, bonnes pratiques et SEO. Le correctif d’ancrage a été contrôlé visuellement à 1280 px et 320 px.
+
+## 15. Build local du 14 novembre 2026 (version 1.10.2)
+
+| Page | Performance | Accessibilité | Bonnes pratiques | SEO |
+| --- | ---: | ---: | ---: | ---: |
+| `/` | 100 | 100 | 100 | 100 |
+| `/confidentialite` | 99 | 100 | 100 | 100 |
+
+Mesure mobile sur le build local 1.10.2, preview sur le port 4182. La version ne modifie que le texte des pages légales ; l’accueil et la page Confidentialité suffisent comme pages de référence. Sous Git Bash, lancer le preview avec `MSYS_NO_PATHCONV=1`, sinon `--base=/gestion-projet-it/` est converti en chemin Windows et le serveur répond 404.

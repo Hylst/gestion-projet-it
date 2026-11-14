@@ -22,13 +22,15 @@ describe('conformité et partage', () => {
     expect(texte).toContain('Geoffroy Streit');
     expect(texte).toContain('Hostinger International Limited');
     expect(texte).toContain('AGPL-3.0-or-later');
-    expect(texte).toContain('geoffroy.streit@gmail.com');
+    expect(texte).toContain('geoffroy.streit@ik.me');
   });
 
   it('documente les journaux, le stockage local et les droits RGPD', () => {
     const { container } = rendre(<Confidentialite />);
     const texte = container.textContent ?? '';
-    expect(texte).toContain('six mois');
+    expect(texte).toContain('douze mois au plus');
+    expect(texte).toContain('Infomaniak');
+    expect(texte).not.toContain('gmail');
     expect(texte).toContain('gestion-projet-it:');
     expect(texte).toContain('CNIL');
     expect(texte).toContain('Royaume-Uni');
@@ -48,7 +50,7 @@ describe('conformité et partage', () => {
     const { container } = rendre(<Accessibilite />);
     const texte = container.textContent ?? '';
     expect(texte).toContain('WCAG 2.2 AA');
-    expect(texte).toContain('geoffroy.streit@gmail.com');
+    expect(texte).toContain('geoffroy.streit@ik.me');
   });
 
   it('publie les métadonnées sociales statiques et l’auteur', () => {

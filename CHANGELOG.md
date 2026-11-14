@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.10.2] - 2026-11-14
+
+### Pages légales : journaux, messagerie et adresse de contact
+
+- Confidentialité : les journaux du serveur sont conservés douze mois au plus (rotation mensuelle, onze archives en plus du mois en cours), réglage appliqué sur le serveur hylst.fr le 14 novembre 2026. La page annonçait six mois.
+- Messagerie : l’adresse de contact devient `geoffroy.streit@ik.me` dans les mentions légales, la confidentialité, l’accessibilité, la transparence IA, `package.json`, `CREDITS.md`, `SECURITY.md` et le dossier de conformité. Le fournisseur est Infomaniak Network SA, en Suisse (serveurs `mta-gw.infomaniak.ch`), pays couvert par la décision d’adéquation 2000/518/CE ; les mentions de Google comme messagerie sont retirées.
+- Tests de conformité alignés : douze mois, Infomaniak, nouvelle adresse et absence de l’ancienne.
+- Vérifications : 56 fichiers de tests, 371 tests, lint, typecheck, 83 liens relatifs, 31 routes, build de production et smoke Playwright 27/27.
+- Release : version `1.10.2` et service worker v20, pour purger les caches du build précédent.
+- Build : `index-_dRPj5zq.js` (349 156 octets, SHA-256 `a0df74b1…`), `index-Dl1zyipv.css` inchangé (56 338 octets, SHA-256 `3a31e649…`), `index.html` (2 713 octets, SHA-256 `b681c77c…`), `sw.js` v20 (1 443 octets, SHA-256 `7d44841b…`). 56 fichiers.
+- Lighthouse local avant publication : accueil 100/100/100/100, `/confidentialite` 99/100/100/100.
+
 ## [1.10.1] - 2026-11-10
 
 ### Correctifs d’ancrage et d’espacement

@@ -15,7 +15,7 @@ Rendre le site partageable publiquement avec une source AGPL documentée, des me
 - Code et textes assistés par IA, relus et testés.
 - Illustrations SVG générées avec un assistant IA local ; Z-Image-Turbo local documenté comme outil de création graphique, licence Apache 2.0.
 - Aucune IA au runtime.
-- Contact public : `geoffroy.streit@gmail.com`.
+- Contact public : `geoffroy.streit@ik.me`.
 - Carte sociale par défaut pour toutes les routes.
 - Emails de contact conservés 12 mois.
 - Aucune adresse postale publiée ; validation LCEN à faire avant publication large.

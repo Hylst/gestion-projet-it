@@ -46,10 +46,10 @@ export default function TransparenceIA() {
       <section aria-labelledby="limites">
         <h2 id="limites">Limites</h2>
         <p>Les contenus peuvent comporter des erreurs ou des imprécisions malgré les relectures. Les sources documentaires sont datées et les limites sont indiquées dans les ressources.</p>
-        <p>Une erreur ou une question peut être signalée à <a href="mailto:geoffroy.streit@gmail.com">geoffroy.streit@gmail.com</a>.</p>
+        <p>Une erreur ou une question peut être signalée à <a href="mailto:geoffroy.streit@ik.me">geoffroy.streit@ik.me</a>.</p>
       </section>
 
-      <p className="help">Dernière mise à jour&nbsp;: 6 novembre 2026. <Link to="/mentions-legales">Mentions légales</Link></p>
+      <p className="help">Dernière mise à jour&nbsp;: 14 novembre 2026. <Link to="/mentions-legales">Mentions légales</Link></p>
     </article>
   );
 }

@@ -20,17 +20,17 @@ export default function Confidentialite() {
       <section aria-labelledby="responsable">
         <h2 id="responsable">Responsable de traitement</h2>
         <p><strong>Geoffroy Streit</strong>, particulier.</p>
-        <p>Contact&nbsp;: <a href="mailto:geoffroy.streit@gmail.com">geoffroy.streit@gmail.com</a></p>
+        <p>Contact&nbsp;: <a href="mailto:geoffroy.streit@ik.me">geoffroy.streit@ik.me</a></p>
       </section>
 
       <section aria-labelledby="donnees">
         <h2 id="donnees">Données traitées</h2>
         <h3>Journaux du serveur</h3>
         <p>Le serveur Nginx enregistre l’adresse IP, le user-agent, la date, l’URL demandée, le code de réponse et les erreurs techniques. Ces données servent à la sécurité, au diagnostic et à la prévention des abus, sur la base de l’intérêt légitime.</p>
-        <p>La conservation est de six mois, avec une rotation mensuelle et six archives conservées en plus du mois en cours.</p>
+        <p>La conservation est de douze mois au plus, avec une rotation mensuelle et onze archives conservées en plus du mois en cours.</p>
         <h3>Emails de contact</h3>
         <p>Si vous écrivez à l’adresse de contact, votre adresse email et le contenu du message servent uniquement à répondre à votre demande. Les messages sont conservés douze mois après le dernier échange, puis supprimés.</p>
-        <p>La messagerie est fournie par Google. Le mécanisme de transfert applicable est celui prévu par Google pour Gmail.</p>
+        <p>La messagerie est fournie par Infomaniak Network SA, en Suisse. La Suisse bénéficie d’une décision d’adéquation de la Commission européenne (décision 2000/518/CE).</p>
         <h3>Stockage local</h3>
         <p>Les fonctionnalités de progression, de quiz, de laboratoires, de dossier projet, de journal et de présentation conservent des données dans le navigateur, sous le préfixe <code>gestion-projet-it:</code>.</p>
         <p>Les entrées comprennent la progression, les réponses de quiz, les laboratoires terminés, les modules terminés, le dossier projet, le journal et l’état de la visite de présentation. Ces données ne sont jamais transmises au serveur. Vous pouvez les effacer en supprimant les données du site dans votre navigateur.</p>
@@ -46,13 +46,13 @@ export default function Confidentialite() {
         <h2 id="destinataires">Destinataires et transferts</h2>
         <p>Les journaux sont hébergés par <strong>Hostinger International Limited</strong>, 61 Lordou Vironos Street, 6023 Larnaca, Chypre. Le serveur du site est situé au Royaume-Uni, à Manchester. Le contrat de sous-traitance Hostinger est référencé à l’adresse <a href="https://www.hostinger.com/legal/dpa" target="_blank" rel="noopener noreferrer">hostinger.com/legal/dpa</a>.</p>
         <p>La Commission européenne a renouvelé la décision d’adéquation pour le Royaume-Uni le 19 décembre 2025. Les transferts vers le Royaume-Uni reposent sur cette décision tant qu’elle reste en vigueur.</p>
-        <p>Les emails sont traités par Google. Le dépôt public est hébergé par GitHub. Ces services disposent de leurs propres politiques de confidentialité.</p>
+        <p>Les emails sont traités par Infomaniak, en Suisse. Le dépôt public est hébergé par GitHub. Ces services disposent de leurs propres politiques de confidentialité.</p>
       </section>
 
       <section aria-labelledby="droits">
         <h2 id="droits">Vos droits</h2>
         <p>Vous disposez des droits d’accès, de rectification, d’effacement, de limitation, d’opposition et de portabilité prévus par le RGPD.</p>
-        <p>Pour les données locales, l’effacement et la modification se font directement dans votre navigateur. Pour les journaux ou les emails, écrivez à <a href="mailto:geoffroy.streit@gmail.com">geoffroy.streit@gmail.com</a>.</p>
+        <p>Pour les données locales, l’effacement et la modification se font directement dans votre navigateur. Pour les journaux ou les emails, écrivez à <a href="mailto:geoffroy.streit@ik.me">geoffroy.streit@ik.me</a>.</p>
         <p>Vous pouvez adresser une réclamation à la <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener noreferrer">CNIL</a>.</p>
       </section>
 
@@ -62,7 +62,7 @@ export default function Confidentialite() {
         <p>Une procédure de signalement est décrite dans le fichier <code>SECURITY.md</code> du dépôt public.</p>
       </section>
 
-      <p className="help">Dernière mise à jour&nbsp;: 24 octobre 2026. <Link to="/mentions-legales">Mentions légales</Link></p>
+      <p className="help">Dernière mise à jour&nbsp;: 14 novembre 2026. <Link to="/mentions-legales">Mentions légales</Link></p>
     </article>
   );
 }

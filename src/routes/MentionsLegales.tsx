@@ -20,7 +20,7 @@ export default function MentionsLegales() {
       <section aria-labelledby="editeur">
         <h2 id="editeur">Éditeur</h2>
         <p><strong>Geoffroy Streit (Hylst)</strong>, particulier.</p>
-        <p>Contact&nbsp;: <a href="mailto:geoffroy.streit@gmail.com">geoffroy.streit@gmail.com</a></p>
+        <p>Contact&nbsp;: <a href="mailto:geoffroy.streit@ik.me">geoffroy.streit@ik.me</a></p>
         <p>Directeur de la publication&nbsp;: Geoffroy Streit (Hylst).</p>
         <p>Le site est un projet personnel à caractère éducatif, sans activité commerciale.</p>
       </section>
@@ -54,7 +54,7 @@ export default function MentionsLegales() {
         <p>Une démarche WCAG 2.2 AA et un point de contact sont décrits sur la <Link to="/accessibilite">page Accessibilité</Link>.</p>
       </section>
 
-      <p className="help">Dernière mise à jour&nbsp;: 6 novembre 2026.</p>
+      <p className="help">Dernière mise à jour&nbsp;: 14 novembre 2026.</p>
     </article>
   );
 }

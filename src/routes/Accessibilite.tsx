@@ -43,11 +43,11 @@ export default function Accessibilite() {
 
       <section aria-labelledby="contact">
         <h2 id="contact">Signaler un problème</h2>
-        <p>Si une page reste difficile à utiliser, écrivez à <a href="mailto:geoffroy.streit@gmail.com">geoffroy.streit@gmail.com</a> avec la page concernée et le blocage rencontré.</p>
+        <p>Si une page reste difficile à utiliser, écrivez à <a href="mailto:geoffroy.streit@ik.me">geoffroy.streit@ik.me</a> avec la page concernée et le blocage rencontré.</p>
         <p>Les demandes sont traitées dans un délai raisonnable, sans promesse de délai contractuel.</p>
       </section>
 
-      <p className="help">Dernière mise à jour&nbsp;: 30 octobre 2026. <Link to="/mentions-legales">Mentions légales</Link></p>
+      <p className="help">Dernière mise à jour&nbsp;: 14 novembre 2026. <Link to="/mentions-legales">Mentions légales</Link></p>
     </article>
   );
 }

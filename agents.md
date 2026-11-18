@@ -7,7 +7,7 @@ puis ce fichier, puis les conventions du dépôt de déploiement.
 
 - Nom : Gestion de Projet IT. Source : ce dossier
   (`D:\0CODE\OpenCode\gestion-projet-it`). Build déposé dans
-  `D:\0CODE\AntiGravity\Cours_Memos\Docker\gestion-projet-it/`.
+  `D:\0CODE\hylst.fr.platforms\it.hylst.fr\gestion-projet-it/`.
 - Dépôt source public : `https://github.com/Hylst/gestion-projet-it`.
 - Stack : Vite + React + TypeScript, SPA, 100 % front, sans compte,
   sans cookie, sans backend. Progression en `localStorage`

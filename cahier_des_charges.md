@@ -16,7 +16,7 @@ Aucune ecole presentee comme superieure, aucune certification promise.
 
 - Nom : Gestion de Projet IT. Accroche : Methodologies et Equipes.
 - Slug : `gestion-projet-it`. URL : `https://hylst.fr/gestion-projet-it/`.
-- Source : `D:\0CODE\OpenCode\gestion-projet-it`. Build depose dans
+- Source : `D:\0CODE\0FINAL\it\gestion-projet-it`. Build depose dans
   `D:\0CODE\hylst.fr.platforms\it.hylst.fr\gestion-projet-it/`.
 - Dépôt source : `https://github.com/Hylst/gestion-projet-it`, privé.
 - Hub : carte Bloc 3 active.

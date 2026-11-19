@@ -17,13 +17,13 @@ describe('sitemap', () => {
 
   it('contient les routes IA et cyber', () => {
     for (const page of [...IA_PAGES, ...CYBER_PAGES]) {
-      expect(urls).toContain(`https://hylst.fr/gestion-projet-it${page.path}`);
+      expect(urls).toContain(`%SITE_URL%/gestion-projet-it${page.path}`);
     }
   });
 
   it('déclare les deux sitemaps dans robots.txt', () => {
     const robots = readFileSync('public/robots.txt', 'utf8');
     expect(robots).toContain('Sitemap: https://hylst.fr/sitemap.xml');
-    expect(robots).toContain('Sitemap: https://hylst.fr/gestion-projet-it/sitemap.xml');
+    expect(robots).toContain('Sitemap: %SITE_URL%/gestion-projet-it/sitemap.xml');
   });
 });

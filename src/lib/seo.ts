@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 export const SITE_NAME = 'Gestion de Projet IT';
-export const SITE_URL = 'https://hylst.fr';
+export const SITE_URL = __SITE_URL__;
 export const SITE_PATH = '/gestion-projet-it/';
 export const OG_IMAGE_URL = `${SITE_URL}${SITE_PATH}og-image.png`;
 

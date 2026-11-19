@@ -41,7 +41,8 @@ const routes = [...app.matchAll(/<Route path="([^"]+)"/g)]
 
 const sitemap = fs.readFileSync(path.join(root, 'public', 'sitemap.xml'), 'utf8');
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-const base = 'https://hylst.fr/gestion-projet-it';
+// public/sitemap.xml porte %SITE_URL%, remplace au build par le plugin site-url (vite.config.ts).
+const base = '%SITE_URL%/gestion-projet-it';
 const attendues = routes.map((route) => `${base}${route === '/' ? '/' : route}`);
 const missing = attendues.filter((url) => !urls.includes(url));
 const extra = urls.filter((url) => !attendues.includes(url));

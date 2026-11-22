@@ -9,9 +9,9 @@ import fsSite from 'node:fs';
 import pathSite from 'node:path';
 import type { Plugin as PluginSite } from 'vite';
 
-// Domaine du site, lu au build : SITE_URL (https://hylst.fr par defaut). Il remplace %SITE_URL% dans index.html
+// Domaine du site, lu au build : SITE_URL (https://it.hylst.fr par defaut). Il remplace %SITE_URL% dans index.html
 // et dans les fichiers publics listes, et __SITE_URL__ dans le code, pour que l'app change de domaine sans toucher au code.
-const SITE_URL = (process.env.SITE_URL || 'https://hylst.fr').replace(/\/+$/, '');
+const SITE_URL = (process.env.SITE_URL || 'https://it.hylst.fr').replace(/\/+$/, '');
 const siteUrl = (fichiersPublics: string[]): PluginSite => {
   let outDir = '';
   return {
